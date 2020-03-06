@@ -11,7 +11,7 @@ A user has a GitHub repo `edgexfoundry/my-template` where they manage a master l
 ## Triggers
 
 * Manual (User initiated)
-* Cron (Weekly)
+* Cron (Daily at midnight EST)
 
 ## Script Usage
 
