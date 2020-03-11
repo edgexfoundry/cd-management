@@ -19,7 +19,7 @@ pipeline {
     environment {
         GH_SRC_ORG      = 'edgexfoundry'
         LABEL_SRC_REPO  = 'cd-management'
-        GH_TOKEN        = credentials('edgex-jenkins-access-username')
+        GH_TOKEN        = credentials('edgex-jenkins-github-personal-access-token')
         // BLACKLIST_REPOS = '' // pipe delimited list of repo names example: blackbox-testing|ci-management
     }
     // run at midnight
