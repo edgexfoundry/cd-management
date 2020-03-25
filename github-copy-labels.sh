@@ -91,6 +91,8 @@ for targetRepo in $(getAllTargetRepos); do
   echo
   for labelJsonB64 in $sourceLabels; do
     tagTargetReposWithLabel "$SRC_GH_ORG" "$targetRepo" $labelJsonB64
+    sleep 2
   done
   echo
+  sleep 1
 done
