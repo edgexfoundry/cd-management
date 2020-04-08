@@ -27,6 +27,7 @@ pipeline {
     }
     environment {
         DRY_RUN = 'true'
+        RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
     }
     stages {
         stage('Lint YAML files') {

@@ -4,7 +4,7 @@ version: 'v1.2.0'
 releaseName: 'geneva'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
-gitTag: true
+gitTag: false
 gitTagDestination: 'https://github.com/edgexfoundry/sample-service.git'
 dockerImages: true
 dockerSource:
