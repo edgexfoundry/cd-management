@@ -1,11 +1,9 @@
 ---
 name: 'sample-service'
-version: 'v1.2.0'
-releaseName: 'geneva'
+version: '1.2.4'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
 gitTag: true
-gitTagDestination: 'https://github.com/edgexfoundry/sample-service.git'
 dockerImages: true
 dockerSource:
   - 'nexus3.edgexfoundry.org:10004/sample-service'
@@ -15,6 +13,4 @@ dockerDestination:
   - 'nexus3.edgexfoundry.org:10002/sample-service-arm64'
   - 'edgexfoundry/sample-service'
   - 'edgexfoundry/sample-service-arm64'
-snap: true
-snapDestination: 'https://snapcraft.org/..'
-snapChannel: 'geneva'
+snap: false

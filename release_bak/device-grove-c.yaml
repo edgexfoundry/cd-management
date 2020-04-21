@@ -1,0 +1,13 @@
+---
+name: 'device-grove-c'
+version: '1.2.0'
+releaseStream: 'master'
+repo: 'https://github.com/edgexfoundry/device-grove-c.git'
+snapChannels:
+  - channel: 'geneva/stable'
+    trackName: 'latest/beta'
+  - channel: 'latest/stable'
+    trackName: 'latest/beta'
+snap: true
+gitTag: false
+dockerImages: false

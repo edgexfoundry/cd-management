@@ -1,0 +1,13 @@
+---
+name: 'device-mqtt-go'
+version: '1.1.2'
+releaseStream: 'master'
+repo: 'https://github.com/edgexfoundry/device-mqtt-go.git'
+snapChannels:
+  - channel: 'geneva/stable'
+    trackName: 'latest/beta'
+  - channel: 'latest/stable'
+    revisionNumber: '1213'
+snap: true
+gitTag: false
+dockerImages: false
