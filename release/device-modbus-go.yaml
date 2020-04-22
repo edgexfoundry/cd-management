@@ -5,6 +5,7 @@ releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/device-modbus-go.git'
 snapChannels:
   - channel: 'latest/candidate'
+    trackName: 'latest/beta'
 snap: true
 gitTag: false
 dockerImages: false
