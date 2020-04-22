@@ -18,4 +18,8 @@ docker:
       - docker.io/edgexfoundry/sample-service-arm64
 snap: true
 snapDestination: 'https://snapcraft.org/..'
-snapChannel: 'geneva'
+snapChannels:
+  - channel: 'geneva/stable'
+    trackName: 'latest/beta'
+  - channel: 'latest/stable'
+    revisionNumber: '1213'
