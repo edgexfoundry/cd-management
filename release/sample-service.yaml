@@ -16,7 +16,7 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/sample-service-arm64
       - docker.io/edgexfoundry/sample-service-arm64
-snap: true
+snap: false
 snapDestination: 'https://snapcraft.org/..'
 snapChannels:
   - channel: 'geneva/stable'
