@@ -7,14 +7,15 @@ repo: 'https://github.com/edgexfoundry/sample-service.git'
 gitTag: true
 gitTagDestination: 'https://github.com/edgexfoundry/sample-service.git'
 dockerImages: true
-dockerSource:
-  - 'nexus3.edgexfoundry.org:10004/sample-service'
-  - 'nexus3.edgexfoundry.org:10004/sample-service-arm64'
-dockerDestination:
-  - 'nexus3.edgexfoundry.org:10002/sample-service'
-  - 'nexus3.edgexfoundry.org:10002/sample-service-arm64'
-  - 'edgexfoundry/sample-service'
-  - 'edgexfoundry/sample-service-arm64'
+docker:
+  - image: nexus3.edgexfoundry.org:10004/sample-service
+    destination:
+      - nexus3.edgexfoundry.org:10002/sample-service
+      - docker.io/edgexfoundry/sample-service
+  - image: nexus3.edgexfoundry.org:10004/sample-service-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/sample-service-arm64
+      - docker.io/edgexfoundry/sample-service-arm64
 snap: true
 snapDestination: 'https://snapcraft.org/..'
 snapChannel: 'geneva'
