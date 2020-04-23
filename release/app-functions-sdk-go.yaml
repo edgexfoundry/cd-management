@@ -1,0 +1,9 @@
+---
+name: 'app-functions-sdk-go'
+version: '1.1.0'
+releaseName: 'geneva'
+releaseStream: 'master'
+repo: 'https://github.com/edgexfoundry/app-functions-sdk-go.git'
+gitTag: false
+dockerImages: false
+snap: false
