@@ -1,10 +1,10 @@
 ---
 name: 'sample-service'
-version: '1.2.4'
+version: '2.3.4'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
 gitTag: true
-dockerImages: true
+dockerImages: false
 dockerSource:
   - 'nexus3.edgexfoundry.org:10004/sample-service'
   - 'nexus3.edgexfoundry.org:10004/sample-service-arm64'
