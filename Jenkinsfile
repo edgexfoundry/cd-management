@@ -26,7 +26,7 @@ pipeline {
         timeout(360)
     }
     environment {
-        DRY_RUN = 'true'
+        DRY_RUN = 'false'
         RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
     }
     stages {
