@@ -1,6 +1,6 @@
 ---
 name: 'sample-service'
-version: '2.3.4'
+version: '2.3.5'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
 gitTag: true
