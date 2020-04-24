@@ -1,25 +1,21 @@
 ---
-name: 'sample-service'
-version: 'v1.2.0'
-releaseName: 'geneva'
-releaseStream: 'master'
-repo: 'https://github.com/edgexfoundry/sample-service.git'
+name: sample-service
+version: 1.2.0
+releaseName: geneva
+releaseStream: latest
+repo: https://github.com/edgexfoundry/sample-service.git
 gitTag: false
-gitTagDestination: 'https://github.com/edgexfoundry/sample-service.git'
+gitTagDestination: https://github.com/edgexfoundry/sample-service.git
 dockerImages: true
 docker:
-  - image: nexus3.edgexfoundry.org:10004/sample-service
+  - image: nexus3.edgexfoundry.org:10004/docker-sample-service
     destination:
-      - nexus3.edgexfoundry.org:10002/sample-service
-      - docker.io/edgexfoundry/sample-service
-  - image: nexus3.edgexfoundry.org:10004/sample-service-arm64
+      - nexus3.edgexfoundry.org:10002/docker-sample-service
+      - docker.io/edgexfoundry/docker-sample-service
+  - image: nexus3.edgexfoundry.org:10004/docker-sample-service-arm64
     destination:
-      - nexus3.edgexfoundry.org:10002/sample-service-arm64
-      - docker.io/edgexfoundry/sample-service-arm64
-  - image: nexus3.edgexfoundry.org:10004/sample-service
-    destination:
-      - nexus3.edgexfoundry.org:10002/sample-service
-      - docker.io/edgexfoundry/sample-service
+      - nexus3.edgexfoundry.org:10002/docker-sample-service-arm64
+      - docker.io/edgexfoundry/docker-sample-service-arm64
 snap: false
 snapDestination: 'https://snapcraft.org/..'
 snapChannels:
