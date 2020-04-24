@@ -1,8 +1,9 @@
 ---
 name: 'sample-service'
-version: '2.3.5'
+version: '2.3.6'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
+semverBumpLevel: '-pre=dev pre'
 gitTag: true
 dockerImages: false
 dockerSource:
