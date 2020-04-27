@@ -27,8 +27,8 @@ pipeline {
     }
     environment {
         DRY_RUN = shouldDoDryRun()
-        RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
         DRY_RUN_PULL_DOCKER_IMAGES = true
+        RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
     }
     stages {
         stage('Lint YAML files') {
