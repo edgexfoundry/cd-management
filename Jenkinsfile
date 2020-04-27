@@ -48,7 +48,7 @@ pipeline {
         stage('Prepare Release YAML') {
             steps {
                 script {
-                    releaseData = edgeXRelease.collectReleaseYamlFiles()
+                    releaseData = edgeXRelease.collectReleaseYamlFiles('release/*.yaml', 'origin/release')
                     parallelSteps = edgeXRelease.parallelStepFactory(releaseData)
 
                     // Print out the arrays created from the yaml files for manual validation
