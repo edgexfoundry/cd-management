@@ -1,6 +1,6 @@
 ---
 name: 'sample-service'
-version: '3.0.1'
+version: '3.0.3'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
 semverBumpLevel: '-pre=dev pre'
