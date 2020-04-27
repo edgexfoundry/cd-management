@@ -14,7 +14,7 @@
 // limitations under the License.
 //
 
-@Library("edgex-global-pipelines@experimental") _
+// @Library("edgex-global-pipelines@experimental") _
 
 def parallelSteps = [:]
 def releaseData = []
@@ -26,8 +26,9 @@ pipeline {
         timeout(360)
     }
     environment {
-        DRY_RUN = 'false'
+        DRY_RUN = shouldDoDryRun()
         RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
+        DRY_RUN_PULL_DOCKER_IMAGES = true
     }
     stages {
         stage('Lint YAML files') {
@@ -47,7 +48,7 @@ pipeline {
         stage('Prepare Release YAML') {
             steps {
                 script {
-                    releaseData = edgeXRelease.collectReleaseYamlFiles('release/*.yaml', 'origin/release')
+                    releaseData = edgeXRelease.collectReleaseYamlFiles()
                     parallelSteps = edgeXRelease.parallelStepFactory(releaseData)
 
                     // Print out the arrays created from the yaml files for manual validation
@@ -58,9 +59,6 @@ pipeline {
         }
 
         stage('Run Release') {
-            // when { 
-            //     expression { env.GIT_BRANCH == 'release'} 
-            // }
             steps {
                 script {
                     parallel(parallelSteps)
@@ -68,4 +66,8 @@ pipeline {
             }
         }
     }
+}
+
+def shouldDoDryRun() {
+    env.GIT_BRANCH != 'release' ? true : false
 }
