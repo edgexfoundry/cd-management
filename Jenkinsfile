@@ -22,6 +22,10 @@ pipeline {
         timeout(time: 12, unit: 'HOURS')
     }
 
+    environment {
+        GO_PROXY = 'https://nexus3.edgexfoundry.org/repository/go-proxy/'
+    }
+
     triggers {
         cron '@daily'
     }
