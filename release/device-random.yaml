@@ -1,0 +1,18 @@
+---
+name: 'device-random-go'
+version: '1.2.0'
+releaseName: 'geneva'
+releaseStream: 'master'
+repo: 'https://github.com/edgexfoundry/device-random.git'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/docker-device-random-go
+    destination:
+      - nexus3.edgexfoundry.org:10002/docker-device-random-go
+      - docker.io/edgexfoundry/docker-device-random-go
+  - image: nexus3.edgexfoundry.org:10004/docker-device-random-go-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/docker-device-random-go-arm64
+      - docker.io/edgexfoundry/docker-device-random-go-arm64
+snap: false
