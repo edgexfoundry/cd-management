@@ -2,9 +2,9 @@
 name: 'edgex-go'
 version: '1.2.0'
 releaseName: 'geneva'
-releaseStream: 'master'
+releaseStream: '1.2.0'
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
-gitTag: true
+gitTag: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-core-metadata-go
@@ -79,15 +79,15 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/docker-edgex-security-proxy-setup-go-arm64
       - docker.io/edgexfoundry/docker-edgex-security-proxy-setup-go-arm64
-  - image: nexus3.edgexfoundry.org:10004/docker-edgex-security-secretstore-go
+  - image: nexus3.edgexfoundry.org:10004/docker-edgex-security-secretstore-setup-go
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-edgex-security-secretstore-go
-      - docker.io/edgexfoundry/docker-edgex-security-secretstore-go
-  - image: nexus3.edgexfoundry.org:10004/docker-edgex-security-secretstore-go-arm64
+      - nexus3.edgexfoundry.org:10002/docker-edgex-security-secretstore-setup-go
+      - docker.io/edgexfoundry/docker-edgex-security-secretstore-setup-go
+  - image: nexus3.edgexfoundry.org:10004/docker-edgex-security-secretstore-setup-go-arm64
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-edgex-security-secretstore-go-arm64
-      - docker.io/edgexfoundry/docker-edgex-security-secretstore-go-arm64
-snap: true
+      - nexus3.edgexfoundry.org:10002/docker-edgex-security-secretstore-setup-go-arm64
+      - docker.io/edgexfoundry/docker-edgex-security-secretstore-setup-go-arm64
+snap: false
 snapChannels:
-  - channel: 'latest/stable'
-  - channel: 'geneva/stable'
+  - channel: 'latest/beta'
+  - channel: 'geneva/beta'
