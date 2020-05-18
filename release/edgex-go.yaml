@@ -89,5 +89,5 @@ docker:
       - docker.io/edgexfoundry/docker-edgex-security-secretstore-setup-go-arm64
 snap: true
 snapChannels:
-  - channel: 'latest/beta'
-  - channel: 'latest/candidate'
+  - channel: 'latest/stable'
+  - channel: 'geneva/stable'
