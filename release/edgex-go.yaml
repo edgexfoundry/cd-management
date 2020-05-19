@@ -90,4 +90,6 @@ docker:
 snap: true
 snapChannels:
   - channel: 'latest/stable'
+    trackName: 'latest/beta'
   - channel: 'geneva/stable'
+    trackName: 'latest/beta'
