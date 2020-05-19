@@ -18,4 +18,6 @@ docker:
 snap: true
 snapChannels:
   - channel: 'latest/stable'
+  - channel: 'latest/beta'
+  - channel: 'latest/candidate'
   - channel: 'geneva/stable'
