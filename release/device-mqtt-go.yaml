@@ -4,8 +4,8 @@ version: '1.2.0'
 releaseName: 'geneva'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/device-mqtt-go.git'
-gitTag: true
-dockerImages: true
+gitTag: false
+dockerImages: false
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-device-mqtt-go
     destination:
