@@ -14,21 +14,33 @@
 // limitations under the License.
 //
 
+def githubsyncImage
+
 pipeline {
-    agent { label 'centos7-docker-4c-2g' }
-    environment {
-        GH_SRC_ORG      = 'edgexfoundry'
-        LABEL_SRC_REPO  = 'cd-management'
-        GH_TOKEN        = credentials('edgex-jenkins-github-personal-access-token')
-        // BLACKLIST_REPOS = '' // pipe delimited list of repo names example: blackbox-testing|ci-management
+    agent {
+        label 'centos7-docker-4c-2g'
     }
-    // run at midnight
+    environment {
+        DRY_RUN = shouldDoDryRun()
+        GH_BASE_URL = 'api.github.com'
+        GH_TARGET_ORG = 'edgexfoundry'
+        GH_SOURCE_REPO = 'edgexfoundry/cd-management'
+        GH_TOKEN = credentials('edgex-jenkins-github-personal-access-token')
+        GH_BLACKLIST_REPOS = 'cd-management'
+    }
     triggers {
         cron '''TZ=US/Eastern
-        @midnight'''
+        0 23 * * *'''
     }
     stages{
-        stage('Apply GitHub Labels') {
+        stage('Build') {
+            steps {
+                script {
+                    githubsyncImage = docker.build('githubsync:latest')
+                }
+            }
+        }
+        stage('Execute') {
             when {
                 anyOf {
                     triggeredBy 'UserIdCause'
@@ -36,8 +48,38 @@ pipeline {
                 }
             }
             steps {
-                sh './github-copy-labels.sh "$GH_SRC_ORG" "$LABEL_SRC_REPO" "$BLACKLIST_REPOS"'
+                script {
+                    // full synchronization on Sunday and incremental all other days
+                    def command = 'githubsync --procs 10'
+                    def today = getDay()
+                    if(today != 'Sunday') {
+                        command += ' --modified-since 2d'
+                    }
+                    githubsyncImage.inside() {
+                        sh command
+                    }
+                }
             }
         }
     }
+}
+
+def getDay() {
+    // return day of week
+   def dayMap = [
+       1: 'Sunday',
+       2: 'Monday',
+       3: 'Tuesday',
+       4: 'Wednesday',
+       5: 'Thursday',
+       6: 'Friday',
+       7: 'Saturday'
+    ]
+    Calendar calendar = Calendar.getInstance()
+    def day = calendar.get(Calendar.DAY_OF_WEEK)
+    dayMap[day]
+}
+
+def shouldDoDryRun() {
+    env.GIT_BRANCH != 'git-label-sync' ? true : false
 }
