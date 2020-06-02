@@ -367,12 +367,13 @@ def synchronize(data, shared_data):
         modified_since=shared_data['modified_since'],
         noop=shared_data['noop'])
 
-    client.sync_milestones(
-        repo,
-        shared_data['milestones'],
-        shared_data['source_repo'],
-        modified_since=shared_data['modified_since'],
-        noop=shared_data['noop'])
+    # temporary
+    # client.sync_milestones(
+    #     repo,
+    #     shared_data['milestones'],
+    #     shared_data['source_repo'],
+    #     modified_since=shared_data['modified_since'],
+    #     noop=shared_data['noop'])
 
 
 def initiate_multiprocess(client, args, blacklist_repos):
