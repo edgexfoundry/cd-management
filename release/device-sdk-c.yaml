@@ -1,6 +1,6 @@
 ---
 name: 'device-sdk-c'
-version: '1.2.0'
+version: '1.2.1'
 releaseName: 'geneva'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/device-sdk-c.git'
