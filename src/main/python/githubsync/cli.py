@@ -367,13 +367,19 @@ def synchronize(data, shared_data):
         modified_since=shared_data['modified_since'],
         noop=shared_data['noop'])
 
-    # temporary
-    # client.sync_milestones(
-    #     repo,
-    #     shared_data['milestones'],
-    #     shared_data['source_repo'],
-    #     modified_since=shared_data['modified_since'],
-    #     noop=shared_data['noop'])
+    client.sync_milestones(
+        repo,
+        shared_data['milestones'],
+        shared_data['source_repo'],
+        modified_since=shared_data['modified_since'],
+        noop=shared_data['noop'])
+
+
+def check_result(process_data):
+    """ raise exception if any result in process data is exception
+    """
+    if any([isinstance(process.get('result'), Exception) for process in process_data]):
+        raise Exception('one or more processes had errors')
 
 
 def initiate_multiprocess(client, args, blacklist_repos):
@@ -404,11 +410,12 @@ def initiate_multiprocess(client, args, blacklist_repos):
     if args.processes > len(repos):
         args.processes = len(repos)
 
+    process_data = [
+        {'repo': repo} for repo in repos
+    ]
     execute(
         function=synchronize,
-        process_data=[
-            {'repo': repo} for repo in repos
-        ],
+        process_data=process_data,
         shared_data={
             'client': client,
             'source_repo': args.source_repo,
@@ -426,6 +433,8 @@ def initiate_multiprocess(client, args, blacklist_repos):
             'Started:{}'.format(datetime.now().strftime('%m/%d/%Y %H:%M:%S'))
         ],
         screen_layout=get_screen_layout() if args.screen else None)
+
+    check_result(process_data)
 
 
 def set_logging(args):

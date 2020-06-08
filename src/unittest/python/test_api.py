@@ -422,28 +422,82 @@ class TestApi(unittest.TestCase):
         create_patch.assert_called_once_with('/repos/soda480/repo1/labels', {'name': 'label1'}, 'name', noop=False)
 
     @patch('githubsync.GitHubAPI.create')
-    @patch('githubsync.GitHubAPI.modify')
-    @patch('githubsync.GitHubAPI.modified_since')
-    @patch('githubsync.GitHubAPI.exists')
-    def test__sync_milestones_Should_CallExpected_When_Called(self, exists_patch, modified_since_patch, modify_patch, create_patch, *patches):
-        exists_patch.side_effect = [
-            False,
-            True,
-            True
-        ]
-        modified_since_patch.side_effect = [
-            True,
-            False
+    @patch('githubsync.GitHubAPI.get_milestones')
+    def test__sync_milestones_Should_CallCreate_When_MilestoneDoesNotExistOnTarget(self, get_milestones_patch, create_patch, *patches):
+        get_milestones_patch.return_value = [
+            {'title': 'California', 'number': 1, 'description': 'California description'},
+            {'title': 'Delhi', 'number': 2, 'description': 'Delhi description'},
+            {'title': 'Geneva', 'number': 3, 'description': 'Geneva description'}
         ]
         client = GitHubAPI('api.github.com', bearer_token='bearer-token')
         milestones = [
-            {'title': 'title1', 'number': '1', 'due_on': None},
-            {'title': 'title2', 'number': '2', 'due_on': None},
-            {'title': 'title3', 'number': '2'}
+            {'title': 'Hanoi', 'number': 1, 'description': 'Hanoi description', 'due_on': '2020-10-01T07:00:00Z'},
+            {'title': 'Enjambre', 'number': 2, 'description': 'Enjambre description', 'due_on': None}
         ]
         client.sync_milestones('soda480/repo1', milestones, 'edgexfoundry/cd-management', modified_since='Wed, 06 May 2020 18:21:45 GMT', noop=False)
-        modify_patch.assert_called_once_with('/repos/soda480/repo1/milestones/2', {'title': 'title2', 'due_on': None}, noop=False)
-        create_patch.assert_called_once_with('/repos/soda480/repo1/milestones', {'title': 'title1'}, 'title', noop=False)
+        create_call1 = call(
+            '/repos/soda480/repo1/milestones',
+            {
+                'title': 'Hanoi',
+                'description': 'Hanoi description',
+                'due_on': '2020-10-01T07:00:00Z'
+            },
+            'title',
+            noop=False)
+        create_call2 = call(
+            '/repos/soda480/repo1/milestones',
+            {
+                'title': 'Enjambre',
+                'description': 'Enjambre description'
+            },
+            'title',
+            noop=False)
+        self.assertTrue(create_call1 in create_patch.mock_calls)
+        self.assertTrue(create_call2 in create_patch.mock_calls)
+
+    @patch('githubsync.GitHubAPI.modify')
+    @patch('githubsync.GitHubAPI.modified_since')
+    @patch('githubsync.GitHubAPI.get_milestones')
+    def test__sync_milestones_Should_CallModify_When_MilestoneExistOnTargetAndHasBeenModifiedOnSource(self, get_milestones_patch, modified_since_patch, modify_patch, *patches):
+        get_milestones_patch.return_value = [
+            {'title': 'California', 'number': 1, 'description': 'California description'},
+            {'title': 'Delhi', 'number': 2, 'description': 'Delhi description'},
+            {'title': 'Geneva', 'number': 3, 'description': 'Geneva description'},
+            {'title': 'Hanoi', 'number': 4, 'description': 'Hanoi description', 'due_on': '2020-10-01T07:00:00Z'},
+            {'title': 'Enjambre', 'number': 5, 'description': 'Enjambre description', 'due_on': None}
+        ]
+        client = GitHubAPI('api.github.com', bearer_token='bearer-token')
+        milestones = [
+            {'title': 'Hanoi', 'number': 1, 'description': 'Hanoi description', 'due_on': '2020-11-01T00:00:00Z'},
+            {'title': 'Enjambre', 'number': 2, 'description': 'Enjambre updated description', 'due_on': None},
+            {'title': 'Geneva', 'number': 3, 'description': 'Geneva description'}
+        ]
+        modified_since_patch.side_effect = [
+            True,
+            True,
+            False
+        ]
+        client.sync_milestones('soda480/repo1', milestones, 'edgexfoundry/cd-management', modified_since='Wed, 06 May 2020 18:21:45 GMT', noop=False)
+        modify_call1 = call(
+            '/repos/soda480/repo1/milestones/4',
+            {
+                'title': 'Hanoi',
+                'description': 'Hanoi description',
+                'due_on': '2020-11-01T00:00:00Z'
+            },
+            resource_id='Hanoi',
+            noop=False)
+        modify_call2 = call(
+            '/repos/soda480/repo1/milestones/5',
+            {
+                'title': 'Enjambre',
+                'description': 'Enjambre updated description',
+                'due_on': None
+            },
+            resource_id='Enjambre',
+            noop=False)
+        self.assertTrue(modify_call1 in modify_patch.mock_calls)
+        self.assertTrue(modify_call2 in modify_patch.mock_calls)
 
     @patch('githubsync.GitHubAPI.sync_milestones')
     @patch('githubsync.GitHubAPI.sync_labels')

@@ -134,6 +134,14 @@ def get_gmt_time(delta):
     return delta_time.strftime("%a, %d %b %Y %H:%M:%S %Z")
 
 
+def search(items, key, value):
+    """ return item in items whose key equals value
+    """
+    for item in items:
+        if item[key] == value:
+            return item
+
+
 class GitHubAPI(RESTclient):
 
     def __init__(self, hostname, **kwargs):
@@ -251,12 +259,13 @@ class GitHubAPI(RESTclient):
                 return False
             raise exception
 
-    def modify(self, endpoint, payload, noop=False):
+    def modify(self, endpoint, payload, resource_id=None, noop=False):
         """ modify resource using PATCH endpoint
         """
         self.ratelimit_request(self.patch, endpoint, json=payload, noop=noop)
+        resource_id = resource_id if resource_id else get_resource_id(endpoint)
         logger.info("modified {} '{}' in repo '{}' - NOOP: {}".format(
-            get_resource(endpoint), get_resource_id(endpoint), get_owner_repo(endpoint), noop))
+            get_resource(endpoint), resource_id, get_owner_repo(endpoint), noop))
 
     def create(self, endpoint, payload, resource_id, noop=False):
         """ create resource using POST endpoint
@@ -266,10 +275,10 @@ class GitHubAPI(RESTclient):
             get_resource(endpoint, index=-1), payload.get(resource_id), get_owner_repo(endpoint), noop))
 
     def sync_labels(self, repo, labels, source_repo, modified_since=None, noop=True):
-        """ sync labels in repo
+        """ sync labels to repo
             repo must be formatted as ':owner/:repo'
         """
-        logger.info("synchronizing {} labels in repo '{}'".format(len(labels), repo))
+        logger.info("synchronizing {} labels to repo '{}'".format(len(labels), repo))
         endpoint = '/repos/{}/labels'.format(repo)
         for label in labels:
             name = label['name']
@@ -285,21 +294,23 @@ class GitHubAPI(RESTclient):
         logger.info('')
 
     def sync_milestones(self, repo, milestones, source_repo, modified_since=None, noop=True):
-        """ sync milestones in repo
+        """ sync milestones to repo
             repo must be formatted as ':owner/:repo'
         """
-        logger.info("synchronizing {} milestones in repo '{}'".format(len(milestones), repo))
+        logger.info("synchronizing {} milestones to repo '{}'".format(len(milestones), repo))
+        repo_milestones = self.get_milestones(repo)
         endpoint = '/repos/{}/milestones'.format(repo)
         for milestone in milestones:
-            number = milestone.pop('number')
-            milestone_endpoint = '{}/{}'.format(endpoint, number)
-            source_endpoint = '/repos/{}/milestones/{}'.format(source_repo, number)
-            if self.exists(milestone_endpoint):
+            repo_milestone = search(repo_milestones, 'title', milestone['title'])
+            if repo_milestone:
+                source_endpoint = '/repos/{}/milestones/{}'.format(source_repo, milestone.pop('number'))
                 if self.modified_since(source_endpoint, modified_since):
-                    self.modify(milestone_endpoint, milestone, noop=noop)
+                    target_endpoint = '{}/{}'.format(endpoint, repo_milestone['number'])
+                    self.modify(target_endpoint, milestone, resource_id=milestone['title'], noop=noop)
                 else:
-                    logger.info("milestone '{}' has not been modified since '{}'".format(number, modified_since))
+                    logger.info("milestone '{}' has not been modified since '{}'".format(milestone['title'], modified_since))
             else:
+                milestone.pop('number')
                 sanitized_milestone = {key: value for key, value in milestone.items() if value is not None}
                 self.create(endpoint, sanitized_milestone, 'title', noop=noop)
         logger.info('')
