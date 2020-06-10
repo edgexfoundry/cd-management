@@ -26,6 +26,7 @@ from githubsync.cli import validate
 from githubsync.cli import get_client
 from githubsync.cli import get_screen_layout
 from githubsync.cli import synchronize
+from githubsync.cli import check_result
 from githubsync.cli import initiate_multiprocess
 from githubsync.cli import set_logging
 from githubsync.cli import main
@@ -146,6 +147,13 @@ class TestCli(unittest.TestCase):
         blacklist_repos = ['repo2', 'repo3']
         initiate_multiprocess(client_mock, args, blacklist_repos)
         execute_patch.assert_not_called()
+
+    def test__check_result_Should_RaiseException_When_ProcessResultException(self, *patches):
+        process_data = [
+            {}, {}, {}, {'result': ValueError('error')}
+        ]
+        with self.assertRaises(Exception):
+            check_result(process_data)
 
     @patch('githubsync.cli.getenv')
     @patch('githubsync.cli.logging')
