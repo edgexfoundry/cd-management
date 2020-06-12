@@ -1,11 +1,11 @@
 ---
 name: 'edgex-go'
-version: '1.2.0'
+version: '1.2.1'
 releaseName: 'geneva'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
-gitTag: false
-dockerImages: false
+gitTag: true
+dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-core-metadata-go
     destination:
@@ -89,7 +89,5 @@ docker:
       - docker.io/edgexfoundry/docker-edgex-security-secretstore-setup-go-arm64
 snap: true
 snapChannels:
-  - channel: 'latest/stable'
-    trackName: 'latest/beta'
-  - channel: 'geneva/stable'
-    trackName: 'latest/beta'
+  - channel: 'latest/beta'
+  - channel: 'latest/candidate'
