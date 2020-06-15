@@ -2,9 +2,9 @@
 name: 'device-modbus-go'
 version: '1.2.1'
 releaseName: 'geneva'
-releaseStream: 'master'
+releaseStream: '1.2.1'
 repo: 'https://github.com/edgexfoundry/device-modbus-go.git'
-gitTag: true
+gitTag: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-device-modbus-go
@@ -15,7 +15,7 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/docker-device-modbus-go-arm64
       - docker.io/edgexfoundry/docker-device-modbus-go-arm64
-snap: true
+snap: false
 snapChannels:
   - channel: 'latest/beta'
   - channel: 'latest/candidate'
