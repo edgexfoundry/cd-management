@@ -2,10 +2,10 @@
 name: 'app-service-configurable'
 version: '1.2.0'
 releaseName: 'geneva'
-releaseStream: '1.2.0'
+releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
 gitTag: false
-dockerImages: true
+dockerImages: false
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-app-service-configurable
     destination:
@@ -15,7 +15,9 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/docker-app-service-configurable-arm64
       - docker.io/edgexfoundry/docker-app-service-configurable-arm64
-snap: false
+snap: true
 snapChannels:
+  - channel: 'latest/stable'
+  - channel: 'geneva/stable'
   - channel: 'latest/beta'
   - channel: 'latest/candidate'
