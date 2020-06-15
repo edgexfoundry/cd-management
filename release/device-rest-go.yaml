@@ -2,9 +2,9 @@
 name: 'device-rest-go'
 version: '1.1.1'
 releaseName: 'geneva'
-releaseStream: 'master'
+releaseStream: '1.1.1'
 repo: 'https://github.com/edgexfoundry/device-rest-go.git'
-gitTag: true
+gitTag: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-device-rest-go

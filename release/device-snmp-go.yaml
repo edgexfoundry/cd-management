@@ -2,9 +2,9 @@
 name: 'device-snmp-go'
 version: '1.2.1'
 releaseName: 'geneva'
-releaseStream: 'master'
+releaseStream: '1.2.1'
 repo: 'https://github.com/edgexfoundry/device-snmp-go.git'
-gitTag: true
+gitTag: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-device-snmp-go
