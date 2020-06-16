@@ -2,10 +2,10 @@
 name: 'device-mqtt-go'
 version: '1.2.1'
 releaseName: 'geneva'
-releaseStream: '1.2.1'
+releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/device-mqtt-go.git'
 gitTag: false
-dockerImages: true
+dockerImages: false
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-device-mqtt-go
     destination:
@@ -15,7 +15,9 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/docker-device-mqtt-go-arm64
       - docker.io/edgexfoundry/docker-device-mqtt-go-arm64
-snap: false
+snap: true
 snapChannels:
-  - channel: 'latest/beta'
-  - channel: 'latest/candidate'
+  - channel: 'latest/stable'
+    trackName: 'latest/beta'
+  - channel: 'geneva/stable'
+    trackName: 'latest/beta'
