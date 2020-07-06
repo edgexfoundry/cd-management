@@ -150,11 +150,11 @@ class GitHubAPI(RESTclient):
             raise ValueError('bearer_token must be provided')
         super(GitHubAPI, self).__init__(hostname, **kwargs)
 
-    def process_response(self, response, **kwargs):
+    def get_response(self, response, **kwargs):
         """ subclass override to including logging of ratelimits
         """
         log_ratelimit(response.headers)
-        return super(GitHubAPI, self).process_response(response, **kwargs)
+        return super(GitHubAPI, self).get_response(response, **kwargs)
 
     def get_headers(self, **kwargs):
         """ return headers to pass to requests method
