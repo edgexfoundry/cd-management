@@ -215,10 +215,10 @@ class TestApi(unittest.TestCase):
             GitHubAPI('api.github.com')
 
     @patch('githubsync.api.log_ratelimit')
-    def test__process_response_Should_CallExpected_When_Called(self, log_ratelimit_patch, *patches):
+    def test__get_response_Should_CallExpected_When_Called(self, log_ratelimit_patch, *patches):
         client = GitHubAPI('api.github.com', bearer_token='bearer-token')
         response_mock = Mock(headers={'key': 'value'})
-        client.process_response(response_mock)
+        client.get_response(response_mock)
         log_ratelimit_patch.assert_called_once_with(response_mock.headers)
 
     def test__get_headers_Should_SetAcceptHeader_When_Called(self, *patches):
