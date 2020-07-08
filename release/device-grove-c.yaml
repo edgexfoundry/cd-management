@@ -3,7 +3,7 @@ name: 'device-grove-c'
 version: '1.2.0'
 releaseName: 'geneva'
 releaseStream: 'master'
-repo: 'https://github.com/edgexfoundry/device-sdk-c.git'
+repo: 'https://github.com/edgexfoundry/device-grove-c.git'
 gitTag: true
 dockerImages: true
 docker:
