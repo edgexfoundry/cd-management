@@ -2,9 +2,9 @@
 name: 'device-grove-c'
 version: '1.2.0'
 releaseName: 'geneva'
-releaseStream: 'master'
+releaseStream: '1.2.0'
 repo: 'https://github.com/edgexfoundry/device-grove-c.git'
-gitTag: true
+gitTag: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-device-grove-c-arm64
