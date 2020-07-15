@@ -41,12 +41,12 @@ pipeline {
                     stages {
                         stage('Clone Code') {
                             steps {
-                                git changelog: false, poll: false, url: 'https://github.com/edgexfoundry/edgex-go.git'
+                                git changelog: false, poll: false, branch: 'geneva', url: 'https://github.com/edgexfoundry/edgex-go.git'
                             }
                         }
                         stage('Stage Snap'){
                             steps {
-                                edgeXSnap(jobType: 'stage', snapChannel: 'latest/edge')
+                                edgeXSnap(jobType: 'stage', snapChannel: 'geneva/edge')
                             }
                         }
                     }
@@ -59,12 +59,12 @@ pipeline {
                     stages {
                         stage('Clone Code') {
                             steps {
-                                git changelog: false, poll: false, url: 'https://github.com/edgexfoundry/edgex-go.git'
+                                git changelog: false, poll: false, branch: 'geneva', url: 'https://github.com/edgexfoundry/edgex-go.git'
                             }
                         }
                         stage('Stage Snap'){
                             steps {
-                                edgeXSnap(jobType: 'stage', snapChannel: 'latest/edge')
+                                edgeXSnap(jobType: 'stage', snapChannel: 'geneva/edge')
                             }
                         }
                     }
