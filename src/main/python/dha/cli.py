@@ -29,7 +29,6 @@ import logging
 
 
 logger = logging.getLogger(__name__)
-logging.getLogger('urllib3.connectionpool').setLevel(logging.CRITICAL)
 
 
 class MissingArgumentError(Exception):
@@ -230,8 +229,7 @@ def filter_tag_list(tag_dict_list):
     utc = pytz.UTC
     just_tags_list = []
     for item in tag_dict_list:
-        # just_tags_list.extend(item['result'])
-        just_tags_list.extend(item.get('result'))
+        just_tags_list.extend(item['result'])
 
     for tag in just_tags_list:
         tag.pop("last_updater", None)
@@ -278,13 +276,6 @@ def get_all_tags(client, function, args, image_dict_list):
                 f"Started:{datetime.now().strftime('%m/%d/%Y %H:%M:%S')}"
             ],
             screen_layout=screen_layout)
-        logger.debug(f'image dict list size is: {len(image_dict_list)}')
-        # logger.debug(image_dict_list)
-        for index, image in image_dict_list:
-            if 'result' in item:
-                logger.debug(f'image {index} has no result')
-            else:
-                logger.debug(f'image {index} has a result')
         check_result(image_dict_list)
     else:
         for i, image in enumerate(image_dict_list):

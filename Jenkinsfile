@@ -29,7 +29,7 @@ pipeline {
             stages {
                 stage('Execute') {
                     steps {
-                        sh "dockerhub-audit --proc 10 --csv"
+                        sh "dockerhub-audit --csv"
                     }
                 }
             }
