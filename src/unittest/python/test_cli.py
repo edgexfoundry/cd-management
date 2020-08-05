@@ -24,13 +24,17 @@ from prunetags.cli import get_parser
 from prunetags.cli import validate
 from prunetags.cli import get_client
 from prunetags.cli import get_screen_layout
+from prunetags.cli import version_screen_layout
 from prunetags.cli import remove_prerelease_tags
+from prunetags.cli import remove_version_tags
 from prunetags.cli import get_prerelease_tags_report
+from prunetags.cli import get_version_tags_report
 from prunetags.cli import check_result
 from prunetags.cli import initiate_multiprocess
 from prunetags.cli import set_logging
 from prunetags.cli import get_repos
 from prunetags.cli import prune_prerelease_tags
+from prunetags.cli import prune_version_tags
 from prunetags.cli import write_json_file
 from prunetags.cli import write_report
 from prunetags.cli import main
@@ -71,19 +75,24 @@ class TestCli(unittest.TestCase):
             validate(args)
 
     def test__validate_Should_SetNoop_When_NotExecute(self, *patches):
-        args = Namespace(org='org1', user=None, execute=False, screen=None)
+        args = Namespace(org='org1', user=None, execute=False, screen=None, version=None)
         validate(args)
         self.assertTrue(args.noop)
 
     def test__validate_Should_SetNoop_When_Execute(self, *patches):
-        args = Namespace(org='org1', user=None, execute=True, screen=None)
+        args = Namespace(org='org1', user=None, execute=True, screen=None, version=None)
         validate(args)
         self.assertFalse(args.noop)
 
     def test__validate_Should_SetProcesses_When_ScreenAndNoProcesses(self, *patches):
-        args = Namespace(org='org1', user=None, execute=True, screen=True, processes=None)
+        args = Namespace(org='org1', user=None, execute=True, screen=True, processes=None, version=None)
         validate(args)
         self.assertEqual(args.processes, 10)
+
+    def test__validate_Should_RaiseValueError_When_InvalidSyntax(self, *patches):
+        args = Namespace(org='org1', user=None, execute=True, screen=True, processes=None, version='>>> 1.invalid')
+        with self.assertRaises(ValueError):
+            validate(args)
 
     @patch('prunetags.cli.GitHubAPI')
     def test__get_client_Should_CallExpected_When_Called(self, githubapi_patch, *patches):
@@ -93,6 +102,51 @@ class TestCli(unittest.TestCase):
     def test__get_screen_layout_Should_ReturnExpected_When_Called(self, *patches):
         # not much to test here
         get_screen_layout()
+
+    def test__version_screen_layoutShould_ReturnExpected_When_Called(self, *patches):
+        screen_layout = {
+            'tpt_key1': {
+                'text': 'TPT:',
+            },
+            'tpt_key2': {
+                'text': 'Total Pre-release Tags',
+            },
+            'ptr_key1': {
+                'text': 'PTR:',
+            },
+            'ptr_key2': {
+                'text': 'Pre-release Tags Removed',
+            },
+            'tpt_header': {
+                'text': 'TPT',
+            },
+            'ptr_header': {
+                'text': 'PTR',
+            }
+        }
+        expected = {
+            'tpt_key1': {
+                'text': 'TT:',
+            },
+            'tpt_key2': {
+                'text': 'Total Tags',
+            },
+            'ptr_key1': {
+                'text': 'TR:',
+            },
+            'ptr_key2': {
+                'text': 'Tags Removed',
+            },
+            'tpt_header': {
+                'text': 'TT',
+            },
+            'ptr_header': {
+                'text': 'TR',
+            }
+        }
+
+        result = version_screen_layout(screen_layout)
+        self.assertEqual(result, expected)
 
     def test__remove_prerelease_tags_Should_CallExpected_When_Called(self, *patches):
         data = {
@@ -132,7 +186,7 @@ class TestCli(unittest.TestCase):
         datetime_patch.now.return_value = datetime(2020, 5, 6, 18, 22, 45, 12065)
         client_mock = Mock()
         function_mock = Mock()
-        args = Namespace(org='org1', user=None, execute=True, screen=True, processes=3, include_repos='test_repo', exclude_repos=None, noop=False)
+        args = Namespace(org='org1', user=None, execute=True, screen=True, processes=3, include_repos='test_repo', exclude_repos=None, noop=False, version=None)
 
         initiate_multiprocess(client_mock, function_mock, args, 'org1', ['org1/repo1'])
         execute_patch.assert_called_once_with(
@@ -143,7 +197,8 @@ class TestCli(unittest.TestCase):
             shared_data={
                 'client': client_mock,
                 'owner': 'org1',
-                'noop': False
+                'noop': False,
+                'version': None
             },
             number_of_processes=1,
             init_messages=[
@@ -153,6 +208,38 @@ class TestCli(unittest.TestCase):
                 "Started:05/06/2020 18:22:45"
             ],
             screen_layout=get_screen_layout_patch.return_value)
+
+    @patch('prunetags.cli.check_result')
+    @patch('prunetags.cli.datetime')
+    @patch('prunetags.cli.execute')
+    @patch('prunetags.cli.get_screen_layout')
+    @patch('prunetags.cli.version_screen_layout')
+    def test__initiate_multiprocess_Should_Modify_Screen_When_Call_With_Version(self, version_screen_layout_patch, get_screen_layout_patch, execute_patch, datetime_patch, *patches):
+        datetime_patch.now.return_value = datetime(2020, 5, 6, 18, 22, 45, 12065)
+        client_mock = Mock()
+        function_mock = Mock()
+        args = Namespace(org='org1', user=None, execute=True, screen=True, processes=3, include_repos='test_repo', exclude_repos=None, noop=False, version='1.1.1')
+
+        initiate_multiprocess(client_mock, function_mock, args, 'org1', ['org1/repo1'])
+        execute_patch.assert_called_once_with(
+            function=function_mock,
+            process_data=[
+                {'repo': 'org1/repo1'}
+            ],
+            shared_data={
+                'client': client_mock,
+                'owner': 'org1',
+                'noop': False,
+                'version': '1.1.1'
+            },
+            number_of_processes=1,
+            init_messages=[
+                "'include_repos' is 'test_repo'",
+                "'exclude_repos' is '-'",
+                'retrieved total of 1 repos',
+                "Started:05/06/2020 18:22:45"
+            ],
+            screen_layout=version_screen_layout_patch.return_value)
 
     @patch('prunetags.cli.getenv')
     @patch('prunetags.cli.logging')
@@ -184,6 +271,13 @@ class TestCli(unittest.TestCase):
         prune_prerelease_tags(client_mock, ['repo1', 'repo2'], args)
         call1 = call(repo='repo1', noop=False)
         self.assertTrue(call1 in client_mock.remove_prerelease_tags.mock_calls)
+
+    def test__prune_version_tags_Should_CallExpected_When_Called(self, *pathes):
+        args = Namespace(noop=False, version='>=1.4.5')
+        client_mock = Mock()
+        prune_version_tags(client_mock, ['repo1', 'repo2'], args)
+        call1 = call(repo='repo1', noop=False, expression='>=1.4.5')
+        self.assertTrue(call1 in client_mock.remove_version_tags.mock_calls)
 
     @patch('prunetags.cli.open', create=False)
     @patch('prunetags.cli.json')
@@ -228,7 +322,7 @@ class TestCli(unittest.TestCase):
     @patch('prunetags.cli.prune_prerelease_tags')
     def test__main_Should_CallExpected_When_NoReportNoProcesses(self, prune_prerelease_tags_patch, get_client_patch, get_parser_patch, *patches):
         parser_mock = Mock()
-        parser_mock.parse_args.return_value = Namespace(report=None, processes=None)
+        parser_mock.parse_args.return_value = Namespace(report=None, processes=None, version=None)
         get_parser_patch.return_value = parser_mock
         client_mock = Mock()
         get_client_patch.return_value = client_mock
@@ -238,13 +332,28 @@ class TestCli(unittest.TestCase):
     @patch('prunetags.cli.set_logging')
     @patch('prunetags.cli.validate')
     @patch('prunetags.cli.get_repos', return_value=('org1', ['repo1']))
+    @patch('prunetags.cli.get_parser')
+    @patch('prunetags.cli.get_client')
+    @patch('prunetags.cli.prune_version_tags')
+    def test__main_Should_CallExpected_When_NoReportNoProcesses_WithVersion(self, prune_version_tags, get_client_patch, get_parser_patch, *patches):
+        parser_mock = Mock()
+        parser_mock.parse_args.return_value = Namespace(report=None, processes=None, version='<1.1.1')
+        get_parser_patch.return_value = parser_mock
+        client_mock = Mock()
+        get_client_patch.return_value = client_mock
+        main()
+        prune_version_tags.assert_called_once_with(client_mock, ['repo1'], parser_mock.parse_args.return_value)
+
+    @patch('prunetags.cli.set_logging')
+    @patch('prunetags.cli.validate')
+    @patch('prunetags.cli.get_repos', return_value=('org1', ['repo1']))
     @patch('prunetags.cli.write_report')
     @patch('prunetags.cli.get_parser')
     @patch('prunetags.cli.get_client')
     @patch('prunetags.cli.initiate_multiprocess')
-    def test__main_Should_CallExpected_When_ReportNoProcesses(self, initiate_multiprocess_patch, get_client_patch, get_parser_patch, write_report_patch, *patches):
+    def test__main_Should_CallExpected_When_ReportNoProcessesNoVersion(self, initiate_multiprocess_patch, get_client_patch, get_parser_patch, write_report_patch, *patches):
         parser_mock = Mock()
-        parser_mock.parse_args.return_value = Namespace(report=True, processes=None)
+        parser_mock.parse_args.return_value = Namespace(report=True, processes=None, version=None)
         get_parser_patch.return_value = parser_mock
         client_mock = Mock()
         get_client_patch.return_value = client_mock
@@ -258,9 +367,41 @@ class TestCli(unittest.TestCase):
     @patch('prunetags.cli.get_parser')
     @patch('prunetags.cli.get_client')
     @patch('prunetags.cli.initiate_multiprocess')
-    def test__main_Should_CallExpected_When_NoReportAndProcesses(self, initiate_multiprocess_patch, get_client_patch, get_parser_patch, write_report_patch, *patches):
+    def test__main_Should_CallExpected_When_ReportVersionNoProcesses(self, initiate_multiprocess_patch, get_client_patch, get_parser_patch, write_report_patch, *patches):
         parser_mock = Mock()
-        parser_mock.parse_args.return_value = Namespace(report=False, processes=2)
+        parser_mock.parse_args.return_value = Namespace(report=True, processes=None, version=True)
+        get_parser_patch.return_value = parser_mock
+        client_mock = Mock()
+        get_client_patch.return_value = client_mock
+        main()
+        write_report_patch.assert_called_once()
+
+    @patch('prunetags.cli.set_logging')
+    @patch('prunetags.cli.validate')
+    @patch('prunetags.cli.get_repos', return_value=('org1', ['repo1']))
+    @patch('prunetags.cli.write_report')
+    @patch('prunetags.cli.get_parser')
+    @patch('prunetags.cli.get_client')
+    @patch('prunetags.cli.initiate_multiprocess')
+    def test__main_Should_CallExpected_When_NoReport_NoVersion_AndProcesses(self, initiate_multiprocess_patch, get_client_patch, get_parser_patch, write_report_patch, *patches):
+        parser_mock = Mock()
+        parser_mock.parse_args.return_value = Namespace(report=False, processes=2, version=None)
+        get_parser_patch.return_value = parser_mock
+        client_mock = Mock()
+        get_client_patch.return_value = client_mock
+        main()
+        write_report_patch.assert_not_called()
+
+    @patch('prunetags.cli.set_logging')
+    @patch('prunetags.cli.validate')
+    @patch('prunetags.cli.get_repos', return_value=('org1', ['repo1']))
+    @patch('prunetags.cli.write_report')
+    @patch('prunetags.cli.get_parser')
+    @patch('prunetags.cli.get_client')
+    @patch('prunetags.cli.initiate_multiprocess')
+    def test__main_Should_CallExpected_When_NoReport_AndProcessesVersion(self, initiate_multiprocess_patch, get_client_patch, get_parser_patch, write_report_patch, *patches):
+        parser_mock = Mock()
+        parser_mock.parse_args.return_value = Namespace(report=False, processes=2, version=True)
         get_parser_patch.return_value = parser_mock
         client_mock = Mock()
         get_client_patch.return_value = client_mock
@@ -275,9 +416,34 @@ class TestCli(unittest.TestCase):
     @patch('prunetags.cli.prune_prerelease_tags')
     def test__main_Should_CallExpected_When_NoRepos(self, prune_prerelease_tags_patch, get_client_patch, get_parser_patch, *patches):
         parser_mock = Mock()
-        parser_mock.parse_args.return_value = Namespace(report=None, processes=None)
+        parser_mock.parse_args.return_value = Namespace(report=None, processes=None, version=None)
         get_parser_patch.return_value = parser_mock
         client_mock = Mock()
         get_client_patch.return_value = client_mock
         main()
         prune_prerelease_tags_patch.assert_not_called()
+
+    def test__remove_version_tags_Should_CallExpected_When_Called(self, *patches):
+        data = {
+            'repo': 'org1/repo1'
+        }
+        client_mock = Mock()
+        shared_data = {
+            'client': client_mock,
+            'noop': False,
+            'version': '<1.1.1'
+        }
+        remove_version_tags(data, shared_data)
+        client_mock.remove_version_tags.assert_called_once_with(repo='org1/repo1', noop=False, expression='<1.1.1')
+
+    def test__get_version_tags_report_Should_CallExpected_When_Called(self, *patches):
+        data = {
+            'repo': 'org1/repo1'
+        }
+        client_mock = Mock()
+        shared_data = {
+            'client': client_mock,
+            'version': '<1.1.1'
+        }
+        get_version_tags_report(data, shared_data)
+        client_mock.get_version_tags_report.assert_called_once_with(repos=['org1/repo1'], expression='<1.1.1')

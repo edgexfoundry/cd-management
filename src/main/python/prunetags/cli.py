@@ -22,6 +22,7 @@ from os import getenv
 from datetime import datetime
 import sys
 import json
+from semantic_version import SimpleSpec
 
 import logging
 logger = logging.getLogger(__name__)
@@ -92,6 +93,13 @@ def get_parser():
         dest='execute',
         action='store_true',
         help='execute processing - not setting is same as running in NOOP mode')
+    parser.add_argument(
+        '--remove-version',
+        dest='version',
+        type=str,
+        default=None,
+        required=False,
+        help='version expression to remove- e.g. \'<1.0.50\', \'>1.0.87\', \'<1.1.4,>=1.0.1\'')
     return parser
 
 
@@ -117,6 +125,12 @@ def validate(args):
     if args.screen:
         if not args.processes:
             args.processes = 10
+
+    if args.version:
+        try:
+            SimpleSpec(args.version)
+        except Exception:
+            raise ValueError('Invalid version arguement syntax. See README for reference')
 
 
 def get_client():
@@ -193,6 +207,13 @@ def get_screen_layout():
             'color': 239,
             'regex': "^'noop' is '(?P<value>.*)'$"
         },
+        'version_opt': {
+            'position': (2, 52),
+            'text': 'Version Argument: -',
+            'text_color': 245,
+            'color': 239,
+            'regex': "^'version' is '(?P<value>.*)'$"
+        },
         'start_time': {
             'position': (6, 61),
             'text': 'Started: -',
@@ -252,7 +273,7 @@ def get_screen_layout():
             'text': '',
             'replace_text': '->',
             'color': 14,
-            'regex': r'^INFO: removing prerelease tags from repo .*/(?P<value>.*)$',
+            'regex': r'^INFO: removing (prerelease|version) tags from repo .*/(?P<value>.*)$',
             'table': True
         },
         '_off': {
@@ -267,7 +288,7 @@ def get_screen_layout():
             'text': '---',
             'text_color': 242,
             'color': 15,
-            'regex': r'^repo .* has (?P<value>.*) prerelease tags that can be removed$',
+            'regex': r'^repo .* has (?P<value>.*) (prerelease|version) tags that can be removed.*$',
             'table': True,
         },
         'tags_removed': {
@@ -303,7 +324,7 @@ def get_screen_layout():
             'text': '',
             'color': 14,
             'width': 30,
-            'regex': r'^INFO: removing prerelease tags from repo .*/(?P<value>.*)$',
+            'regex': r'^INFO: removing (prerelease|version) tags from repo .*/(?P<value>.*)$',
             'table': True
         },
         'repo_processed': {
@@ -311,7 +332,7 @@ def get_screen_layout():
             'text': '',
             'color': 15,
             'width': 30,
-            'regex': r'^removed prerelease tags from repo .*/(?P<value>.*)$',
+            'regex': r'^removed (prerelease|version) tags from repo .*/(?P<value>.*)$',
             'table': True
         },
         'repo_no_tags': {
@@ -381,6 +402,16 @@ def get_screen_layout():
     }
 
 
+def version_screen_layout(screen_layout):
+    screen_layout['tpt_key1']['text'] = 'TT:'
+    screen_layout['tpt_key2']['text'] = 'Total Tags'
+    screen_layout['ptr_key1']['text'] = 'TR:'
+    screen_layout['ptr_key2']['text'] = 'Tags Removed'
+    screen_layout['tpt_header']['text'] = 'TT'
+    screen_layout['ptr_header']['text'] = 'TR'
+    return screen_layout
+
+
 # the queue_handler decorator in mpcurses is where part of the magic happens
 # it creates an additonal log handler that sends all the wrapped functions
 # log messages to a thread-safe message queue
@@ -398,6 +429,25 @@ def get_prerelease_tags_report(data, shared_data):
     repo = data['repo']
     client = shared_data['client']
     report = client.get_prerelease_tags_report(repos=[repo])
+    return report
+
+
+@queue_handler
+def remove_version_tags(data, shared_data):
+    repo = data['repo']
+    client = shared_data['client']
+    noop = shared_data['noop']
+    expression = shared_data['version']
+    client.remove_version_tags(repo=repo, noop=noop, expression=expression)
+    logger.debug(f'processed repo {repo}')
+
+
+@queue_handler
+def get_version_tags_report(data, shared_data):
+    repo = data['repo']
+    client = shared_data['client']
+    expression = shared_data['version']
+    report = client.get_version_tags_report(repos=[repo], expression=expression)
     return report
 
 
@@ -421,6 +471,8 @@ def initiate_multiprocess(client, function, args, owner, repos):
     screen_layout = None
     if args.screen:
         screen_layout = get_screen_layout()
+        if args.version:
+            screen_layout = version_screen_layout(screen_layout)
 
     include_repos = args.include_repos if args.include_repos else '-'
     exclude_repos = args.exclude_repos if args.exclude_repos else '-'
@@ -436,7 +488,8 @@ def initiate_multiprocess(client, function, args, owner, repos):
         shared_data={
             'client': client,
             'owner': owner,
-            'noop': args.noop
+            'noop': args.noop,
+            'version': args.version
         },
         number_of_processes=args.processes,
         init_messages=[
@@ -509,6 +562,13 @@ def prune_prerelease_tags(client, repos, args):
         client.remove_prerelease_tags(repo=repo, noop=args.noop)
 
 
+def prune_version_tags(client, repos, args):
+    """ prune version tags from all repos
+    """
+    for repo in repos:
+        client.remove_version_tags(repo=repo, noop=args.noop, expression=args.version)
+
+
 def write_json_file(report, owner):
     """ write json file
     """
@@ -545,7 +605,10 @@ def main():
             return
         if not args.report and not args.processes:
             # boring sequential execution - it does the job but its kinda boring
-            prune_prerelease_tags(client, repos, args)
+            if not args.version:
+                prune_prerelease_tags(client, repos, args)
+            else:
+                prune_version_tags(client, repos, args)
         else:
             # exciting multi-process execution leveraging the mpcurses library
             # note the same api methods are called here as in the call above
@@ -559,10 +622,16 @@ def main():
             # the mpcurses library abstracts multi-processing and the curses screen completely
             # from the api methods - that's the way it should be
             if args.report:
-                result = initiate_multiprocess(client, get_prerelease_tags_report, args, owner, repos)
+                if not args.version:
+                    result = initiate_multiprocess(client, get_prerelease_tags_report, args, owner, repos)
+                else:
+                    result = initiate_multiprocess(client, get_version_tags_report, args, owner, repos)
                 write_report(result, owner)
             else:
-                initiate_multiprocess(client, remove_prerelease_tags, args, owner, repos)
+                if not args.version:
+                    initiate_multiprocess(client, remove_prerelease_tags, args, owner, repos)
+                else:
+                    initiate_multiprocess(client, remove_version_tags, args, owner, repos)
 
     except MissingArgumentError as exception:
         parser.print_usage()
