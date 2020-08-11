@@ -222,6 +222,62 @@ class GitHubAPI(RESTclient):
                 logger.error(f'error occurred removing tag {prerelease_tag} from repo {repo}: {exception}')
         logger.debug(f'removed prerelease tags from repo {repo}')
 
+    def get_version_tags(self, repo=None, branch=None, expression=None):
+        """ return version tags, latest version and latest version sha for repo
+        """
+        logger.info(f'getting version tags for repo {repo}')
+        tags = self.read_all(f'/repos/{repo}/tags')
+        if not tags:
+            logger.info(f'repo {repo} has no tags')
+            return
+        latest_version, latest_version_sha = self.get_latest_version(repo=repo, tags=tags, branch=branch)
+        if not latest_version:
+            logger.info(f'repo {repo} has no tags that are versions')
+            return
+        logger.debug(f'repo {repo} latest tag version is {latest_version}')
+        exclude = None
+        if latest_version.prerelease != ():
+            exclude = latest_version
+        version_tags = GitHubAPI.filter_version_tags(tags=tags, exclude=exclude, expression=expression)
+        return version_tags, latest_version, latest_version_sha
+
+    def remove_version_tags(self, repo=None, branch=None, noop=True, expression=None):
+        """ remove version tags from repo
+        """
+        logger.info(f'removing version tags from repo {repo}')
+        version_tags_result = self.get_version_tags(repo=repo, branch=branch, expression=expression)
+        if version_tags_result is None:
+            return
+        version_tags = version_tags_result[0]
+        logger.debug(f'repo {repo} has {str(len(version_tags)).zfill(3)} version tags that can be removed according to "{expression}"')
+        for version_tag, _ in version_tags:
+            try:
+                endpoint = f'/repos/{repo}/git/refs/tags/{version_tag}'
+                self.ratelimit_request(self.delete, endpoint, noop=noop)
+                if noop:
+                    sleep(.30)
+                logger.info(f'removed tag {version_tag} from repo {repo} - NOOP: {noop}')
+            except Exception as exception:
+                logger.error(f'error occurred removing tag {version_tag} from repo {repo}: {exception}')
+        logger.info(f'removed version tags from repo {repo}')
+
+    def get_version_tags_report(self, repos=None, expression=None):
+        """ get version tags report for repos
+        """
+        report = {}
+        for repo in repos:
+            version_tags_result = self.get_version_tags(repo=repo, expression=expression)
+            if version_tags_result is None:
+                report.update({f'{repo}': {}})
+            else:
+                report.update(
+                    GitHubAPI.generate_version_report(
+                        repo=repo,
+                        version_tags=version_tags_result[0],
+                        latest_version=version_tags_result[1],
+                        latest_version_sha=version_tags_result[2]))
+        return report
+
     def get_prerelease_tags_report(self, repos=None):
         """ get prerelease tags report for repos
         """
@@ -295,6 +351,21 @@ class GitHubAPI(RESTclient):
         return prerelease_tags
 
     @classmethod
+    def filter_version_tags(cls, *, tags, exclude, expression):
+        """ return list of tags that match expression
+        """
+        version_tags = []
+        version_spec = SimpleSpec(expression)
+        for tag in tags:
+            tag_name = tag['name']
+            tag_sha = tag['commit']['sha']
+            version = GitHubAPI.get_version(name=tag_name)
+            if version is not None:
+                if version_spec.match(version):
+                    version_tags.append((tag_name, tag_sha))
+        return version_tags
+
+    @classmethod
     def get_version(cls, *, name):
         """ return semantic version for name
         """
@@ -320,6 +391,23 @@ class GitHubAPI(RESTclient):
             version = GitHubAPI.get_version(name=prerelease_tag)
             report[repo]['prerelease_tags'].append(
                 (f'v{str(version)}', prerelease_sha))
+        return report
+
+    @classmethod
+    def generate_version_report(cls, *, repo, version_tags, latest_version, latest_version_sha):
+        """ generate version tag report for repo
+        """
+        report = {
+            f'{repo}': {
+                'latest_version': (str(latest_version), latest_version_sha),
+                'version_tags_count': len(version_tags),
+                'version_tags': []
+            }
+        }
+        for version_tag, version_sha in version_tags:
+            version = GitHubAPI.get_version(name=version_tag)
+            report[repo]['version_tags'].append(
+                (f'v{str(version)}', version_sha))
         return report
 
     @classmethod

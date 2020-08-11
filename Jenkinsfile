@@ -23,6 +23,16 @@ pipeline {
             name: 'Execute',
             defaultValue: '',
             description: 'Specify --execute to run script in execute mode, leave it blank to run script in NOOP mode.')
+        string(
+            name: 'Version',
+            defaultValue: '',
+            description: 'Specify \'--remove-version <version-range>\' to remove *all* tags within range. \
+                See README for syntax. e.g.\"--remove-version \'<1.0.87\'\"')
+        string(
+            name: 'Include Repositories',
+            defaultValue: '--include edgex-global-pipelines',
+            description: 'Specify \'--include <repo-name>\' to target specific repositories. Leaving this argument \
+                blank will target *all* repos within edgexfoundry.')
     }
     environment {
         GH_TOKEN = credentials('edgex-jenkins-github-personal-access-token')
@@ -43,7 +53,7 @@ pipeline {
                         }
                     }
                     steps {
-                        sh "prune-github-tags --org edgexfoundry --procs 10 ${params.Execute}"
+                        sh "prune-github-tags --org edgexfoundry --procs 10 --report ${params.Execute} ${params.Version} ${params['Include Repositories']}"
                     }
                 }
             }
