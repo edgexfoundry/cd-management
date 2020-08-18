@@ -53,7 +53,7 @@ pipeline {
                         }
                     }
                     steps {
-                        sh "prune-github-tags --org edgexfoundry --procs 10 --report ${params.Execute} ${params.Version} ${params['Include Repositories']}"
+                        sh "prune-github-tags --org edgexfoundry --procs 10 ${params.Execute} ${params.Version} ${params['Include Repositories']}"
                     }
                 }
             }
