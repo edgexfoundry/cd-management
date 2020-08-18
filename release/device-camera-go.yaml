@@ -1,8 +1,8 @@
 ---
 name: 'device-camera-go'
-version: '1.1.1'
+version: '1.1.2'
 releaseName: 'geneva'
-releaseStream: '1.1.1'
+releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/device-camera-go.git'
 gitTag: false
 dockerImages: true
