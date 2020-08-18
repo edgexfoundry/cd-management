@@ -37,7 +37,7 @@ pipeline {
     environment {
         GH_TOKEN = credentials('edgex-jenkins-github-personal-access-token')
     }
-    stages{
+    stages {
         stage('Build') {
             agent {
                 dockerfile {
@@ -57,6 +57,11 @@ pipeline {
                     }
                 }
             }
+        }
+    }
+    post {
+        always {
+            edgeXInfraPublish()
         }
     }
 }
