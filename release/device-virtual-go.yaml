@@ -4,7 +4,7 @@ version: '1.2.3'
 releaseName: 'geneva'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/device-virtual-go.git'
-gitTag: true
+gitTag: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-device-virtual-go
