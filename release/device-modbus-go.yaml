@@ -5,7 +5,7 @@ releaseName: 'geneva'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/device-modbus-go.git'
 gitTag: false
-dockerImages: false
+dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-device-modbus-go
     destination:
