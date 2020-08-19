@@ -4,8 +4,8 @@ version: '1.1.2'
 releaseName: 'geneva'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/device-camera-go.git'
-gitTag: true
-dockerImages: false
+gitTag: false
+dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-device-camera-go
     destination:
