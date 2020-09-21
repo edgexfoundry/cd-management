@@ -1,0 +1,17 @@
+---
+name: 'device-bacnet-c'
+version: '1.2.0'
+releaseName: 'geneva'
+releaseStream: 'master'
+repo: 'https://github.com/edgexfoundry/device-bacnet-c.git'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/docker-device-bacnet-c
+    destination:
+      - nexus3.edgexfoundry.org:10002/docker-device-bacnet-c
+      - docker.io/edgexfoundry/docker-device-bacnet-c
+  - image: nexus3.edgexfoundry.org:10004/docker-device-bacnet-c-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/docker-device-bacnet-c-arm64
+      - docker.io/edgexfoundry/docker-device-bacnet-c-arm64
