@@ -14,7 +14,7 @@
 // limitations under the License.
 //
 
-// @Library("edgex-global-pipelines@experimental") _
+@Library("edgex-global-pipelines@7eba319") _
 
 def parallelSteps = [:]
 def releaseData = []
@@ -26,7 +26,7 @@ pipeline {
         timeout(360)
     }
     environment {
-        DRY_RUN = shouldDoDryRun()
+        DRY_RUN = 'true'  // shouldDoDryRun()
         DRY_RUN_PULL_DOCKER_IMAGES = true
         RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
     }

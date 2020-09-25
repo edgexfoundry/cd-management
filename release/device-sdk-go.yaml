@@ -1,9 +1,0 @@
----
-name: 'device-sdk-go'
-version: '1.2.3'
-releaseName: 'geneva'
-releaseStream: 'master'
-repo: 'https://github.com/edgexfoundry/device-sdk-go.git'
-gitTag: true
-dockerImages: false
-snap: false
