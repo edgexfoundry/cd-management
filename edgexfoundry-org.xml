@@ -57,6 +57,14 @@
       <repoOwner>edgexfoundry</repoOwner>
       <credentialsId>edgex-jenkins-access-username</credentialsId>
       <traits>
+        <jenkins.plugins.git.traits.CloneOptionTrait plugin="git@4.3.0">
+          <extension class="hudson.plugins.git.extensions.impl.CloneOption">
+            <honorRefspec>false</honorRefspec>
+            <noTags>false</noTags>
+            <reference/>
+            <shallow>false</shallow>
+          </extension>
+        </jenkins.plugins.git.traits.CloneOptionTrait>
         <org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait>
           <strategyId>1</strategyId>
         </org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait>
