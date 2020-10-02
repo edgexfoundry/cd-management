@@ -19,8 +19,7 @@ from rest3client import RESTclient
 from requests.exceptions import HTTPError
 from requests.exceptions import SSLError
 from requests.exceptions import ProxyError
-from ratelimit import limits
-from ratelimit import sleep_and_retry
+from requests.exceptions import ConnectionError
 from retrying import retry
 from pytz import timezone
 from datetime import datetime
@@ -66,31 +65,30 @@ def log_ratelimit(headers):
     remaining = headers.get('X-RateLimit-Remaining')
     limit = headers.get('X-RateLimit-Limit')
     delta = datetime.fromtimestamp(int(reset)) - datetime.now()
-    logger.debug('{}/{} resets in {} min'.format(
+    logger.info('{}/{} resets in {} min'.format(
         remaining, limit, str(delta.total_seconds() / 60).split('.')[0]))
 
 
-def is_ssl_error(exception):
-    """ return True if exception is SSLError or ProxyError, False otherwise
+def is_connection_error(exception):
+    """ return True if exception is SSLError, ProxyError or ConnectError, False otherwise
     """
-    logger.debug('checking exception for retry candidacy')
-    if isinstance(exception, SSLError):
-        logger.info('SSLError encountered - retrying request in a few seconds')
+    logger.info(f"checking if '{type(exception).__name__}' exception is a connection error")
+    if isinstance(exception, (SSLError, ProxyError, ConnectionError)):
+        logger.info('connectivity error encountered - retrying request in a few seconds')
         return True
-    if isinstance(exception, ProxyError):
-        logger.info('ProxyError encountered - retrying request in a few seconds')
-        return True
+    logger.debug(f'exception is not a connectivity error: {exception}')
     return False
 
 
-def is_403_error(exception):
+def is_ratelimit_error(exception):
     """ return True if exception is 403 HTTPError, False otherwise
     """
-    logger.debug('checking exception for retry candidacy')
+    logger.info(f"checking if '{type(exception).__name__}' exception is a ratelimit error")
     if isinstance(exception, HTTPError):
         if exception.response.status_code == 403:
-            logger.info('HTTPError 403 encountered - retrying request in 60 seconds')
+            logger.info('ratelimit error encountered - retrying request in 60 seconds')
             return True
+    logger.debug(f'exception is not a ratelimit error: {exception}')
     return False
 
 
@@ -252,6 +250,7 @@ class GitHubAPI(RESTclient):
         """ return True if resource associated with endpoint exists, False otherwise
         """
         try:
+            logger.debug(f'checking if resource associated with {endpoint} exists')
             self.ratelimit_request(self.get, endpoint, raw_response=True)
             return True
         except HTTPError as exception:
@@ -333,24 +332,25 @@ class GitHubAPI(RESTclient):
             self.sync_labels(repo_name, labels, source_repo, noop=noop)
             self.sync_milestones(repo_name, milestones, source_repo, noop=noop)
 
-    @retry(retry_on_exception=is_ssl_error, wait_random_min=10000, wait_random_max=20000, stop_max_attempt_number=3)
     def modified_since(self, endpoint, modified_since):
         """ return True if endpoint has been modified since modified_since
         """
         if not modified_since:
             return True
-        response = self.get(
+        logger.debug(f'checking if resource associated with {endpoint} has been modified since {modified_since}')
+        response = self.ratelimit_request(
+            self.get,
             endpoint,
             raw_response=True,
             headers={
                 'If-Modified-Since': modified_since
             })
-        return response.status_code == 200
+        modified = response.status_code == 200
+        logger.debug(f"resource associated with {endpoint} {'has been' if modified else 'has not been'} modified since {modified_since}")
+        return modified
 
-    @retry(retry_on_exception=is_ssl_error, wait_random_min=10000, wait_random_max=20000, stop_max_attempt_number=3)
-    @retry(retry_on_exception=is_403_error, wait_fixed=60000, stop_max_attempt_number=60)
-    @sleep_and_retry
-    @limits(calls=60, period=60)
+    @retry(retry_on_exception=is_connection_error, wait_random_min=10000, wait_random_max=20000, stop_max_attempt_number=6)
+    @retry(retry_on_exception=is_ratelimit_error, wait_fixed=60000, stop_max_attempt_number=60)
     def ratelimit_request(self, function, *args, **kwargs):
         """ provides a method to funnel ratelimit requests
         """

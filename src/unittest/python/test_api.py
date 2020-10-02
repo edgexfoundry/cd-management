@@ -22,8 +22,8 @@ from mock import Mock
 from githubsync.api import match_key_values
 from githubsync.api import match_keys
 from githubsync.api import log_ratelimit
-from githubsync.api import is_ssl_error
-from githubsync.api import is_403_error
+from githubsync.api import is_connection_error
+from githubsync.api import is_ratelimit_error
 from githubsync.api import get_resource_id
 from githubsync.api import get_resource
 from githubsync.api import get_owner_repo
@@ -137,29 +137,33 @@ class TestApi(unittest.TestCase):
             'X-RateLimit-Limit': '5000'
         }
         log_ratelimit(header)
-        logger_patch.debug.assert_called_with('4999/5000 resets in 58 min')
+        logger_patch.info.assert_called_with('4999/5000 resets in 58 min')
 
-    def test__is_ssl_error_Should_Return_False_When_NoMatch(self, *patches):
+    def test__is_connection_error_Should_Return_False_When_NoMatch(self, *patches):
+        response_mock = Mock(status_code=404)
+        http_error_mock = HTTPError(Mock())
+        http_error_mock.response = response_mock
+        self.assertFalse(is_connection_error(http_error_mock))
 
-        self.assertFalse(is_ssl_error(Exception('test')))
+    def test__is_connection_error_Should_Return_True_When_SSLError(self, *patches):
 
-    def test__is_ssl_error_Should_Return_True_When_SSLError(self, *patches):
+        self.assertTrue(is_connection_error(SSLError('test')))
 
-        self.assertTrue(is_ssl_error(SSLError('test')))
+    def test__is_connection_error_Should_Return_True_When_ProxyError(self, *patches):
 
-    def test__is_ssl_error_Should_Return_True_When_ProxyError(self, *patches):
+        self.assertTrue(is_connection_error(ProxyError('test')))
 
-        self.assertTrue(is_ssl_error(ProxyError('test')))
+    def test__is_ratelimit_error_Should_Return_False_When_NoMatch(self, *patches):
+        response_mock = Mock(status_code=404)
+        http_error_mock = HTTPError(Mock())
+        http_error_mock.response = response_mock
+        self.assertFalse(is_ratelimit_error(http_error_mock))
 
-    def test__is_403_error_Should_Return_False_When_NoMatch(self, *patches):
-
-        self.assertFalse(is_403_error(Exception('test')))
-
-    def test__is_403_error_Should_Return_True_When_Match(self, *patches):
+    def test__is_ratelimit_error_Should_Return_True_When_Match(self, *patches):
         response_mock = Mock(status_code=403)
         http_error_mock = HTTPError(Mock())
         http_error_mock.response = response_mock
-        self.assertTrue(is_403_error(http_error_mock))
+        self.assertTrue(is_ratelimit_error(http_error_mock))
 
     def test__get_resource_id_Should_ReturnExpected_When_Called(self, *patches):
         endpoint = '/repos/:owner/:repo/labels/label1'

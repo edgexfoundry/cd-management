@@ -14,8 +14,6 @@
 // limitations under the License.
 //
 
-def githubsyncImage
-
 pipeline {
     agent {
         label 'centos7-docker-4c-2g'
@@ -34,29 +32,31 @@ pipeline {
     }
     stages{
         stage('Build') {
-            steps {
-                script {
-                    githubsyncImage = docker.build('githubsync:latest')
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                    reuseNode true
                 }
             }
-        }
-        stage('Execute') {
-            when {
-                anyOf {
-                    triggeredBy 'UserIdCause'
-                    triggeredBy 'TimerTrigger'
-                }
-            }
-            steps {
-                script {
-                    // full synchronization on Sunday and incremental all other days
-                    def command = 'githubsync --procs 10'
-                    def today = getDay()
-                    if(today != 'Sunday') {
-                        command += ' --modified-since 2d'
+            stages {
+                stage('Execute') {
+                    when {
+                        anyOf {
+                            triggeredBy 'UserIdCause'
+                            triggeredBy 'TimerTrigger'
+                        }
                     }
-                    githubsyncImage.inside() {
-                        sh command
+                    steps {
+                        script {
+                            // full synchronization on Sunday and incremental all other days
+                            def command = 'githubsync --procs 10'
+                            def today = getDay()
+                            if(today != 'Sunday') {
+                                command += ' --modified-since 2d'
+                            }
+                            sh command
+                            archiveArtifacts artifacts: '*.log'
+                        }
                     }
                 }
             }
