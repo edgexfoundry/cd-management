@@ -1,3 +1,5 @@
+[![build-status](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/git-label-sync/badge/icon)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/git-label-sync)
+
 # cd-management/git-label-sync
 
 ## Summary
@@ -94,3 +96,38 @@ Start `2` concurrent processes with screen and only include sources that have be
 ```Script
 githubsync --procs 2 --modified-since 1d --noop --screen
 ```
+
+### Development
+Clone the repository:
+```
+cd
+git clone https://github.com/edgexfoundry/cd-management.git sync-github-labels
+cd sync-github-labels
+```
+
+Build the Docker image:
+```
+docker image build \
+--build-arg http_proxy \
+--build-arg https_proxy \
+-t \
+githubsync:latest .
+```
+
+Run the Docker container:
+```
+docker container run \
+--rm \
+-it \
+-e http_proxy \
+-e https_proxy \
+-v $PWD:/githubsync \
+githubsync:latest \
+/bin/sh
+```
+
+Execute the build:
+```
+pyb -X
+```
+NOTE: commands above assume working behind a proxy, if not then the proxy arguments to both the docker build and run commands can be removed.
