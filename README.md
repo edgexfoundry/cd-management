@@ -20,7 +20,7 @@ Currently the [create.sh](./create.sh) script will create a top level folder in 
 
 ## Usage
 
-Note: An Jenkins authentication token will need to be generated on the Jenkins server before running this script. The authentication ENV vars will need to be set before running this script. Jenkins tokens can be created on your user configuration page found here: `JENKINS_URL/me/configure`.
+Note: An Jenkins authentication token will need to be generated on the Jenkins server before running this script. The authentication ENV vars will need to be set before running this script. Jenkins tokens can be created on your user configuration page found here: `https://jenkins.edgexfoundry.org/sandbox/me/configure`.
 
 ```Bash
 export JENKINS_USER=your-username
