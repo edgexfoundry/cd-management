@@ -14,7 +14,7 @@
 // limitations under the License.
 //
 
-@Library("edgex-global-pipelines@7eba319") _
+@Library("edgex-global-pipelines@ce09bac") _
 
 def parallelSteps = [:]
 def releaseData = []
