@@ -1,4 +1,3 @@
-retrying
 pytz
-rest3client
 mpcurses
+-e git+https://github.com/soda480/github3api.git@master#egg=github3api

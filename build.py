@@ -29,13 +29,13 @@ use_plugin('python.coverage')
 use_plugin('python.distutils')
 use_plugin('filter_resources')
 
-name = 'githubsync'
+name = 'synclabels'
 authors = [
     Author('Emilio Reyes', 'emilio.reyes@intel.com')
 ]
 summary = 'A Python script to synchronize labels for repositories in a GitHub organization'
 url = 'https://github.com/edgexfoundry/cd-management/tree/git-label-sync'
-version = '0.0.4'
+version = '0.0.5'
 default_task = [
     'clean',
     'analyze',
@@ -57,7 +57,7 @@ def set_properties(project):
     project.build_depends_on_requirements('requirements-build.txt')
     project.depends_on_requirements('requirements.txt')
     project.set_property('distutils_console_scripts',
-        ['githubsync = githubsync.cli:main'])
+        ['sync-github-labels = synclabels.cli:main'])
 
 
 @task('cyclomatic_complexity', description='calculates and publishes cyclomatic complexity')

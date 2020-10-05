@@ -1,22 +1,32 @@
-FROM python:3.6.5-slim
+FROM python:3.6-alpine AS build-image
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV TERM xterm-256color
 
-RUN mkdir /githubsync
+WORKDIR /synclabels
 
-COPY . /githubsync/
+COPY . /synclabels/
 
-WORKDIR /githubsync
-
-RUN apt-get update
-RUN apt-get install -y git gcc libssl-dev
+RUN apk add --update --no-cache git gcc libc-dev libffi-dev openssl-dev
 
 RUN pip install pybuilder==0.11.17
-RUN pyb clean
 RUN pyb install_dependencies
-RUN pyb -X
-RUN pyb install
+RUN pyb
+RUN pyb publish
 
-WORKDIR /githubsync
+
+FROM python:3.6-alpine
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV TERM xterm-256color
+
+WORKDIR /opt/synclabels
+
+COPY --from=build-image /synclabels/target/dist/synclabels-*/dist/synclabels-*.tar.gz /opt/synclabels
+
+RUN apk add --update --no-cache git gcc libc-dev libffi-dev openssl-dev
+RUN pip install git+https://github.com/soda480/github3api.git@master#egg=github3api
+
+RUN pip install synclabels-*.tar.gz
+
 CMD echo 'DONE'
