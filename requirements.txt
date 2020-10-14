@@ -1,4 +1,3 @@
-retrying
-rest3client
 mpcurses
 semantic_version
+-e git+https://github.com/soda480/github3api.git@master#egg=github3api

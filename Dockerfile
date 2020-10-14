@@ -7,13 +7,10 @@ WORKDIR /prunetags
 
 COPY . /prunetags/
 
-RUN apk update
-RUN apk add git gcc
-RUN pip install --upgrade pip
+RUN apk add --update --no-cache git gcc libc-dev libffi-dev openssl-dev
 RUN pip install pybuilder==0.11.17
-RUN pyb clean
 RUN pyb install_dependencies
-RUN pyb -X
+RUN pyb
 RUN pyb publish
 
 
@@ -25,6 +22,9 @@ ENV TERM xterm-256color
 WORKDIR /opt/prunetags
 
 COPY --from=build-image /prunetags/target/dist/prunetags-*/dist/prunetags-*.tar.gz /opt/prunetags
+
+RUN apk add --update --no-cache git gcc libc-dev libffi-dev openssl-dev
+RUN pip install git+https://github.com/soda480/github3api.git@master#egg=github3api
 
 RUN pip install prunetags-*.tar.gz
 

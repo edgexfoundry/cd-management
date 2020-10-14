@@ -14,143 +14,32 @@
 # limitations under the License.
 
 import re
+import logging
 from os import getenv
-from rest3client import RESTclient
-from requests.exceptions import HTTPError
+from time import sleep
+from datetime import datetime
+
 from requests.exceptions import SSLError
 from requests.exceptions import ProxyError
 from requests.exceptions import ConnectionError
-from retrying import retry
-from datetime import datetime
 from semantic_version import Version
 from semantic_version import SimpleSpec
 from semantic_version import validate as validate_version
-from time import sleep
+from github3api import GitHubAPI
 
-import logging
+
 logger = logging.getLogger(__name__)
 
-logging.getLogger('urllib3.connectionpool').setLevel(logging.CRITICAL)
 
-HOSTNAME = 'api.github.com'
+class API(GitHubAPI):
 
+    def __init__(self, **kwargs):
+        logger.debug('executing API constructor')
 
-def match_keys(items, attributes):
-    """ return list of items with matching keys from list of attributes
-    """
-    if not attributes:
-        return items
-    matched_items = []
-    for item in items:
-        matched_items.append({
-            key: item[key] for key in attributes if key in item
-        })
-    return matched_items
-
-
-def is_connection_error(exception):
-    """ return True if exception is SSLError, ProxyError or ConnectError, False otherwise
-    """
-    logger.debug(f'checking exception for retry candidacy: {exception}')
-
-    if isinstance(exception, SSLError):
-        logger.info('SSLError encountered - retrying request in a few seconds')
-        return True
-    if isinstance(exception, ProxyError):
-        logger.info('ProxyError encountered - retrying request in a few seconds')
-        return True
-    if isinstance(exception, ConnectionError):
-        logger.info('ConnectionError encountered - retrying request in a few seconds')
-        return True
-    return False
-
-
-def is_ratelimit_error(exception):
-    """ return True if exception is 403 HTTPError, False otherwise
-    """
-    logger.debug('checking exception for retry candidacy')
-    if isinstance(exception, HTTPError):
-        if exception.response.status_code == 403:
-            logger.info('HTTPError 403 encountered - retrying request in 60 seconds')
-            return True
-    return False
-
-
-class GitHubAPI(RESTclient):
-
-    def __init__(self, hostname, **kwargs):
-        logger.debug('executing GitHubAPI constructor')
         if not kwargs.get('bearer_token'):
             raise ValueError('bearer_token must be provided')
-        super(GitHubAPI, self).__init__(hostname, **kwargs)
 
-    def get_response(self, response, **kwargs):
-        """ subclass override to including logging of ratelimits
-        """
-        GitHubAPI.log_ratelimit(response.headers)
-        return super(GitHubAPI, self).get_response(response, **kwargs)
-
-    def get_headers(self, **kwargs):
-        """ return headers to pass to requests method
-        """
-        headers = super(GitHubAPI, self).get_headers(**kwargs)
-        headers['Accept'] = 'application/vnd.github.v3+json'
-        return headers
-
-    def get_next_endpoint(self, link_header):
-        """ return next endpoint from link header
-        """
-        if not link_header:
-            logger.debug('link header is empty')
-            return
-        regex = fr".*<https://{self.hostname}(?P<endpoint>/.*?)>; rel=\"next\".*"
-        match = re.match(regex, link_header)
-        if match:
-            endpoint = match.group('endpoint')
-            logger.debug(f'found next endpoint in link header: {endpoint}')
-            return endpoint
-        logger.debug('next endpoints not found in link header')
-
-    def read_all(self, endpoint):
-        """ get all items from endpoint - respects paging
-        """
-        logger.debug(f'get items from: {endpoint}')
-        items = []
-        while True:
-            response = self.ratelimit_request(self.get, endpoint, raw_response=True)
-            link_header = None
-            if response:
-                data = response.json()
-                if isinstance(data, list):
-                    items.extend(response.json())
-                else:
-                    items.append(data)
-                link_header = response.headers.get('Link')
-
-            endpoint = self.get_next_endpoint(link_header)
-            if not endpoint:
-                logger.debug('no more pages to retrieve')
-                break
-
-        return items
-
-    def read(self, endpoint, attributes=None):
-        """ return list of resources retrieved from endpoint with filtered attributes
-        """
-        items = self.read_all(endpoint)
-        return match_keys(items, attributes)
-
-    def read_page(self, endpoint):
-        """ generator that yields pages from endpoint
-        """
-        while True:
-            response = self.ratelimit_request(self.get, endpoint, raw_response=True)
-            for page in response.json():
-                yield page
-            endpoint = self.get_next_endpoint(response.headers.get('Link'))
-            if not endpoint:
-                logger.debug('no more pages')
-                break
+        super(API, self).__init__(**kwargs)
 
     def get_repos(self, organization=None, user=None, include=None, exclude=None, **attributes):
         """ return organization repos that match the provided attributes
@@ -160,8 +49,8 @@ class GitHubAPI(RESTclient):
         if user:
             endpoint = f'/users/{user}/repos'
             owner = user
-        repos = self.read_all(endpoint)
-        return GitHubAPI.match_repos(
+        repos = self.get(endpoint, _get='all')
+        return API.match_repos(
             repos=repos,
             owner=owner,
             include=include,
@@ -173,11 +62,11 @@ class GitHubAPI(RESTclient):
         """
         if not branch:
             branch = 'master'
-        for commit in self.read_page(f'/repos/{repo}/commits?sha={branch}'):
+        for commit in self.get(f'/repos/{repo}/commits?sha={branch}', _get='page'):
             commit_sha = commit['sha']
-            tag = GitHubAPI.lookup_tag(tags=tags, sha=commit_sha)
+            tag = API.lookup_tag(tags=tags, sha=commit_sha)
             if tag:
-                version = GitHubAPI.get_version(name=tag['name'])
+                version = API.get_version(name=tag['name'])
                 if version:
                     return (version, commit_sha)
         return (None, None)
@@ -186,7 +75,7 @@ class GitHubAPI(RESTclient):
         """ return prerelease tags, latest version and latest version sha for repo
         """
         logger.debug(f'getting prerelease tags for repo {repo}')
-        tags = self.read_all(f'/repos/{repo}/tags')
+        tags = self.get(f'/repos/{repo}/tags', _get='all')
         if not tags:
             logger.info(f'repo {repo} has no tags')
             return
@@ -198,7 +87,7 @@ class GitHubAPI(RESTclient):
         exclude = None
         if latest_version.prerelease != ():
             exclude = latest_version
-        prerelease_tags = GitHubAPI.filter_prerelease_tags(tags=tags, exclude=exclude)
+        prerelease_tags = API.filter_prerelease_tags(tags=tags, exclude=exclude)
         logger.debug(f'repo {repo} has {str(len(prerelease_tags)).zfill(3)} prerelease tags')
         return prerelease_tags, latest_version, latest_version_sha
 
@@ -214,7 +103,7 @@ class GitHubAPI(RESTclient):
         for prerelease_tag, _ in prerelease_tags:
             try:
                 endpoint = f'/repos/{repo}/git/refs/tags/{prerelease_tag}'
-                self.ratelimit_request(self.delete, endpoint, noop=noop)
+                self.delete(endpoint, noop=noop)
                 if noop:
                     sleep(.30)
                 logger.info(f'removed tag {prerelease_tag} from repo {repo} - NOOP: {noop}')
@@ -226,7 +115,7 @@ class GitHubAPI(RESTclient):
         """ return version tags, latest version and latest version sha for repo
         """
         logger.info(f'getting version tags for repo {repo}')
-        tags = self.read_all(f'/repos/{repo}/tags')
+        tags = self.get(f'/repos/{repo}/tags', _get='all')
         if not tags:
             logger.info(f'repo {repo} has no tags')
             return
@@ -238,7 +127,7 @@ class GitHubAPI(RESTclient):
         exclude = None
         if latest_version.prerelease != ():
             exclude = latest_version
-        version_tags = GitHubAPI.filter_version_tags(tags=tags, exclude=exclude, expression=expression)
+        version_tags = API.filter_version_tags(tags=tags, exclude=exclude, expression=expression)
         return version_tags, latest_version, latest_version_sha
 
     def remove_version_tags(self, repo=None, branch=None, noop=True, expression=None):
@@ -253,7 +142,7 @@ class GitHubAPI(RESTclient):
         for version_tag, _ in version_tags:
             try:
                 endpoint = f'/repos/{repo}/git/refs/tags/{version_tag}'
-                self.ratelimit_request(self.delete, endpoint, noop=noop)
+                self.delete(endpoint, noop=noop)
                 if noop:
                     sleep(.30)
                 logger.info(f'removed tag {version_tag} from repo {repo} - NOOP: {noop}')
@@ -271,7 +160,7 @@ class GitHubAPI(RESTclient):
                 report.update({f'{repo}': {}})
             else:
                 report.update(
-                    GitHubAPI.generate_version_report(
+                    API.generate_version_report(
                         repo=repo,
                         version_tags=version_tags_result[0],
                         latest_version=version_tags_result[1],
@@ -288,26 +177,15 @@ class GitHubAPI(RESTclient):
                 report.update({f'{repo}': {}})
             else:
                 report.update(
-                    GitHubAPI.generate_preprelease_report(
+                    API.generate_preprelease_report(
                         repo=repo,
                         prerelease_tags=prerelease_tags_result[0],
                         latest_version=prerelease_tags_result[1],
                         latest_version_sha=prerelease_tags_result[2]))
         return report
 
-    @retry(retry_on_exception=is_connection_error, wait_random_min=10000, wait_random_max=20000, stop_max_attempt_number=6)
-    @retry(retry_on_exception=is_ratelimit_error, wait_fixed=60000, stop_max_attempt_number=60)
-    def ratelimit_request(self, function, *args, **kwargs):
-        """ provides a method to funnel ratelimit requests
-        """
-        raw_response = kwargs.get('raw_response', False)
-        response = function(*args, **kwargs)
-        if raw_response:
-            response.raise_for_status()
-        return response
-
-    @classmethod
-    def match_repos(cls, *, repos, owner, include, exclude, **attributes):
+    @staticmethod
+    def match_repos(*, repos, owner, include, exclude, **attributes):
         """ return list of repos whose name matches include and key values match attributes and name does not match exclude
         """
         match_include = True
@@ -324,23 +202,23 @@ class GitHubAPI(RESTclient):
                 matched.append(f'{owner}/{repo_name}')
         return matched
 
-    @classmethod
-    def lookup_tag(cls, *, tags, sha):
+    @staticmethod
+    def lookup_tag(*, tags, sha):
         """ return tag with sha from tags
         """
         for tag in tags:
             if tag['commit']['sha'] == sha:
                 return tag
 
-    @classmethod
-    def filter_prerelease_tags(cls, *, tags, exclude):
+    @staticmethod
+    def filter_prerelease_tags(*, tags, exclude):
         """ return list of tags that are prereleases
         """
         prerelease_tags = []
         for tag in tags:
             tag_name = tag['name']
             tag_sha = tag['commit']['sha']
-            version = GitHubAPI.get_version(name=tag_name)
+            version = API.get_version(name=tag_name)
             if version:
                 if version.prerelease != ():
                     if exclude:
@@ -350,8 +228,8 @@ class GitHubAPI(RESTclient):
                     prerelease_tags.append((tag_name, tag_sha))
         return prerelease_tags
 
-    @classmethod
-    def filter_version_tags(cls, *, tags, exclude, expression):
+    @staticmethod
+    def filter_version_tags(*, tags, exclude, expression):
         """ return list of tags that match expression
         """
         version_tags = []
@@ -359,14 +237,14 @@ class GitHubAPI(RESTclient):
         for tag in tags:
             tag_name = tag['name']
             tag_sha = tag['commit']['sha']
-            version = GitHubAPI.get_version(name=tag_name)
+            version = API.get_version(name=tag_name)
             if version is not None:
                 if version_spec.match(version):
                     version_tags.append((tag_name, tag_sha))
         return version_tags
 
-    @classmethod
-    def get_version(cls, *, name):
+    @staticmethod
+    def get_version(*, name):
         """ return semantic version for name
         """
         if name.startswith('v'):
@@ -376,8 +254,8 @@ class GitHubAPI(RESTclient):
             return
         return Version(name)
 
-    @classmethod
-    def generate_preprelease_report(cls, *, repo, prerelease_tags, latest_version, latest_version_sha):
+    @staticmethod
+    def generate_preprelease_report(*, repo, prerelease_tags, latest_version, latest_version_sha):
         """ generate prerelease tag report for repo
         """
         report = {
@@ -388,13 +266,13 @@ class GitHubAPI(RESTclient):
             }
         }
         for prerelease_tag, prerelease_sha in prerelease_tags:
-            version = GitHubAPI.get_version(name=prerelease_tag)
+            version = API.get_version(name=prerelease_tag)
             report[repo]['prerelease_tags'].append(
                 (f'v{str(version)}', prerelease_sha))
         return report
 
-    @classmethod
-    def generate_version_report(cls, *, repo, version_tags, latest_version, latest_version_sha):
+    @staticmethod
+    def generate_version_report(*, repo, version_tags, latest_version, latest_version_sha):
         """ generate version tag report for repo
         """
         report = {
@@ -405,28 +283,28 @@ class GitHubAPI(RESTclient):
             }
         }
         for version_tag, version_sha in version_tags:
-            version = GitHubAPI.get_version(name=version_tag)
+            version = API.get_version(name=version_tag)
             report[repo]['version_tags'].append(
                 (f'v{str(version)}', version_sha))
         return report
 
-    @classmethod
-    def log_ratelimit(cls, headers):
-        """ convert and log rate limit data
+    @staticmethod
+    def log_ratelimit(ratelimit):
+        """ log rate limit data - override of base class
         """
-        reset = headers.get('X-RateLimit-Reset')
-        if not reset:
-            return
-        remaining = headers.get('X-RateLimit-Remaining')
-        limit = headers.get('X-RateLimit-Limit')
-        delta = datetime.fromtimestamp(int(reset)) - datetime.now()
-        minutes = str(delta.total_seconds() / 60).split('.')[0]
-        logger.debug(f'{remaining}/{limit} resets in {minutes} min')
+        logger.info(f"{ratelimit['remaining']}/{ratelimit['limit']} resets in {ratelimit['minutes']} min")
 
-    @classmethod
-    def get_client(cls):
-        """ return instance of GitHubAPI
+    @staticmethod
+    def retry_connection_error(exception):
+        """ return True if exception is SSLError, ProxyError or ConnectError, False otherwise
+            retry:
+                wait_random_min:10000
+                wait_random_max:20000
+                stop_max_attempt_number:6
         """
-        return GitHubAPI(
-            getenv('GH_BASE_URL', HOSTNAME),
-            bearer_token=getenv('GH_TOKEN_PSW'))
+        logger.debug(f"checking if '{type(exception).__name__}' exception is a connection error")
+        if isinstance(exception, (SSLError, ProxyError, ConnectionError)):
+            logger.info('connectivity error encountered - retrying request shortly')
+            return True
+        logger.debug(f'exception is not a connectivity error: {exception}')
+        return False

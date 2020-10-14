@@ -13,18 +13,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from mpcurses import queue_handler
-from mpcurses import execute
-
-from prunetags import GitHubAPI
-from argparse import ArgumentParser
-from os import getenv
-from datetime import datetime
 import sys
 import json
-from semantic_version import SimpleSpec
-
 import logging
+from os import getenv
+from datetime import datetime
+from argparse import ArgumentParser
+
+from mpcurses import queue_handler
+from mpcurses import execute
+from semantic_version import SimpleSpec
+from prunetags import API
+
+
 logger = logging.getLogger(__name__)
 
 
@@ -134,9 +135,9 @@ def validate(args):
 
 
 def get_client():
-    """ return instance of GitHubAPI
+    """ return instance of API
     """
-    return GitHubAPI.get_client()
+    return API(bearer_token=getenv('GH_TOKEN_PSW'))
 
 
 def get_screen_layout():
@@ -161,14 +162,14 @@ def get_screen_layout():
             'text': 'RateLimit:',
             'text_color': 245,
             'color': 254,
-            'regex': r'^(?P<value>\d+/\d+) resets in .* min$',
+            'regex': r'^INFO: (?P<value>\d+/\d+) resets in .* min$',
         },
         'ratelimit_reset': {
             'position': (4, 59),
             'text': 'Resets In:',
             'text_color': 245,
             'color': 254,
-            'regex': r'^\d+/\d+ resets in (?P<value>.*)$',
+            'regex': r'^INFO: \d+/\d+ resets in (?P<value>.*)$',
         },
         'org': {
             'position': (1, 2),
@@ -616,7 +617,7 @@ def main():
             # an mpcurses method and create a dictionary describing the curses
             # screen layout
 
-            # also note the api methods (GitHubAPI) know nothing about how they are being called
+            # also note the api methods (API) know nothing about how they are being called
             # whether it is being called within the context of a single process or
             # multiple processes - they also know nothing about the curses screen
             # the mpcurses library abstracts multi-processing and the curses screen completely
