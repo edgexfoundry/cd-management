@@ -14,14 +14,16 @@
 # limitations under the License.
 
 import os
+import logging
+
 from magic import Magic
-from github3api import GitHubAPI
 from requests.exceptions import SSLError
 from requests.exceptions import ProxyError
 from requests.exceptions import ConnectionError
-from uritemplate import URITemplate, expand
+from uritemplate import URITemplate
+from uritemplate import expand
+from github3api import GitHubAPI
 
-import logging
 logger = logging.getLogger(__name__)
 
 

@@ -19,12 +19,12 @@ from mock import mock_open
 from mock import call
 from mock import Mock
 
-from ghrelease.cli import MissingArgumentError
-from ghrelease.cli import get_parser
-from ghrelease.cli import validate
-from ghrelease.cli import get_client
-from ghrelease.cli import set_logging
-from ghrelease.cli import main
+from cr8rel.cli import MissingArgumentError
+from cr8rel.cli import get_parser
+from cr8rel.cli import validate
+from cr8rel.cli import get_client
+from cr8rel.cli import set_logging
+from cr8rel.cli import main
 
 from argparse import Namespace
 from datetime import datetime
@@ -40,26 +40,26 @@ class TestCli(unittest.TestCase):
 
         pass
 
-    @patch('ghrelease.cli.ArgumentParser')
+    @patch('cr8rel.cli.ArgumentParser')
     def test__get_parser_Should_ReturnExpected_When_Called(self, *patches):
         # not much to unit test here
         get_parser()
 
-    @patch('ghrelease.cli.os.access', return_value=False)
+    @patch('cr8rel.cli.os.access', return_value=False)
     def test__validate_Should_RaiseValueError_When_AssetsAreNotAccessible(self, *patches):
         args = Namespace(repo='org1/repo1', tag='v1.0.0', assets='assets/')
         with self.assertRaises(ValueError):
             validate(args)
 
-    @patch('ghrelease.cli.os.getenv')
-    @patch('ghrelease.cli.API')
+    @patch('cr8rel.cli.os.getenv')
+    @patch('cr8rel.cli.API')
     def test__get_client_Should_CallExpected_When_Called(self, api_patch, getenv_patch, *patches):
         getenv_patch.side_effect = ['api.github.com', 'token']
         get_client()
         api_patch.assert_called_once_with(hostname='api.github.com', bearer_token='token')
 
-    @patch('ghrelease.cli.os.getenv')
-    @patch('ghrelease.cli.logging')
+    @patch('cr8rel.cli.os.getenv')
+    @patch('cr8rel.cli.logging')
     def test__set_logging_Should_CallExpected_When_Called(self, logging_patch, *patches):
         root_logger_mock = Mock()
         logging_patch.getLogger.return_value = root_logger_mock
@@ -67,8 +67,8 @@ class TestCli(unittest.TestCase):
         # not much to test here
         set_logging(args_mock)
 
-    @patch('ghrelease.cli.logger')
-    @patch('ghrelease.cli.get_parser')
+    @patch('cr8rel.cli.logger')
+    @patch('cr8rel.cli.get_parser')
     def test__main_Should_PrintUsage_When_MissingArgumentError(self, get_parser_patch, logger_patch, *patches):
         parser_mock = Mock()
         parser_mock.parse_args.side_effect = [MissingArgumentError('error')]
@@ -77,9 +77,9 @@ class TestCli(unittest.TestCase):
         parser_mock.print_usage.assert_called_once_with()
         logger_patch.error.assert_called()
 
-    @patch('ghrelease.cli.sys')
-    @patch('ghrelease.cli.logger')
-    @patch('ghrelease.cli.get_parser')
+    @patch('cr8rel.cli.sys')
+    @patch('cr8rel.cli.logger')
+    @patch('cr8rel.cli.get_parser')
     def test__main_Should_Exit_When_Exception(self, get_parser_patch, logger_patch, sys_patch, *patches):
         parser_mock = Mock()
         parser_mock.parse_args.side_effect = [Exception('error')]
@@ -88,10 +88,10 @@ class TestCli(unittest.TestCase):
         logger_patch.error.assert_called()
         sys_patch.exit.assert_called_once_with(-1)
 
-    @patch('ghrelease.cli.set_logging')
-    @patch('ghrelease.cli.validate')
-    @patch('ghrelease.cli.get_parser')
-    @patch('ghrelease.cli.get_client')
+    @patch('cr8rel.cli.set_logging')
+    @patch('cr8rel.cli.validate')
+    @patch('cr8rel.cli.get_parser')
+    @patch('cr8rel.cli.get_client')
     def test__main_Should_CallExpected_When_Called(self, get_client_patch, get_parser_patch, *patches):
         parser_mock = Mock()
         parser_mock.parse_args.return_value = Namespace(repo='org1/repo1', tag='v1.0.0', assets='assets/', release=None)

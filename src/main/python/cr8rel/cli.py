@@ -18,7 +18,7 @@ import sys
 import logging
 from argparse import ArgumentParser
 
-from ghrelease import API
+from cr8rel import API
 
 logger = logging.getLogger(__name__)
 
