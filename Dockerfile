@@ -23,9 +23,6 @@ WORKDIR /opt/prunetags
 
 COPY --from=build-image /prunetags/target/dist/prunetags-*/dist/prunetags-*.tar.gz /opt/prunetags
 
-RUN apk add --update --no-cache git gcc libc-dev libffi-dev openssl-dev
-RUN pip install git+https://github.com/soda480/github3api.git@master#egg=github3api
-
 RUN pip install prunetags-*.tar.gz
 
 CMD echo 'DONE'
