@@ -24,9 +24,6 @@ WORKDIR /opt/synclabels
 
 COPY --from=build-image /synclabels/target/dist/synclabels-*/dist/synclabels-*.tar.gz /opt/synclabels
 
-RUN apk add --update --no-cache git gcc libc-dev libffi-dev openssl-dev
-RUN pip install git+https://github.com/soda480/github3api.git@master#egg=github3api
-
 RUN pip install synclabels-*.tar.gz
 
 CMD echo 'DONE'
