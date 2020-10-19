@@ -19,8 +19,8 @@ from mock import mock_open
 from mock import call
 from mock import Mock
 
-from ghrelease import API
-from ghrelease.api import ReleaseAlreadyExists
+from cr8rel import API
+from cr8rel.api import ReleaseAlreadyExists
 
 from requests.exceptions import SSLError
 from requests.exceptions import ProxyError
@@ -52,14 +52,14 @@ class TestApi(unittest.TestCase):
         with self.assertRaises(ValueError):
             API()
 
-    @patch('ghrelease.api.API.upload_assets')
-    @patch('ghrelease.api.API.create_release')
+    @patch('cr8rel.api.API.upload_assets')
+    @patch('cr8rel.api.API.create_release')
     def test__create_release_upload_assets_Should_CallExpected_When_Called(self, create_release_patch, upload_assets_patch, *patches):
         client = API(bearer_token='token')
         client.create_release_upload_assets('org1/repo1', 'v1.0.0', 'assets/')
         upload_assets_patch.assert_called_once_with('assets/', create_release_patch.return_value)
 
-    @patch('ghrelease.api.API.get')
+    @patch('cr8rel.api.API.get')
     def test__validate_release_Should_RaiseReleaseAlreadyExists_When_TagExists(self, get_patch, *patches):
         get_patch.return_value = [
             {'tag_name': 'v1.0.0'}
@@ -68,7 +68,7 @@ class TestApi(unittest.TestCase):
         with self.assertRaises(ReleaseAlreadyExists):
             client.validate_release('org1/repo1', 'v1.0.0', 'v1.0.0')
 
-    @patch('ghrelease.api.API.get')
+    @patch('cr8rel.api.API.get')
     def test__validate_release_Should_RaiseReleaseAlreadyExists_When_ReleaseExists(self, get_patch, *patches):
         get_patch.return_value = [
             {'tag_name': 'v1.0.1', 'name': 'v1.0.1'}
@@ -77,8 +77,8 @@ class TestApi(unittest.TestCase):
         with self.assertRaises(ReleaseAlreadyExists):
             client.validate_release('org1/repo1', 'v1.0.0', 'v1.0.1')
 
-    @patch('ghrelease.api.API.validate_release')
-    @patch('ghrelease.api.API.post')
+    @patch('cr8rel.api.API.validate_release')
+    @patch('cr8rel.api.API.post')
     def test__create_release_Should_CallExpected_When_Called(self, post_patch, *patches):
         post_patch.return_value = {}
         client = API(bearer_token='token')
@@ -92,8 +92,8 @@ class TestApi(unittest.TestCase):
             })
         self.assertEqual(result['repo'], 'org1/repo1')
 
-    @patch('ghrelease.api.API.upload_asset')
-    @patch('ghrelease.api.API.get_assets')
+    @patch('cr8rel.api.API.upload_asset')
+    @patch('cr8rel.api.API.get_assets')
     def test__upload_assets_Should_CallExpected_When_Called(self, get_assets_patch, upload_asset_patch, *patches):
         get_assets_patch.return_value = ['asset1', 'asset2']
         client = API(bearer_token='token')
@@ -103,8 +103,8 @@ class TestApi(unittest.TestCase):
         self.assertTrue(upload_asset_call1 in upload_asset_patch.mock_calls)
         self.assertTrue(upload_asset_call2 in upload_asset_patch.mock_calls)
 
-    @patch('ghrelease.api.API.get_upload_url')
-    @patch('ghrelease.api.API.post')
+    @patch('cr8rel.api.API.get_upload_url')
+    @patch('cr8rel.api.API.post')
     def test__upload_asset_Should_CallExpected_When_Called(self, post_patch, get_upload_url_patch, *patches):
         client = API(bearer_token='token')
         asset_mock = {
@@ -119,9 +119,9 @@ class TestApi(unittest.TestCase):
             headers={'Content-Type': asset_mock['content-type']},
             data=asset_mock['content'])
 
-    @patch('ghrelease.api.API.get_content', return_value='content')
-    @patch('ghrelease.api.API.get_content_type', return_value='content-type')
-    @patch('ghrelease.api.os.walk')
+    @patch('cr8rel.api.API.get_content', return_value='content')
+    @patch('cr8rel.api.API.get_content_type', return_value='content-type')
+    @patch('cr8rel.api.os.walk')
     def test__get_assets_Should_CallAndReturnExpected_When_Called(self, walk_patch, *patches):
         walk_patch.return_value = [
             ('', '', ['file1', 'file2'])
@@ -133,7 +133,7 @@ class TestApi(unittest.TestCase):
         ]
         self.assertEqual(result, expected_result)
 
-    @patch('ghrelease.api.URITemplate')
+    @patch('cr8rel.api.URITemplate')
     def test__get_upload_url_Should_ReturnExpected_When_Called(self, uritemplate_patch, *patches):
         uritemplate_mock = Mock()
         uritemplate_patch.return_value = uritemplate_mock
@@ -145,14 +145,14 @@ class TestApi(unittest.TestCase):
         result = API.get_content('file')
         self.assertEqual(result, 'data')
 
-    @patch('ghrelease.api.Magic')
+    @patch('cr8rel.api.Magic')
     def test__get_content_type_Should_ReturnExpected_When_Exception(self, magic_patch, *patches):
         magic_patch.side_effect = Exception('some exception')
         result = API.get_content_type('file')
         expected_result = 'text/plain'
         self.assertEqual(result, expected_result)
 
-    @patch('ghrelease.api.Magic')
+    @patch('cr8rel.api.Magic')
     def test__get_content_type_Should_ReturnExpected_When_Called(self, magic_patch, *patches):
         result = API.get_content_type('file')
         self.assertEqual(result, magic_patch.return_value.from_file.return_value)

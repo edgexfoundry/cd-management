@@ -21,6 +21,6 @@ edgeXBuildDocker(
     dockerImageName: 'github-release',
     dockerNamespace: 'edgex-devops',
     dockerNexusRepo: 'snapshots',
-    dockerTags: ['0.0.1'],
+    dockerTags: ['0.0.2'],
     releaseBranchOverride: 'create-github-release'
 )

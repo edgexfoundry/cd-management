@@ -29,13 +29,13 @@ use_plugin('python.coverage')
 use_plugin('python.distutils')
 use_plugin('filter_resources')
 
-name = 'ghrelease'
+name = 'cr8rel'
 authors = [
     Author('Emilio Reyes', 'emilio.reyes@intel.com')
 ]
 summary = 'A Python script to facilitate creation of GitHub releases with assets'
 url = 'https://github.com/edgexfoundry/cd-management/tree/create-github-release'
-version = '0.0.1'
+version = '0.0.2'
 default_task = [
     'clean',
     'analyze',
@@ -57,7 +57,7 @@ def set_properties(project):
     project.build_depends_on_requirements('requirements-build.txt')
     project.depends_on_requirements('requirements.txt')
     project.set_property('distutils_console_scripts',
-        ['create-github-release = ghrelease.cli:main'])
+        ['create-github-release = cr8rel.cli:main'])
 
 
 @task('cyclomatic_complexity', description='calculates and publishes cyclomatic complexity')

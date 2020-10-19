@@ -1,4 +1,6 @@
-# create-github-release #
+[![build-status](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/create-github-release/badge/icon)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/create-github-release)
+
+# cd-management/create-github-release #
 A Python script to facilitate creation of GitHub releases with assets.
 
 ### `create-github-release` ###
@@ -37,6 +39,13 @@ create-github-release --repo 'soda480/test123' --tag 'v1.2.3' --assets 'bin/'
 
 Ensure the latest version of Docker is installed on your development server and clone the repository.
 
+Clone the repository:
+```
+cd
+git clone --branch create-github-release https://github.com/edgexfoundry/cd-management.git create-github-release
+cd create-github-release
+```
+
 Build the Docker image:
 ```sh
 docker image build \
@@ -44,7 +53,7 @@ docker image build \
 --build-arg http_proxy \
 --build-arg https_proxy \
 -t \
-create-github-release:latest .
+github-release:latest .
 ```
 
 Run the Docker container:
@@ -54,8 +63,8 @@ docker container run \
 -it \
 -e http_proxy \
 -e https_proxy \
--v $PWD:/create-github-release \
-create-github-release:latest \
+-v $PWD:/cr8rel \
+github-release:latest \
 /bin/sh
 ```
 
