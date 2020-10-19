@@ -24,7 +24,6 @@ pipeline {
         GH_TARGET_ORG = 'edgexfoundry'
         GH_SOURCE_REPO = 'edgexfoundry/cd-management'
         GH_TOKEN = credentials('edgex-jenkins-github-personal-access-token')
-        GH_BLACKLIST_REPOS = 'cd-management'
     }
     triggers {
         cron '''TZ=US/Eastern
@@ -49,10 +48,13 @@ pipeline {
                     steps {
                         script {
                             // full synchronization on Sunday and incremental all other days
-                            def command = 'githubsync --procs 10'
+                            def command = 'sync-github-labels --procs 10'
                             def today = getDay()
                             if(today != 'Sunday') {
                                 command += ' --modified-since 2d'
+                            }
+                            if(env.DRY_RUN != 'true') {
+                                command += ' --execute'
                             }
                             sh command
                             archiveArtifacts artifacts: '*.log'

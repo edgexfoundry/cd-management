@@ -19,17 +19,17 @@ from mock import mock_open
 from mock import call
 from mock import Mock
 
-from githubsync.cli import MissingArgumentError
-from githubsync.cli import get_parser
-from githubsync.cli import get_blacklist_repos
-from githubsync.cli import validate
-from githubsync.cli import get_client
-from githubsync.cli import get_screen_layout
-from githubsync.cli import synchronize
-from githubsync.cli import check_result
-from githubsync.cli import initiate_multiprocess
-from githubsync.cli import set_logging
-from githubsync.cli import main
+from synclabels.cli import MissingArgumentError
+from synclabels.cli import get_parser
+from synclabels.cli import get_exclude_repos
+from synclabels.cli import validate
+from synclabels.cli import get_client
+from synclabels.cli import get_screen_layout
+from synclabels.cli import synchronize
+from synclabels.cli import check_result
+from synclabels.cli import initiate_multiprocess
+from synclabels.cli import set_logging
+from synclabels.cli import main
 
 from argparse import Namespace
 
@@ -44,13 +44,18 @@ class TestCli(unittest.TestCase):
 
         pass
 
-    @patch('githubsync.cli.ArgumentParser')
+    @patch('synclabels.cli.ArgumentParser')
     def test__get_parser_Should_ReturnExpected_When_Called(self, *patches):
         # not much to unit test here
         get_parser()
 
-    def test__get_blacklist_repos_Should_ReturnExpected_When_Called(self, *patches):
-        result = get_blacklist_repos(' repo1, repo2,  repo3  ')
+    def test__get_exclude_repos_Should_ReturnExpected_When_SourceInOrg(self, *patches):
+        result = get_exclude_repos(' repo1, repo2,  repo3  ', 'org1/repo0', 'org1')
+        expected_result = ['repo0', 'repo1', 'repo2', 'repo3']
+        self.assertEqual(result, expected_result)
+
+    def test__get_exclude_repos_Should_ReturnExpected_When_SourceNotInOrg(self, *patches):
+        result = get_exclude_repos(' repo1, repo2,  repo3  ', 'org2/repo0', 'org1')
         expected_result = ['repo1', 'repo2', 'repo3']
         self.assertEqual(result, expected_result)
 
@@ -64,37 +69,33 @@ class TestCli(unittest.TestCase):
         with self.assertRaises(MissingArgumentError):
             validate(args)
 
-    @patch('githubsync.cli.get_gmt_time')
+    @patch('synclabels.API.get_gmt_time')
     def test__validate_Should_CallExpected_When_ModifiedSince(self, get_gmt_time_patch, *patches):
-        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', no_screen=None, noop=None)
+        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', no_screen=None, execute=True)
         validate(args)
         get_gmt_time_patch.assert_called_once_with('1d')
 
-    @patch('githubsync.cli.getenv', return_value='True')
-    @patch('githubsync.cli.get_gmt_time')
-    def test__validate_Should_SetNoop_When_DryRunTrue(self, *patches):
-        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', no_screen=None, noop=None)
+    @patch('synclabels.cli.getenv', return_value='True')
+    def test__validate_Should_RaiseValueError_When_DryRunEnvTrueAndExecute(self, *patches):
+        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since=None, screen=None, execute=True)
+        with self.assertRaises(ValueError):
+            validate(args)
+
+    def test__validate_Should_SetNoop_When_NotExecute(self, *patches):
+        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since=None, screen=None, execute=False)
         validate(args)
         self.assertTrue(args.noop)
 
-    @patch('githubsync.cli.getenv', return_value='False')
-    @patch('githubsync.cli.get_gmt_time')
-    def test__validate_Should_NotSetNoop_When_DryRunFalse(self, *patches):
-        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', no_screen=None, noop=None)
+    def test__validate_Should_SetNoop_When_Execute(self, *patches):
+        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since=None, screen=None, execute=True)
         validate(args)
         self.assertFalse(args.noop)
 
-    @patch('githubsync.cli.getenv', return_value='False')
-    @patch('githubsync.cli.get_gmt_time')
-    def test__validate_Should_NotSetNoop_When_DryRunFalseAndNoopTrue(self, *patches):
-        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', no_screen=None, noop=True)
-        validate(args)
-        self.assertTrue(args.noop)
-
-    @patch('githubsync.cli.GitHubAPI')
+    @patch('synclabels.cli.getenv', return_value='token')
+    @patch('synclabels.cli.API')
     def test__get_client_Should_CallExpected_When_Called(self, githubapi_patch, *patches):
         get_client()
-        githubapi_patch.get_client.assert_called_once_with()
+        githubapi_patch.assert_called_once_with(bearer_token='token')
 
     def test__get_screen_layout_Should_ReturnExpected_When_Called(self, *patches):
         # not much to test here
@@ -128,24 +129,24 @@ class TestCli(unittest.TestCase):
         #     modified_since='modified-since',
         #     noop=False)
 
-    @patch('githubsync.cli.execute')
+    @patch('synclabels.cli.execute')
     def test__initiate_multiprocess_Should_CallExpected_When_Called(self, execute_patch, *patches):
         client_mock = Mock()
         client_mock.get_repos.return_value = ['repo1']
         client_mock.get_labels.return_value = ['label1', 'label2']
         client_mock.get_milestones.return_value = ['milestone1', 'milestone2']
-        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', noop=False, screen=True, processes=4)
-        blacklist_repos = ['repo2', 'repo3']
-        initiate_multiprocess(client_mock, args, blacklist_repos)
+        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', execute=True, screen=True, processes=4, noop=False)
+        exclude_repos = ['repo2', 'repo3']
+        initiate_multiprocess(client_mock, args, exclude_repos)
         execute_patch.assert_called()
 
-    @patch('githubsync.cli.execute')
+    @patch('synclabels.cli.execute')
     def test__initiate_multiprocess_Should_Return_When_NoRepos(self, execute_patch, *patches):
         client_mock = Mock()
         client_mock.get_repos.return_value = []
-        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', noop=False, screen=True, processes=4)
-        blacklist_repos = ['repo2', 'repo3']
-        initiate_multiprocess(client_mock, args, blacklist_repos)
+        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', execute=True, screen=True, processes=4, noop=False)
+        exclude_repos = ['repo2', 'repo3']
+        initiate_multiprocess(client_mock, args, exclude_repos)
         execute_patch.assert_not_called()
 
     def test__check_result_Should_RaiseException_When_ProcessResultException(self, *patches):
@@ -155,8 +156,8 @@ class TestCli(unittest.TestCase):
         with self.assertRaises(Exception):
             check_result(process_data)
 
-    @patch('githubsync.cli.getenv')
-    @patch('githubsync.cli.logging')
+    @patch('synclabels.cli.getenv')
+    @patch('synclabels.cli.logging')
     def test__set_logging_Should_CallExpected_When_Called(self, logging_patch, *patches):
         root_logger_mock = Mock()
         logging_patch.getLogger.return_value = root_logger_mock
@@ -164,8 +165,8 @@ class TestCli(unittest.TestCase):
         # not much to test here
         set_logging(args_mock)
 
-    @patch('githubsync.cli.logger')
-    @patch('githubsync.cli.get_parser')
+    @patch('synclabels.cli.logger')
+    @patch('synclabels.cli.get_parser')
     def test__main_Should_PrintUsage_When_MissingArgumentError(self, get_parser_patch, logger_patch, *patches):
         parser_mock = Mock()
         parser_mock.parse_args.side_effect = [MissingArgumentError('error')]
@@ -174,9 +175,9 @@ class TestCli(unittest.TestCase):
         parser_mock.print_usage.assert_called_once_with()
         logger_patch.error.assert_called()
 
-    @patch('githubsync.cli.sys')
-    @patch('githubsync.cli.logger')
-    @patch('githubsync.cli.get_parser')
+    @patch('synclabels.cli.sys')
+    @patch('synclabels.cli.logger')
+    @patch('synclabels.cli.get_parser')
     def test__main_Should_Exit_When_Exception(self, get_parser_patch, logger_patch, sys_patch, *patches):
         parser_mock = Mock()
         parser_mock.parse_args.side_effect = [Exception('error')]
@@ -185,31 +186,31 @@ class TestCli(unittest.TestCase):
         logger_patch.error.assert_called()
         sys_patch.exit.assert_called_once_with(-1)
 
-    @patch('githubsync.cli.get_blacklist_repos')
-    @patch('githubsync.cli.set_logging')
-    @patch('githubsync.cli.validate')
-    @patch('githubsync.cli.get_parser')
-    @patch('githubsync.cli.get_client')
+    @patch('synclabels.cli.get_exclude_repos')
+    @patch('synclabels.cli.set_logging')
+    @patch('synclabels.cli.validate')
+    @patch('synclabels.cli.get_parser')
+    @patch('synclabels.cli.get_client')
     def test__main__Should_CallExpected_When_NoMultiprocesses(self, get_client_patch, get_parser_patch, *patches):
         client_mock = Mock()
         get_client_patch.return_value = client_mock
         parser_mock = Mock()
-        parser_mock.parse_args.return_value = Namespace(source_repo='source-repo', target_org='target-org', processes=None, modified_since=None, blacklist_repos=None, noop=False, no_screen=None, debug=None)
+        parser_mock.parse_args.return_value = Namespace(source_repo='source-repo', target_org='target-org', processes=None, modified_since=None, exclude_repos=None, execute=True, screen=None, debug=None, noop=False)
         get_parser_patch.return_value = parser_mock
         main()
         client_mock.sync_repos.assert_called()
 
-    @patch('githubsync.cli.get_blacklist_repos')
-    @patch('githubsync.cli.set_logging')
-    @patch('githubsync.cli.validate')
-    @patch('githubsync.cli.initiate_multiprocess')
-    @patch('githubsync.cli.get_parser')
-    @patch('githubsync.cli.get_client')
+    @patch('synclabels.cli.get_exclude_repos')
+    @patch('synclabels.cli.set_logging')
+    @patch('synclabels.cli.validate')
+    @patch('synclabels.cli.initiate_multiprocess')
+    @patch('synclabels.cli.get_parser')
+    @patch('synclabels.cli.get_client')
     def test__main_Should_CallExpected_When_Multiprocess(self, get_client_patch, get_parser_patch, initiate_multiprocess_patch, *patches):
         client_mock = Mock()
         get_client_patch.return_value = client_mock
         parser_mock = Mock()
-        parser_mock.parse_args.return_value = Namespace(source_repo='source-repo', target_org='target-org', processes=4, modified_since=None, blacklist_repos=None, noop=False, no_screen=None)
+        parser_mock.parse_args.return_value = Namespace(source_repo='source-repo', target_org='target-org', processes=4, modified_since=None, exclude_repos=None, execute=True, screen=None, noop=False)
         get_parser_patch.return_value = parser_mock
         main()
         initiate_multiprocess_patch.assert_called()
