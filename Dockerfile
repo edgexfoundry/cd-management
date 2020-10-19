@@ -7,13 +7,10 @@ WORKDIR /prunetags
 
 COPY . /prunetags/
 
-RUN apk update
-RUN apk add git gcc
-RUN pip install --upgrade pip
+RUN apk add --update --no-cache git gcc libc-dev libffi-dev openssl-dev
 RUN pip install pybuilder==0.11.17
-RUN pyb clean
 RUN pyb install_dependencies
-RUN pyb -X
+RUN pyb
 RUN pyb publish
 
 

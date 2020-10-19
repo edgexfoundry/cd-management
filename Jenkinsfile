@@ -30,9 +30,9 @@ pipeline {
                 See README for syntax. e.g.\"--remove-version \'<1.0.87\'\"')
         string(
             name: 'Include Repositories',
-            defaultValue: '--include edgex-global-pipelines',
-            description: 'Specify \'--include <repo-name>\' to target specific repositories. Leaving this argument \
-                blank will target *all* repos within edgexfoundry.')
+            defaultValue: '--include-repos edgex-global-pipelines',
+            description: 'Specify \'--include-repos <repo-name>\' to target specific repositories. Leaving this argument \
+                blank will target the edgex-global-pipelines repo within edgexfoundry.')
     }
     environment {
         GH_TOKEN = credentials('edgex-jenkins-github-personal-access-token')

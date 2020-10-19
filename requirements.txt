@@ -1,4 +1,3 @@
-retrying
-rest3client
 mpcurses
 semantic_version
+github3api

@@ -94,10 +94,11 @@ class TestCli(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate(args)
 
-    @patch('prunetags.cli.GitHubAPI')
-    def test__get_client_Should_CallExpected_When_Called(self, githubapi_patch, *patches):
+    @patch('prunetags.cli.getenv', return_value='token')
+    @patch('prunetags.cli.API')
+    def test__get_client_Should_CallExpected_When_Called(self, api_patch, *patches):
         get_client()
-        githubapi_patch.get_client.assert_called_once_with()
+        api_patch.assert_called_once_with(bearer_token='token')
 
     def test__get_screen_layout_Should_ReturnExpected_When_Called(self, *patches):
         # not much to test here

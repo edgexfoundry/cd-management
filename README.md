@@ -1,8 +1,16 @@
-# prune-github-tags
+[![build-status](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/prune-github-tags/badge/icon)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/prune-github-tags)
+
+# cd-management/prune-github-tags
 
 ## Summary
 
 This script queries repos from a specified GitHub organization and by default removes all old pre-release tags found in the repos. The majority of the repos in the EdgeXFoundry org leverage a semantic versioning tagging convention, over time the need has risen to prune (i.e. remove) older pre-release tags in order to maintain a sanitized set of tags for each repo. For more information regarding semantic versioning refer to the following: https://semver.org/. Optional functionality also exists to remove specific version ranges following standard semantic versioning rules. e.g. `>=1.0.20,<1.0.50`
+
+## Jenkins Triggers
+
+* Manual (User initiated)
+
+## Script Usage
 
 ### `prune-github-tags`
 ```bash
@@ -34,36 +42,20 @@ optional arguments:
                         *including* pre-release tags.
 ```
 
-#### Reference
+### Reference
 For `--remove-version` option syntax refer to [SimpleSpec Syntax Reference](https://python-semanticversion.readthedocs.io/en/latest/reference.html#semantic_version.SimpleSpec)
 
-#### Pseudo-code
-```Script
-get-latest-version-tag
-  read commits for repo a page at a time
-    if commit has an associated tag
-      if tag is semantic version
-        return latest-version-tag
-
-get-pre-release-tags
-  get-latest-version-tag
-  iterate over all tags
-    if tag is semantic version
-      if tag is pre-release
-        if tag is not same release as latest-version-tag
-          add tag to pre-release-tags
-
-for pre-release-tag in pre-release-tags
-  delete pre-release tag
-```
+#### Screen
+This is an example of the execution visualization using the `--screen` argument:
+![screen](/docs/images/screen.gif)
 
 #### Environment Variables
 
-* `GH_TOKEN_PSW`  (Required) - The GitHub personal access token used to authenticate GitHub Commands
-* `GH_BASE_URL`   (Optional) - GitHub API URL. Can be changed to point to a different GitHub API endpoint i.e. GitHub Enterprise
-* `GH_ORG`        (Optional) - GitHub organization to process
-* `GH_EXCLUDE`    (Optional) - GitHub repos to exclude from processing
-* `DRY_RUN`       (Optional) - Execute in noop mode - the --execute argument takes precedence
+* `GH_TOKEN_PSW`      (Required) - The GitHub personal access token used to authenticate GitHub Commands
+* `GH_BASE_URL`       (Optional) - GitHub API URL. Can be changed to point to a different GitHub API endpoint i.e. GitHub Enterprise
+* `GH_ORG`            (Optional) - GitHub organization to process
+* `GH_EXCLUDE_REPOS`  (Optional) - GitHub repos to exclude from processing
+* `DRY_RUN`           (Optional) - Execute in noop mode - the --execute argument takes precedence
 
 #### Examples
 
@@ -105,3 +97,39 @@ prune-github-tags \
 --include 'edgex-global-pipelines' \
 --remove-version '>=1.0.20,<1.0.50'
 ```
+
+### Development
+Clone the repository:
+```
+cd
+git clone --branch prune-github-tags https://github.com/edgexfoundry/cd-management.git prune-github-tags
+cd prune-github-tags
+```
+
+Build the Docker image:
+```
+docker image build \
+--target build-image \
+--build-arg http_proxy \
+--build-arg https_proxy \
+-t \
+prunetags:latest .
+```
+
+Run the Docker container:
+```
+docker container run \
+--rm \
+-it \
+-e http_proxy \
+-e https_proxy \
+-v $PWD:/prunetags \
+prunetags:latest \
+/bin/sh
+```
+
+Execute the build:
+```
+pyb -X
+```
+NOTE: commands above assume working behind a proxy, if not then the proxy arguments to both the docker build and run commands can be removed.
