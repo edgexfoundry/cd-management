@@ -1,0 +1,20 @@
+---
+  name: 'sample-service'
+  version: '4.1.27'
+  releaseStream: 'master'
+  repo: 'https://github.com/edgexfoundry/sample-service.git'
+  gitTag: true
+  dockerForce: false
+  dockerImages: true
+  docker:
+    - image: nexus3.edgexfoundry.org:10004/docker-sample-service
+      destination:
+        - nexus3.edgexfoundry.org:10002/docker-sample-service
+        - docker.io/edgexfoundry/docker-sample-service
+  snap: false
+  gitHubRelease: false
+  gitHubReleaseAssets:
+      - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/PR-284/25/bin/edgex-cli-linux-amd64-0.0.0.tar.gz'
+      - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/PR-284/25/bin/edgex-cli-linux-arm64-0.0.0.tar.gz'
+      - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/PR-284/25/bin/edgex-cli-mac-0.0.0.tar.gz'
+      - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/PR-284/25/bin/edgex-cli-win-0.0.0.zip'

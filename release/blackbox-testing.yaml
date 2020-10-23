@@ -1,9 +1,0 @@
----
-name: 'blackbox-testing'
-version: '1.2.1'
-releaseName: 'geneva'
-releaseStream: 'geneva'
-repo: 'https://github.com/edgexfoundry/blackbox-testing.git'
-gitTag: true
-dockerImages: false
-snap: false

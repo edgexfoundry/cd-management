@@ -1,9 +1,0 @@
----
-name: 'edgex-taf'
-version: '1.2.1'
-releaseName: 'geneva'
-releaseStream: 'geneva'
-repo: 'https://github.com/edgexfoundry/edgex-taf.git'
-gitTag: true
-dockerImages: false
-snap: false
