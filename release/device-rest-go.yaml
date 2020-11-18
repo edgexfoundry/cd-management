@@ -1,10 +1,10 @@
 ---
 name: 'device-rest-go'
-version: '1.1.2'
-releaseName: 'geneva'
+version: '1.2.0'
+releaseName: 'hanoi'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/device-rest-go.git'
-gitTag: false
+gitTag: true
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/docker-device-rest-go
@@ -15,4 +15,3 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/docker-device-rest-go-arm64
       - docker.io/edgexfoundry/docker-device-rest-go-arm64
-snap: false
