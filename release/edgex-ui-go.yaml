@@ -1,7 +1,7 @@
 ---
 name: 'edgex-ui-go'
-version: '1.2.1'
-releaseName: 'geneva'
+version: '1.3.0'
+releaseName: 'hanoi'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/edgex-ui-go.git'
 gitTag: true
@@ -15,4 +15,3 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/docker-edgex-ui-go-arm64
       - docker.io/edgexfoundry/docker-edgex-ui-go-arm64
-snap: false
