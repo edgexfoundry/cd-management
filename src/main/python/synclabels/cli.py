@@ -21,8 +21,7 @@ from os import getenv
 from datetime import datetime
 from synclabels import API
 
-from mpcurses import queue_handler
-from mpcurses import execute
+from mpcurses import MPcurses
 
 
 logger = logging.getLogger(__name__)
@@ -430,7 +429,6 @@ def get_screen_layout():
     }
 
 
-@queue_handler
 def synchronize(data, shared_data):
     client = shared_data['client']
     repo = f"{shared_data['owner']}/{data['repo']}"
@@ -488,7 +486,7 @@ def initiate_multiprocess(client, args, exclude_repos):
     process_data = [
         {'repo': repo} for repo in repos
     ]
-    execute(
+    mpcurses = MPcurses(
         function=synchronize,
         process_data=process_data,
         shared_data={
@@ -500,7 +498,7 @@ def initiate_multiprocess(client, args, exclude_repos):
             'modified_since': args.modified_since,
             'noop': args.noop
         },
-        number_of_processes=args.processes,
+        processes_to_start=args.processes,
         init_messages=[
             f'retrieved total of {len(repos)} repos',
             f'processing total of {len(repos) * len(labels)} labels',
@@ -509,6 +507,7 @@ def initiate_multiprocess(client, args, exclude_repos):
             f"Started:{datetime.now().strftime('%m/%d/%Y %H:%M:%S')}"
         ],
         screen_layout=get_screen_layout() if args.screen else None)
+    mpcurses.execute()
 
     check_result(process_data)
 
