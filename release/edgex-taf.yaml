@@ -6,4 +6,3 @@ releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/edgex-taf.git'
 gitTag: true
 dockerImages: false
-snap: false
