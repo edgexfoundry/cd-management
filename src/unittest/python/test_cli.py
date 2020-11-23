@@ -129,8 +129,8 @@ class TestCli(unittest.TestCase):
         #     modified_since='modified-since',
         #     noop=False)
 
-    @patch('synclabels.cli.execute')
-    def test__initiate_multiprocess_Should_CallExpected_When_Called(self, execute_patch, *patches):
+    @patch('synclabels.cli.MPcurses')
+    def test__initiate_multiprocess_Should_CallExpected_When_Called(self, mpcurses_patch, *patches):
         client_mock = Mock()
         client_mock.get_repos.return_value = ['repo1']
         client_mock.get_labels.return_value = ['label1', 'label2']
@@ -138,16 +138,16 @@ class TestCli(unittest.TestCase):
         args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', execute=True, screen=True, processes=4, noop=False)
         exclude_repos = ['repo2', 'repo3']
         initiate_multiprocess(client_mock, args, exclude_repos)
-        execute_patch.assert_called()
+        mpcurses_patch.assert_called()
 
-    @patch('synclabels.cli.execute')
-    def test__initiate_multiprocess_Should_Return_When_NoRepos(self, execute_patch, *patches):
+    @patch('synclabels.cli.MPcurses')
+    def test__initiate_multiprocess_Should_Return_When_NoRepos(self, mpcurses_patch, *patches):
         client_mock = Mock()
         client_mock.get_repos.return_value = []
         args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', execute=True, screen=True, processes=4, noop=False)
         exclude_repos = ['repo2', 'repo3']
         initiate_multiprocess(client_mock, args, exclude_repos)
-        execute_patch.assert_not_called()
+        mpcurses_patch.assert_not_called()
 
     def test__check_result_Should_RaiseException_When_ProcessResultException(self, *patches):
         process_data = [
