@@ -10,8 +10,7 @@ COPY . /prunetags/
 RUN apk add --update --no-cache git gcc libc-dev libffi-dev openssl-dev
 RUN pip install pybuilder==0.11.17
 RUN pyb install_dependencies
-RUN pyb
-RUN pyb publish
+RUN pyb install
 
 
 FROM python:3.6-alpine

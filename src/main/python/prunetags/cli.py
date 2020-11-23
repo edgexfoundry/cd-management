@@ -20,9 +20,8 @@ from os import getenv
 from datetime import datetime
 from argparse import ArgumentParser
 
-from mpcurses import queue_handler
-from mpcurses import execute
 from semantic_version import SimpleSpec
+from mpcurses import MPcurses
 from prunetags import API
 
 
@@ -413,10 +412,6 @@ def version_screen_layout(screen_layout):
     return screen_layout
 
 
-# the queue_handler decorator in mpcurses is where part of the magic happens
-# it creates an additonal log handler that sends all the wrapped functions
-# log messages to a thread-safe message queue
-@queue_handler
 def remove_prerelease_tags(data, shared_data):
     repo = data['repo']
     client = shared_data['client']
@@ -425,7 +420,6 @@ def remove_prerelease_tags(data, shared_data):
     logger.debug(f'processed repo {repo}')
 
 
-@queue_handler
 def get_prerelease_tags_report(data, shared_data):
     repo = data['repo']
     client = shared_data['client']
@@ -433,7 +427,6 @@ def get_prerelease_tags_report(data, shared_data):
     return report
 
 
-@queue_handler
 def remove_version_tags(data, shared_data):
     repo = data['repo']
     client = shared_data['client']
@@ -443,7 +436,6 @@ def remove_version_tags(data, shared_data):
     logger.debug(f'processed repo {repo}')
 
 
-@queue_handler
 def get_version_tags_report(data, shared_data):
     repo = data['repo']
     client = shared_data['client']
@@ -479,11 +471,11 @@ def initiate_multiprocess(client, function, args, owner, repos):
     exclude_repos = args.exclude_repos if args.exclude_repos else '-'
 
     # this is where magic happens
-    # the execute method in mpcurses takes care of starting the required number of processes
+    # the MPcurses class takes care of starting the required number of processes
     # and handles all the managing all processes and message queues - you just tell it
     # what function to execute within each process, the data each process needs to execute,
     # the total number of processes to execute and the screen layout (if any)
-    execute(
+    mpcurses = MPcurses(
         function=function,
         process_data=process_data,
         shared_data={
@@ -492,7 +484,7 @@ def initiate_multiprocess(client, function, args, owner, repos):
             'noop': args.noop,
             'version': args.version
         },
-        number_of_processes=args.processes,
+        processes_to_start=args.processes,
         init_messages=[
             f"'include_repos' is '{include_repos}'",
             f"'exclude_repos' is '{exclude_repos}'",
@@ -500,6 +492,7 @@ def initiate_multiprocess(client, function, args, owner, repos):
             f"Started:{datetime.now().strftime('%m/%d/%Y %H:%M:%S')}"
         ],
         screen_layout=screen_layout)
+    mpcurses.execute()
 
     check_result(process_data)
     return process_data
@@ -613,13 +606,13 @@ def main():
         else:
             # exciting multi-process execution leveraging the mpcurses library
             # note the same api methods are called here as in the call above
-            # the only special thing we have to do here is wrap the api calls with
+            # the only special thing we have to do is wrap the api calls with
             # an mpcurses method and create a dictionary describing the curses
             # screen layout
 
             # also note the api methods (API) know nothing about how they are being called
             # whether it is being called within the context of a single process or
-            # multiple processes - they also know nothing about the curses screen
+            # scaled across multiple processes - they also know nothing about the curses screen
             # the mpcurses library abstracts multi-processing and the curses screen completely
             # from the api methods - that's the way it should be
             if args.report:

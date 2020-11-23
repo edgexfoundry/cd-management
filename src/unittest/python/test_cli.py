@@ -181,16 +181,16 @@ class TestCli(unittest.TestCase):
 
     @patch('prunetags.cli.check_result')
     @patch('prunetags.cli.datetime')
-    @patch('prunetags.cli.execute')
+    @patch('prunetags.cli.MPcurses')
     @patch('prunetags.cli.get_screen_layout')
-    def test__initiate_multiprocess_Should_CallExpected_When_Called(self, get_screen_layout_patch, execute_patch, datetime_patch, *patches):
+    def test__initiate_multiprocess_Should_CallExpected_When_Called(self, get_screen_layout_patch, mpcurses_patch, datetime_patch, *patches):
         datetime_patch.now.return_value = datetime(2020, 5, 6, 18, 22, 45, 12065)
         client_mock = Mock()
         function_mock = Mock()
         args = Namespace(org='org1', user=None, execute=True, screen=True, processes=3, include_repos='test_repo', exclude_repos=None, noop=False, version=None)
 
         initiate_multiprocess(client_mock, function_mock, args, 'org1', ['org1/repo1'])
-        execute_patch.assert_called_once_with(
+        mpcurses_patch.assert_called_once_with(
             function=function_mock,
             process_data=[
                 {'repo': 'org1/repo1'}
@@ -201,7 +201,7 @@ class TestCli(unittest.TestCase):
                 'noop': False,
                 'version': None
             },
-            number_of_processes=1,
+            processes_to_start=1,
             init_messages=[
                 "'include_repos' is 'test_repo'",
                 "'exclude_repos' is '-'",
@@ -212,17 +212,17 @@ class TestCli(unittest.TestCase):
 
     @patch('prunetags.cli.check_result')
     @patch('prunetags.cli.datetime')
-    @patch('prunetags.cli.execute')
+    @patch('prunetags.cli.MPcurses')
     @patch('prunetags.cli.get_screen_layout')
     @patch('prunetags.cli.version_screen_layout')
-    def test__initiate_multiprocess_Should_Modify_Screen_When_Call_With_Version(self, version_screen_layout_patch, get_screen_layout_patch, execute_patch, datetime_patch, *patches):
+    def test__initiate_multiprocess_Should_Modify_Screen_When_Call_With_Version(self, version_screen_layout_patch, get_screen_layout_patch, mpcurses_patch, datetime_patch, *patches):
         datetime_patch.now.return_value = datetime(2020, 5, 6, 18, 22, 45, 12065)
         client_mock = Mock()
         function_mock = Mock()
         args = Namespace(org='org1', user=None, execute=True, screen=True, processes=3, include_repos='test_repo', exclude_repos=None, noop=False, version='1.1.1')
 
         initiate_multiprocess(client_mock, function_mock, args, 'org1', ['org1/repo1'])
-        execute_patch.assert_called_once_with(
+        mpcurses_patch.assert_called_once_with(
             function=function_mock,
             process_data=[
                 {'repo': 'org1/repo1'}
@@ -233,7 +233,7 @@ class TestCli(unittest.TestCase):
                 'noop': False,
                 'version': '1.1.1'
             },
-            number_of_processes=1,
+            processes_to_start=1,
             init_messages=[
                 "'include_repos' is 'test_repo'",
                 "'exclude_repos' is '-'",
