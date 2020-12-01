@@ -6,7 +6,7 @@
   repo: 'https://github.com/edgexfoundry/edgex-cli.git'
   gitTag: true
   dockerImages: false
-  gitHubRelease: false
+  gitHubRelease: true
   gitHubReleaseAssets:
     - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/master/39/bin/edgex-cli-linux-amd64-1.0.0.tar.gz'
     - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/master/39/bin/edgex-cli-linux-arm64-1.0.0.tar.gz'
