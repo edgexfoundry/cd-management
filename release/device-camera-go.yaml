@@ -1,8 +1,9 @@
 ---
 name: 'device-camera-go'
-version: '1.2.0'
+version: '1.2.1'
 releaseName: 'hanoi'
 releaseStream: 'master'
+commitId: '7c976a927686ede27636f3a9f751618c238eb67e'
 repo: 'https://github.com/edgexfoundry/device-camera-go.git'
 gitTag: true
 dockerImages: true
