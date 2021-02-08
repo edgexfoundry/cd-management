@@ -1,9 +1,10 @@
 ---
 name: 'edgex-go'
-version: '1.3.0'
+version: '1.3.1'
 releaseName: 'hanoi'
-releaseStream: 'master'
+releaseStream: 'hanoi'
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
+commitId: '12a188d7528ee379d18cf3e1ac715e90dfef7258'
 gitTag: true
 dockerImages: true
 docker:
