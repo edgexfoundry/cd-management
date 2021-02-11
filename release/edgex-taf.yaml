@@ -1,8 +1,9 @@
 ---
 name: 'edgex-taf'
-version: '1.3.0'
+version: '1.3.1'
 releaseName: 'hanoi'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/edgex-taf.git'
+commitId: '376bd5f6f26b1e0bf6bed41883263705830e0879'
 gitTag: true
 dockerImages: false
