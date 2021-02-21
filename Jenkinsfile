@@ -57,11 +57,15 @@ pipeline {
                                 command += ' --execute'
                             }
                             sh command
-                            archiveArtifacts artifacts: '*.log'
                         }
                     }
                 }
             }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'sync-github-labels.log', allowEmptyArchive: true
         }
     }
 }
