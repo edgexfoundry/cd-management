@@ -430,7 +430,9 @@ def get_screen_layout():
 
 
 def synchronize(data, shared_data):
-    client = shared_data['client']
+    """ synchronize labels and milestones
+    """
+    client = get_client()
     repo = f"{shared_data['owner']}/{data['repo']}"
 
     client.sync_labels(
@@ -490,7 +492,6 @@ def initiate_multiprocess(client, args, exclude_repos):
         function=synchronize,
         process_data=process_data,
         shared_data={
-            'client': client,
             'source_repo': args.source_repo,
             'labels': labels,
             'milestones': milestones,
