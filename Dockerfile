@@ -7,8 +7,6 @@ WORKDIR /synclabels
 
 COPY . /synclabels/
 
-RUN apk add --update --no-cache git gcc libc-dev libffi-dev openssl-dev
-
 RUN pip install pybuilder==0.11.17
 RUN pyb install_dependencies
 RUN pyb install
@@ -24,5 +22,3 @@ WORKDIR /opt/synclabels
 COPY --from=build-image /synclabels/target/dist/synclabels-*/dist/synclabels-*.tar.gz /opt/synclabels
 
 RUN pip install synclabels-*.tar.gz
-
-CMD echo 'DONE'
