@@ -149,25 +149,27 @@ class TestCli(unittest.TestCase):
         result = version_screen_layout(screen_layout)
         self.assertEqual(result, expected)
 
-    def test__remove_prerelease_tags_Should_CallExpected_When_Called(self, *patches):
+    @patch('prunetags.cli.get_client')
+    def test__remove_prerelease_tags_Should_CallExpected_When_Called(self, get_client_patch, *patches):
+        client_mock = Mock()
+        get_client_patch.return_value = client_mock
         data = {
             'repo': 'org1/repo1'
         }
-        client_mock = Mock()
         shared_data = {
-            'client': client_mock,
             'noop': False
         }
         remove_prerelease_tags(data, shared_data)
         client_mock.remove_prerelease_tags.assert_called_once_with(repo='org1/repo1', noop=False)
 
-    def test__get_prerelease_tags_report_Should_CallExpected_When_Called(self, *patches):
+    @patch('prunetags.cli.get_client')
+    def test__get_prerelease_tags_report_Should_CallExpected_When_Called(self, get_client_patch, *patches):
+        client_mock = Mock()
+        get_client_patch.return_value = client_mock
         data = {
             'repo': 'org1/repo1'
         }
-        client_mock = Mock()
         shared_data = {
-            'client': client_mock
         }
         get_prerelease_tags_report(data, shared_data)
         client_mock.get_prerelease_tags_report.assert_called_once_with(repos=['org1/repo1'])
@@ -185,18 +187,16 @@ class TestCli(unittest.TestCase):
     @patch('prunetags.cli.get_screen_layout')
     def test__initiate_multiprocess_Should_CallExpected_When_Called(self, get_screen_layout_patch, mpcurses_patch, datetime_patch, *patches):
         datetime_patch.now.return_value = datetime(2020, 5, 6, 18, 22, 45, 12065)
-        client_mock = Mock()
         function_mock = Mock()
         args = Namespace(org='org1', user=None, execute=True, screen=True, processes=3, include_repos='test_repo', exclude_repos=None, noop=False, version=None)
 
-        initiate_multiprocess(client_mock, function_mock, args, 'org1', ['org1/repo1'])
+        initiate_multiprocess(function_mock, args, 'org1', ['org1/repo1'])
         mpcurses_patch.assert_called_once_with(
             function=function_mock,
             process_data=[
                 {'repo': 'org1/repo1'}
             ],
             shared_data={
-                'client': client_mock,
                 'owner': 'org1',
                 'noop': False,
                 'version': None
@@ -217,18 +217,16 @@ class TestCli(unittest.TestCase):
     @patch('prunetags.cli.version_screen_layout')
     def test__initiate_multiprocess_Should_Modify_Screen_When_Call_With_Version(self, version_screen_layout_patch, get_screen_layout_patch, mpcurses_patch, datetime_patch, *patches):
         datetime_patch.now.return_value = datetime(2020, 5, 6, 18, 22, 45, 12065)
-        client_mock = Mock()
         function_mock = Mock()
         args = Namespace(org='org1', user=None, execute=True, screen=True, processes=3, include_repos='test_repo', exclude_repos=None, noop=False, version='1.1.1')
 
-        initiate_multiprocess(client_mock, function_mock, args, 'org1', ['org1/repo1'])
+        initiate_multiprocess(function_mock, args, 'org1', ['org1/repo1'])
         mpcurses_patch.assert_called_once_with(
             function=function_mock,
             process_data=[
                 {'repo': 'org1/repo1'}
             ],
             shared_data={
-                'client': client_mock,
                 'owner': 'org1',
                 'noop': False,
                 'version': '1.1.1'
@@ -424,26 +422,28 @@ class TestCli(unittest.TestCase):
         main()
         prune_prerelease_tags_patch.assert_not_called()
 
-    def test__remove_version_tags_Should_CallExpected_When_Called(self, *patches):
+    @patch('prunetags.cli.get_client')
+    def test__remove_version_tags_Should_CallExpected_When_Called(self, get_client_patch, *patches):
+        client_mock = Mock()
+        get_client_patch.return_value = client_mock
         data = {
             'repo': 'org1/repo1'
         }
-        client_mock = Mock()
         shared_data = {
-            'client': client_mock,
             'noop': False,
             'version': '<1.1.1'
         }
         remove_version_tags(data, shared_data)
         client_mock.remove_version_tags.assert_called_once_with(repo='org1/repo1', noop=False, expression='<1.1.1')
 
-    def test__get_version_tags_report_Should_CallExpected_When_Called(self, *patches):
+    @patch('prunetags.cli.get_client')
+    def test__get_version_tags_report_Should_CallExpected_When_Called(self, get_client_patch, *patches):
+        client_mock = Mock()
+        get_client_patch.return_value = client_mock
         data = {
             'repo': 'org1/repo1'
         }
-        client_mock = Mock()
         shared_data = {
-            'client': client_mock,
             'version': '<1.1.1'
         }
         get_version_tags_report(data, shared_data)
