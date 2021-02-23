@@ -18,8 +18,6 @@ from pybuilder.core import init
 from pybuilder.core import Author
 from pybuilder.core import task
 from pybuilder.pluginhelper.external_command import ExternalCommandBuilder
-from pybuilder.utils import read_file
-import json
 
 use_plugin('python.core')
 use_plugin('python.unittest')
@@ -27,7 +25,6 @@ use_plugin('python.install_dependencies')
 use_plugin('python.flake8')
 use_plugin('python.coverage')
 use_plugin('python.distutils')
-use_plugin('filter_resources')
 
 name = 'prunetags'
 authors = [
@@ -35,7 +32,7 @@ authors = [
 ]
 summary = 'A Python script that removes old pre-release tags from repos in a GitHub org'
 url = 'https://github.com/edgexfoundry/cd-management/tree/prune-github-tags'
-version = '0.0.4'
+version = '0.0.5'
 default_task = [
     'clean',
     'analyze',
@@ -68,7 +65,7 @@ def cyclomatic_complexity(project, logger):
         command.use_argument('-a')
         result = command.run_on_production_source_files(logger)
         if len(result.error_report_lines) > 0:
-            logger.error('Errors while running radon, see {0}'.format(result.error_report_file))
+            logger.error(f'Errors while running radon, see {result.error_report_file}')
         for line in result.report_lines[:-1]:
             logger.debug(line.strip())
         if not result.report_lines:
@@ -77,4 +74,4 @@ def cyclomatic_complexity(project, logger):
         logger.info(average_complexity_line)
 
     except Exception as exception:
-        print('ERROR: unable to execute cyclomatic complexity due to: {}'.format(str(exception)))
+        print(f'Unable to execute cyclomatic complexity due to ERROR: {exception}')

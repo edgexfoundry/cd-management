@@ -344,47 +344,8 @@ def get_screen_layout():
             'regex': r'^INFO: repo .*/(?P<value>.*) has no tags.*$',
             'table': True
         },
-        'processes': {
-            'position': (32, 2),
-            'text': 'Processes:',
-            'text_color': 245,
-        },
-        'processes_active': {
-            'position': (33, 5),
-            'text': 'Active: 0',
-            'text_color': 245,
-            'color': 14,
-            'regex': r'^mpcurses: number of active processes (?P<value>\d+)$',
-            'effects': [
-                {
-                    'regex': r'^mpcurses: number of active processes 000$',
-                    'color': 7
-                }
-            ],
-        },
-        'processes_queued': {
-            'position': (34, 5),
-            'text': 'Queued: 0',
-            'text_color': 245,
-            'color': 254,
-            'regex': r'^mpcurses: number of queued processes (?P<value>\d+)$',
-            'effects': [
-                {
-                    'regex': r'^mpcurses: number of queued processes 000$',
-                    'color': 7
-                }
-            ],
-        },
-        'processes_complete': {
-            'position': (35, 2),
-            'text': 'Completed: -',
-            'text_color': 245,
-            'color': 254,
-            'keep_count': True,
-            'regex': r'^mpcurses: a process has completed$'
-        },
         'errors': {
-            'position': (33, 28),
+            'position': (32, 3),
             'text': 'Errors: -',
             'text_color': 245,
             'color': 237,
@@ -392,7 +353,7 @@ def get_screen_layout():
             'regex': r'^ERROR.*$'
         },
         'retries': {
-            'position': (34, 27),
+            'position': (33, 2),
             'text': 'Retries: -',
             'text_color': 245,
             'color': 11,
@@ -414,32 +375,32 @@ def version_screen_layout(screen_layout):
 
 def remove_prerelease_tags(data, shared_data):
     repo = data['repo']
-    client = shared_data['client']
     noop = shared_data['noop']
+    client = get_client()
     client.remove_prerelease_tags(repo=repo, noop=noop)
     logger.debug(f'processed repo {repo}')
 
 
 def get_prerelease_tags_report(data, shared_data):
     repo = data['repo']
-    client = shared_data['client']
+    client = get_client()
     report = client.get_prerelease_tags_report(repos=[repo])
     return report
 
 
 def remove_version_tags(data, shared_data):
     repo = data['repo']
-    client = shared_data['client']
     noop = shared_data['noop']
     expression = shared_data['version']
+    client = get_client()
     client.remove_version_tags(repo=repo, noop=noop, expression=expression)
     logger.debug(f'processed repo {repo}')
 
 
 def get_version_tags_report(data, shared_data):
     repo = data['repo']
-    client = shared_data['client']
     expression = shared_data['version']
+    client = get_client()
     report = client.get_version_tags_report(repos=[repo], expression=expression)
     return report
 
@@ -451,7 +412,7 @@ def check_result(process_data):
         raise Exception('one or more processes had errors')
 
 
-def initiate_multiprocess(client, function, args, owner, repos):
+def initiate_multiprocess(function, args, owner, repos):
     """ initiate multiprocess execution
     """
     if args.processes == 0 or args.processes > len(repos):
@@ -479,7 +440,6 @@ def initiate_multiprocess(client, function, args, owner, repos):
         function=function,
         process_data=process_data,
         shared_data={
-            'client': client,
             'owner': owner,
             'noop': args.noop,
             'version': args.version
@@ -617,15 +577,15 @@ def main():
             # from the api methods - that's the way it should be
             if args.report:
                 if not args.version:
-                    result = initiate_multiprocess(client, get_prerelease_tags_report, args, owner, repos)
+                    result = initiate_multiprocess(get_prerelease_tags_report, args, owner, repos)
                 else:
-                    result = initiate_multiprocess(client, get_version_tags_report, args, owner, repos)
+                    result = initiate_multiprocess(get_version_tags_report, args, owner, repos)
                 write_report(result, owner)
             else:
                 if not args.version:
-                    initiate_multiprocess(client, remove_prerelease_tags, args, owner, repos)
+                    initiate_multiprocess(remove_prerelease_tags, args, owner, repos)
                 else:
-                    initiate_multiprocess(client, remove_version_tags, args, owner, repos)
+                    initiate_multiprocess(remove_version_tags, args, owner, repos)
 
     except MissingArgumentError as exception:
         parser.print_usage()
