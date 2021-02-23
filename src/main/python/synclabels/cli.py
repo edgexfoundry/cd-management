@@ -371,47 +371,8 @@ def get_screen_layout():
             'regex': r"^INFO: synchronization of labels to repo '.*/(?P<value>.*)' is complete$",
             'table': True
         },
-        'processes': {
-            'position': (33, 2),
-            'text': 'Processes:',
-            'text_color': 245,
-        },
-        'processes_active': {
-            'position': (34, 5),
-            'text': 'Active: 0',
-            'text_color': 245,
-            'color': 14,
-            'regex': r'^mpcurses: number of active processes (?P<value>\d+)$',
-            'effects': [
-                {
-                    'regex': r'^mpcurses: number of active processes 000$',
-                    'color': 7
-                }
-            ],
-        },
-        'processes_queued': {
-            'position': (35, 5),
-            'text': 'Queued: 0',
-            'text_color': 245,
-            'color': 254,
-            'regex': r'^mpcurses: number of queued processes (?P<value>\d+)$',
-            'effects': [
-                {
-                    'regex': r'^mpcurses: number of queued processes 000$',
-                    'color': 7
-                }
-            ],
-        },
-        'processes_complete': {
-            'position': (36, 2),
-            'text': 'Completed: -',
-            'text_color': 245,
-            'color': 254,
-            'keep_count': True,
-            'regex': r'^mpcurses: a process has completed$'
-        },
         'errors': {
-            'position': (34, 28),
+            'position': (33, 3),
             'text': 'Errors: -',
             'text_color': 245,
             'color': 237,
@@ -419,7 +380,7 @@ def get_screen_layout():
             'regex': r'^ERROR.*$'
         },
         'retries': {
-            'position': (35, 27),
+            'position': (34, 2),
             'text': 'Retries: -',
             'text_color': 245,
             'color': 11,
@@ -430,7 +391,9 @@ def get_screen_layout():
 
 
 def synchronize(data, shared_data):
-    client = shared_data['client']
+    """ synchronize labels and milestones
+    """
+    client = get_client()
     repo = f"{shared_data['owner']}/{data['repo']}"
 
     client.sync_labels(
@@ -490,7 +453,6 @@ def initiate_multiprocess(client, args, exclude_repos):
         function=synchronize,
         process_data=process_data,
         shared_data={
-            'client': client,
             'source_repo': args.source_repo,
             'labels': labels,
             'milestones': milestones,

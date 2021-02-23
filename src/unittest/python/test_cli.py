@@ -101,8 +101,10 @@ class TestCli(unittest.TestCase):
         # not much to test here
         get_screen_layout()
 
-    def test__synchronize_Should_CallExpected_When_Called(self, *patches):
+    @patch('synclabels.cli.get_client')
+    def test__synchronize_Should_CallExpected_When_Called(self, get_client_patch, *patches):
         client_mock = Mock()
+        get_client_patch.return_value = client_mock
         data = {
             'repo': 'repo1'
         }
@@ -112,8 +114,7 @@ class TestCli(unittest.TestCase):
             'milestones': ['milestone1', 'milestone2'],
             'source_repo': 'source-repo',
             'modified_since': 'modified-since',
-            'noop': False,
-            'client': client_mock
+            'noop': False
         }
         synchronize(data, shared_data)
         client_mock.sync_labels.assert_called_once_with(
@@ -122,12 +123,6 @@ class TestCli(unittest.TestCase):
             'source-repo',
             modified_since='modified-since',
             noop=False)
-        # client_mock.sync_milestones.assert_called_once_with(
-        #     'owner/repo1',
-        #     ['milestone1', 'milestone2'],
-        #     'source-repo',
-        #     modified_since='modified-since',
-        #     noop=False)
 
     @patch('synclabels.cli.MPcurses')
     def test__initiate_multiprocess_Should_CallExpected_When_Called(self, mpcurses_patch, *patches):

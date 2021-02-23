@@ -52,8 +52,8 @@ class API(GitHubAPI):
         matched_repos = API.match_key_values(repos, regex=regex, **attributes)
         return [
             repo['name']
-                for repo in matched_repos
-                    if repo['name'] not in exclude_repos
+            for repo in matched_repos
+            if repo['name'] not in exclude_repos
         ]
 
     def get_labels(self, repo):

@@ -35,7 +35,7 @@ authors = [
 ]
 summary = 'A Python script to synchronize labels for repositories in a GitHub organization'
 url = 'https://github.com/edgexfoundry/cd-management/tree/git-label-sync'
-version = '0.0.6'
+version = '0.0.7'
 default_task = [
     'clean',
     'analyze',
@@ -68,7 +68,7 @@ def cyclomatic_complexity(project, logger):
         command.use_argument('-a')
         result = command.run_on_production_source_files(logger)
         if len(result.error_report_lines) > 0:
-            logger.error('Errors while running radon, see {0}'.format(result.error_report_file))
+            logger.error(f'Errors while running radon, see {result.error_report_file}')
         for line in result.report_lines[:-1]:
             logger.debug(line.strip())
         if not result.report_lines:
@@ -77,4 +77,4 @@ def cyclomatic_complexity(project, logger):
         logger.info(average_complexity_line)
 
     except Exception as exception:
-        print('ERROR: unable to execute cyclomatic complexity due to: {}'.format(str(exception)))
+        print(f'Unable to execute cyclomatic complexity due to ERROR: {exception}')
