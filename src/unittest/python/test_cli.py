@@ -174,48 +174,49 @@ class TestCLI(unittest.TestCase):
         self.assertEqual(result, expected)
 
     @patch('dha.cli.check_result')
-    @patch('dha.cli.execute')
+    @patch('dha.cli.MPcurses')
     def test__get_all_tags_Should_CallExpected_When_Called_Mp(
             self,
             execute_patch,
             check_result_patch,
             *patches):
-        dockerhub_client = Mock()
         get_tags_mock = Mock()
         args = Mock()
         args.processes = 10
         image_dict_list = MagicMock()
         image_dict_list.len.return_value = 5
-        get_all_tags(dockerhub_client, get_tags_mock, args, image_dict_list)
+        get_all_tags(get_tags_mock, args, image_dict_list)
         check_result_patch.assert_called_once()
 
     @patch('dha.cli.check_result')
-    @patch('dha.cli.execute')
+    @patch('dha.cli.MPcurses')
     def test__get_all_tags_Should_CallExpected_When_Called_Sp(
             self,
             execute_patch,
             check_result_patch,
             *patches):
-        dockerhub_client = Mock()
         get_tags_mock = Mock()
         args = Mock()
         args.processes = 1
         image_dict_list = MagicMock()
         image_dict_list.len.return_value = 5
-        get_all_tags(dockerhub_client, get_tags_mock, args, image_dict_list)
+        get_all_tags(get_tags_mock, args, image_dict_list)
         assert not check_result_patch.b.called
 
+    @patch('dha.cli.get_dockerhub_client')
     @patch('dha.cli.logger')
     def test__get_tags_Should_CallExpected_When_Called_(
             self,
             logger_patch,
+            get_dockerhub_client_patch,
             *patches):
         get_return = {
             "count": "mock_return",
             "results": [{
                 "a": "b",
                 "star_count": 5,
-                "pull_count": 4
+                "pull_count": 4,
+                "name": "nero"
             }]
         }
         image = {
@@ -224,9 +225,10 @@ class TestCLI(unittest.TestCase):
             "pull_count": 55
         }
         shared_data = {}
-        shared_data['client'] = Mock()
+        client_mock = Mock()
+        client_mock.get.return_value = get_return
+        get_dockerhub_client_patch.return_value = client_mock
         shared_data['args'] = Mock()
         shared_data['image_tags_dict_list'] = Mock()
-        shared_data['client'].get.return_value = get_return
         get_tags(image, shared_data)
         self.assertEqual(logger_patch.debug.call_count, 2)

@@ -20,8 +20,7 @@ from datetime import datetime, timezone
 import sys
 import csv
 
-from mpcurses import queue_handler
-from mpcurses import execute
+from mpcurses import MPcurses
 
 import dateutil.parser
 import pytz
@@ -29,6 +28,9 @@ import logging
 
 
 logger = logging.getLogger(__name__)
+
+logging.getLogger('urllib3').setLevel(logging.CRITICAL)
+logging.getLogger('urllib3').propagate = False
 
 
 class MissingArgumentError(Exception):
@@ -63,11 +65,6 @@ def get_parser():
         action='store_true',
         help='write jobs to CSV file')
     parser.add_argument(
-        '--noop',
-        dest='noop',
-        action='store_true',
-        help='execute in NOOP mode (DRY RUN)')
-    parser.add_argument(
         '--procs',
         dest='processes',
         default=1,
@@ -84,15 +81,8 @@ def get_parser():
 def validate(args):
     """ validate args
     """
-
-    if not args.noop:
-        dry_run = getenv('DRY_RUN')
-        if dry_run and dry_run.lower() == 'true':
-            args.noop = True
-
     if args.screen:
-        if not args.processes:
-            print("assigning 10 processes")
+        if args.processes == 1:
             args.processes = 10
 
 
@@ -158,9 +148,7 @@ def configure_logging(args):
 
     logfile = '{}/{}'.format(getenv('PWD'), name)
     file_handler = logging.FileHandler(logfile)
-    file_formatter = logging.Formatter("%(asctime)s %(processName)s %(name)s \
-                                        [%(funcName)s] %(levelname)s \
-                                        %(message)s")
+    file_formatter = logging.Formatter("%(asctime)s %(processName)s %(name)s [%(funcName)s] %(levelname)s %(message)s")
     file_handler.setFormatter(file_formatter)
     file_handler.setLevel(logging.DEBUG)
     root_logger.addHandler(file_handler)
@@ -229,6 +217,9 @@ def filter_tag_list(tag_dict_list):
     utc = pytz.UTC
     just_tags_list = []
     for item in tag_dict_list:
+        result = item.get('result')
+        if not result:
+            raise ValueError(f"repository {item['name']} is missing result")
         just_tags_list.extend(item['result'])
 
     for tag in just_tags_list:
@@ -256,26 +247,25 @@ def check_result(process_data):
         raise Exception('one or more processes had errors')
 
 
-def get_all_tags(client, function, args, image_dict_list):
+def get_all_tags(function, args, image_dict_list):
     screen_layout = None
     if args.screen:
         screen_layout = get_screen_layout()
 
     shared_data = {
-        'client': client,
         'args': args,
     }
     if args.processes > 1:
-        execute(
+        MPcurses(
             function=function,
             process_data=image_dict_list,
             shared_data=shared_data,
-            number_of_processes=args.processes,
+            processes_to_start=args.processes,
             init_messages=[
                 f"Total Image Count:{len(image_dict_list)}",
                 f"Started:{datetime.now().strftime('%m/%d/%Y %H:%M:%S')}"
             ],
-            screen_layout=screen_layout)
+            screen_layout=screen_layout).execute()
         check_result(image_dict_list)
     else:
         for i, image in enumerate(image_dict_list):
@@ -284,10 +274,9 @@ def get_all_tags(client, function, args, image_dict_list):
     return image_dict_list
 
 
-@queue_handler
 def get_tags(image, shared_data):
-    client = shared_data['client']
     args = shared_data['args']
+    client = get_dockerhub_client(args.dockerhub_host_api)
     image_tags_dict_list = []
     logger.debug('Fetching information about: {}'.format(image['name']))
     response = client.get('/repositories/{}/{}/tags/?page_size=1000'.
@@ -297,7 +286,7 @@ def get_tags(image, shared_data):
         tag['repo_star_count'] = image['star_count']
         tag['repo_pull_count'] = image['pull_count']
         image_tags_dict_list.append(tag)
-        logger.debug('Tag Processed')
+        logger.debug(f"Tag Processed {image['name']}:{tag['name']}")
     return image_tags_dict_list
 
 
@@ -318,7 +307,6 @@ def main():
 
         # this takes a while
         image_tags_dict_list = get_all_tags(
-            dockerhub_client,
             get_tags,
             args,
             image_dict_list)
