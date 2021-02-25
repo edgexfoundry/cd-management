@@ -20,21 +20,43 @@ from datetime import datetime, timezone
 import sys
 import csv
 
-from mpcurses import queue_handler
-from mpcurses import execute
+from mpcurses import MPcurses
 
 import dateutil.parser
 import pytz
 import logging
 
+from requests.exceptions import HTTPError
+
 
 logger = logging.getLogger(__name__)
+
+logging.getLogger('urllib3').setLevel(logging.CRITICAL)
+logging.getLogger('urllib3').propagate = False
 
 
 class MissingArgumentError(Exception):
     """ argument error
     """
     pass
+
+
+class API(RESTclient):
+
+    @staticmethod
+    def retry_http_error(exception):
+        """ return True if exception is HTTPError, False otherwise
+            retry:
+                wait_random_min:10000
+                wait_random_max:20000
+                stop_max_attempt_number:6
+        """
+        logger.debug(f"checking if '{type(exception).__name__}' exception is a connection error")
+        if isinstance(exception, (HTTPError)):
+            logger.info('http error encountered - retrying request shortly')
+            return True
+        logger.debug(f'exception is not a http error: {exception}')
+        return False
 
 
 def get_parser():
@@ -63,11 +85,6 @@ def get_parser():
         action='store_true',
         help='write jobs to CSV file')
     parser.add_argument(
-        '--noop',
-        dest='noop',
-        action='store_true',
-        help='execute in NOOP mode (DRY RUN)')
-    parser.add_argument(
         '--procs',
         dest='processes',
         default=1,
@@ -84,15 +101,8 @@ def get_parser():
 def validate(args):
     """ validate args
     """
-
-    if not args.noop:
-        dry_run = getenv('DRY_RUN')
-        if dry_run and dry_run.lower() == 'true':
-            args.noop = True
-
     if args.screen:
-        if not args.processes:
-            print("assigning 10 processes")
+        if args.processes == 1:
             args.processes = 10
 
 
@@ -101,7 +111,7 @@ def get_dockerhub_client(dockerhub_host_api):
     """
     logger.info('connecting to hub.docker.com: {}'.format(dockerhub_host_api))
 
-    return RESTclient(dockerhub_host_api)
+    return API(dockerhub_host_api)
 
 
 def get_screen_layout():
@@ -158,9 +168,7 @@ def configure_logging(args):
 
     logfile = '{}/{}'.format(getenv('PWD'), name)
     file_handler = logging.FileHandler(logfile)
-    file_formatter = logging.Formatter("%(asctime)s %(processName)s %(name)s \
-                                        [%(funcName)s] %(levelname)s \
-                                        %(message)s")
+    file_formatter = logging.Formatter("%(asctime)s %(processName)s %(name)s [%(funcName)s] %(levelname)s %(message)s")
     file_handler.setFormatter(file_formatter)
     file_handler.setLevel(logging.DEBUG)
     root_logger.addHandler(file_handler)
@@ -226,12 +234,62 @@ def filter_image_list(image_dict_list):
 
 def filter_tag_list(tag_dict_list):
     # Scrape out the results from the the MP work:
-    utc = pytz.UTC
     just_tags_list = []
     for item in tag_dict_list:
+        result = item.get('result')
+        if not result:
+            raise ValueError(f"repository {item['name']} is missing result")
         just_tags_list.extend(item['result'])
 
-    for tag in just_tags_list:
+    return just_tags_list
+
+
+def check_result(process_data):
+    """ raise exception if any result in process data is exception
+    """
+    if any([isinstance(process.get('result'), Exception) for process in process_data]):
+        raise Exception('one or more processes had errors')
+
+
+def get_all_tags(function, args, image_dict_list):
+    screen_layout = None
+    if args.screen:
+        screen_layout = get_screen_layout()
+
+    shared_data = {
+        'args': args,
+    }
+    if args.processes > 1:
+        MPcurses(
+            function=function,
+            process_data=image_dict_list,
+            shared_data=shared_data,
+            processes_to_start=args.processes,
+            init_messages=[
+                f"Total Image Count:{len(image_dict_list)}",
+                f"Started:{datetime.now().strftime('%m/%d/%Y %H:%M:%S')}"
+            ],
+            screen_layout=screen_layout).execute()
+        check_result(image_dict_list)
+    else:
+        for i, image in enumerate(image_dict_list):
+            image_dict_list[i]['result'] = get_tags(image, shared_data)
+
+    return image_dict_list
+
+
+def get_tags(image, shared_data):
+    utc = pytz.UTC
+    args = shared_data['args']
+    client = get_dockerhub_client(args.dockerhub_host_api)
+    image_tags_dict_list = []
+    logger.debug('Fetching information about: {}'.format(image['name']))
+    response = client.get('/repositories/{}/{}/tags/?page_size=1000'.
+                          format(args.docker_user, image['name']))
+    for tag in response['results']:
+        tag['repo_name'] = image['name']
+        tag['repo_star_count'] = image['star_count']
+        tag['repo_pull_count'] = image['pull_count']
         tag.pop("last_updater", None)
         tag.pop("v2", None)
         tag.pop("id", None)
@@ -246,58 +304,9 @@ def filter_tag_list(tag_dict_list):
         tag['size_in_MB'] = round(tag['full_size'] / 1024 / 1024, 2)
         tag.pop('full_size', None)
         tag['days_since_update'] = (utc.localize(datetime.utcnow()) - dateutil.parser.isoparse(tag['last_updated'])).days
-    return just_tags_list
-
-
-def check_result(process_data):
-    """ raise exception if any result in process data is exception
-    """
-    if any([isinstance(process.get('result'), Exception) for process in process_data]):
-        raise Exception('one or more processes had errors')
-
-
-def get_all_tags(client, function, args, image_dict_list):
-    screen_layout = None
-    if args.screen:
-        screen_layout = get_screen_layout()
-
-    shared_data = {
-        'client': client,
-        'args': args,
-    }
-    if args.processes > 1:
-        execute(
-            function=function,
-            process_data=image_dict_list,
-            shared_data=shared_data,
-            number_of_processes=args.processes,
-            init_messages=[
-                f"Total Image Count:{len(image_dict_list)}",
-                f"Started:{datetime.now().strftime('%m/%d/%Y %H:%M:%S')}"
-            ],
-            screen_layout=screen_layout)
-        check_result(image_dict_list)
-    else:
-        for i, image in enumerate(image_dict_list):
-            image_dict_list[i]['result'] = get_tags(image, shared_data)
-
-    return image_dict_list
-
-
-@queue_handler
-def get_tags(image, shared_data):
-    client = shared_data['client']
-    args = shared_data['args']
-    image_tags_dict_list = []
-    logger.debug('Fetching information about: {}'.format(image['name']))
-    response = client.get('/repositories/{}/{}/tags/?page_size=1000'.
-                          format(args.docker_user, image['name']))
-    for tag in response['results']:
-        tag['repo_name'] = image['name']
-        tag['repo_star_count'] = image['star_count']
-        tag['repo_pull_count'] = image['pull_count']
         image_tags_dict_list.append(tag)
-        logger.debug('Tag Processed')
+
+        logger.debug(f"Tag Processed {image['name']}:{tag['tag_name']}")
     return image_tags_dict_list
 
 
@@ -318,7 +327,6 @@ def main():
 
         # this takes a while
         image_tags_dict_list = get_all_tags(
-            dockerhub_client,
             get_tags,
             args,
             image_dict_list)

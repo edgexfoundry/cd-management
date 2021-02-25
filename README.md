@@ -1,5 +1,6 @@
+[![build-status](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/dockerhub-audit/badge/icon)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/dockerhub-audit)
 
-# dockerhub-audit
+# cd-management/dockerhub-audit
 
 ## Summary
 
@@ -22,7 +23,6 @@ optional arguments:
   --dockerhub-host-api DOCKERHUB_HOST_API
                         hub.docker.com host API
   --csv                 write jobs to CSV file
-  --noop                execute in NOOP mode (DRY RUN)
   --procs PROCESSES     number of concurrent processes to execute
   --screen              visualize script execution using a curses screen
 ```
@@ -46,7 +46,6 @@ docker container run \
 -it \
 -e http_proxy \
 -e https_proxy \
- -e TERM='xterm-256color' \
 dockerhub-audit:latest \
 /bin/sh
 ```

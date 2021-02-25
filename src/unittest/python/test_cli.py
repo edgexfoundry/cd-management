@@ -149,23 +149,7 @@ class TestCLI(unittest.TestCase):
                                                'last_updated': '2017-10-22T12:07:02.964046Z'
                                                }],
                    }]
-        expected = [{'a': 'here',
-                     'architecture': "amd64",
-                     'os': "Linux",
-                     'tag_name': 'image1',
-                     'size_in_MB': 45.42,
-                     'last_updated': '2017-10-24T12:07:02.964046Z',
-                     'days_since_update': 1002
-                     },
-                    {'b': 'far',
-                     'architecture': "arm64",
-                     'os': "Windows",
-                     'tag_name': 'image2',
-                     'size_in_MB': 25.49,
-                     'days_since_update': 1004,
-                     'last_updated': '2017-10-22T12:07:02.964046Z'
-                     }
-                    ]
+        expected = [{'creator': 'bob', 'a': 'here', 'images': [{'architecture': 'amd64', 'os': 'Linux'}], 'name': 'image1', 'full_size': 47623330, 'last_updated': '2017-10-24T12:07:02.964046Z'}, {'repository': 'go', 'b': 'far', 'images': [{'architecture': 'arm64', 'os': 'Windows'}], 'name': 'image2', 'full_size': 26727650, 'last_updated': '2017-10-22T12:07:02.964046Z'}]
         result = filter_tag_list(images)
         self.maxDiff = None
         print(result)
@@ -174,48 +158,53 @@ class TestCLI(unittest.TestCase):
         self.assertEqual(result, expected)
 
     @patch('dha.cli.check_result')
-    @patch('dha.cli.execute')
+    @patch('dha.cli.MPcurses')
     def test__get_all_tags_Should_CallExpected_When_Called_Mp(
             self,
             execute_patch,
             check_result_patch,
             *patches):
-        dockerhub_client = Mock()
         get_tags_mock = Mock()
         args = Mock()
         args.processes = 10
         image_dict_list = MagicMock()
         image_dict_list.len.return_value = 5
-        get_all_tags(dockerhub_client, get_tags_mock, args, image_dict_list)
+        get_all_tags(get_tags_mock, args, image_dict_list)
         check_result_patch.assert_called_once()
 
     @patch('dha.cli.check_result')
-    @patch('dha.cli.execute')
+    @patch('dha.cli.MPcurses')
     def test__get_all_tags_Should_CallExpected_When_Called_Sp(
             self,
             execute_patch,
             check_result_patch,
             *patches):
-        dockerhub_client = Mock()
         get_tags_mock = Mock()
         args = Mock()
         args.processes = 1
         image_dict_list = MagicMock()
         image_dict_list.len.return_value = 5
-        get_all_tags(dockerhub_client, get_tags_mock, args, image_dict_list)
+        get_all_tags(get_tags_mock, args, image_dict_list)
         assert not check_result_patch.b.called
 
+    # @unittest.skip('skip')
+    @patch('dha.cli.get_dockerhub_client')
     @patch('dha.cli.logger')
     def test__get_tags_Should_CallExpected_When_Called_(
             self,
             logger_patch,
+            get_dockerhub_client_patch,
             *patches):
         get_return = {
             "count": "mock_return",
             "results": [{
                 "a": "b",
                 "star_count": 5,
-                "pull_count": 4
+                "pull_count": 4,
+                "name": "nero",
+                'images': [{"architecture": "amd64", "os": "Linux"}],
+                'full_size': 47623330,
+                'last_updated': '2017-10-24T12:07:02.964046Z'
             }]
         }
         image = {
@@ -224,9 +213,10 @@ class TestCLI(unittest.TestCase):
             "pull_count": 55
         }
         shared_data = {}
-        shared_data['client'] = Mock()
+        client_mock = Mock()
+        client_mock.get.return_value = get_return
+        get_dockerhub_client_patch.return_value = client_mock
         shared_data['args'] = Mock()
         shared_data['image_tags_dict_list'] = Mock()
-        shared_data['client'].get.return_value = get_return
         get_tags(image, shared_data)
         self.assertEqual(logger_patch.debug.call_count, 2)
