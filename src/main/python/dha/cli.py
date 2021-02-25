@@ -214,7 +214,6 @@ def filter_image_list(image_dict_list):
 
 def filter_tag_list(tag_dict_list):
     # Scrape out the results from the the MP work:
-    utc = pytz.UTC
     just_tags_list = []
     for item in tag_dict_list:
         result = item.get('result')
@@ -222,21 +221,6 @@ def filter_tag_list(tag_dict_list):
             raise ValueError(f"repository {item['name']} is missing result")
         just_tags_list.extend(item['result'])
 
-    for tag in just_tags_list:
-        tag.pop("last_updater", None)
-        tag.pop("v2", None)
-        tag.pop("id", None)
-        tag.pop("creator", None)
-        tag.pop("image_id", None)
-        tag.pop("repository", None)
-        tag['architecture'] = tag['images'][0]['architecture']
-        tag['os'] = tag['images'][0]['os']
-        tag.pop("images", None)
-        tag['tag_name'] = tag['name']
-        tag.pop('name', None)
-        tag['size_in_MB'] = round(tag['full_size'] / 1024 / 1024, 2)
-        tag.pop('full_size', None)
-        tag['days_since_update'] = (utc.localize(datetime.utcnow()) - dateutil.parser.isoparse(tag['last_updated'])).days
     return just_tags_list
 
 
@@ -275,6 +259,7 @@ def get_all_tags(function, args, image_dict_list):
 
 
 def get_tags(image, shared_data):
+    utc = pytz.UTC
     args = shared_data['args']
     client = get_dockerhub_client(args.dockerhub_host_api)
     image_tags_dict_list = []
@@ -285,8 +270,23 @@ def get_tags(image, shared_data):
         tag['repo_name'] = image['name']
         tag['repo_star_count'] = image['star_count']
         tag['repo_pull_count'] = image['pull_count']
+        tag.pop("last_updater", None)
+        tag.pop("v2", None)
+        tag.pop("id", None)
+        tag.pop("creator", None)
+        tag.pop("image_id", None)
+        tag.pop("repository", None)
+        tag['architecture'] = tag['images'][0]['architecture']
+        tag['os'] = tag['images'][0]['os']
+        tag.pop("images", None)
+        tag['tag_name'] = tag['name']
+        tag.pop('name', None)
+        tag['size_in_MB'] = round(tag['full_size'] / 1024 / 1024, 2)
+        tag.pop('full_size', None)
+        tag['days_since_update'] = (utc.localize(datetime.utcnow()) - dateutil.parser.isoparse(tag['last_updated'])).days
         image_tags_dict_list.append(tag)
-        logger.debug(f"Tag Processed {image['name']}:{tag['name']}")
+
+        logger.debug(f"Tag Processed {image['name']}:{tag['tag_name']}")
     return image_tags_dict_list
 
 

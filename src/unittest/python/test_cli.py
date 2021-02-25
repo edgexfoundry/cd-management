@@ -149,23 +149,7 @@ class TestCLI(unittest.TestCase):
                                                'last_updated': '2017-10-22T12:07:02.964046Z'
                                                }],
                    }]
-        expected = [{'a': 'here',
-                     'architecture': "amd64",
-                     'os': "Linux",
-                     'tag_name': 'image1',
-                     'size_in_MB': 45.42,
-                     'last_updated': '2017-10-24T12:07:02.964046Z',
-                     'days_since_update': 1002
-                     },
-                    {'b': 'far',
-                     'architecture': "arm64",
-                     'os': "Windows",
-                     'tag_name': 'image2',
-                     'size_in_MB': 25.49,
-                     'days_since_update': 1004,
-                     'last_updated': '2017-10-22T12:07:02.964046Z'
-                     }
-                    ]
+        expected = [{'creator': 'bob', 'a': 'here', 'images': [{'architecture': 'amd64', 'os': 'Linux'}], 'name': 'image1', 'full_size': 47623330, 'last_updated': '2017-10-24T12:07:02.964046Z'}, {'repository': 'go', 'b': 'far', 'images': [{'architecture': 'arm64', 'os': 'Windows'}], 'name': 'image2', 'full_size': 26727650, 'last_updated': '2017-10-22T12:07:02.964046Z'}]
         result = filter_tag_list(images)
         self.maxDiff = None
         print(result)
@@ -203,6 +187,7 @@ class TestCLI(unittest.TestCase):
         get_all_tags(get_tags_mock, args, image_dict_list)
         assert not check_result_patch.b.called
 
+    # @unittest.skip('skip')
     @patch('dha.cli.get_dockerhub_client')
     @patch('dha.cli.logger')
     def test__get_tags_Should_CallExpected_When_Called_(
@@ -216,7 +201,10 @@ class TestCLI(unittest.TestCase):
                 "a": "b",
                 "star_count": 5,
                 "pull_count": 4,
-                "name": "nero"
+                "name": "nero",
+                'images': [{"architecture": "amd64", "os": "Linux"}],
+                'full_size': 47623330,
+                'last_updated': '2017-10-24T12:07:02.964046Z'
             }]
         }
         image = {
