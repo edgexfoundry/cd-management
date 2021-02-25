@@ -26,6 +26,8 @@ import dateutil.parser
 import pytz
 import logging
 
+from requests.exceptions import HTTPError
+
 
 logger = logging.getLogger(__name__)
 
@@ -37,6 +39,24 @@ class MissingArgumentError(Exception):
     """ argument error
     """
     pass
+
+
+class API(RESTclient):
+
+    @staticmethod
+    def retry_http_error(exception):
+        """ return True if exception is HTTPError, False otherwise
+            retry:
+                wait_random_min:10000
+                wait_random_max:20000
+                stop_max_attempt_number:6
+        """
+        logger.debug(f"checking if '{type(exception).__name__}' exception is a connection error")
+        if isinstance(exception, (HTTPError)):
+            logger.info('http error encountered - retrying request shortly')
+            return True
+        logger.debug(f'exception is not a http error: {exception}')
+        return False
 
 
 def get_parser():
@@ -91,7 +111,7 @@ def get_dockerhub_client(dockerhub_host_api):
     """
     logger.info('connecting to hub.docker.com: {}'.format(dockerhub_host_api))
 
-    return RESTclient(dockerhub_host_api)
+    return API(dockerhub_host_api)
 
 
 def get_screen_layout():
