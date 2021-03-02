@@ -22,6 +22,7 @@ from mock import Mock
 from synclabels.cli import MissingArgumentError
 from synclabels.cli import get_parser
 from synclabels.cli import get_exclude_repos
+from synclabels.cli import get_process_data
 from synclabels.cli import validate
 from synclabels.cli import get_client
 from synclabels.cli import get_screen_layout
@@ -124,25 +125,24 @@ class TestCli(unittest.TestCase):
             modified_since='modified-since',
             noop=False)
 
+    @patch('synclabels.cli.check_result')
+    @patch('synclabels.cli.get_screen_layout')
     @patch('synclabels.cli.MPcurses')
     def test__initiate_multiprocess_Should_CallExpected_When_Called(self, mpcurses_patch, *patches):
-        client_mock = Mock()
-        client_mock.get_repos.return_value = ['repo1']
-        client_mock.get_labels.return_value = ['label1', 'label2']
-        client_mock.get_milestones.return_value = ['milestone1', 'milestone2']
         args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', execute=True, screen=True, processes=4, noop=False)
         exclude_repos = ['repo2', 'repo3']
-        initiate_multiprocess(client_mock, args, exclude_repos)
+        initiate_multiprocess(args, exclude_repos)
         mpcurses_patch.assert_called()
 
+    @patch('synclabels.cli.check_result')
+    @patch('synclabels.cli.get_process_data')
     @patch('synclabels.cli.MPcurses')
-    def test__initiate_multiprocess_Should_Return_When_NoRepos(self, mpcurses_patch, *patches):
-        client_mock = Mock()
-        client_mock.get_repos.return_value = []
-        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', execute=True, screen=True, processes=4, noop=False)
+    def test__initiate_multiprocess_Should_CallExpected_When_NoScreen(self, mpcurses_patch, get_process_data_patch, *patches):
+        get_process_data_patch.return_value = ([{'node': 1}, {'node': 2}], {'key1': 'value1'})
+        args = Namespace(target_org='target-org', source_repo='source-repo', modified_since='1d', execute=True, screen=False, processes=4, noop=False)
         exclude_repos = ['repo2', 'repo3']
-        initiate_multiprocess(client_mock, args, exclude_repos)
-        mpcurses_patch.assert_not_called()
+        initiate_multiprocess(args, exclude_repos)
+        mpcurses_patch.assert_called()
 
     def test__check_result_Should_RaiseException_When_ProcessResultException(self, *patches):
         process_data = [
@@ -184,20 +184,6 @@ class TestCli(unittest.TestCase):
     @patch('synclabels.cli.get_exclude_repos')
     @patch('synclabels.cli.set_logging')
     @patch('synclabels.cli.validate')
-    @patch('synclabels.cli.get_parser')
-    @patch('synclabels.cli.get_client')
-    def test__main__Should_CallExpected_When_NoMultiprocesses(self, get_client_patch, get_parser_patch, *patches):
-        client_mock = Mock()
-        get_client_patch.return_value = client_mock
-        parser_mock = Mock()
-        parser_mock.parse_args.return_value = Namespace(source_repo='source-repo', target_org='target-org', processes=None, modified_since=None, exclude_repos=None, execute=True, screen=None, debug=None, noop=False)
-        get_parser_patch.return_value = parser_mock
-        main()
-        client_mock.sync_repos.assert_called()
-
-    @patch('synclabels.cli.get_exclude_repos')
-    @patch('synclabels.cli.set_logging')
-    @patch('synclabels.cli.validate')
     @patch('synclabels.cli.initiate_multiprocess')
     @patch('synclabels.cli.get_parser')
     @patch('synclabels.cli.get_client')
@@ -209,3 +195,25 @@ class TestCli(unittest.TestCase):
         get_parser_patch.return_value = parser_mock
         main()
         initiate_multiprocess_patch.assert_called()
+
+    @patch('synclabels.cli.get_client')
+    def test__get_process_data_Should_ReturnExpected_When_Repos(self, get_client_patch, *patches):
+        client_mock = Mock()
+        client_mock.get_repos.return_value = ['repo2', 'repo3']
+        client_mock.get_labels.return_value = ['label1', 'label2']
+        client_mock.get_milestones.return_value = ['milestone1', 'milestone2']
+        get_client_patch.return_value = client_mock
+        result = get_process_data(owner='org1', source_repo='repo1', exclude_repos='repo1')
+        shared_data = {'owner': 'org1', 'source_repo': 'repo1', 'exclude_repos': 'repo1', 'repos': ['repo2', 'repo3'], 'labels': ['label1', 'label2'], 'milestones': ['milestone1', 'milestone2']}
+        expected_result = ([{'repo': 'repo2'}, {'repo': 'repo3'}], shared_data)
+        self.assertEqual(result, expected_result)
+
+    @patch('synclabels.cli.get_client')
+    def test__get_process_data_Should_ReturnExpected_When_NoRepos(self, get_client_patch, *patches):
+        client_mock = Mock()
+        client_mock.get_repos.return_value = []
+        get_client_patch.return_value = client_mock
+        result = get_process_data(owner='org1', source_repo='repo1', exclude_repos='repo1')
+        shared_data = {'owner': 'org1', 'source_repo': 'repo1', 'exclude_repos': 'repo1'}
+        expected_result = ([], shared_data)
+        self.assertEqual(result, expected_result)
