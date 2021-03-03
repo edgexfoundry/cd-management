@@ -19,6 +19,7 @@ import logging
 from argparse import ArgumentParser
 from os import getenv
 from datetime import datetime
+from copy import deepcopy
 from synclabels import API
 
 from mpcurses import MPcurses
@@ -202,14 +203,14 @@ def get_screen_layout():
             'text': 'Repos To Synchronize: 0',
             'text_color': 245,
             'color': 254,
-            'regex': '^retrieved total of (?P<value>\d+) repos$'
+            'regex': r"^'repos' has (?P<value>\d+) items$"
         },
-        'excluded_repos': {
+        'exclude_repos': {
             'position': (6, 2),
-            'text': 'Excluded Repos: -',
+            'text': 'Exclude Repos: -',
             'text_color': 245,
             'color': 254,
-            'regex': r'^excluded repos: (?P<value>.*)$'
+            'regex': r'^exclude repos: (?P<value>.*)$'
         },
         'noop': {
             'position': (1, 64),
@@ -223,7 +224,7 @@ def get_screen_layout():
             'text': 'Started: -',
             'text_color': 245,
             'color': 254,
-            'regex': '^Started:(?P<value>.*)$'
+            'regex': '^mpcurses: Started:(?P<value>.*)$'
         },
         'end_time': {
             'position': (7, 63),
@@ -277,14 +278,14 @@ def get_screen_layout():
             'text': '',
             'replace_text': '->',
             'color': 14,
-            'regex': r'^INFO: synchronizing \d+ labels to repo .*$',
+            'regex': r"^synchronizing of repo '.*/(?P<value>.*)' started$",
             'table': True
         },
         '_off': {
             'position': (11, 0),
             'text': '',
             'replace_text': '  ',
-            'regex': r'^INFO: synchronization of labels to repo .* is complete$',
+            'regex': r"^synchronizing of repo '.*/(?P<value>.*)' finished$",
             'table': True
         },
         'labels_created': {
@@ -360,7 +361,7 @@ def get_screen_layout():
             'text': '',
             'color': 14,
             'width': 30,
-            'regex': r"^INFO: synchronizing \d+ labels to repo '.*/(?P<value>.*)'$",
+            'regex': r"^synchronizing of repo '.*/(?P<value>.*)' started$",
             'table': True
         },
         'repo_processed': {
@@ -368,7 +369,7 @@ def get_screen_layout():
             'text': '',
             'color': 15,
             'width': 30,
-            'regex': r"^INFO: synchronization of labels to repo '.*/(?P<value>.*)' is complete$",
+            'regex': r"^synchronizing of repo '.*/(?P<value>.*)' finished$",
             'table': True
         },
         'errors': {
@@ -396,6 +397,7 @@ def synchronize(data, shared_data):
     client = get_client()
     repo = f"{shared_data['owner']}/{data['repo']}"
 
+    logger.debug(f"synchronizing of repo '{repo}' started")
     client.sync_labels(
         repo,
         shared_data['labels'],
@@ -410,6 +412,46 @@ def synchronize(data, shared_data):
         modified_since=shared_data['modified_since'],
         noop=shared_data['noop'])
 
+    logger.debug(f"synchronizing of repo '{repo}' finished")
+
+
+def get_process_data(**kwargs):
+    """ retrieving matching repos
+    """
+    client = get_client()
+
+    target_org = kwargs['owner']
+    source_repo = kwargs['source_repo']
+    exclude_repos = kwargs['exclude_repos']
+
+    logger.debug(f'retrieving matching repos from GitHub {target_org}')
+    repos = client.get_repos(
+        organization=target_org,
+        exclude_repos=exclude_repos,
+        archived=False,
+        disasbled=False)
+    logger.info(f'retrieved {len(repos)} repos from {target_org}')
+
+    if not repos:
+        logger.debug('no repos retrieved - exiting')
+        return ([], kwargs)
+
+    logger.debug(f'retrieving labels from {source_repo}')
+    labels = client.get_labels(source_repo)
+    logger.info(f'retrieved {len(labels)} labels from {source_repo}')
+
+    logger.debug(f'retrieving milestones from {source_repo}')
+    milestones = client.get_milestones(source_repo)
+    logger.info(f'retrieved {len(milestones)} milestones from {source_repo}')
+
+    shared_data = deepcopy(kwargs)
+    shared_data['repos'] = repos
+    shared_data['labels'] = labels
+    shared_data['milestones'] = milestones
+    process_data = [{'repo': repo} for repo in repos]
+
+    return (process_data, shared_data)
+
 
 def check_result(process_data):
     """ raise exception if any result in process data is exception
@@ -418,60 +460,40 @@ def check_result(process_data):
         raise Exception('one or more processes had errors')
 
 
-def initiate_multiprocess(client, args, exclude_repos):
+def initiate_multiprocess(args, exclude_repos):
     """ initiate multiprocess execution
     """
     logger.info(f'NOOP: {args.noop}')
-    logger.info(f'retrieving matching repos from GitHub {args.target_org}')
-    repos = client.get_repos(
-        organization=args.target_org,
-        # user=args.target_org,  # TESTING ONLY!
-        # regex=r'^test_us6379-.*$',  # TESTING ONLY!
-        exclude_repos=exclude_repos,
-        archived=False,
-        disasbled=False)
-    logger.info(f"retrieved {len(repos)} repos in '{args.target_org}'")
-    if len(repos) == 0:
-        logger.info("no repos retrieved - exiting")
-        return
 
-    logger.info(f'retrieving labels from {args.source_repo}')
-    labels = client.get_labels(args.source_repo)
-    logger.info(f"retrieved {len(labels)} labels from label repo '{args.source_repo}'")
+    get_process_data_kwargs = {
+        'source_repo': args.source_repo,
+        'owner': args.target_org,
+        'modified_since': args.modified_since,
+        'exclude_repos': exclude_repos,
+        'noop': args.noop
+    }
+    init_messages = [
+        f'exclude repos: {exclude_repos}']
 
-    logger.info(f'retrieving milestones from {args.source_repo}')
-    milestones = client.get_milestones(args.source_repo)
-    logger.info(f'retrieved {len(milestones)} milestones from {args.source_repo}')
+    if args.screen:
+        mpcurses = MPcurses(
+            function=synchronize,
+            get_process_data=get_process_data,
+            shared_data=get_process_data_kwargs,
+            processes_to_start=args.processes,
+            init_messages=init_messages,
+            screen_layout=get_screen_layout())
+    else:
+        process_data, shared_data = get_process_data(**get_process_data_kwargs)
+        mpcurses = MPcurses(
+            function=synchronize,
+            process_data=process_data,
+            shared_data=shared_data,
+            processes_to_start=args.processes,
+            init_messages=init_messages)
 
-    if args.processes > len(repos):
-        args.processes = len(repos)
-
-    process_data = [
-        {'repo': repo} for repo in repos
-    ]
-    mpcurses = MPcurses(
-        function=synchronize,
-        process_data=process_data,
-        shared_data={
-            'source_repo': args.source_repo,
-            'labels': labels,
-            'milestones': milestones,
-            'owner': args.target_org,
-            'modified_since': args.modified_since,
-            'noop': args.noop
-        },
-        processes_to_start=args.processes,
-        init_messages=[
-            f'retrieved total of {len(repos)} repos',
-            f'processing total of {len(repos) * len(labels)} labels',
-            f'processing total of {len(repos) * len(milestones)} milestones',
-            f'excluded repos: {exclude_repos}',
-            f"Started:{datetime.now().strftime('%m/%d/%Y %H:%M:%S')}"
-        ],
-        screen_layout=get_screen_layout() if args.screen else None)
     mpcurses.execute()
-
-    check_result(process_data)
+    check_result(mpcurses.process_data)
 
 
 def set_logging(args):
@@ -504,21 +526,11 @@ def main():
         args = parser.parse_args()
         validate(args)
         set_logging(args)
-        client = get_client()
+
         exclude_repos = get_exclude_repos(args.exclude_repos, args.source_repo, args.target_org)
         logger.info(f'excluded repos: {exclude_repos}')
 
-        if not args.processes:
-            client.sync_repos(
-                args.source_repo,
-                organization=args.target_org,
-                # user=args.target_org,  # TESTING ONLY!
-                # regex=r'^test_us6379-.*$',  # TESTING ONLY!
-                exclude_repos=exclude_repos,
-                modified_since=args.modified_since,
-                noop=args.noop)
-        else:
-            initiate_multiprocess(client, args, exclude_repos)
+        initiate_multiprocess(args, exclude_repos)
 
     except MissingArgumentError as exception:
         parser.print_usage()
