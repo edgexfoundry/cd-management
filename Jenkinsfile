@@ -61,6 +61,7 @@ pipeline {
     }
     post {
         always {
+            archiveArtifacts artifacts: 'prune-github-labels.log', allowEmptyArchive: true
             edgeXInfraPublish()
         }
     }

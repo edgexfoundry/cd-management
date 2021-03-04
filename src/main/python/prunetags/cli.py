@@ -19,6 +19,7 @@ import logging
 from os import getenv
 from datetime import datetime
 from argparse import ArgumentParser
+from copy import deepcopy
 
 from semantic_version import SimpleSpec
 from mpcurses import MPcurses
@@ -143,13 +144,6 @@ def get_screen_layout():
     """ return screen map
     """
     return {
-        'default': {
-            'window': True,
-            'begin_y': 0,
-            'begin_x': 0,
-            'height': 100,
-            'width': 200
-        },
         'table': {
             'rows': 20,
             'cols': 3,
@@ -198,7 +192,7 @@ def get_screen_layout():
             'text': 'Repos: 0',
             'text_color': 245,
             'color': 254,
-            'regex': '^retrieved total of (?P<value>\d+) repos$'
+            'regex': r"^'repos' has (?P<value>\d+) items$"
         },
         'noop': {
             'position': (1, 64),
@@ -211,7 +205,7 @@ def get_screen_layout():
             'position': (2, 52),
             'text': 'Version Argument: -',
             'text_color': 245,
-            'color': 239,
+            'color': 33,
             'regex': "^'version' is '(?P<value>.*)'$"
         },
         'start_time': {
@@ -219,7 +213,7 @@ def get_screen_layout():
             'text': 'Started: -',
             'text_color': 245,
             'color': 254,
-            'regex': '^Started:(?P<value>.*)$'
+            'regex': '^mpcurses: Started:(?P<value>.*)$'
         },
         'end_time': {
             'position': (7, 63),
@@ -363,14 +357,13 @@ def get_screen_layout():
     }
 
 
-def version_screen_layout(screen_layout):
+def update_version_screen_layout(screen_layout):
     screen_layout['tpt_key1']['text'] = 'TT:'
     screen_layout['tpt_key2']['text'] = 'Total Tags'
     screen_layout['ptr_key1']['text'] = 'TR:'
     screen_layout['ptr_key2']['text'] = 'Tags Removed'
     screen_layout['tpt_header']['text'] = 'TT'
     screen_layout['ptr_header']['text'] = 'TR'
-    return screen_layout
 
 
 def remove_prerelease_tags(data, shared_data):
@@ -409,53 +402,92 @@ def check_result(process_data):
     """ raise exception if any result in process data is exception
     """
     if any([isinstance(process.get('result'), Exception) for process in process_data]):
-        raise Exception('one or more processes had errors')
+        raise Exception('one or more processes had errors - check logfile for more information')
 
 
-def initiate_multiprocess(function, args, owner, repos):
+def get_process_data(**kwargs):
+    """ retrieving matching repos
+    """
+    client = get_client()
+
+    org = kwargs['org']
+    user = kwargs['user']
+    include_repos = kwargs['include_repos']
+    exclude_repos = kwargs['exclude_repos']
+
+    owner = org
+    if user:
+        owner = user
+
+    logger.info(f'retrieving matching repos from org/user {owner}')
+    repos = client.get_repos(
+        organization=org,
+        user=user,
+        include=include_repos,
+        exclude=exclude_repos,
+        archived=False,
+        disabled=False)
+    logger.info(f"retrieved {len(repos)} repos from org/owner '{owner}'")
+
+    if not repos:
+        logger.info("no repos retrieved - exiting")
+        return ([], kwargs)
+
+    shared_data = deepcopy(kwargs)
+    shared_data['repos'] = repos
+    shared_data['owner'] = owner
+    process_data = [{'repo': repo} for repo in repos]
+
+    return (process_data, shared_data)
+
+
+def initiate_multiprocess(function, args):
     """ initiate multiprocess execution
     """
-    if args.processes == 0 or args.processes > len(repos):
-        args.processes = len(repos)
+    logger.info(f'NOOP: {args.noop}')
 
-    process_data = [
-        {'repo': repo} for repo in repos
-    ]
-
-    screen_layout = None
-    if args.screen:
-        screen_layout = get_screen_layout()
-        if args.version:
-            screen_layout = version_screen_layout(screen_layout)
+    get_process_data_kwargs = {
+        'org': args.org,
+        'user': args.user,
+        'include_repos': args.include_repos,
+        'exclude_repos': args.exclude_repos,
+        'version': args.version,
+        'noop': args.noop
+    }
 
     include_repos = args.include_repos if args.include_repos else '-'
     exclude_repos = args.exclude_repos if args.exclude_repos else '-'
+    init_messages = [
+        f"'include_repos' is '{include_repos}'",
+        f"'exclude_repos' is '{exclude_repos}'"]
 
-    # this is where magic happens
     # the MPcurses class takes care of starting the required number of processes
-    # and handles all the managing all processes and message queues - you just tell it
+    # and handles managing all processes and message queues - you just tell it
     # what function to execute within each process, the data each process needs to execute,
     # the total number of processes to execute and the screen layout (if any)
-    mpcurses = MPcurses(
-        function=function,
-        process_data=process_data,
-        shared_data={
-            'owner': owner,
-            'noop': args.noop,
-            'version': args.version
-        },
-        processes_to_start=args.processes,
-        init_messages=[
-            f"'include_repos' is '{include_repos}'",
-            f"'exclude_repos' is '{exclude_repos}'",
-            f'retrieved total of {len(repos)} repos',
-            f"Started:{datetime.now().strftime('%m/%d/%Y %H:%M:%S')}"
-        ],
-        screen_layout=screen_layout)
-    mpcurses.execute()
+    if args.screen:
+        screen_layout = get_screen_layout()
+        if args.version:
+            update_version_screen_layout(screen_layout)
+        mpcurses = MPcurses(
+            function=function,
+            get_process_data=get_process_data,
+            shared_data=get_process_data_kwargs,
+            processes_to_start=args.processes,
+            init_messages=init_messages,
+            screen_layout=screen_layout)
+    else:
+        process_data, shared_data = get_process_data(**get_process_data_kwargs)
+        mpcurses = MPcurses(
+            function=function,
+            process_data=process_data,
+            shared_data=shared_data,
+            processes_to_start=args.processes,
+            init_messages=init_messages)
 
-    check_result(process_data)
-    return process_data
+    mpcurses.execute()
+    check_result(mpcurses.process_data)
+    return (mpcurses.process_data, mpcurses.shared_data['owner'])
 
 
 def set_logging(args):
@@ -481,32 +513,6 @@ def set_logging(args):
         stream_handler.setFormatter(stream_formatter)
         stream_handler.setLevel(logging.DEBUG if args.debug else logging.INFO)
         rootLogger.addHandler(stream_handler)
-
-
-def get_repos(client, args):
-    """ return matching repos
-    """
-    logger.info(f'NOOP: {args.noop}')
-
-    owner = args.org
-    if args.user:
-        owner = args.user
-
-    message = f'retrieving matching repos from org/user {owner}'
-    logger.info(message)
-    if args.screen or args.report:
-        print(f'{message} ...')
-
-    repos = client.get_repos(
-        organization=args.org,
-        user=args.user,
-        include=args.include_repos,
-        exclude=args.exclude_repos,
-        archived=False,
-        disabled=False)
-
-    logger.info(f"retrieved {len(repos)} repos from org/owner '{owner}'")
-    return owner, repos
 
 
 def prune_prerelease_tags(client, repos, args):
@@ -552,40 +558,17 @@ def main():
         args = parser.parse_args()
         validate(args)
         set_logging(args)
-        client = get_client()
-        owner, repos = get_repos(client, args)
-        if not repos:
-            logger.info("no repos retrieved - exiting")
-            return
-        if not args.report and not args.processes:
-            # boring sequential execution - it does the job but its kinda boring
-            if not args.version:
-                prune_prerelease_tags(client, repos, args)
-            else:
-                prune_version_tags(client, repos, args)
+        if args.report:
+            function = get_prerelease_tags_report
+            if args.version:
+                function = get_version_tags_report
+            result = initiate_multiprocess(function, args)
+            write_report(result[0], result[1])
         else:
-            # exciting multi-process execution leveraging the mpcurses library
-            # note the same api methods are called here as in the call above
-            # the only special thing we have to do is wrap the api calls with
-            # an mpcurses method and create a dictionary describing the curses
-            # screen layout
-
-            # also note the api methods (API) know nothing about how they are being called
-            # whether it is being called within the context of a single process or
-            # scaled across multiple processes - they also know nothing about the curses screen
-            # the mpcurses library abstracts multi-processing and the curses screen completely
-            # from the api methods - that's the way it should be
-            if args.report:
-                if not args.version:
-                    result = initiate_multiprocess(get_prerelease_tags_report, args, owner, repos)
-                else:
-                    result = initiate_multiprocess(get_version_tags_report, args, owner, repos)
-                write_report(result, owner)
-            else:
-                if not args.version:
-                    initiate_multiprocess(remove_prerelease_tags, args, owner, repos)
-                else:
-                    initiate_multiprocess(remove_version_tags, args, owner, repos)
+            function = remove_prerelease_tags
+            if args.version:
+                function = remove_version_tags
+            initiate_multiprocess(function, args)
 
     except MissingArgumentError as exception:
         parser.print_usage()
@@ -593,6 +576,7 @@ def main():
 
     except Exception as exception:
         logger.error("ERROR: {}".format(str(exception)))
+        print(str(exception))
         sys.exit(-1)
 
 
