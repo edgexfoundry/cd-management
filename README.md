@@ -1,4 +1,9 @@
 [![build-status](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/create-github-release/badge/icon)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/create-github-release)
+[![coverage](docs/images/coverage.svg)](https://pybuilder.io/)
+[![complexity](docs/images/complexity.svg)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
+[![severity](docs/images/severity.svg)](https://pypi.org/project/bandit/)
+[![python](docs/images/python.svg)](https://www.python.org/downloads/)
+
 
 # cd-management/create-github-release #
 A Python script to facilitate creation of GitHub releases with assets.
@@ -6,6 +11,19 @@ A Python script to facilitate creation of GitHub releases with assets.
 ### `create-github-release` ###
 
 ```bash
+  ____                _          ____ _ _   _   _       _
+ / ___|_ __ ___  __ _| |_ ___   / ___(_) |_| | | |_   _| |__
+| |   | '__/ _ \/ _` | __/ _ \ | |  _| | __| |_| | | | | '_ \
+| |___| | |  __/ (_| | ||  __/ | |_| | | |_|  _  | |_| | |_) |
+ \____|_|  \___|\__,_|\__\___|  \____|_|\__|_| |_|\__,_|_.__/
+
+ ____      _
+|  _ \ ___| | ___  __ _ ___  ___
+| |_) / _ \ |/ _ \/ _` / __|/ _ \
+|  _ <  __/ |  __/ (_| \__ \  __/
+|_| \_\___|_|\___|\__,_|___/\___|
+
+
 usage: create-github-release [-h] --repo REPO --tag TAG --assets ASSETS
                              [--release RELEASE] [--debug]
 

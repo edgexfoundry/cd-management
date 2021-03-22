@@ -9,7 +9,6 @@ COPY . /cr8rel/
 RUN apk add --update --no-cache git gcc libc-dev libffi-dev openssl-dev libmagic
 RUN pip install pybuilder==0.11.17
 RUN pyb install_dependencies
-RUN pyb
 RUN pyb publish
 
 
@@ -23,5 +22,3 @@ COPY --from=build-image /cr8rel/target/dist/cr8rel-*/dist/cr8rel-*.tar.gz /opt/c
 
 RUN apk add --update --no-cache libmagic
 RUN pip install cr8rel-*.tar.gz
-
-CMD echo 'DONE'
