@@ -1,4 +1,8 @@
 [![build-status](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/git-label-sync/badge/icon)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/git-label-sync)
+[![coverage](docs/images/coverage.svg)](https://pybuilder.io/)
+[![complexity](docs/images/complexity.svg)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
+[![severity](docs/images/severity.svg)](https://pypi.org/project/bandit/)
+[![python](docs/images/python.svg)](https://www.python.org/downloads/)
 
 # cd-management/git-label-sync
 
@@ -15,6 +19,19 @@ This job will sync **ALL** labels and milestones from a source Organization/Repo
 
 ### `sync-github-labels`
 ```Script
+ ____                      ____ _ _   _   _       _
+/ ___| _   _ _ __   ___   / ___(_) |_| | | |_   _| |__
+\___ \| | | | '_ \ / __| | |  _| | __| |_| | | | | '_ \
+ ___) | |_| | | | | (__  | |_| | | |_|  _  | |_| | |_) |
+|____/ \__, |_| |_|\___|  \____|_|\__|_| |_|\__,_|_.__/
+       |___/
+ _          _          _
+| |    __ _| |__   ___| |___
+| |   / _` | '_ \ / _ \ / __|
+| |__| (_| | |_) |  __/ \__ \
+|_____\__,_|_.__/ \___|_|___/
+
+
 usage: sync-github-labels [-h] [--target-org TARGET_ORG]
                           [--source-repo SOURCE_REPO]
                           [--exclude-repos EXCLUDE_REPOS] [--procs PROCESSES]
