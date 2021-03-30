@@ -18,6 +18,7 @@ import sys
 import logging
 from argparse import ArgumentParser
 
+import pyfiglet
 from cr8rel import API
 
 logger = logging.getLogger(__name__)
@@ -106,6 +107,7 @@ def set_logging(args):
 def main():
     """ main function
     """
+    print(pyfiglet.figlet_format('Create GitHub Release'))
     parser = get_parser()
     try:
         args = parser.parse_args()

@@ -1,3 +1,4 @@
 python-magic
 uritemplate
 github3api
+pyfiglet
