@@ -1,4 +1,8 @@
 [![build-status](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/prune-github-tags/badge/icon)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/prune-github-tags)
+[![coverage](docs/images/coverage.svg)](https://pybuilder.io/)
+[![complexity](docs/images/complexity.svg)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
+[![severity](docs/images/severity.svg)](https://pypi.org/project/bandit/)
+[![python](docs/images/python.svg)](https://www.python.org/downloads/)
 
 # cd-management/prune-github-tags
 
@@ -14,11 +18,24 @@ This script queries repos from a specified GitHub organization and by default re
 
 ### `prune-github-tags`
 ```bash
+ ____                           ____ _ _   _   _       _
+|  _ \ _ __ _   _ _ __   ___   / ___(_) |_| | | |_   _| |__
+| |_) | '__| | | | '_ \ / _ \ | |  _| | __| |_| | | | | '_ \
+|  __/| |  | |_| | | | |  __/ | |_| | | |_|  _  | |_| | |_) |
+|_|   |_|   \__,_|_| |_|\___|  \____|_|\__|_| |_|\__,_|_.__/
+
+ _____
+|_   _|_ _  __ _ ___
+  | |/ _` |/ _` / __|
+  | | (_| | (_| \__ \
+  |_|\__,_|\__, |___/
+           |___/
+
 usage: prune-github-tags [-h] [--org ORG] [--user USER]
                          [--exclude-repos EXCLUDE_REPOS]
                          [--include-repos INCLUDE_REPOS] [--report]
                          [--procs PROCESSES] [--screen] [--debug] [--execute]
-                         [--remove-version EXPRESSION]
+                         [--remove-version VERSION]
 
 A Python script that removes old prerelease tags from repos in a GitHub org
 
@@ -38,8 +55,9 @@ optional arguments:
   --debug               display debug messages to stdout
   --execute             execute processing - not setting is same as running in
                         NOOP mode
-  --remove-version      version expression to remove specific version(s)
-                        *including* pre-release tags.
+  --remove-version VERSION
+                        version expression to remove- e.g. '<1.0.50',
+                        '>1.0.87', '<1.1.4,>=1.0.1'
 ```
 
 ### Reference

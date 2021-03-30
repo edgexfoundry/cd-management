@@ -1,3 +1,4 @@
 mpcurses
 semantic_version
 github3api
+pyfiglet

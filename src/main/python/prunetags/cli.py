@@ -21,6 +21,7 @@ from datetime import datetime
 from argparse import ArgumentParser
 from copy import deepcopy
 
+import pyfiglet
 from semantic_version import SimpleSpec
 from mpcurses import MPcurses
 from prunetags import API
@@ -553,6 +554,7 @@ def write_report(result, owner):
 def main():
     """ main function
     """
+    print(pyfiglet.figlet_format('Prune GitHub Tags'))
     parser = get_parser()
     try:
         args = parser.parse_args()
