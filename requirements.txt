@@ -1,3 +1,4 @@
 pytz
 mpcurses
 github3api
+pyfiglet

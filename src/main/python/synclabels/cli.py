@@ -22,6 +22,7 @@ from datetime import datetime
 from copy import deepcopy
 from synclabels import API
 
+import pyfiglet
 from mpcurses import MPcurses
 
 
@@ -521,6 +522,7 @@ def set_logging(args):
 def main():
     """ main function
     """
+    print(pyfiglet.figlet_format('Sync GitHub Labels'))
     parser = get_parser()
     try:
         args = parser.parse_args()
