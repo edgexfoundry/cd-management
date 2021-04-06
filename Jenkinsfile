@@ -1,6 +1,8 @@
 pipeline {
     agent { label 'centos7-docker-8c-8g' }
-
+    triggers {
+        cron('@weekly')
+    }
     stages {
         stage('Prep') {
             steps {
