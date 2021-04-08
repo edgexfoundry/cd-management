@@ -177,7 +177,7 @@ def get_screen_layout():
             'text': 'Include-Repos: -',
             'text_color': 245,
             'color': 254,
-            'width': 48,
+            'length': 48,
             'regex': "^'include_repos' is '(?P<value>.*)'$"
         },
         'exclude_repos': {
@@ -185,7 +185,7 @@ def get_screen_layout():
             'text': 'Exclude-Repos: -',
             'text_color': 245,
             'color': 254,
-            'width': 48,
+            'length': 48,
             'regex': "^'exclude_repos' is '(?P<value>.*)'$"
         },
         'repos': {
@@ -301,7 +301,7 @@ def get_screen_layout():
             'text': '--------------',
             'text_color': 242,
             'color': 15,
-            'width': 14,
+            'length': 14,
             'right_justify': True,
             'regex': r'^repo .* latest tag version is (?P<value>.*)$',
             'table': True
@@ -310,7 +310,7 @@ def get_screen_layout():
             'position': (10, 25),
             'text': '',
             'color': 242,
-            'width': 30,
+            'length': 30,
             'regex': r"^'repo' is '.*/(?P<value>.*)'$",
             'table': True
         },
@@ -318,7 +318,7 @@ def get_screen_layout():
             'position': (10, 25),
             'text': '',
             'color': 14,
-            'width': 30,
+            'length': 30,
             'regex': r'^INFO: removing (prerelease|version) tags from repo .*/(?P<value>.*)$',
             'table': True
         },
@@ -326,7 +326,7 @@ def get_screen_layout():
             'position': (10, 25),
             'text': '',
             'color': 15,
-            'width': 30,
+            'length': 30,
             'regex': r'^removed (prerelease|version) tags from repo .*/(?P<value>.*)$',
             'table': True
         },
@@ -335,7 +335,7 @@ def get_screen_layout():
             'text': '',
             # 'color': 242,
             'color': 3,
-            'width': 30,
+            'length': 30,
             'regex': r'^INFO: repo .*/(?P<value>.*) has no tags.*$',
             'table': True
         },

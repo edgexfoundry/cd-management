@@ -31,7 +31,7 @@ name = 'prunetags'
 authors = [Author('Emilio Reyes', 'emilio.reyes@intel.com')]
 summary = 'A Python script that removes old pre-release tags from repos in a GitHub org'
 url = 'https://github.com/edgexfoundry/cd-management/tree/prune-github-tags'
-version = '0.0.7'
+version = '0.0.8'
 default_task = [
     'clean',
     'analyze',
