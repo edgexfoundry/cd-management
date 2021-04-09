@@ -111,9 +111,7 @@ class TestApi(unittest.TestCase):
     @patch('prunetags.API.get')
     def test__get_latest_version_Should_CallAndReturnExpected_When_Called(self, get_patch, lookup_tag_patch, get_version_patch, *patches):
         get_patch.return_value = [
-            {'sha': '-sha1-'},
-            {'sha': '-sha2-'},
-            {'sha': '-sha3-'}
+            [{'sha': '-sha1-'}, {'sha': '-sha2-'}, {'sha': '-sha3-'}]
         ]
         client = API(bearer_token='bearer-token')
         tags = ['tag1', 'tag2']
@@ -127,9 +125,7 @@ class TestApi(unittest.TestCase):
     @patch('prunetags.API.get')
     def test__get_latest_version_Should_ReturnExpected_When_NoTagFound(self, get_patch, lookup_tag_patch, get_version_patch, *patches):
         get_patch.return_value = [
-            {'sha': '-sha1-'},
-            {'sha': '-sha2-'},
-            {'sha': '-sha3-'}
+            [{'sha': '-sha1-'}, {'sha': '-sha2-'}, {'sha': '-sha3-'}]
         ]
         lookup_tag_patch.side_effect = [
             None,

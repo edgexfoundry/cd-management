@@ -62,13 +62,14 @@ class API(GitHubAPI):
         """
         if not branch:
             branch = 'master'
-        for commit in self.get(f'/repos/{repo}/commits?sha={branch}', _get='page'):
-            commit_sha = commit['sha']
-            tag = API.lookup_tag(tags=tags, sha=commit_sha)
-            if tag:
-                version = API.get_version(name=tag['name'])
-                if version:
-                    return (version, commit_sha)
+        for page in self.get(f'/repos/{repo}/commits?sha={branch}', _get='page'):
+            for commit in page:
+                commit_sha = commit['sha']
+                tag = API.lookup_tag(tags=tags, sha=commit_sha)
+                if tag:
+                    version = API.get_version(name=tag['name'])
+                    if version:
+                        return (version, commit_sha)
         return (None, None)
 
     def get_prerelease_tags(self, repo=None, branch=None):
