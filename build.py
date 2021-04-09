@@ -32,7 +32,7 @@ name = 'synclabels'
 authors = [Author('Emilio Reyes', 'emilio.reyes@intel.com')]
 summary = 'A Python script to synchronize labels for repositories in a GitHub organization'
 url = 'https://github.com/edgexfoundry/cd-management/tree/git-label-sync'
-version = '0.0.9'
+version = '0.0.10'
 default_task = [
     'clean',
     'analyze',

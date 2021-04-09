@@ -135,13 +135,6 @@ def get_screen_layout():
     """ return screen map
     """
     return {
-        'default': {
-            'window': True,
-            'begin_y': 0,
-            'begin_x': 0,
-            'height': 100,
-            'width': 200
-        },
         'table': {
             'rows': 20,
             'cols': 3,
@@ -353,7 +346,7 @@ def get_screen_layout():
             'position': (11, 30),
             'text': '',
             'color': 242,
-            'width': 30,
+            'length': 30,
             'regex': r"^'repo' is '(?P<value>.*)'$",
             'table': True
         },
@@ -361,7 +354,7 @@ def get_screen_layout():
             'position': (11, 30),
             'text': '',
             'color': 14,
-            'width': 30,
+            'length': 30,
             'regex': r"^synchronizing of repo '.*/(?P<value>.*)' started$",
             'table': True
         },
@@ -369,7 +362,7 @@ def get_screen_layout():
             'position': (11, 30),
             'text': '',
             'color': 15,
-            'width': 30,
+            'length': 30,
             'regex': r"^synchronizing of repo '.*/(?P<value>.*)' finished$",
             'table': True
         },
