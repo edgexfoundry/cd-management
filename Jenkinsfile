@@ -23,7 +23,7 @@ pipeline {
                 GH_TOKEN = credentials('edgex-jenkins-github-personal-access-token')
             }
             steps {
-                sh 'python env-builder.py --envfile edgex-compose/compose-builder/.env'
+                sh 'env-builder --envfile edgex-compose/compose-builder/.env --out .env.new'
                 stash name: 'new-env', includes: '.env.new'
             }
         }

@@ -5,3 +5,12 @@ __pycache__/
 .env
 .env.new
 edgex-compose
+
+# Virtual Environments
+.venv/
+venv/
+env.bak/
+venv.bak/
+pythonenv*
+target
+.pybuilder
