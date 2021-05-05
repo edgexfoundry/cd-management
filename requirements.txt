@@ -2,3 +2,4 @@ rest3client
 github3api
 semantic_version
 ansicolors
+progress

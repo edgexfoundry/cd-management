@@ -18,7 +18,7 @@ import os
 import re
 
 from colors import color
-
+from progress.bar import ChargingBar
 from envbuilder import API
 from envbuilder import DockerImageSearch
 
@@ -93,15 +93,17 @@ class EnvBuilder():
 
     def process_tags(self):
         total = len(self.repo_map)
+        bar = ChargingBar('Fetching tags', fill=color('█', fg='green'),
+            max=total, suffix='%(percent).1f%% - %(eta)ds')
+
         counter = 1
         for repo in self.repo_map:
-            logger.info(
-                f"[{counter}/{total}] Fetching tags for {self.args.org}/{repo}")
-
             version = self.api.get_latest(repo, self.args.org)
             version_key = self.repo_map[repo]
             self.compose_env_vars[version_key] = f"{version}"
+            bar.next()
             counter += 1
+        bar.finish()
 
     def get_client(self):
         '''Get GitHub API instance'''
@@ -247,10 +249,10 @@ def set_logging(args):
     # must be set to this level so handlers can filter from this level
     rootLogger.setLevel(logging.INFO)
 
+    formatter = logging.Formatter('%(message)s')
+
     stream_handler = logging.StreamHandler()
-    formatter = '%(asctime)s [%(funcName)s] %(levelname)s %(message)s'
-    stream_formatter = logging.Formatter(formatter)
-    stream_handler.setFormatter(stream_formatter)
+    stream_handler.setFormatter(formatter)
     stream_handler.setLevel(logging.DEBUG if args.verbose else logging.INFO)
     rootLogger.addHandler(stream_handler)
 
