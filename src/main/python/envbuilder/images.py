@@ -12,25 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import argparse
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import os
 
 from rest3client import RESTclient
 
 
-class DockerImageSearch():
-    def __init__(self, registry='hub.docker.com'):
+class DockerImageSearch(RESTclient):
+    def __init__(self, registry='hub.docker.com', **kwargs):
         cabundle = os.getenv('REQUESTS_CA_BUNDLE')
 
         if cabundle:
-            self.client = RESTclient(registry, cabundle=cabundle)
+            super(DockerImageSearch, self).__init__(registry, cabundle=cabundle, **kwargs)
         else:
-            self.client = RESTclient(registry)
-
-        self.registry = registry
+            super(DockerImageSearch, self).__init__(registry, **kwargs)
 
     def get_image_versions(self, repo, org='library', filter='latest', verbose=True):
-        results = self.client.get(
+        results = self.get(
             f'/v2/repositories/{org}/{repo}/tags/?page=1&page_size=100')['results']
 
         if results:
@@ -78,8 +76,8 @@ class DockerImageSearch():
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    parser = ArgumentParser(
+        formatter_class=ArgumentDefaultsHelpFormatter,
         description='docker image tag lookup')
 
     parser.add_argument('--repo', required=True, default=None,

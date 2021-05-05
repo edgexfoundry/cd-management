@@ -17,6 +17,10 @@ import logging
 from github3api import GitHubAPI
 from semantic_version import Version
 
+from requests.exceptions import SSLError
+from requests.exceptions import ProxyError
+from requests.exceptions import ConnectionError
+
 logger = logging.getLogger(__name__)
 
 
@@ -43,4 +47,21 @@ class API(GitHubAPI):
             if not semver_version.prerelease:
                 released_versions.append(semver_version)
 
-        return released_versions[0]
+        return released_versions[0] if len(released_versions) > 0 else None
+
+    @staticmethod
+    def retry_connection_error(exception):
+        """ return True if exception is SSLError, ProxyError or ConnectError, False otherwise
+            retry:
+                wait_random_min:10000
+                wait_random_max:20000
+                stop_max_attempt_number:6
+        """
+        logger.debug(
+            f"checking if '{type(exception).__name__}' exception is a connection error")
+        if isinstance(exception, (SSLError, ProxyError, ConnectionError)):
+            logger.info(
+                'connectivity error encountered - retrying request shortly')
+            return True
+        logger.debug(f'exception is not a connectivity error: {exception}')
+        return False

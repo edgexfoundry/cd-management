@@ -1,8 +1,9 @@
 # edgex-compose-builder
 
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/cd-management)](https://github.com/edgexfoundry/cd-management/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/cd-management)](https://github.com/edgexfoundry/cd-management/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-green)](https://github.com/orgs/edgexfoundry/teams/devops-core-team/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/cd-management)](https://github.com/edgexfoundry/cd-management/commits) [![complexity](docs/images/complexity.svg)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
-[![vulnerabilities](docs/images/vulnerabilities.svg)](https://pypi.org/project/bandit/)
-[![python](docs/images/python.svg)](https://www.python.org/downloads/)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/cd-management)](https://github.com/edgexfoundry/cd-management/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/cd-management)](https://github.com/edgexfoundry/cd-management/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-green)](https://github.com/orgs/edgexfoundry/teams/devops-core-team/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/cd-management)](https://github.com/edgexfoundry/cd-management/commits) [![coverage](https://img.shields.io/badge/coverage-78.1%25-yellow)](https://pybuilder.io/)
+[![complexity](https://img.shields.io/badge/complexity-Simple:%204.32-green)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
+[![vulnerabilities](https://img.shields.io/badge/vulnerabilities-None-green)](https://pypi.org/project/bandit/)
+[![python](https://img.shields.io/badge/python-3.9-teal)](https://www.python.org/downloads/)
 
 ## Summary
 
@@ -24,7 +25,7 @@ Local script usage requires a GitHub [Personal Access Token](https://github.com/
 ### `env-builder`
 
 ```bash
-$ git clone https://github.com/edgexfoundry/cd-management.git
+$ git clone --single-branch --branch edgex-compose-builder https://github.com/edgexfoundry/cd-management.git
 $ pyb install --no-venvs
 $ export GH_TOKEN_PSW=<secret>
 $ env-builder --help
@@ -54,7 +55,7 @@ optional arguments:
 
 ## Reference
 
-[![asciicast](https://asciinema.org/a/a118Tao1I65u8EtM4yRxWKYOy.svg)](https://asciinema.org/a/a118Tao1I65u8EtM4yRxWKYOy)
+[![asciicast](https://asciinema.org/a/IGqiyvbzr35s8hXdndeVsgwif.svg)](https://asciinema.org/a/IGqiyvbzr35s8hXdndeVsgwif)
 
 ## Examples
 
@@ -85,7 +86,7 @@ $ env-builder --envfile edgex-compose/compose-builder/.env --no-deps
 ... truncated output
 ```
 
-If you want to disable latest version lookup in the script, you can pass the `--no-lookup` option. This will essentially just create a copy of the existing env file. You can think of this a the NOOP mode. Good for quickly checking for new dependency versions.
+If you want to disable latest version lookup in the script, you can pass the `--no-lookup` option. This will essentially just create a copy of the existing env file. You can think of this as the NOOP mode. Good for quickly checking for new dependency versions.
 
 ```bash
 $ env-builder --envfile edgex-compose/compose-builder/.env --no-lookup
@@ -106,7 +107,7 @@ docker run --rm \
 
 ## Docker Image CLI
 
-Along with env-builder there is also another cli tool that allows you to interaget DockerHub inamge versions
+Along with env-builder there is also another cli tool that allows you to get DockerHub image versions
 
 ### `docker-image`
 
@@ -117,6 +118,7 @@ Along with env-builder there is also another cli tool that allows you to interag
 / /_/ / /_/ / /__/ ,< /  __/ /  /_____/ / / / / / / /_/ / /_/ /  __/
 \__,_/\____/\___/_/|_|\___/_/        /_/_/ /_/ /_/\__,_/\__, /\___/
                                                        /____/
+
 usage: docker-image [-h] --repo REPO [--org ORG] [--filter FILTER]
 
 docker image tag lookup
@@ -127,6 +129,10 @@ optional arguments:
   --org ORG        The organization to lookup (default: library)
   --filter FILTER  The version to filter by (default: latest)
 ```
+
+## Reference
+
+[![asciicast](https://asciinema.org/a/48pEPXioDeZST5p1LCU4JL8pI.svg)](https://asciinema.org/a/48pEPXioDeZST5p1LCU4JL8pI)
 
 ## Examples
 

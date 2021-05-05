@@ -15,3 +15,4 @@
 
 from .api import API
 from .images import DockerImageSearch
+from .cli import EnvBuilder

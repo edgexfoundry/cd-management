@@ -12,23 +12,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import argparse
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+
 import logging
 import os
 import re
 
 from colors import color
 from progress.bar import ChargingBar
+
 from envbuilder import API
 from envbuilder import DockerImageSearch
 
 logger = logging.getLogger(__name__)
 
-class EnvBuilder():
+class EnvBuilder:
     def __init__(self, args):
         self.args = args
-        self.image_search = DockerImageSearch()
         self.api = self.get_client()
+        self.image_search = DockerImageSearch()
 
         self.envfile = EnvBuilder.read_env_file(args.envfile)
         self.compose_env_vars = EnvBuilder.env_to_dict(self.envfile)
@@ -50,7 +52,7 @@ class EnvBuilder():
         }
 
     def process_env_file(self):
-        if self.args.no_lookup is False:
+        if not self.args.no_lookup:
             logger.info("Determining latest versions. Please wait...")
 
             # update REPOSITORY keys
@@ -72,7 +74,7 @@ class EnvBuilder():
         logger.info("")
 
         updated_versions = {}
-        if self.args.no_deps is False:
+        if not self.args.no_deps:
             logger.info("----")
             logger.info("")
             logger.info(
@@ -96,9 +98,10 @@ class EnvBuilder():
         bar = ChargingBar('Fetching tags', fill=color('█', fg='green'),
             max=total, suffix='%(percent).1f%% - %(eta)ds')
 
+        org = 'edgexfoundry' if self.args.org is None else self.args.org
         counter = 1
         for repo in self.repo_map:
-            version = self.api.get_latest(repo, self.args.org)
+            version = self.api.get_latest(repo, org)
             version_key = self.repo_map[repo]
             self.compose_env_vars[version_key] = f"{version}"
             bar.next()
@@ -115,7 +118,7 @@ class EnvBuilder():
             except KeyError:
                 cabundle = None
 
-            if cabundle:
+            if cabundle is not None:
                 client = API(bearer_token=gh_token, cabundle=cabundle)
             else:
                 client = API(bearer_token=gh_token)
@@ -177,12 +180,13 @@ class EnvBuilder():
         return updated_versions
 
     @staticmethod
-    def read_env_file(path='./.env'):
-        envfile = []
-        with open(path) as f:
-            for line in f:
-                envfile.append(line)
-        return envfile
+    def read_env_file(path=None):
+        if path is None:
+            path = './.env'
+
+        if os.access(path, os.R_OK):
+            with open(path) as f:
+                return f.readlines()
 
     @staticmethod
     def env_to_dict(envfile):
@@ -211,8 +215,8 @@ class EnvBuilder():
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    parser = ArgumentParser(
+        formatter_class=ArgumentDefaultsHelpFormatter,
         description='docker image tag lookup')
 
     parser.add_argument('--repo', required=False, default=None,
@@ -233,10 +237,10 @@ def parse_args():
     parser.add_argument('--verbose', action='store_true',
                         help='verbose logging')
 
-    # these two go together
-    parser.add_argument('--no-deps', action='store_true',
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--no-deps', action='store_true',
                         help='do not lookup dependency versions')
-    parser.add_argument('--deps', required=False, default='vault consul redis kong kuiper mosquitto',
+    group.add_argument('--deps', required=False, default='vault consul redis kong kuiper mosquitto',
                         help=('dependency versions to lookup'))
 
     return parser.parse_args()

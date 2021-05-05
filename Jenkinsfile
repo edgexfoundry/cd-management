@@ -75,22 +75,22 @@ pipeline {
                     steps {
                         dir('edgex-compose') {
                             script {
-                                sh 'git diff'
-                                // def changesDetected = sh(script: 'git diff-index --quiet HEAD --', returnStatus: true)
-                                // echo "We have detected there are changes to commit: [${changesDetected}] [${changesDetected != 0}]"
+                                // sh 'git diff'
+                                def changesDetected = sh(script: 'git diff-index --quiet HEAD --', returnStatus: true)
+                                echo "We have detected there are changes to commit: [${changesDetected}] [${changesDetected != 0}]"
 
-                                // if(changesDetected != 0) {
-                                //     sh 'git config --global user.email "jenkins@edgexfoundry.org"'
-                                //     sh 'git config --global user.name "EdgeX Jenkins"'
-                                //     sh 'git add .'
-                                //     sh "sudo chmod -R ug+w .git/*"
+                                if(changesDetected != 0) {
+                                    sh 'git config --global user.email "jenkins@edgexfoundry.org"'
+                                    sh 'git config --global user.name "EdgeX Jenkins"'
+                                    sh 'git add .'
+                                    sh "sudo chmod -R ug+w .git/*"
 
-                                //     sh "git commit -s -m 'ci: edgex-compose automation for ${params.BRANCH} release'"
+                                    sh "git commit -s -m 'ci: edgex-compose automation for ${params.BRANCH} release'"
 
-                                //     sshagent (credentials: ['edgex-jenkins-ssh']) {
-                                //         sh "git push origin ${params.BRANCH}"
-                                //     }
-                                // }
+                                    sshagent (credentials: ['edgex-jenkins-ssh']) {
+                                        sh "git push origin ${params.BRANCH}"
+                                    }
+                                }
                             }
                         }
                     }

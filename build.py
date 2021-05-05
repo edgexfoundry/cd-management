@@ -25,6 +25,7 @@ use_plugin('python.distutils')
 use_plugin('pypi:pybuilder_radon')
 use_plugin('pypi:pybuilder_bandit')
 use_plugin('pypi:pybuilder_anybadge')
+use_plugin('python.install_dependencies')
 
 name = 'envbuilder'
 authors = [Author('Ernesto Ojeda', 'ernesto.ojeda@intel.com')]
@@ -60,3 +61,4 @@ def set_properties(project):
     project.set_property('bandit_break_build', True)
     project.set_property('anybadge_add_to_readme', True)
     project.set_property('anybadge_complexity_use_average', True)
+    project.set_property('anybadge_use_shields', True)
