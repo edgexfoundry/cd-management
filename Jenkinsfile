@@ -44,12 +44,24 @@ pipeline {
     triggers {
         cron '@weekly'
     }
+    parameters {
+        string(
+            name: 'Query',
+            defaultValue: '',
+            description: 
+            '''Search query to use to select which repositories to generate a changelog for. 
+            <br>
+            <br>Default: Leave blank, all un-archived repositories within the edgexfoundry Github organization will be selected.
+            <br>Example: "device", all repositories with *device* in title will be selected.
+            '''
+        )
+    }
     stages {
         stage('Parallel Changelog Generator'){
             steps {
                 script {
                     jobs = sh (
-                        script: 'curl -i "https://api.github.com/search/repositories?q=user:edgexfoundry+archived:false&per_page=200" | grep clone_url',
+                        script: "curl -i \"https://api.github.com/search/repositories?q=user:edgexfoundry+archived:false+${params.Query}&per_page=200\" | grep clone_url",
                         returnStdout: true).trim().split("\n")
                     parallel jobs.collectEntries {[(it.split('edgexfoundry/')[1].split('.git')[0]) : generateStage(it)]}
                 }
