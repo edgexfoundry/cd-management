@@ -7,7 +7,7 @@ pipeline {
         stage('Prep') {
             steps {
                 script {
-                    sh "curl -v https://raw.githubusercontent.com/edgexfoundry/edgex-compose/master/docker-compose-pre-release.yml > docker-compose.yml"
+                    sh "curl -v https://raw.githubusercontent.com/edgexfoundry/edgex-compose/master/docker-compose.yml > docker-compose.yml"
                     docker
                         .image('nexus3.edgexfoundry.org:10003/edgex-devops/edgex-compose:latest')
                         .inside('-u 0:0 --entrypoint= --net host --security-opt label:disable -v /var/run/docker.sock:/var/run/docker.sock')
