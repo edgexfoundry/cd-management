@@ -1,0 +1,12 @@
+FROM python:3-slim AS build-image
+WORKDIR /code
+COPY . .
+RUN pip install pybuilder \
+  && pyb install_dependencies --no-venvs \
+  && pyb install --no-venvs --verbose
+
+# go from debian to alpine...still works!
+FROM python:3-alpine
+WORKDIR /env-builder
+COPY --from=build-image /code/target/dist/envbuilder-*/dist/envbuilder-*.tar.gz .
+RUN pip install envbuilder-*.tar.gz
