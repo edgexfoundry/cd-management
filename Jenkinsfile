@@ -28,10 +28,11 @@ pipeline {
             defaultValue: '--name docker-sample-service',
             description: 'Specify \'--name <regex>\' to match name of images to include in processing. Leaving this argument \
                 blank will target all overviews in the specified overviews folder.')
+        booleanParam(name: 'Legacy', defaultValue: false, description: 'Update legacy descriptions and overviews')
     }
     environment {
-        OVERVIEWS_FOLDER = 'generated-overviews'
-        DESCRIPTIONS_PATH = 'descriptions/image_descriptions.txt'
+        OVERVIEWS_FOLDER = getOverviewsPath()
+        DESCRIPTIONS_PATH = getDescriptionPath()
         RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
     }
     stages {
@@ -43,12 +44,13 @@ pipeline {
                 }
             }
             stages {
-                stage('Execute') {
-                    when {
-                        anyOf {
-                            triggeredBy 'UserIdCause'
-                        }
+                stage('Prep') {
+                    steps {
+                        sh 'env | sort'
                     }
+                }
+                stage('Execute') {
+                    when { triggeredBy 'UserIdCause' }
                     steps {
                         configFileProvider([configFile(fileId: env.RELEASE_DOCKER_SETTINGS, variable: 'SETTINGS_FILE')]) {
                             sh "python deploy-overviews.py --user edgexfoundry ${params.Name} ${params.Execute}"
@@ -64,4 +66,12 @@ pipeline {
             edgeXInfraPublish()
         }
     }
+}
+
+def getOverviewsPath() {
+    "generated-overviews/${params.Legacy ? 'legacy' : 'new'}-names"
+}
+
+def getDescriptionPath() {
+    "descriptions/${params.Legacy ? 'legacy_' : ''}image_descriptions.txt"
 }
