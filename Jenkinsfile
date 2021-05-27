@@ -26,7 +26,7 @@ pipeline {
         timeout(360)
     }
     environment {
-        DRY_RUN = shouldDoDryRun()
+        DRY_RUN = false
         DRY_RUN_PULL_DOCKER_IMAGES = true
         RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
     }
