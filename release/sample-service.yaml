@@ -1,0 +1,9 @@
+name: 'sample-service'
+version: '4.1.36'
+releaseStream: 'master'
+repo: 'https://github.com/edgexfoundry/sample-service.git'
+commitId: 90ad3c80e9d4cdf0324de7d0bdf9e15de267b6b8
+gitTag: true
+dockerImages: false
+snap: false
+gitHubRelease: false
