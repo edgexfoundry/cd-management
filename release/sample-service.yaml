@@ -1,5 +1,5 @@
 name: 'sample-service'
-version: '4.1.41'
+version: '4.1.42'
 releaseStream: 'build-failure'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
 commitId: 3f705be3a1460ad7fc7945ed402fc9314f8003aa
