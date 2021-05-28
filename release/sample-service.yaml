@@ -1,8 +1,8 @@
 name: 'sample-service'
-version: '4.1.39'
-releaseStream: 'master'
+version: '4.1.40'
+releaseStream: 'build-failure'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
-commitId: 94ec9f5591702a35834cac67bd8ebe09ad9672db
+commitId: 3f705be3a1460ad7fc7945ed402fc9314f8003aa
 gitTag: true
 dockerImages: false
 snap: false
