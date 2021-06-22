@@ -1,9 +1,10 @@
 ---
 name: 'app-functions-sdk-go'
-version: '1.3.1'
-releaseName: 'hanoi'
-releaseStream: 'hanoi'
+version: '2.0.0'
+releaseName: 'ireland'
+releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/app-functions-sdk-go.git'
-commitId: 'eab384cb48ea5ff1c4c70e4f0c6d42e5e6c3609b'
+commitId: '8d950f7e259bb89e658a7b11c19439370248a894'
 gitTag: true
 dockerImages: false
+gitHubRelease: false
