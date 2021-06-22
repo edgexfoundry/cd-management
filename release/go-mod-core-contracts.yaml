@@ -1,0 +1,9 @@
+---
+name: 'go-mod-core-contracts'
+version: '2.0.0'
+releaseName: 'ireland'
+releaseStream: 'master'
+repo: 'https://github.com/edgexfoundry/go-mod-core-contracts.git'
+commitId: '64e6da7535685e5140ae00626b8183334678fd62'
+gitTag: true
+dockerImages: false

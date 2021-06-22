@@ -1,0 +1,9 @@
+---
+name: 'go-mod-bootstrap'
+version: '2.0.0'
+releaseName: 'ireland'
+releaseStream: 'master'
+repo: 'https://github.com/edgexfoundry/go-mod-bootstrap.git'
+commitId: '3f1fd88ab260e30c6960670415b9eaed3e09b56a'
+gitTag: true
+dockerImages: false
