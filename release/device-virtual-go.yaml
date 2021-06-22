@@ -1,18 +1,18 @@
 ---
 name: 'device-virtual-go'
-version: '1.3.1'
-releaseName: 'hanoi'
+version: '2.0.0'
+releaseName: 'ireland'
 releaseStream: 'master'
-commitId: 'bdf1cd5a2d4a5f1f1834e794e258934dca5f302b'
+commitId: '2f604073b7eb5dccdd5807d48b66b9d0dfbdca7e'
 repo: 'https://github.com/edgexfoundry/device-virtual-go.git'
 gitTag: true
 dockerImages: true
 docker:
-  - image: nexus3.edgexfoundry.org:10004/docker-device-virtual-go
+  - image: nexus3.edgexfoundry.org:10004/device-virtual
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-device-virtual-go
-      - docker.io/edgexfoundry/docker-device-virtual-go
-  - image: nexus3.edgexfoundry.org:10004/docker-device-virtual-go-arm64
+      - nexus3.edgexfoundry.org:10002/device-virtual
+      - docker.io/edgexfoundry/device-virtual
+  - image: nexus3.edgexfoundry.org:10004/device-virtual-arm64
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-device-virtual-go-arm64
-      - docker.io/edgexfoundry/docker-device-virtual-go-arm64
+      - nexus3.edgexfoundry.org:10002/device-virtual-arm64
+      - docker.io/edgexfoundry/device-virtual-arm64

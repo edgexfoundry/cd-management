@@ -1,18 +1,18 @@
 ---
 name: 'device-rest-go'
-version: '1.2.1'
-releaseName: 'hanoi'
+version: '2.0.0'
+releaseName: 'ireland'
 releaseStream: 'master'
-commitId: '9e4888f50a2a312870744f4f89808877d999d7c6'
+commitId: 'ac4b371315fba0b9546dc2a95c8393f838fbe7e4'
 repo: 'https://github.com/edgexfoundry/device-rest-go.git'
 gitTag: true
 dockerImages: true
 docker:
-  - image: nexus3.edgexfoundry.org:10004/docker-device-rest-go
+  - image: nexus3.edgexfoundry.org:10004/device-rest
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-device-rest-go
-      - docker.io/edgexfoundry/docker-device-rest-go
-  - image: nexus3.edgexfoundry.org:10004/docker-device-rest-go-arm64
+      - nexus3.edgexfoundry.org:10002/device-rest
+      - docker.io/edgexfoundry/device-rest
+  - image: nexus3.edgexfoundry.org:10004/device-rest-arm64
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-device-rest-go-arm64
-      - docker.io/edgexfoundry/docker-device-rest-go-arm64
+      - nexus3.edgexfoundry.org:10002/device-rest-arm64
+      - docker.io/edgexfoundry/device-rest-arm64
