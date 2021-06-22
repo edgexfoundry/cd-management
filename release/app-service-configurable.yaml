@@ -1,18 +1,18 @@
 ---
 name: 'app-service-configurable'
-version: '1.3.1'
-releaseName: 'hanoi'
-releaseStream: 'hanoi'
+version: '2.0.0'
+releaseName: 'ireland'
+releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
-commitId: '072b184390152c35aa93e82d9a3e94daf634685c'
+commitId: 'a978dc19c1bcc30f8446afb8c0c9d4f02315ff9d'
 gitTag: true
 dockerImages: true
 docker:
-  - image: nexus3.edgexfoundry.org:10004/docker-app-service-configurable
+  - image: nexus3.edgexfoundry.org:10004/app-service-configurable
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-app-service-configurable
-      - docker.io/edgexfoundry/docker-app-service-configurable
-  - image: nexus3.edgexfoundry.org:10004/docker-app-service-configurable-arm64
+      - nexus3.edgexfoundry.org:10002/app-service-configurable
+      - docker.io/edgexfoundry/app-service-configurable
+  - image: nexus3.edgexfoundry.org:10004/app-service-configurable-arm64
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-app-service-configurable-arm64
-      - docker.io/edgexfoundry/docker-app-service-configurable-arm64
+      - nexus3.edgexfoundry.org:10002/app-service-configurable-arm64
+      - docker.io/edgexfoundry/app-service-configurable-arm64
