@@ -1,0 +1,9 @@
+---
+name: 'go-mod-configuration'
+version: '2.0.0'
+releaseName: 'ireland'
+releaseStream: 'master'
+repo: 'https://github.com/edgexfoundry/go-mod-configuration.git'
+commitId: 'a114c3c07fc215ea9a9fe04f5a17874b1416d58e'
+gitTag: true
+dockerImages: false
