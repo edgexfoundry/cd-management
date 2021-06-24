@@ -1,6 +1,6 @@
 ---
 name: 'go-mod-messaging'
-version: '2.0.0'
+version: '2.0.1'
 releaseName: 'ireland'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/go-mod-messaging.git'
