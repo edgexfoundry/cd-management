@@ -28,7 +28,10 @@ pipeline {
             defaultValue: '--name docker-sample-service',
             description: 'Specify \'--name <regex>\' to match name of images to include in processing. Leaving this argument \
                 blank will target all overviews in the specified overviews folder.')
-        booleanParam(name: 'Legacy', defaultValue: false, description: 'Update legacy descriptions and overviews')
+        booleanParam(
+            name: 'Legacy',
+            defaultValue: false,
+            description: 'Update legacy descriptions and overviews')
     }
     environment {
         OVERVIEWS_FOLDER = getOverviewsPath()
@@ -44,11 +47,6 @@ pipeline {
                 }
             }
             stages {
-                stage('Prep') {
-                    steps {
-                        sh 'env | sort'
-                    }
-                }
                 stage('Execute') {
                     when { triggeredBy 'UserIdCause' }
                     steps {

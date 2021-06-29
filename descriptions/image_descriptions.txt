@@ -11,7 +11,13 @@ device-bacnet-c-arm64:ARM64 device service to connect to BACNet protocol devices
 device-bacnet-c:The device service to connect to BACNet protocol devices for EdgeX Foundry
 device-camera-arm64:ARM64 device service to connect to and control ONVIF cameras for EdgeX
 device-camera:Device service to connect to and control ONVIF cameras for EdgeX Foundry
+device-coap:Device service to connect Constrained Application Protocol devices to EdgeX (read-only)
+device-coap-arm64:ARM64 Device service to connect Constrained Application Protocol devices to EdgeX (read-only)
+device-gpio:Device service to connect general-purpose input/output (GPIO) devices to EdgeX (Linux only!)
+device-gpio-arm64:ARM64 device service to connect general-purpose input/output (GPIO) devices to EdgeX (Linux only!)
 device-grove-arm64:ARM64 device service to communicate with Grove sensors for EdgeX
+device-rfid-llrp:Device service to connect LLRP adhering RFID systems to EdgeX
+device-rfid-llrp-arm64:ARM64 device service to connect LLRP adhering RFID systems to EdgeX
 device-modbus-arm64:ARM64 device service to connect to Modbus protocol devices for EdgeX
 device-modbus:Device service to connect to Modbus protocol devices for EdgeX Foundry
 device-mqtt-arm64:ARM64 device service ingesting device data via MQTT for EdgeX Foundry
@@ -26,7 +32,7 @@ device-virtual-arm64:ARM64 device service simulating devices for EdgeX Foundry
 device-virtual:Device service simulating different kinds of devices for EdgeX Foundry
 edgex-ui-arm64:ARM64 demonstration and developer EdgeX Foundry user interface
 edgex-ui:The demonstration and developer EdgeX Foundry user interface
-sample-service:blank service template
+sample-service:DevOps managed sample Go service used for EdgeX pipeline verification
 security-bootstrapper-arm64:ARM64 initialization service for security setup for EdgeX
 security-bootstrapper:The initialization service for security setup for EdgeX
 security-proxy-setup-arm64:ARM64 initialization service for the reverse proxy for EdgeX

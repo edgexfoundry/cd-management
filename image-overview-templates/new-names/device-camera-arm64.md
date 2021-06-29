@@ -4,7 +4,7 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-ireland.md
+$$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-camera-go/blob/v1.2.2/Dockerfile)
 
 # Quick reference (cont.)
@@ -12,7 +12,7 @@ $$./common/version-ireland.md
 - Where to file issues: https://github.com/edgexfoundry/device-camera-go/issues
 - Supported architectures: arm64
 - Published image artifact details: https://nexus3.edgexfoundry.org
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-camera-arm64.md
 
 $$./common/what-is-edgex.md
 

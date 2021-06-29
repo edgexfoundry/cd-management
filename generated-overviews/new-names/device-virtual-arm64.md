@@ -9,22 +9,24 @@ WARNING:
 ********************************************************************************
 
 -->
+
 # Quick reference
 
 - Maintained by: [EdgeX Foundry](https://www.edgexfoundry.org) (a [Linux Foundation](https://www.linuxfoundation.org/) project)
 
 - Where to get help: [EdgeX Web Site](https://www.edgexfoundry.com), [EdgeX Documentation](https://docs.edgexfoundry.com), [EdgeX Slack](https://slack.edgexfoundry.org/), [EdgeX Project Wiki](https://wiki.edgexfoundry.org)
+
 # Supported tags and respective Dockerfile links
 
 - Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-virtual-go/blob/v1.3.2/Dockerfile)
+    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-virtual-go/blob/v2.0.0/Dockerfile)
 
 # Quick reference (cont.)
 
 - Where to file issues: https://github.com/edgexfoundry/device-virtual-go/issues
 - Supported architectures: arm64
 - Published image artifact details: https://nexus3.edgexfoundry.org
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-virtual-arm64.md
 
 # What is EdgeX Foundry?
 
@@ -37,6 +39,7 @@ EdgeX's official documentation can be found at [docs.edgexfoundry.org](https://d
 ![logo](https://www.lfedge.org/wp-content/uploads/2020/11/Screen-Shot-2019-10-28-at-3.45.29-PM-300x269.png)
 
 *Edgey - the official EdgeX Foundry project mascot*
+
 # What's in this image?
 
 This image contains the **ARM64 version** of [virtual device service](https://docs.edgexfoundry.org/2.0/microservices/device/virtual/Ch-VirtualDevice/), which simulates different kinds of devices to generate events and readings to the core data micro service, and users send commands and get responses through the command and control micro service. These features of the virtual device services are useful when executing functional or performance tests without having any real devices.
@@ -54,4 +57,5 @@ As for any pre-built image usage, it is the image user's responsibility to ensur
 Some additional license information which was able to be auto-detected might be found in the Attribution.txt file located in the image and copied from the associated
 
 
-[source repository](https://github.com/edgexfoundry/device-virtual-go/blob/v1.3.2/Attribution.txt).
+
+[source repository](https://github.com/edgexfoundry/device-virtual-go/blob/v2.0.0/Attribution.txt).

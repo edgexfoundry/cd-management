@@ -6,7 +6,7 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-hanoi.md
+$$./common/version-hanoi.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/hanoi/cmd/security-bootstrap-redis/Dockerfile)
 
 $$./common/quick-reference-cont-edgex-go.md

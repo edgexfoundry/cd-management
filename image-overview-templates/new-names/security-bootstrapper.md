@@ -6,7 +6,7 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-ireland.md
+$$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.0.0/cmd/security-bootstrapper/Dockerfile)
 
 $$./common/quick-reference-cont-edgex-go.md

@@ -6,7 +6,7 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-fuji.md
+$$./common/version-fuji.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-ui-clojure/blob/fuji/Dockerfile)
 
 # Quick reference (cont.)
@@ -17,7 +17,7 @@ $$./common/version-fuji.md
 
 - Published image artifact details: https://nexus3.edgexfoundry.org
 
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation
 
 $$./common/what-is-edgex.md
 

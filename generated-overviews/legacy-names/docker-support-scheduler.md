@@ -9,12 +9,15 @@ WARNING:
 ********************************************************************************
 
 -->
+
 **This image is ARCHIVED and no longer actively developed or maintained in EdgeX Foundry.  Use only when working with an older version of EdgeX.**
+
 # Quick reference
 
 - Maintained by: [EdgeX Foundry](https://www.edgexfoundry.org) (a [Linux Foundation](https://www.linuxfoundation.org/) project)
 
 - Where to get help: [EdgeX Web Site](https://www.edgexfoundry.com), [EdgeX Documentation](https://docs.edgexfoundry.com), [EdgeX Slack](https://slack.edgexfoundry.org/), [EdgeX Project Wiki](https://wiki.edgexfoundry.org)
+
 # Supported tags and respective Dockerfile links
 
 - California
@@ -28,7 +31,7 @@ WARNING:
 
 - Published image artifact details: https://nexus3.edgexfoundry.org
 
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation
 
 # What is EdgeX Foundry?
 
@@ -41,12 +44,13 @@ EdgeX's official documentation can be found at [docs.edgexfoundry.org](https://d
 ![logo](https://www.lfedge.org/wp-content/uploads/2020/11/Screen-Shot-2019-10-28-at-3.45.29-PM-300x269.png)
 
 *Edgey - the official EdgeX Foundry project mascot*
+
 # What's in this image?
 
 **ARCHIVED**
 This image contains the legacy Java [support scheduler](https://docs.edgexfoundry.org/1.2/microservices/support/scheduler/Ch-Scheduling/) service and all of its base configuration.
 
-The support scheduler micro service provide an internal EdgeX “clock” that can kick off operations in any EdgeX service. At a configuration specified time (called an interval), the service calls on any EdgeX service API URL via REST to trigger an operation (called an interval action). 
+The support scheduler micro service provide an internal EdgeX “clock” that can kick off operations in any EdgeX service. At a configuration specified time (called an interval), the service calls on any EdgeX service API URL via REST to trigger an operation (called an interval action).
 
 The support scheduler service source code: https://github.com/edgexfoundry/support-scheduler
 
@@ -59,6 +63,7 @@ As with all Docker images, these likely also contain other software which may be
 As for any pre-built image usage, it is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
 
 Some additional license information which was able to be auto-detected might be found in the Attribution.txt file located in the image and copied from the associated
+
 
 
 [source repository](https://github.com/edgexfoundry/support-scheduler/blob/california/Attribution.txt).

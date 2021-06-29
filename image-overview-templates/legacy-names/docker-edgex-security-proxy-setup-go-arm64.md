@@ -6,7 +6,7 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-hanoi.md
+$$./common/version-hanoi.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/hanoi/cmd/security-proxy-setup/Dockerfile)
 
 # Quick reference (cont.)
@@ -17,7 +17,7 @@ $$./common/version-hanoi.md
 
 - Published image artifact details: https://nexus3.edgexfoundry.org
 
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation
 
 $$./common/what-is-edgex.md
 

@@ -1,10 +1,12 @@
 $$./common/warning.md
 
+$$./common/legacy-note.md
+
 $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-hanoi.md
+$$./common/version-hanoi.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/hanoi/cmd/core-data/Dockerfile)
 
 $$./common/quick-reference-cont-edgex-go-arm.md

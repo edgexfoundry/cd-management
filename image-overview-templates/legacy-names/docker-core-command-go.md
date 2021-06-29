@@ -1,10 +1,12 @@
 $$./common/warning.md
 
+$$./common/legacy-note.md
+
 $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-hanoi.md
+$$./common/version-hanoi.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/hanoi/cmd/core-command/Dockerfile)
 
 $$./common/quick-reference-cont-edgex-go.md
@@ -31,7 +33,7 @@ devices on behalf of:
 The command micro service exposes the commands in a common, normalized
 way to simplify communications with the devices. There are two types of commands that can be sent to a device.
 
-- a GET command requests data from the device.  This is often used to request the latest sensor reading from the device.  
+- a GET command requests data from the device.  This is often used to request the latest sensor reading from the device.
 - PUT commands request to take action or actuate the device or to set some configuration on the device.
 
 The core command service source code: https://github.com/edgexfoundry/edgex-go

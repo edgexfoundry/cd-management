@@ -6,7 +6,7 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-barcelona.md
+$$./common/version-barcelona.md |
         - [Dockerfile](https://github.com/edgexfoundry/export-distro/blob/master/docker-files/Dockerfile)
 
 # Quick reference (cont.)
@@ -17,7 +17,7 @@ $$./common/version-barcelona.md
 
 - Published image artifact details: https://nexus3.edgexfoundry.org
 
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation
 
 $$./common/what-is-edgex.md
 
