@@ -9,12 +9,15 @@ WARNING:
 ********************************************************************************
 
 -->
+
 **This image is ARCHIVED and no longer actively developed or maintained in EdgeX Foundry.  Use only when working with an older version of EdgeX.**
+
 # Quick reference
 
 - Maintained by: [EdgeX Foundry](https://www.edgexfoundry.org) (a [Linux Foundation](https://www.linuxfoundation.org/) project)
 
 - Where to get help: [EdgeX Web Site](https://www.edgexfoundry.com), [EdgeX Documentation](https://docs.edgexfoundry.com), [EdgeX Slack](https://slack.edgexfoundry.org/), [EdgeX Project Wiki](https://wiki.edgexfoundry.org)
+
 # Supported tags and respective Dockerfile links
 
 - Barcelona
@@ -28,7 +31,7 @@ WARNING:
 
 - Published image artifact details: https://nexus3.edgexfoundry.org
 
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation
 
 # What is EdgeX Foundry?
 
@@ -41,6 +44,7 @@ EdgeX's official documentation can be found at [docs.edgexfoundry.org](https://d
 ![logo](https://www.lfedge.org/wp-content/uploads/2020/11/Screen-Shot-2019-10-28-at-3.45.29-PM-300x269.png)
 
 *Edgey - the official EdgeX Foundry project mascot*
+
 # What's in this image?
 
 **ARCHIVED**
@@ -62,7 +66,7 @@ devices on behalf of:
 The command micro service exposes the commands in a common, normalized
 way to simplify communications with the devices. There are two types of commands that can be sent to a device.
 
-- a GET command requests data from the device.  This is often used to request the latest sensor reading from the device.  
+- a GET command requests data from the device.  This is often used to request the latest sensor reading from the device.
 - PUT commands request to take action or actuate the device or to set some configuration on the device.
 
 The core data service source code: https://github.com/edgexfoundry/core-command
@@ -76,6 +80,7 @@ As with all Docker images, these likely also contain other software which may be
 As for any pre-built image usage, it is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
 
 Some additional license information which was able to be auto-detected might be found in the Attribution.txt file located in the image and copied from the associated
+
 
 
 [source repository](https://github.com/edgexfoundry/core-command/blob/barcelona/Attribution.txt).

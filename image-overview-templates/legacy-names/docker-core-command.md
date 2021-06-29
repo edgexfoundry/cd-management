@@ -6,7 +6,7 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-barcelona.md
+$$./common/version-barcelona.md |
         - [Dockerfile](https://github.com/edgexfoundry/core-command/blob/barcelona/docker-files/Dockerfile)
 
 # Quick reference (cont.)
@@ -17,7 +17,7 @@ $$./common/version-barcelona.md
 
 - Published image artifact details: https://nexus3.edgexfoundry.org
 
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation
 
 $$./common/what-is-edgex.md
 
@@ -42,7 +42,7 @@ devices on behalf of:
 The command micro service exposes the commands in a common, normalized
 way to simplify communications with the devices. There are two types of commands that can be sent to a device.
 
-- a GET command requests data from the device.  This is often used to request the latest sensor reading from the device.  
+- a GET command requests data from the device.  This is often used to request the latest sensor reading from the device.
 - PUT commands request to take action or actuate the device or to set some configuration on the device.
 
 The core data service source code: https://github.com/edgexfoundry/core-command

@@ -243,6 +243,13 @@ def update_images(client, overviews, descriptions, user, noop):
                 raise ValueError(f"image {repository_name} does not have short description")
             update_image(client, repository_name, full_description, description, user, noop)
 
+        except requests.exceptions.HTTPError as errh:
+            if errh.response.status_code == 404:
+                logger.warn(f'Could not find image for {repository_name} ignoring...')
+            else:
+                logger.error(f'error occurred updating overview {overview}: {errh}')
+                failed = True
+            continue
         except Exception as ex:
             logger.error(f'error occurred updating overview {overview}: {ex}')
             failed = True

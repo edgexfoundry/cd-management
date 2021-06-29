@@ -16,7 +16,7 @@ None - this was used in early EdgeX research and development
 
 - Published image artifact details: https://nexus3.edgexfoundry.org
 
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation
 
 $$./common/what-is-edgex.md
 

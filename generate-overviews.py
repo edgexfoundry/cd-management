@@ -63,8 +63,15 @@ def get_file_content(filename):
 def replace_line_with_content(input_line):
     # get the input line minus the marker to get the content file
     content_file_name = input_line[len(MARKER):-1]
+    file_contents = ''
+    if content_file_name.endswith('|'):
+        content_file_name = content_file_name.replace('|', '').strip()
+        file_contents = get_file_content(content_file_name)
+    else:
+        file_contents = f"{get_file_content(content_file_name)}\n"
+
     # return the content from the content file
-    return get_file_content(content_file_name)
+    return file_contents
 
 def add_content(input_line, output):
     # if the line of content is markered - then get the replacement content specified by the file

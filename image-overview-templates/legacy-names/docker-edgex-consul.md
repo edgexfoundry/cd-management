@@ -1,10 +1,12 @@
 $$./common/warning.md
 
+$$./common/legacy-note.md
+
 $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-hanoi.md
+$$./common/version-hanoi.md |
         - [Dockerfile](https://github.com/edgexfoundry/docker-edgex-consul/blob/v1.3.0/Dockerfile)
 
 # Quick reference (cont.)
@@ -15,7 +17,7 @@ $$./common/version-hanoi.md
 
 - Published image artifact details: https://nexus3.edgexfoundry.org
 
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation
 
 $$./common/what-is-edgex.md
 

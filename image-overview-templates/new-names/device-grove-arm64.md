@@ -4,15 +4,15 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-ireland.md
-        - [Dockerfile](https://github.com/edgexfoundry/device-grove-c/blob/v1.3.2/scripts/Dockerfile.alpine)
+$$./common/version-ireland.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-grove-c/blob/v2.0.0/scripts/Dockerfile.alpine)
 
 # Quick reference (cont.)
 
 - Where to file issues: https://github.com/edgexfoundry/device-grove-c/issues
 - Supported architectures: arm64
 - Published image artifact details: https://nexus3.edgexfoundry.org
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-grove-arm64.md
 
 $$./common/what-is-edgex.md
 
@@ -23,4 +23,4 @@ This image contains the **ARM64 version** of the EdgeX Device Grove Service is d
 The device Grove service source code: <https://github.com/edgexfoundry/device-grove-c>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-grove-c/blob/v1.3.2/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-grove-c/blob/v2.0.0/Attribution.txt).

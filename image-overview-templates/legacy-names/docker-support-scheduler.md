@@ -6,7 +6,7 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-california.md
+$$./common/version-california.md |
         - [Dockerfile](https://github.com/edgexfoundry/support-scheduler/blob/california/docker-files/Dockerfile)
 
 # Quick reference (cont.)
@@ -17,7 +17,7 @@ $$./common/version-california.md
 
 - Published image artifact details: https://nexus3.edgexfoundry.org
 
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation
 
 $$./common/what-is-edgex.md
 
@@ -26,7 +26,7 @@ $$./common/what-is-edgex.md
 **ARCHIVED**
 This image contains the legacy Java [support scheduler](https://docs.edgexfoundry.org/1.2/microservices/support/scheduler/Ch-Scheduling/) service and all of its base configuration.
 
-The support scheduler micro service provide an internal EdgeX “clock” that can kick off operations in any EdgeX service. At a configuration specified time (called an interval), the service calls on any EdgeX service API URL via REST to trigger an operation (called an interval action). 
+The support scheduler micro service provide an internal EdgeX “clock” that can kick off operations in any EdgeX service. At a configuration specified time (called an interval), the service calls on any EdgeX service API URL via REST to trigger an operation (called an interval action).
 
 The support scheduler service source code: https://github.com/edgexfoundry/support-scheduler
 

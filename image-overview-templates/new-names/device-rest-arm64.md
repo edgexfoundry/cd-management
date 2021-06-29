@@ -4,15 +4,15 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-ireland.md
-        - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v1.3.2/Dockerfile)
+$$./common/version-ireland.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v2.0.0/Dockerfile)
 
 # Quick reference (cont.)
 
 - Where to file issues: https://github.com/edgexfoundry/device-rest-go/issues
 - Supported architectures: arm64
 - Published image artifact details: https://nexus3.edgexfoundry.org
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-rest-arm64.md
 
 $$./common/what-is-edgex.md
 
@@ -23,4 +23,4 @@ This image contains the **ARM64 version** of REST device service, which provides
 The device REST service source code: <https://github.com/edgexfoundry/device-rest-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-rest-go/blob/v1.3.2/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-rest-go/blob/v2.0.0/Attribution.txt).

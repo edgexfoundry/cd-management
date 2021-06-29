@@ -9,12 +9,15 @@ WARNING:
 ********************************************************************************
 
 -->
+
 **This image is ARCHIVED and no longer actively developed or maintained in EdgeX Foundry.  Use only when working with an older version of EdgeX.**
+
 # Quick reference
 
 - Maintained by: [EdgeX Foundry](https://www.edgexfoundry.org) (a [Linux Foundation](https://www.linuxfoundation.org/) project)
 
 - Where to get help: [EdgeX Web Site](https://www.edgexfoundry.com), [EdgeX Documentation](https://docs.edgexfoundry.com), [EdgeX Slack](https://slack.edgexfoundry.org/), [EdgeX Project Wiki](https://wiki.edgexfoundry.org)
+
 # Supported tags and respective Dockerfile links
 
 - Barcelona
@@ -28,7 +31,7 @@ WARNING:
 
 - Published image artifact details: https://nexus3.edgexfoundry.org
 
-- Source of this description: https://github.com/edgexfoundry/edgex-docker-hub-documentation
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation
 
 # What is EdgeX Foundry?
 
@@ -41,6 +44,7 @@ EdgeX's official documentation can be found at [docs.edgexfoundry.org](https://d
 ![logo](https://www.lfedge.org/wp-content/uploads/2020/11/Screen-Shot-2019-10-28-at-3.45.29-PM-300x269.png)
 
 *Edgey - the official EdgeX Foundry project mascot*
+
 # What's in this image?
 
 **ARCHIVED**
@@ -55,6 +59,7 @@ View [license information](https://docs.edgexfoundry.org/1.3/#apache-2-license) 
 As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
 
 As for any pre-built image usage, it is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
+
 
 
 
