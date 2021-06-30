@@ -4,7 +4,7 @@ version: '2.0.0'
 releaseName: 'ireland'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
-commitId: 'a978dc19c1bcc30f8446afb8c0c9d4f02315ff9d'
+commitId: 'b6f81afb00c623cfafb3d4c5994f810f91048a0e'
 gitTag: true
 dockerImages: true
 docker:
@@ -16,3 +16,4 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/app-service-configurable-arm64
       - docker.io/edgexfoundry/app-service-configurable-arm64
+
