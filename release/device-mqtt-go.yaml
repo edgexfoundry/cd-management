@@ -16,3 +16,4 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/device-mqtt-arm64
       - docker.io/edgexfoundry/device-mqtt-arm64
+      
