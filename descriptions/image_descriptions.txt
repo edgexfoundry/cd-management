@@ -7,8 +7,7 @@ core-data-arm64:ARM64 implementation core data micro service for EdgeX Foundry
 core-data:The reference implementation core data micro service for EdgeX Foundry
 core-metadata-arm64:ARM64 implementation core metadata micro service for EdgeX Foundry
 core-metadata:The reference implementation core metadata micro service for EdgeX Foundry
-device-bacnet-c-arm64:ARM64 device service to connect to BACNet protocol devices for EdgeX
-device-bacnet-c:The device service to connect to BACNet protocol devices for EdgeX Foundry
+device-bacnet-arm64:ARM64 device service to connect to BACNet protocol devices for EdgeX
 device-camera-arm64:ARM64 device service to connect to and control ONVIF cameras for EdgeX
 device-camera:Device service to connect to and control ONVIF cameras for EdgeX Foundry
 device-coap:Device service to connect Constrained Application Protocol devices to EdgeX (read-only)
