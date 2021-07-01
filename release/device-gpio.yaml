@@ -1,0 +1,18 @@
+---
+name: 'device-gpio'
+version: '1.0.0'
+releaseName: 'hanoi'
+releaseStream: 'master'
+repo: 'https://github.com/edgexfoundry/device-gpio.git'
+commitId: '61390a86f55ee6889073212d49524d4c8e9ed7d1'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-gpio
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-gpio
+      - docker.io/edgexfoundry/device-gpio
+  - image: nexus3.edgexfoundry.org:10004/device-gpio-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-gpio-arm64
+      - docker.io/edgexfoundry/device-gpio-arm64
