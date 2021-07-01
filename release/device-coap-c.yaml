@@ -1,0 +1,18 @@
+---
+name: 'device-coap-c'
+version: '2.0.0'
+releaseName: 'ireland'
+releaseStream: 'master'
+repo: 'https://github.com/edgexfoundry/device-coap-c.git'
+commitId: 'eadb85fb25adfde7b28c0e4aee92aa34bf1ec6e7'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-coap
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-coap
+      - docker.io/edgexfoundry/device-coap
+  - image: nexus3.edgexfoundry.org:10004/device-coap-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-coap-arm64
+      - docker.io/edgexfoundry/device-coap-arm64
