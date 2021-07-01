@@ -10,8 +10,8 @@ core-metadata:The reference implementation core metadata micro service for EdgeX
 device-bacnet-arm64:ARM64 device service to connect to BACNet protocol devices for EdgeX
 device-camera-arm64:ARM64 device service to connect to and control ONVIF cameras for EdgeX
 device-camera:Device service to connect to and control ONVIF cameras for EdgeX Foundry
-device-coap:Device service to connect Constrained Application Protocol devices to EdgeX (read-only)
-device-coap-arm64:ARM64 Device service to connect Constrained Application Protocol devices to EdgeX (read-only)
+device-coap:Device service to connect Constrained Application Protocol devices to EdgeX
+device-coap-arm64:ARM64 Device service to connect Constrained Application Protocol devices to EdgeX
 device-gpio:Device service to connect general-purpose input/output (GPIO) devices to EdgeX (Linux only!)
 device-gpio-arm64:ARM64 device service to connect general-purpose input/output (GPIO) devices to EdgeX (Linux only!)
 device-grove-arm64:ARM64 device service to communicate with Grove sensors for EdgeX
