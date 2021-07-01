@@ -5,7 +5,7 @@ $$./common/quick-reference.md
 # Supported tags and respective Dockerfile links
 
 $$./common/version-ireland.md |
-        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/Dockerfile)
+        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/scripts/Dockerfile.alpine)
 
 # Quick reference (cont.)
 
