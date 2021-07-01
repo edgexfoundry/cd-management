@@ -19,7 +19,7 @@ WARNING:
 # Supported tags and respective Dockerfile links
 
 - Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-gpio/blob/v1.0.0/Dockerfile)
+    - 1.0.0 - [Dockerfile](https://github.com/edgexfoundry/device-gpio/blob/v1.0.0/Dockerfile)
 
 # Quick reference (cont.)
 
