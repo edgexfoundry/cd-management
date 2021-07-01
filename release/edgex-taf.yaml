@@ -4,6 +4,6 @@ version: '2.0.0'
 releaseName: 'ireland'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/edgex-taf.git'
-commitId: '3960cd154638aa71029272e664965883e4339a70'
+commitId: '928c78f4e03151f093f86d4213af3b70aa9ab762'
 gitTag: true
 dockerImages: false
