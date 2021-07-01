@@ -19,7 +19,7 @@ WARNING:
 # Supported tags and respective Dockerfile links
 
 - Ireland
-    - 1.0.0 - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v1.0.0/Dockerfile)
+    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/Dockerfile)
 
 # Quick reference (cont.)
 
@@ -58,4 +58,4 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/device-coap-c/blob/v1.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/Attribution.txt).
