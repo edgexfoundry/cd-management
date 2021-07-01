@@ -1,17 +1,18 @@
 ---
 name: 'edgex-ui-go'
-version: '1.3.0'
-releaseName: 'hanoi'
+version: '2.0.0'
+releaseName: 'ireland'
 releaseStream: 'master'
 repo: 'https://github.com/edgexfoundry/edgex-ui-go.git'
+commitId: '2f4e1553df5e5f087b8db6026afff2bfba0d9e01'
 gitTag: true
 dockerImages: true
 docker:
-  - image: nexus3.edgexfoundry.org:10004/docker-edgex-ui-go
+  - image: nexus3.edgexfoundry.org:10004/edgex-ui
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-edgex-ui-go
-      - docker.io/edgexfoundry/docker-edgex-ui-go
-  - image: nexus3.edgexfoundry.org:10004/docker-edgex-ui-go-arm64
+      - nexus3.edgexfoundry.org:10002/edgex-ui
+      - docker.io/edgexfoundry/edgex-ui
+  - image: nexus3.edgexfoundry.org:10004/edgex-ui-arm64
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-edgex-ui-go-arm64
-      - docker.io/edgexfoundry/docker-edgex-ui-go-arm64
+      - nexus3.edgexfoundry.org:10002/edgex-ui-arm64
+      - docker.io/edgexfoundry/edgex-ui-arm64
