@@ -1,1 +1,0 @@
-Sample template service - not for use

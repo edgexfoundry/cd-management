@@ -1,101 +1,47 @@
 # descriptions for EdgeX Foundry Docker Hub images (limited to 100 chars)
-docker-core-data-go:The reference implementation core data micro service for EdgeX Foundry
-docker-core-metadata-go:The reference implementation core metadata micro service for EdgeX Foundry
-docker-core-command-go:The reference implementation core command micro service for EdgeX Foundry
-docker-edgex-mongo:ARCHIVED! MongoDB container for older versions of EdgeX Foundry
-docker-support-logging-go:ARCHVED! Central logging service for older versions of EdgeX Foundry
-docker-edgex-volume:ARCHIVED! Docker volume container for older versions of EdgeX Foundry
-docker-export-distro-go:ARCHIVED! Export distribution service for older versions of EdgeX Foundry
-docker-export-client-go:ARCHIVED! Export registration service for older versions of EdgeX Foundry
-docker-support-notifications:ARCHIVED! The legacy notifications service for EdgeX Foundry
-docker-support-scheduler-go:The reference implementation scheduler service for EdgeX Foundry
-docker-core-config-seed-go:ARCHIVED! The legacy configuration seeding service for EdgeX Foundry
-docker-support-notifications-go:The reference implementation notifications service for EdgeX Foundry
-docker-device-virtual-go:Device service simulating different kinds of devices for EdgeX Foundry
-docker-support-rulesengine:ARCHIVED! The legacy rules engine service for EdgeX Foundry
-docker-sys-mgmt-agent-go:The reference implementation management agent for EdgeX Foundry
-docker-edgex-ui-go:The demonstration and developer EdgeX Foundry user interface
-docker-app-service-configurable:A configurable application service for EdgeX Foundry
-docker-edgex-consul:Consul service providing configuration and registration for EdgeX Foundry
-docker-device-random-go:Device service simulating a device via random numbers for EdgeX Foundry
-docker-device-rest-go:Device service ingesting device data via REST for EdgeX Foundry
-docker-support-scheduler:ARCHIVED! The legacy scheduler service for EdgeX Foundry
-docker-device-virtual:ARCHIVED! The legacy virtual device service for EdgeX Foundry
-docker-core-data-go-arm64:ARM64 implementation core data micro service for EdgeX Foundry
-docker-core-data:ARCHIVED! The legacy core data service for EdgeX Foundry
-docker-core-metadata-go-arm64:ARM64 implementation core metadata micro service for EdgeX Foundry
-docker-core-command-go-arm64:ARM64 implementation core command micro service for EdgeX Foundry
-docker-core-metadata:ARCHIVED! The legacy core metadata service for EdgeX Foundry
-docker-support-notifications-go-arm64:ARM64 impl notifications service for EdgeX Foundry
-docker-edgex-mongo-arm64:ARCHIVED! ARM64 MongoDB container for older versions of EdgeX Foundry
-docker-support-logging:ARCHIVED! The legacy logging service for EdgeX Foundry
-docker-support-scheduler-go-arm64:ARM64 implementation scheduler service for EdgeX Foundry
-docker-support-logging-go-arm64:ARCHVED! ARM64 central logging for older versions of EdgeX Foundry
-docker-export-client-go-arm64:ARCHIVED! ARM64 export registration for older EdgeX Foundry
-docker-core-config-seed-go-arm64:ARCHIVED! Legacy ARM64 configuration seeding for EdgeX Foundry
-docker-edgex-security-proxy-setup-go:ARCHIVED! Legacy API gateway setup for older EdgeX Foundry
-docker-core-command:ARCHIVED! The legacy core command service for EdgeX Foundry
-docker-edgex-ui-go-arm64:ARM64 demonstration and developer EdgeX Foundry user interface
-docker-support-rulesengine-arm64:ARCHIVED! The legacy ARM64 rules engine service for EdgeX Foundry
-docker-export-distro-go-arm64:ARCHIVED! ARM64 export distribution for older EdgeX Foundry
-docker-device-mqtt-go:Device service ingesting device data via MQTT for EdgeX Foundry
-docker-export-distro:ARCHIVED! The legacy export distribution for older EdgeX Foundry
-docker-device-virtual-arm64:ARCHIVED! The legacy ARM64 virtual device service for EdgeX Foundry
-docker-edgex-security-secretstore-setup-go:ARCHIVED! Legacy secret store setup for EdgeX Foundry
-docker-edgex-vault:ARCHIVED! The legacy Vault secret store service for EdgeX Foundry
-docker-edgex-proxy-go:ARCHIVED! The legacy security API gateway service for EdgeX Foundry
-docker-edgex-vault-worker-go:ARCHIVED! The legacy Vault initialization service for EdgeX Foundry
-docker-edgex-volume-arm64:ARCHIVED! ARM64 Docker volume for older versions of EdgeX Foundry
-docker-core-config-seed:ARCHIVED! The legacy configuration seeding for EdgeX Foundry
-docker-edgex-secret-store-go:ARCHIVED! The legacy Vault secret store service for EdgeX Foundry
-docker-core-consul:ARCHIVED! The legacy Consul service for older EdgeX Foundry
-docker-device-modbus-go:Device service to connect to Modbus protocol devices for EdgeX Foundry
-docker-sys-mgmt-agent-go-arm64:ARM64 reference impl management agent for EdgeX Foundry
-docker-export-client:ARCHIVED! The legacy export registration service for EdgeX Foundry
-docker-device-virtual-go-arm64:ARM64 device service simulating devices for EdgeX Foundry
-docker-edgex-consul-arm64:ARM64 Consul service providing config and registry for EdgeX Foundry
-docker-app-service-configurable-arm64:ARM64 configurable application service for EdgeX Foundry
-docker-edgex-secrets-setup-go:Initialization service for EdgeX Foundry secret store
-docker-edgex-mongo-seed:ARCHIVED!Initializer for MongoDB for early EdgeX Foundry development
-docker-device-snmp-go:Device service to connect to SNMP protocol devices for EdgeX Foundry
-docker-device-random-go-arm64:ARM64 device service simulating a device with integers for EdgeX
-docker-device-rest-go-arm64:ARM64 device service ingesting device data via REST for EdgeX Foundry
-docker-device-modbus:ARCHIVED! The legacy device service to connect Modbus devices for EdgeX Foundry
-docker-device-grove-c-arm64:ARM64 device service to communicate with Grove sensors for EdgeX
-docker-device-bluetooth:ARCHIVED! The legacy device service to coonect BLE devices for EdgeX Foundry
-docker-device-mqtt:ARCHIVED! The legacy device service ingesting device data via MQTT for EdgeX
-docker-device-modbus-go-arm64:ARM64 device service to connect to Modbus protocol devices for EdgeX
-docker-device-mqtt-go-arm64:ARM64 device service ingesting device data via MQTT for EdgeX Foundry
-docker-edgex-security-proxy-setup-go-arm64:ARCHIVED! ARM64 legacy API gateway setup for EdgeX Foundry
-docker-edgex-security-secretstore-setup-go-arm64:ARCHIVED! ARM64 legacy secret store setup for EdgeX
-docker-edgex-secrets-setup-go-arm64:ARM64 initialization service for EdgeX Foundry secret store
-docker-device-bacnet:ARCHIVED! The legacy device service to connect BACNet devices for EdgeX Foundry
-docker-device-snmp:ARCHIVED! The legacy device service to connect SNMP devices for EdgeX Foundry
-docker-device-camera-go:Device service to connect to and control ONVIF cameras for EdgeX Foundry
-docker-edgex-proxy-go-arm64:ARCHIVED! ARM64 legacy security API gateway service for EdgeX Foundry
-docker-edgex-vault-worker-go-arm64:ARCHIVED! ARM64 legacy Vault initialization service for EdgeX
-docker-edgex-vault-arm64:ARCHIVED! ARM64 legacy Vault secret store service for EdgeX Foundry
-docker-security-secrets-setup-go:The initialization service for the secrets for EdgeX Foundry
-docker-device-fischertechnik:ARCHIVED! The legacy device service for Fischertechnik devices for EdgeX
-docker-security-secretstore-setup-go:The initialization service for the security for EdgeX Foundry
-docker-security-proxy-setup-go:The initialization service for the reverse proxy for EdgeX Foundry
-docker-security-bootstrap-redis-go:The initialization service for Redis security setup for EdgeX
-docker-device-mqtt-arm64:ARCHIVED! ARM64 legacy device service ingesting data via MQTT for EdgeX
-docker-edgex-security-vault-worker: The legacy Vault initialization service for EdgeX Foundry
-docker-edgex-secret-store-go-arm64:ARCHIVED! ARM64 legacy Vault secret store service for EdgeX
-docker-device-snmp-go-arm64:ARM64 device service to connect to SNMP protocol devices for EdgeX
-docker-device-bluetooth-arm64:ARCHIVED! ARM64 legacy device service to coonect BLE devices for EdgeX
-docker-device-bacnet-c:The device service to connect to BACNet protocol devices for EdgeX Foundry
-docker-device-bacnet-arm64:ARCHIVED! ARM64 legacy device service to connect BACNet devices for EdgeX
-docker-edgex-ui-clojure:ARCHIVED! The legacy user interface for EdgeX Foundry
-docker-security-secrets-setup-go-arm64:ARM64 initialization service for the secrets for EdgeX Foundry
-docker-device-camera-go-arm64:ARM64 device service to connect to and control ONVIF cameras for EdgeX
-docker-sample-service:blank service template
-docker-security-bootstrap-redis-go-arm64:ARM64 initialization service for Redis setup for EdgeX
-docker-device-modbus-arm64:ARCHIVED! ARM64 legacy device service to connect Modbus devices for EdgeX
-docker-security-proxy-setup-go-arm64:ARM64 initialization service for the reverse proxy for EdgeX
-docker-device-bacnet-c-arm64:ARM64 device service to connect to BACNet protocol devices for EdgeX
-docker-security-secretstore-setup-go-arm64:ARM64 initialization service for the security for EdgeX
-edgex-ui-clojure:ARCHIVED! The legacy user interface for EdgeX Foundry
-docker-edgex-ui-clojure-arm64:ARCHIVED! ARM64 legacy user interface for EdgeX Foundry
-docker-edgex-security-vault: ARCHIVED! Vault initialization service for EdgeX Foundry
+app-service-configurable-arm64:ARM64 configurable application service for EdgeX Foundry
+app-service-configurable:A configurable application service for EdgeX Foundry
+core-command-arm64:ARM64 implementation core command micro service for EdgeX Foundry
+core-command:The reference implementation core command micro service for EdgeX Foundry
+core-data-arm64:ARM64 implementation core data micro service for EdgeX Foundry
+core-data:The reference implementation core data micro service for EdgeX Foundry
+core-metadata-arm64:ARM64 implementation core metadata micro service for EdgeX Foundry
+core-metadata:The reference implementation core metadata micro service for EdgeX Foundry
+device-bacnet-c-arm64:ARM64 device service to connect to BACNet protocol devices for EdgeX
+device-bacnet-c:The device service to connect to BACNet protocol devices for EdgeX Foundry
+device-camera-arm64:ARM64 device service to connect to and control ONVIF cameras for EdgeX
+device-camera:Device service to connect to and control ONVIF cameras for EdgeX Foundry
+device-coap:Device service to connect Constrained Application Protocol devices to EdgeX (read-only)
+device-coap-arm64:ARM64 Device service to connect Constrained Application Protocol devices to EdgeX (read-only)
+device-gpio:Device service to connect general-purpose input/output (GPIO) devices to EdgeX (Linux only!)
+device-gpio-arm64:ARM64 device service to connect general-purpose input/output (GPIO) devices to EdgeX (Linux only!)
+device-grove-arm64:ARM64 device service to communicate with Grove sensors for EdgeX
+device-rfid-llrp:Device service to connect LLRP adhering RFID systems to EdgeX
+device-rfid-llrp-arm64:ARM64 device service to connect LLRP adhering RFID systems to EdgeX
+device-modbus-arm64:ARM64 device service to connect to Modbus protocol devices for EdgeX
+device-modbus:Device service to connect to Modbus protocol devices for EdgeX Foundry
+device-mqtt-arm64:ARM64 device service ingesting device data via MQTT for EdgeX Foundry
+device-mqtt:Device service ingesting device data via MQTT for EdgeX Foundry
+device-random-arm64:ARM64 device service simulating a device with integers for EdgeX
+device-random:Device service simulating a device via random numbers for EdgeX Foundry
+device-rest-arm64:ARM64 device service ingesting device data via REST for EdgeX Foundry
+device-rest:Device service ingesting device data via REST for EdgeX Foundry
+device-snmp-arm64:ARM64 device service to connect to SNMP protocol devices for EdgeX
+device-snmp:Device service to connect to SNMP protocol devices for EdgeX Foundry
+device-virtual-arm64:ARM64 device service simulating devices for EdgeX Foundry
+device-virtual:Device service simulating different kinds of devices for EdgeX Foundry
+edgex-ui-arm64:ARM64 demonstration and developer EdgeX Foundry user interface
+edgex-ui:The demonstration and developer EdgeX Foundry user interface
+sample-service:DevOps managed sample Go service used for EdgeX pipeline verification
+security-bootstrapper-arm64:ARM64 initialization service for security setup for EdgeX
+security-bootstrapper:The initialization service for security setup for EdgeX
+security-proxy-setup-arm64:ARM64 initialization service for the reverse proxy for EdgeX
+security-proxy-setup:The initialization service for the reverse proxy for EdgeX Foundry
+security-secretstore-setup-arm64:ARM64 initialization service for the security for EdgeX
+security-secretstore-setup:The initialization service for the security for EdgeX Foundry
+support-notifications-arm64:ARM64 impl notifications service for EdgeX Foundry
+support-notifications:The reference implementation notifications service for EdgeX Foundry
+support-scheduler-arm64:ARM64 implementation scheduler service for EdgeX Foundry
+support-scheduler:The reference implementation scheduler service for EdgeX Foundry
+sys-mgmt-agent-arm64:ARM64 reference impl management agent for EdgeX Foundry
+sys-mgmt-agent:The reference implementation management agent for EdgeX Foundry

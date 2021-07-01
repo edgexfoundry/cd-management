@@ -12,11 +12,38 @@
 #  or implied. See the License for the specific language governing permissions and limitations under
 #  the License.
 # *******************************************************************************/
+
+import os
 import sys
 import requests
+from argparse import ArgumentParser
 
 MARKER = "$$"
 LIST_IMAGES = 'https://hub.docker.com/v2/repositories/%(org)s/'
+
+
+def get_args():
+    """ setup parser and return parsed command line arguments
+    """
+    parser = ArgumentParser(
+        description='A Python script that generate DockerHub overview as Markdown files')
+    parser.add_argument(
+        '--template-base',
+        type=str,
+        default='new-names',
+        required=False,
+        help='which directory under image-overview-templates to use. Possible values [legacy-names, new-names]')
+    parser.add_argument(
+        '--org',
+        type=str,
+        default='edgexfoundry',
+        required=False,
+        help='DockerHub org containing the Docker images')
+    parser.add_argument(
+        '--offline',
+        action='store_true',
+        help='generate overviews from local templates')
+    return parser.parse_args()
 
 def get_file_content(filename):
     content = ""
@@ -36,8 +63,15 @@ def get_file_content(filename):
 def replace_line_with_content(input_line):
     # get the input line minus the marker to get the content file
     content_file_name = input_line[len(MARKER):-1]
+    file_contents = ''
+    if content_file_name.endswith('|'):
+        content_file_name = content_file_name.replace('|', '').strip()
+        file_contents = get_file_content(content_file_name)
+    else:
+        file_contents = f"{get_file_content(content_file_name)}\n"
+
     # return the content from the content file
-    return get_file_content(content_file_name)
+    return file_contents
 
 def add_content(input_line, output):
     # if the line of content is markered - then get the replacement content specified by the file
@@ -46,10 +80,10 @@ def add_content(input_line, output):
     # return the line or the replacement content
     output.write(input_line)
 
-def create_overview(image_name):
+def create_overview(image_name, template_base='new-names'):
     try:
         # open the template file for the image
-        template = open("./image-overview-templates/" + image_name + ".md", "r")
+        template = open(f"./image-overview-templates/{template_base}/{image_name}.md", "r")
     except FileNotFoundError:
         print("No template file %s" % image_name)
         return
@@ -58,7 +92,7 @@ def create_overview(image_name):
         return
     try:
         # open the output overview file for the image
-        output = open("./generated-overviews/" + image_name + ".md", "w")
+        output = open(f"./generated-overviews/{template_base}/{image_name}.md", "w")
     except:
         print("Cannot open overview file for: %s" % image_name)
         return
@@ -69,25 +103,54 @@ def create_overview(image_name):
     template.close()
     print("Overview created for %s" % image_name)
 
+def process_online(args):
+    next_page = LIST_IMAGES % {"org": args.org}
+
+    count = 0
+    while next_page is not None:
+        resp = requests.get(next_page)
+        count += 1
+        next_page = None
+
+        if resp.status_code == 200:
+            data = resp.json()
+            # Read image data
+            for img in data['results']:
+                # request an overview markdown file for the image
+                create_overview(img['name'], args.template_base)
+            if data['next'] is not None:
+                next_page = data['next']
+
+def process_offline(args):
+    template_dir = f'./image-overview-templates/{args.template_base}'
+    try:
+        for filename in os.listdir(template_dir):
+            image_name = filename.replace('.md', '')
+            create_overview(image_name, args.template_base)
+    except FileNotFoundError as ex:
+        print(f"No template dir found: {template_dir}")
+        raise ex
+
 # ------------------
 
-org = "edgexfoundry"
-if len(sys.argv) > 1:
-    org = sys.argv[1]
 
-next_page = LIST_IMAGES % {"org": org}
+def main():
+    """ main method
+    """
+    try:
+        args = get_args()
+        if args.offline:
+            process_offline(args)
+        else:
+            process_online(args)
 
-count = 0
-while next_page is not None:
-    resp = requests.get(next_page)
-    count += 1
-    next_page = None
-    if resp.status_code == 200:
-        data = resp.json()
-        # Read image data
-        for img in data['results']:
-            # request an overview markdown file for the image
-            create_overview(img['name'])
-        if data['next'] is not None:
-            next_page = data['next']
+    except Exception as ex:
+        print(ex)
+        sys.exit(-1)
+
+
+if __name__ == '__main__':  # pragma: no cover
+
+    main()
+
 
