@@ -21,8 +21,6 @@ device-modbus-arm64:ARM64 device service to connect to Modbus protocol devices f
 device-modbus:Device service to connect to Modbus protocol devices for EdgeX Foundry
 device-mqtt-arm64:ARM64 device service ingesting device data via MQTT for EdgeX Foundry
 device-mqtt:Device service ingesting device data via MQTT for EdgeX Foundry
-device-random-arm64:ARM64 device service simulating a device with integers for EdgeX
-device-random:Device service simulating a device via random numbers for EdgeX Foundry
 device-rest-arm64:ARM64 device service ingesting device data via REST for EdgeX Foundry
 device-rest:Device service ingesting device data via REST for EdgeX Foundry
 device-snmp-arm64:ARM64 device service to connect to SNMP protocol devices for EdgeX

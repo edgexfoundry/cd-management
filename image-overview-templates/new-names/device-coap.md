@@ -4,8 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-- Ireland
-    - 1.0.0 - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v1.0.0/Dockerfile)
+$$./common/version-ireland.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/Dockerfile)
 
 # Quick reference (cont.)
 
@@ -23,4 +23,4 @@ Device service to connect Constrained Application Protocol (CoAP) devices to Edg
 The device CoAP service source code: <https://github.com/edgexfoundry/device-coap-c>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-coap-c/blob/v1.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/Attribution.txt).
