@@ -1,4 +1,5 @@
 # prepbadge
+[![Build Status](https://jenkins.edgexfoundry.org/buildStatus/icon?job=edgexfoundry%2Fcd-management%2Fcreate-repo-badges)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/create-repo-badges/)
 [![complexity](https://img.shields.io/badge/complexity-Stable:%208-olive)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
 [![vulnerabilities](https://img.shields.io/badge/vulnerabilities-None-green)](https://pypi.org/project/bandit/)
 [![python](https://img.shields.io/badge/python-3.6-teal)](https://www.python.org/downloads/)
