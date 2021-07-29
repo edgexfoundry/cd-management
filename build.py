@@ -6,7 +6,7 @@ use_plugin('python.core')
 use_plugin('python.unittest')
 use_plugin('python.install_dependencies')
 use_plugin('python.flake8')
-use_plugin('python.coverage')
+# use_plugin('python.coverage')
 use_plugin('python.distutils')
 use_plugin('pypi:pybuilder_radon', '~=0.1.2')
 use_plugin('pypi:pybuilder_bandit', '~=0.1.3')
@@ -16,7 +16,7 @@ name = 'prepbadge'
 authors = [Author('Emilio Reyes', 'emilio.reyes@intel.com')]
 summary = 'A CLI to create pull request workflows for updating edgeXfoundry repos.'
 url = 'https://github.com/soda480/cd-management/tree/create-repo-badges'
-version = '0.1.2'
+version = '0.1.3'
 default_task = [
     'clean',
     'analyze',
@@ -45,3 +45,4 @@ def set_properties(project):
     project.set_property('bandit_break_build', True)
     project.set_property('bandit_skip_ids', 'B604,B603,B311,B404')
     project.set_property('anybadge_use_shields', True)
+    project.set_property('coverage_break_build', False)

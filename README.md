@@ -1,5 +1,4 @@
 # prepbadge
-[![coverage](https://img.shields.io/badge/coverage-100%25-green)](https://pybuilder.io/)
 [![complexity](https://img.shields.io/badge/complexity-Stable:%208-olive)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
 [![vulnerabilities](https://img.shields.io/badge/vulnerabilities-None-green)](https://pypi.org/project/bandit/)
 [![python](https://img.shields.io/badge/python-3.6-teal)](https://www.python.org/downloads/)

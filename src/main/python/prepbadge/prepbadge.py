@@ -130,7 +130,7 @@ def get_codecov_data(*args):
         data.append({
             'repo': repo['name'],
             'codecov_coverage': repo['coverage'],
-            'codecov_badge': f"https://{client.hostname}/gh/{owner}/{repo['name']}/branch/master/graph/badge.svg?token={settings['repo']['image_token']}",
+            'codecov_badge': f"https://{client.hostname}/gh/{owner}/{repo['name']}/branch/main/graph/badge.svg?token={settings['repo']['image_token']}",
             'codecov_url': f"https://codecov.io/gh/{owner}/{repo['name']}"
         })
     return data
@@ -162,12 +162,12 @@ def get_jenkins_data(*args):
         sleep(.1)
         repo = job['name']
         logger.debug(f"retrieving jenkins data for {repo} repo")
-        index = find(job['jobs'], 'master')
+        index = find(job['jobs'], 'main')
         if index > -1:
             data.append({
                 'repo': repo,
-                'jenkins_badge': f'https://{JENKINS_HOST}/view/{display_name}/job/{owner}/job/{repo}/job/master/badge/icon'.replace(" ", "%20"),
-                'jenkins_url': f'https://{JENKINS_HOST}/view/{display_name}/job/{owner}/job/{repo}/job/master/'.replace(" ", "%20")
+                'jenkins_badge': f'https://{JENKINS_HOST}/view/{display_name}/job/{owner}/job/{repo}/job/main/badge/icon'.replace(" ", "%20"),
+                'jenkins_url': f'https://{JENKINS_HOST}/view/{display_name}/job/{owner}/job/{repo}/job/main/'.replace(" ", "%20")
             })
     return data
 
@@ -322,7 +322,7 @@ def get_process_data_for_pull_request_workflows(repos_data, repos_regex, local_b
                 # 'reviewers': ['bill-mahoney', 'ernestojeda', 'jamesrgregg', 'cjoyv'],
                 'reviewers': [],
                 'labels': ['documentation'],
-                'milestone': 'Ireland',
+                'milestone': 'Jakarta',
                 'noop': noop
             }
             process_data.append(item)
@@ -334,6 +334,9 @@ def run_create_pull_request_workflows(owner, repos_data, repos_regex, local_bran
     """
     print(f'Executing pull request workflows for {owner} ...')
     process_data = get_process_data_for_pull_request_workflows(repos_data, repos_regex, local_branch, noop)
+    if not process_data:
+        print('Nothing to execute')
+        return
     MP4ansi(
         function=create_pull_request_workflow,
         process_data=process_data,
