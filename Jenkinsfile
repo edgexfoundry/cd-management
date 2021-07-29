@@ -18,12 +18,19 @@ pipeline {
     agent {
         label 'centos7-docker-4c-2g'
     }
-    stages {
+    stages{
         stage('Build') {
             agent {
                 dockerfile {
                     filename 'Dockerfile'
                     reuseNode true
+                }
+            }
+            stages {
+                stage('Verify') {
+                    steps {
+                        sh 'pip show prepbadge'
+                    }
                 }
             }
         }
