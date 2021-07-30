@@ -1,10 +1,10 @@
 ---
 name: 'app-service-configurable'
-version: '2.0.0'
+version: '2.0.1'
 releaseName: 'ireland'
-releaseStream: 'master'
+releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
-commitId: 'b6f81afb00c623cfafb3d4c5994f810f91048a0e'
+commitId: 'a8794a006ea08968641ff6a1a2acb87b2eaa877d'
 gitTag: true
 dockerImages: true
 docker:
