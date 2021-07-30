@@ -1,10 +1,10 @@
 ---
 name: 'device-coap-c'
-version: '2.0.0'
+version: '2.0.1'
 releaseName: 'ireland'
-releaseStream: 'master'
+releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/device-coap-c.git'
-commitId: 'eadb85fb25adfde7b28c0e4aee92aa34bf1ec6e7'
+commitId: 'd4ff9538cd709043f1f5f6e8b9ff63e33f6e1e71'
 gitTag: true
 dockerImages: true
 docker:
