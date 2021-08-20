@@ -1,0 +1,19 @@
+---
+name: 'app-rfid-llrp-inventory'
+version: '1.0.0'
+releaseName: 'hanoi'
+releaseStream: 'main'
+repo: 'https://github.com/edgexfoundry/app-rfid-llrp-inventory.git'
+commitId: '2d16842f1ed4032ef61d6aaf662d8ed3c6802d59'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/app-rfid-llrp-inventory
+    destination:
+      - nexus3.edgexfoundry.org:10002/app-rfid-llrp-inventory
+      - docker.io/edgexfoundry/app-rfid-llrp-inventory
+  - image: nexus3.edgexfoundry.org:10004/app-rfid-llrp-inventory-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/app-rfid-llrp-inventory-arm64
+      - docker.io/edgexfoundry/app-rfid-llrp-inventory-arm64
+
