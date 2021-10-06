@@ -1,9 +1,9 @@
 ---
 name: 'device-camera-go'
-version: '2.0.0'
+version: '2.0.1'
 releaseName: 'ireland'
-releaseStream: 'master'
-commitId: '6d0dd18441c649f8cb646c35176ff84e18e2f9a0'
+releaseStream: 'main'
+commitId: 'f8d857e7303f9633e8b184b814cc4da0576b6e82'
 repo: 'https://github.com/edgexfoundry/device-camera-go.git'
 gitTag: true
 dockerImages: true
