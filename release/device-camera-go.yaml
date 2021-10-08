@@ -17,3 +17,4 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/device-camera-arm64
       - docker.io/edgexfoundry/device-camera-arm64
+      
