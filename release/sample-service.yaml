@@ -1,0 +1,22 @@
+---
+lts: true
+name: 'sample-service-c'
+version: '4.1.47'
+releaseName: 'jakarta-lts-test'
+releaseStream: 'jakarta-lts-test'
+commitId: 'd5ce4a5ef403c669cbfa4717020978bdc3424d96'
+repo: 'https://github.com/edgexfoundry/sample-service.git'
+gitTag: false
+dockerImages: false
+dockerForce: false
+snap: false
+gitHubRelease: false
+docker:
+  - image: nexus3.edgexfoundry.org:10004/sample-service-c
+    destination:
+      - nexus3.edgexfoundry.org:10002/sample-service-c
+      - docker.io/edgexfoundry/sample-service-c
+  - image: nexus3.edgexfoundry.org:10004/sample-service-c-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/sample-service-c-arm64
+      - docker.io/edgexfoundry/sample-service-c-arm64

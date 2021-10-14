@@ -1,8 +1,0 @@
----
-name: 'blackbox-testing'
-version: '1.3.0'
-releaseName: 'hanoi'
-releaseStream: 'master'
-repo: 'https://github.com/edgexfoundry/blackbox-testing.git'
-gitTag: true
-dockerImages: false
