@@ -69,5 +69,5 @@ pipeline {
 }
 
 def shouldDoDryRun() {
-    env.GIT_BRANCH != 'release' ? true : false
+    env.GIT_BRANCH != 'release-lts' ? true : false
 }
