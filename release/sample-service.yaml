@@ -1,0 +1,22 @@
+---
+lts: true
+name: 'sample-service'
+version: '4.2.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+commitId: '4a451c014e7ed34779d83b8cca61f1a1e684f683'
+repo: 'https://github.com/edgexfoundry/sample-service.git'
+gitTag: true
+dockerImages: true
+dockerForce: false
+snap: false
+gitHubRelease: false
+docker:
+  - image: nexus3.edgexfoundry.org:10004/sample-service
+    destination:
+      - nexus3.edgexfoundry.org:10002/sample-service
+      - docker.io/edgexfoundry/sample-service
+  - image: nexus3.edgexfoundry.org:10004/sample-service-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/sample-service-arm64
+      - docker.io/edgexfoundry/sample-service-arm64

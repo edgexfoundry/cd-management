@@ -14,7 +14,7 @@
 // limitations under the License.
 //
 
-// @Library("edgex-global-pipelines@experimental") _
+@Library("edgex-global-pipelines@experimental") _
 
 def parallelSteps = [:]
 def releaseData = []
@@ -69,5 +69,5 @@ pipeline {
 }
 
 def shouldDoDryRun() {
-    env.GIT_BRANCH != 'release' ? true : false
+    env.GIT_BRANCH != 'release-lts' ? true : false
 }
