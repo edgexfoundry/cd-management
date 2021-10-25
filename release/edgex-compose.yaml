@@ -1,9 +1,0 @@
----
-name: 'edgex-compose'
-version: '2.0.0'
-releaseName: 'ireland'
-releaseStream: 'ireland'
-repo: 'https://github.com/edgexfoundry/edgex-compose.git'
-commitId: '5c817109e4c05d8f8b5e9939e075a766dfe5f866'
-gitTag: true
-dockerImages: false
