@@ -48,7 +48,7 @@ pipeline {
         stage('Prepare Release YAML') {
             steps {
                 script {
-                    releaseData = edgeXRelease.collectReleaseYamlFiles('release/*.yaml', 'origin/release')
+                    releaseData = edgeXRelease.collectReleaseYamlFiles('release/*.yaml', 'origin/release-lts')
                     parallelSteps = edgeXRelease.parallelStepFactory(releaseData)
 
                     // Print out the arrays created from the yaml files for manual validation
@@ -69,5 +69,5 @@ pipeline {
 }
 
 def shouldDoDryRun() {
-    env.GIT_BRANCH != 'release' ? true : false
+    env.GIT_BRANCH != 'release-lts' ? true : false
 }
