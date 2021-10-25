@@ -1,0 +1,19 @@
+---
+name: 'device-coap-c'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/device-coap-c.git'
+commitId: '4a684285fac6e98c8174e18275d4431b175a4585'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-coap
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-coap
+      - docker.io/edgexfoundry/device-coap
+  - image: nexus3.edgexfoundry.org:10004/device-coap-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-coap-arm64
+      - docker.io/edgexfoundry/device-coap-arm64
