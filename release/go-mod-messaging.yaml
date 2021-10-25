@@ -1,9 +1,0 @@
----
-name: 'go-mod-messaging'
-version: '2.0.1'
-releaseName: 'ireland'
-releaseStream: 'master'
-repo: 'https://github.com/edgexfoundry/go-mod-messaging.git'
-commitId: '462d2b631b3a66b5ccca44d94490a8fbffa36db5'
-gitTag: true
-dockerImages: false
