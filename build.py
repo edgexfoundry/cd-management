@@ -4,13 +4,12 @@ from pybuilder.core import Author
 
 use_plugin('python.core')
 use_plugin('python.unittest')
-use_plugin('python.install_dependencies')
 use_plugin('python.flake8')
-# use_plugin('python.coverage')
+use_plugin('python.coverage')
 use_plugin('python.distutils')
-use_plugin('pypi:pybuilder_radon', '~=0.1.2')
-use_plugin('pypi:pybuilder_bandit', '~=0.1.3')
-use_plugin('pypi:pybuilder_anybadge', '~=0.1.6')
+use_plugin('pypi:pybuilder_radon')
+use_plugin('pypi:pybuilder_bandit')
+use_plugin('pypi:pybuilder_anybadge')
 
 name = 'prepbadge'
 authors = [Author('Emilio Reyes', 'emilio.reyes@intel.com')]
@@ -20,17 +19,17 @@ version = '0.1.3'
 default_task = [
     'clean',
     'analyze',
+    'publish',
     'radon',
     'bandit',
-    'anybadge',
-    'package']
+    'anybadge']
 license = 'Apache License, Version 2.0'
 description = summary
 
 
 @init
 def set_properties(project):
-    # project.set_property('unittest_module_glob', 'test_*.py')
+    project.set_property('unittest_module_glob', 'test_*.py')
     project.set_property('flake8_max_line_length', 120)
     project.set_property('flake8_verbose_output', True)
     project.set_property('flake8_break_build', True)

@@ -1,8 +1,9 @@
 # prepbadge
 [![Build Status](https://jenkins.edgexfoundry.org/buildStatus/icon?job=edgexfoundry%2Fcd-management%2Fcreate-repo-badges)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/create-repo-badges/)
+[![coverage](https://img.shields.io/badge/coverage-16.32%25-red)](https://pybuilder.io/)
 [![complexity](https://img.shields.io/badge/complexity-Stable:%208-olive)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
-[![vulnerabilities](https://img.shields.io/badge/vulnerabilities-None-green)](https://pypi.org/project/bandit/)
-[![python](https://img.shields.io/badge/python-3.6-teal)](https://www.python.org/downloads/)
+[![vulnerabilities](https://img.shields.io/badge/vulnerabilities-None-brightgreen)](https://pypi.org/project/bandit/)
+[![python](https://img.shields.io/badge/python-3.9-teal)](https://www.python.org/downloads/)
 
 
 A Python script that creates multiple pull request workflows to update an organization's repos with badges. The script also creates a markdown file containing a preview of the badges that will be applied to each repo: [badge preview](prepbadge.md). The script was used specifically for [EdgeXFoundry](https://github.com/edgexfoundry) but can be adapted to apply changes (via PR workflows) for other repos in any other organization.
@@ -85,8 +86,8 @@ docker container run \
 -e https_proxy \
 -v $HOME/.gitconfig:/etc/gitconfig \
 -v $HOME/.gnupg:/root/.gnupg \
--v $PWD:/prepbadge \
-prepbadge:latest /bin/sh
+-v $PWD:/code \
+prepbadge:latest /bin/bash
 ```
 
 Set the required enviornment variables:

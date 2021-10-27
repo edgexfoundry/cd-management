@@ -1,12 +1,7 @@
-FROM python:3.6-alpine
-
+FROM python:3.9-slim
 ENV PYTHONDONTWRITEBYTECODE 1
-
-WORKDIR /prepbadge
-
-COPY . /prepbadge/
-
-RUN apk add git gnupg openssh netcat-openbsd --no-cache
-RUN pip install pybuilder==0.11.17
-RUN pyb install_dependencies
-RUN pyb install
+WORKDIR /code
+COPY . /code/
+RUN apt-get update && apt-get install -y git gnupg netcat-openbsd
+RUN pip install pybuilder
+RUN pyb --reset-plugins install
