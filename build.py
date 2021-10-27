@@ -19,13 +19,12 @@ from pybuilder.core import Author
 
 use_plugin('python.core')
 use_plugin('python.unittest')
-use_plugin('python.install_dependencies')
 use_plugin('python.flake8')
 use_plugin('python.coverage')
 use_plugin('python.distutils')
-use_plugin('pypi:pybuilder_radon', '~=0.1.2')
-use_plugin('pypi:pybuilder_bandit', '~=0.1.3')
-use_plugin('pypi:pybuilder_anybadge', '~=0.1.4')
+use_plugin('pypi:pybuilder_radon')
+use_plugin('pypi:pybuilder_bandit')
+use_plugin('pypi:pybuilder_anybadge')
 
 name = 'cr8rel'
 authors = [Author('Emilio Reyes', 'emilio.reyes@intel.com')]
@@ -35,10 +34,10 @@ version = '0.0.3'
 default_task = [
     'clean',
     'analyze',
+    'publish',
     'radon',
     'bandit',
-    'anybadge',
-    'package']
+    'anybadge']
 
 
 @init
@@ -59,3 +58,4 @@ def set_properties(project):
     project.set_property('radon_break_build_average_complexity_threshold', 4)
     project.set_property('bandit_break_build', True)
     project.set_property('anybadge_add_to_readme', True)
+    project.set_property('anybadge_use_shields', True)
