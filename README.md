@@ -1,10 +1,9 @@
-[![build-status](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/git-label-sync/badge/icon)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/git-label-sync)
-[![coverage](docs/images/coverage.svg)](https://pybuilder.io/)
-[![complexity](docs/images/complexity.svg)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
-[![severity](docs/images/severity.svg)](https://pypi.org/project/bandit/)
-[![python](docs/images/python.svg)](https://www.python.org/downloads/)
-
 # cd-management/git-label-sync
+[![build-status](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/git-label-sync/badge/icon)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/git-label-sync)
+[![coverage](https://img.shields.io/badge/coverage-99.63%25-brightgreen)](https://pybuilder.io/)
+[![complexity](https://img.shields.io/badge/complexity-Stable:%207-olive)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
+[![vulnerabilities](https://img.shields.io/badge/vulnerabilities-None-brightgreen)](https://pypi.org/project/bandit/)
+[![python](https://img.shields.io/badge/python-3.9-teal)](https://www.python.org/downloads/)
 
 ## Summary
 
@@ -119,9 +118,9 @@ docker container run \
 -it \
 -e http_proxy \
 -e https_proxy \
--v $PWD:/synclabels \
+-v $PWD:/code \
 synclabels:latest \
-/bin/sh
+/bin/bash
 ```
 
 Execute the build:
