@@ -1,20 +1,15 @@
-FROM python:3.6.5-alpine AS build-image
+FROM python:3.9-slim AS build-image
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV TERM xterm-256color
 
-RUN mkdir /dockerhub-audit
-
+WORKDIR /dockerhub-audit
 COPY . /dockerhub-audit/
 
-WORKDIR /dockerhub-audit
+RUN pip install pybuilder && \
+    pyb --reset-plugins install -vX
 
-RUN pip install pybuilder==0.11.17
-RUN pyb install_dependencies
-RUN pyb install
-
-
-FROM python:3.6.5-alpine
+FROM python:3.9-slim
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV TERM xterm-256color
