@@ -8,7 +8,7 @@ pipeline {
         stage('Clone') {
             steps {
                 dir('edgex-compose') {
-                    git url: 'git@github.com:edgexfoundry/edgex-compose.git', branch: 'master', credentialsId: 'edgex-jenkins-ssh', changelog: false, poll: false
+                    git url: 'git@github.com:edgexfoundry/edgex-compose.git', branch: 'main', credentialsId: 'edgex-jenkins-ssh', changelog: false, poll: false
                 }
             }
         }
