@@ -25,7 +25,6 @@ use_plugin('python.distutils')
 use_plugin('pypi:pybuilder_radon')
 use_plugin('pypi:pybuilder_bandit')
 use_plugin('pypi:pybuilder_anybadge')
-use_plugin('python.install_dependencies')
 
 name = 'envbuilder'
 authors = [Author('Ernesto Ojeda', 'ernesto.ojeda@intel.com')]
@@ -35,10 +34,10 @@ version = '0.0.1'
 default_task = [
     'clean',
     'analyze',
+    'publish',
     'radon',
     'bandit',
-    'anybadge',
-    'package']
+    'anybadge']
 
 
 @init
