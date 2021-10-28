@@ -1,8 +1,1 @@
-coverage
-flake8
-flake8_polyfill
-mccabe
 mock
-radon
-pypandoc
-unittest-xml-reporting
