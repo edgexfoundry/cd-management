@@ -1,10 +1,9 @@
-[![build-status](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/prune-github-tags/badge/icon)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/prune-github-tags)
-[![coverage](docs/images/coverage.svg)](https://pybuilder.io/)
-[![complexity](docs/images/complexity.svg)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
-[![severity](docs/images/severity.svg)](https://pypi.org/project/bandit/)
-[![python](docs/images/python.svg)](https://www.python.org/downloads/)
-
 # cd-management/prune-github-tags
+[![build-status](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/prune-github-tags/badge/icon)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/prune-github-tags)
+[![coverage](https://img.shields.io/badge/coverage-100.0%25-brightgreen)](https://pybuilder.io/)
+[![complexity](https://img.shields.io/badge/complexity-Slight:%2012-yellow)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
+[![vulnerabilities](https://img.shields.io/badge/vulnerabilities-None-brightgreen)](https://pypi.org/project/bandit/)
+[![python](https://img.shields.io/badge/python-3.9-teal)](https://www.python.org/downloads/)
 
 ## Summary
 
@@ -141,9 +140,9 @@ docker container run \
 -it \
 -e http_proxy \
 -e https_proxy \
--v $PWD:/prunetags \
+-v $PWD:/code \
 prunetags:latest \
-/bin/sh
+/bin/bash
 ```
 
 Execute the build:
