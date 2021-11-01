@@ -27,7 +27,7 @@ pipeline {
     }
     environment {
         DRY_RUN = shouldDoDryRun()
-        DRY_RUN_PULL_DOCKER_IMAGES = true
+        DRY_RUN_PULL_DOCKER_IMAGES = false
         RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
     }
     stages {
