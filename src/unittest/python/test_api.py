@@ -117,7 +117,7 @@ class TestApi(unittest.TestCase):
         tags = ['tag1', 'tag2']
         result = client.get_latest_version(repo='soda480/repo1', tags=tags)
         self.assertEqual(result, (get_version_patch.return_value, '-sha1-'))
-        get_patch.assert_called_once_with('/repos/soda480/repo1/commits?sha=master', _get='page')
+        get_patch.assert_called_once_with('/repos/soda480/repo1/commits?sha=main', _get='page')
         lookup_tag_patch.assert_called_with(tags=tags, sha='-sha1-')
 
     @patch('prunetags.API.get_version')
