@@ -61,7 +61,7 @@ class API(GitHubAPI):
         """ return latest version and associated commit sha from repo tags
         """
         if not branch:
-            branch = 'master'
+            branch = 'main'
         for page in self.get(f'/repos/{repo}/commits?sha={branch}', _get='page'):
             for commit in page:
                 commit_sha = commit['sha']
