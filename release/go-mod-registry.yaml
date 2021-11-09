@@ -1,0 +1,10 @@
+---
+name: 'go-mod-registry'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/go-mod-registry.git'
+commitId: 'ed7cf321177332ce2a3a96eacd2ca89a2bb65cb8'
+gitTag: true
+dockerImages: false

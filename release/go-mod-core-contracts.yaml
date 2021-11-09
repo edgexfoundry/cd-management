@@ -1,0 +1,10 @@
+---
+name: 'go-mod-core-contracts'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/go-mod-core-contracts.git'
+commitId: '9a919a9c23a2e7c41df7b3126a828f9573f06b54'
+gitTag: true
+dockerImages: false
