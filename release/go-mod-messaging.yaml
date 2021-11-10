@@ -1,0 +1,10 @@
+---
+name: 'go-mod-messaging'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/go-mod-messaging.git'
+commitId: 'e8bfc4e6399625938dfa3b8b75f8478ce8e07929'
+gitTag: true
+dockerImages: false

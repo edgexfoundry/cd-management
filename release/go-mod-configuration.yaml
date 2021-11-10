@@ -1,0 +1,10 @@
+---
+name: 'go-mod-configuration'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/go-mod-configuration.git'
+commitId: 'd5724d52e952314b3cd8fa60e302afead8f7d296'
+gitTag: true
+dockerImages: false
