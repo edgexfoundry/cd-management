@@ -1,0 +1,11 @@
+---
+name: 'device-sdk-c'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+commitId: '9c093d915178364b5ad4a5f89c558c84b05f4943'
+repo: 'https://github.com/edgexfoundry/device-sdk-c.git'
+gitTag: true
+dockerImages: false
+gitHubRelease: false

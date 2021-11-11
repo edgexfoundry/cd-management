@@ -1,0 +1,11 @@
+---
+name: 'app-functions-sdk-go'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/app-functions-sdk-go.git'
+commitId: '57f4d8b3a53339fb4c347c59efd7dde63d4c2d50'
+gitTag: true
+dockerImages: false
+gitHubRelease: false
