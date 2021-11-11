@@ -5,6 +5,6 @@ releaseName: 'jakarta'
 releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/go-mod-configuration.git'
-commitId: 'd5724d52e952314b3cd8fa60e302afead8f7d296'
+commitId: '53230280edfc871ff53ec5eb8cb7b2f03142bb4d'
 gitTag: true
 dockerImages: false
