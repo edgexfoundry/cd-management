@@ -1,0 +1,11 @@
+---
+name: 'device-sdk-go'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/device-sdk-go.git'
+commitId: '4b2e95d20a613354a099f2d3b470b286784662ba'
+gitTag: true
+dockerImages: false
+gitHubRelease: false
