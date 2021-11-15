@@ -1,0 +1,19 @@
+---
+name: 'device-virtual-go'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+commitId: 'e07b8ad63a947e5d1e1838e08c0dbf46ddcbbac0'
+repo: 'https://github.com/edgexfoundry/device-virtual-go.git'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-virtual
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-virtual
+      - docker.io/edgexfoundry/device-virtual
+  - image: nexus3.edgexfoundry.org:10004/device-virtual-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-virtual-arm64
+      - docker.io/edgexfoundry/device-virtual-arm64

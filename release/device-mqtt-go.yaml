@@ -1,0 +1,20 @@
+---
+name: 'device-mqtt-go'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+commitId: '5b76d0d2a879ff6c01e3c388bf175a5740c8f010'
+repo: 'https://github.com/edgexfoundry/device-mqtt-go.git'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-mqtt
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-mqtt
+      - docker.io/edgexfoundry/device-mqtt
+  - image: nexus3.edgexfoundry.org:10004/device-mqtt-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-mqtt-arm64
+      - docker.io/edgexfoundry/device-mqtt-arm64
+      
