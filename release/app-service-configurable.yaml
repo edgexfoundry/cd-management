@@ -1,0 +1,19 @@
+---
+name: 'app-service-configurable'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
+commitId: '36e4556e19d47a73733e529c83cf9b2d06cecfaa'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/app-service-configurable
+    destination:
+      - nexus3.edgexfoundry.org:10002/app-service-configurable
+      - docker.io/edgexfoundry/app-service-configurable
+  - image: nexus3.edgexfoundry.org:10004/app-service-configurable-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/app-service-configurable-arm64
+      - docker.io/edgexfoundry/app-service-configurable-arm64
