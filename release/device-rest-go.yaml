@@ -1,0 +1,19 @@
+---
+name: 'device-rest-go'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+commitId: '77c54d90ea9ffa20807a89ffbcf7c43d1538b8a7'
+repo: 'https://github.com/edgexfoundry/device-rest-go.git'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-rest
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-rest
+      - docker.io/edgexfoundry/device-rest
+  - image: nexus3.edgexfoundry.org:10004/device-rest-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-rest-arm64
+      - docker.io/edgexfoundry/device-rest-arm64

@@ -1,0 +1,19 @@
+---
+name: 'device-modbus-go'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+commitId: 'b97db6a43ce22cea257d7dd09b26aa7518da64c2'
+repo: 'https://github.com/edgexfoundry/device-modbus-go.git'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-modbus
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-modbus
+      - docker.io/edgexfoundry/device-modbus
+  - image: nexus3.edgexfoundry.org:10004/device-modbus-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-modbus-arm64
+      - docker.io/edgexfoundry/device-modbus-arm64

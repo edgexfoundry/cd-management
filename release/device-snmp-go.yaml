@@ -1,0 +1,19 @@
+---
+name: 'device-snmp-go'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+commitId: 'd6a2d4438fc175be031f77f972aa414c83442272'
+repo: 'https://github.com/edgexfoundry/device-snmp-go.git'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-snmp
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-snmp
+      - docker.io/edgexfoundry/device-snmp
+  - image: nexus3.edgexfoundry.org:10004/device-snmp-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-snmp-arm64
+      - docker.io/edgexfoundry/device-snmp-arm64
