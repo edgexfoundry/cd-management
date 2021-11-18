@@ -1,9 +1,9 @@
 ---
 name: 'edgex-taf'
-version: '2.0.0'
-releaseName: 'ireland'
-releaseStream: 'master'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/edgex-taf.git'
-commitId: '928c78f4e03151f093f86d4213af3b70aa9ab762'
+commitId: '10b225f52eeb8f2b5af68c84efcf9c66988172e2'
 gitTag: true
 dockerImages: false
