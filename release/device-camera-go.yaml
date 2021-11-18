@@ -7,7 +7,7 @@ lts: false
 commitId: 'd97531514992aec4cf4c2e546fdb398fbe7e4b77'
 repo: 'https://github.com/edgexfoundry/device-camera-go.git'
 gitTag: true
-dockerForce: true
+dockerForce: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-camera
@@ -18,4 +18,3 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/device-camera-arm64
       - docker.io/edgexfoundry/device-camera-arm64
-      
