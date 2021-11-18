@@ -1,15 +1,16 @@
 ---
-  name: 'edgex-cli'
-  version: '1.0.1'
-  releaseName: 'hanoi'
-  releaseStream: 'hanoi'
-  repo: 'https://github.com/edgexfoundry/edgex-cli.git'
-  commitId: '6b6ab8be8a3c6cd7bac0d661dce8760af1b252db'
-  gitTag: true
-  dockerImages: false
-  gitHubRelease: true
-  gitHubReleaseAssets:
-    - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/hanoi/4/bin/edgex-cli-linux-amd64-1.0.1.tar.gz'
-    - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/hanoi/4/bin/edgex-cli-linux-arm64-1.0.1.tar.gz'
-    - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/hanoi/4/bin/edgex-cli-mac-1.0.1.tar.gz'
-    - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/hanoi/4/bin/edgex-cli-win-1.0.1.zip' 
+name: 'edgex-cli'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: false
+repo: 'https://github.com/edgexfoundry/edgex-cli.git'
+commitId: '6b0459bed66b6ed07c3852df8fa5326fa168eeb1'
+gitTag: true
+dockerImages: false
+gitHubRelease: true
+gitHubReleaseAssets:
+  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/14/bin/edgex-cli-linux-amd64-2.1.0.tar.gz'
+  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/14/bin/edgex-cli-linux-arm64-2.1.0.tar.gz'
+  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/14/bin/edgex-cli-mac-2.1.0.tar.gz'
+  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/14/bin/edgex-cli-win-2.1.0.zip' 
