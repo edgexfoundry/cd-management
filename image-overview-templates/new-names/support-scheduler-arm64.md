@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-jakarta-lts.md |
+        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/cmd/support-scheduler/Dockerfile)
 $$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.0.0/cmd/support-scheduler/Dockerfile)
 
@@ -20,4 +22,4 @@ The support scheduler micro service provide an internal EdgeX “clock” that c
 The support scheduler service source code: <https://github.com/edgexfoundry/edgex-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.0.0/cmd/support-scheduler/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/Attribution.txt).

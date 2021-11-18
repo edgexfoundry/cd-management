@@ -4,8 +4,10 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-jakarta-non-lts.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-camera-go/blob/v2.1.0/Dockerfile)
 $$./common/version-ireland.md |
-        - [Dockerfile](https://github.com/edgexfoundry/device-camera-go/blob/v1.2.2/Dockerfile)
+        - [Dockerfile](https://github.com/edgexfoundry/device-camera-go/blob/v2.0.1/Dockerfile)
 
 # Quick reference (cont.)
 
@@ -23,4 +25,4 @@ This image contains the **ARM64 version** of the device service to control/commu
 The device camera service source code: <https://github.com/edgexfoundry/device-camera-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-camera-go/blob/v1.2.2/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-camera-go/blob/v2.1.0/Attribution.txt).

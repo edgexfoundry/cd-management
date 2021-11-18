@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-jakarta-lts.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-virtual-go/blob/v2.1.0/Dockerfile)
 $$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-virtual-go/blob/v2.0.0/Dockerfile)
 
@@ -23,4 +25,4 @@ This image contains the [virtual device service](https://docs.edgexfoundry.org/2
 The device virtual service source code: <https://github.com/edgexfoundry/device-virtual-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-virtual-go/blob/v2.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-virtual-go/blob/v2.1.0/Attribution.txt).
