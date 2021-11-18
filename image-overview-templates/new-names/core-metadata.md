@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-jakarta-lts.md |
+        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/cmd/core-metadata/Dockerfile)
 $$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.0.0/cmd/core-metadata/Dockerfile)
 
@@ -31,4 +33,4 @@ Although metadata has the knowledge, it does not do the following activities:
 The core meta data service source code: <https://github.com/edgexfoundry/edgex-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/Attribution.txt).
