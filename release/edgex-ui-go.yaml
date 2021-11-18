@@ -1,10 +1,11 @@
 ---
 name: 'edgex-ui-go'
-version: '2.0.0'
-releaseName: 'ireland'
-releaseStream: 'master'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: false
 repo: 'https://github.com/edgexfoundry/edgex-ui-go.git'
-commitId: '2f4e1553df5e5f087b8db6026afff2bfba0d9e01'
+commitId: '7cabfbefb872e4d8c79bc319b9175d5c26ac1025'
 gitTag: true
 dockerImages: true
 docker:
