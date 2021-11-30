@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-jakarta-lts.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-bacnet-c/blob/v2.1.0/scripts/Dockerfile.alpine)
 $$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-bacnet-c/blob/v2.0.0/scripts/Dockerfile.alpine)
 
@@ -23,4 +25,4 @@ This image contains the **ARM64 version** of the device service for connecting B
 The device BACNet service source code: <https://github.com/edgexfoundry/device-bacnet-c/issues>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-bacnet-c/blob/v2.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-bacnet-c/blob/v2.1.0/Attribution.txt).

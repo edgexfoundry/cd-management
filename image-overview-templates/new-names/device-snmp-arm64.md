@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-jakarta-lts.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-snmp-go/blob/v2.1.0/Dockerfile)
 $$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-snmp-go/blob/v2.0.0/Dockerfile)
 
@@ -23,4 +25,4 @@ This image contains the **ARM64 version** of a generic SNMP device service for c
 The device modbus service source code: <https://github.com/edgexfoundry/device-snmp-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-snmp-go/blob/v2.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-snmp-go/blob/v2.1.0/Attribution.txt).

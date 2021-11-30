@@ -5,7 +5,7 @@ $$./common/quick-reference.md
 # Supported tags and respective Dockerfile links
 
 $$./common/version-ireland.md |
-        - [Dockerfile](https://github.com/edgexfoundry/device-grove-c/blob/v2.0.0/scripts/Dockerfile.alpine)
+        - [Dockerfile](https://github.com/edgexfoundry/device-grove-c/blob/v1.3.1/scripts/Dockerfile.alpine)
 
 # Quick reference (cont.)
 
@@ -23,4 +23,4 @@ This image contains the **ARM64 version** of the EdgeX Device Grove Service is d
 The device Grove service source code: <https://github.com/edgexfoundry/device-grove-c>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-grove-c/blob/v2.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-grove-c/blob/v1.3.1/Attribution.txt).
