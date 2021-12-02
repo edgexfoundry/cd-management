@@ -18,8 +18,10 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Jakarta
+    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-camera-go/blob/v2.1.0/Dockerfile)
 - Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/Dockerfile)
+    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/scripts/Dockerfile.alpine)
 
 # Quick reference (cont.)
 
@@ -58,4 +60,4 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-coap-c/blob/v2.1.0/Attribution.txt).

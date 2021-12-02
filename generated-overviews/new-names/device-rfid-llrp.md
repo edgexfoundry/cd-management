@@ -19,7 +19,7 @@ WARNING:
 # Supported tags and respective Dockerfile links
 
 - Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v2.0.0/Dockerfile)
+    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v1.0.0/Dockerfile)
 
 # Quick reference (cont.)
 
@@ -58,4 +58,4 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v2.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-rfid-llrp-go/tree/v1.0.0).
