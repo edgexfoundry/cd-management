@@ -18,6 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Jakarta
+    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-ui-go/blob/v2.1.0/Dockerfile)
 - Ireland
     - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-ui-go/blob/v2.0.0/Dockerfile)
 
