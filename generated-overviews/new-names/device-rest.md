@@ -18,6 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
+    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v2.1.0/Dockerfile)
 - Ireland
     - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v2.0.0/Dockerfile)
 
@@ -58,4 +60,4 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/device-rest-go/blob/v2.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-rest-go/blob/v2.1.0/Attribution.txt).
