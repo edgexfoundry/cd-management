@@ -1,3 +1,5 @@
 # cd-management
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/cd-management)](https://github.com/edgexfoundry/cd-management/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/cd-management)](https://github.com/edgexfoundry/cd-management/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-green)](https://github.com/orgs/edgexfoundry/teams/devops-core-team/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/cd-management)](https://github.com/edgexfoundry/cd-management/commits)
 
+## EdgeX Foundry Github Label Sync
+Labels added to this EdgeX repository (labels associated to issues and PRs) will get propagated to all the other EdgeX repositories.  The propagating routine runs at night so any new label should be available in other repositories within 24 hours.
