@@ -14,19 +14,19 @@
 // limitations under the License.
 //
 
-// @Library("edgex-global-pipelines@experimental") _
+@Library("edgex-global-pipelines@ac642cb7e1cb5e2d1ec0bfe12ac30a8b8f96e194") _
 
 def parallelSteps = [:]
 def releaseData = []
 
 pipeline {
-    agent { label 'centos7-docker-4c-2g' }
+    agent { label 'ubuntu18.04-docker-8c-8g' }
     options {
         timestamps()
         timeout(360)
     }
     environment {
-        DRY_RUN = shouldDoDryRun()
+        DRY_RUN = false //shouldDoDryRun()
         DRY_RUN_PULL_DOCKER_IMAGES = true
         RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
     }
@@ -60,7 +60,7 @@ pipeline {
 
         stage('Run Release') {
             steps {
-                script {
+                script { 
                     parallel(parallelSteps)
                 }
             }

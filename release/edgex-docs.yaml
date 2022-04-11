@@ -1,0 +1,12 @@
+name: 'edgex-docs'
+version: '2.2.0'
+releaseName: 'eojeda-release'
+releaseStream: 'main'
+repo: 'https://github.com/edgexfoundry/edgex-docs.git'
+commitId: 'e6b551d811e1a8357cee7763debab63d31f12e1f'
+gitTag: false
+docs: true
+docsInfo:
+  nextReleaseName: levski
+  nextReleaseVersion: "2.3.0"
+  reviewers: bill-mahoney
