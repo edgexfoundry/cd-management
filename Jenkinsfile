@@ -58,13 +58,13 @@ pipeline {
             }
         }
 
-        // stage('Run Release') {
-        //     steps {
-        //         script {
-        //             parallel(parallelSteps)
-        //         }
-        //     }
-        // }
+        stage('Run Release') {
+            steps {
+                script {
+                    parallel(parallelSteps)
+                }
+            }
+        }
     }
 }
 
