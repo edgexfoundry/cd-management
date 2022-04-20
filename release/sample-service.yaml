@@ -1,8 +1,8 @@
 ---
 lts: false
 name: 'sample-service'
-version: '4.2.0'
-releaseName: 'irela'
+version: '4.7.0'
+releaseName: 'test'
 releaseStream: 'main'
 commitId: '4a451c014e7ed34779d83b8cca61f1a1e684f683'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
