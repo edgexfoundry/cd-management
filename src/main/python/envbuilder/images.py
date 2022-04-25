@@ -58,7 +58,7 @@ class DockerImageSearch(RESTclient):
                                 v_by_digest[lookup_digest].append(r['name'])
 
                 for v in v_by_digest[lookup_digest]:
-                    if v != filter:
+                    if v != filter and v not in ['alpine', 'latest']:
                         transpose[filter].append(v)
 
             # otherwise just filter all matching

@@ -62,6 +62,10 @@ pipeline {
                     steps {
                         dir('edgex-compose/compose-builder') {
                             unstash 'new-env'
+                            
+                            // new custom changes. Remove WIP from gen-header
+                            sh 'sed -i "s/WIP //g" gen-header'
+
                             sh 'mv .env.new .env'
                             sh 'ls -al .'
                             sh 'make build'

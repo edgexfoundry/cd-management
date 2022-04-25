@@ -143,9 +143,9 @@ $ docker-image --repo vault --filter latest
 library/vault {'latest': ['1.7.1']}
 ```
 
-Get the latest alpine version of the Kuiper image
+Get the latest version of the Kuiper image
 
 ```bash
-$ docker-image --org emqx --repo kuiper --filter alpine
-emqx/kuiper {'alpine': ['1.1.2-alpine', '1.1.1-alpine', '1.1.0-alpine', '1.0.2-alpine', '1.0.1-alpine', '1.0.0-alpine', '0.9.1-alpine', '0.9.0-alpine', '0.5.1-alpine', '0.5.0-alpine', '0.4.2-alpine', '0.4.1-alpine', '0.4.0-alpine']}
+$ docker-image --org lfedge --repo ekuiper
+lfedge/ekuiper {'latest': ['1.4-slim-python', '1.4.4-slim-python']}
 ```
