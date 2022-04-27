@@ -1,0 +1,19 @@
+---
+name: 'device-gpio'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/device-gpio.git'
+commitId: '78dcb4fde946f10989497874b3f69d6bde942259'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-gpio
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-gpio
+      - docker.io/edgexfoundry/device-gpio
+  - image: nexus3.edgexfoundry.org:10004/device-gpio-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-gpio-arm64
+      - docker.io/edgexfoundry/device-gpio-arm64

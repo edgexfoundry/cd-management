@@ -1,0 +1,20 @@
+---
+name: 'app-rfid-llrp-inventory'
+version: '2.1.0'
+releaseName: 'jakarta'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/app-rfid-llrp-inventory.git'
+commitId: '3dc9a110c0db4a24a49e99ce1a643e2f34ef9734'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/app-rfid-llrp-inventory
+    destination:
+      - nexus3.edgexfoundry.org:10002/app-rfid-llrp-inventory
+      - docker.io/edgexfoundry/app-rfid-llrp-inventory
+  - image: nexus3.edgexfoundry.org:10004/app-rfid-llrp-inventory-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/app-rfid-llrp-inventory-arm64
+      - docker.io/edgexfoundry/app-rfid-llrp-inventory-arm64
+
