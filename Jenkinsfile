@@ -18,18 +18,21 @@ def jobs = []
 
 def generateStage(job) {
     return {    
-        def clone_url = job.split('"clone_url": "')[1].replaceAll('",','')
-        def repo_url = clone_url.split('\\.git')[0]
-        def name = repo_url.split('edgexfoundry\\/')[1]
-        sh "git clone ${clone_url}"
-        sh "mkdir -p ${name}/.chglog && cp --no-clobber -r .chglog-default/. ${name}/.chglog"
-        docker.image('quay.io/git-chglog/git-chglog').inside('--entrypoint=""'){
-            dir("${name}"){
-                sh "git tag | grep dev | xargs -n 1 -i% git tag -d %"
-                sh "/usr/local/bin/git-chglog --repository-url ${repo_url} --next-tag x.y.z --sort semver --output ${name}-CHANGELOG.md || /usr/local/bin/git-chglog --next-tag x.y.z --output ${name}-CHANGELOG.md"
+        def cloneUrl = job.split('"clone_url": "')[1].replaceAll('",','')
+        def repoUrl = cloneUrl.split('\\.git')[0]
+        def repoUrlSplit = repoUrl.split('edgexfoundry\\/')
+        if (repoUrlSplit.size() > 1){
+            def name = repoUrlSplit[1]
+            sh "git clone ${cloneUrl}"
+            sh "mkdir -p ${name}/.chglog && cp --no-clobber -r .chglog-default/. ${name}/.chglog"
+            docker.image('quay.io/git-chglog/git-chglog').inside('--entrypoint=""'){
+                dir("${name}"){
+                    sh "git tag | grep dev | xargs -n 1 -i% git tag -d %"
+                    sh "/usr/local/bin/git-chglog --repository-url ${repoUrl} --next-tag x.y.z --sort semver --output ${name}-CHANGELOG.md || /usr/local/bin/git-chglog --next-tag x.y.z --output ${name}-CHANGELOG.md"
+                }
             }
+            archiveArtifacts allowEmptyArchive: true, artifacts: "${name}/${name}-CHANGELOG.md"
         }
-        archiveArtifacts allowEmptyArchive: true, artifacts: "${name}/${name}-CHANGELOG.md"
     }
 }
 
