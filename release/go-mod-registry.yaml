@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-registry'
-version: '2.0.0'
-releaseName: 'ireland'
-releaseStream: 'master'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-registry.git'
-commitId: 'bef9f17e4058aad7307e794a3117d9f660d9fe75'
+commitId: '47fbd55ea138830db6cfe0c6b1e3edabe9984f42'
 gitTag: true
 dockerImages: false
