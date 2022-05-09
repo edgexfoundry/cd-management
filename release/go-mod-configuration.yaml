@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-configuration'
-version: '2.0.0'
-releaseName: 'ireland'
-releaseStream: 'master'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-configuration.git'
-commitId: 'a114c3c07fc215ea9a9fe04f5a17874b1416d58e'
+commitId: 'd782c4d625d7b267303ff1fbcd6dbbbf7629934f'
 gitTag: true
 dockerImages: false
