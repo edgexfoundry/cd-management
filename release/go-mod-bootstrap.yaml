@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-bootstrap'
-version: '2.0.0'
-releaseName: 'ireland'
-releaseStream: 'master'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-bootstrap.git'
-commitId: '19e025713b7720dbf13fbe82bb4f3e1bf65f56c0'
+commitId: '3ea3556a9a561f49b07480f3a474daa8966a7f3b'
 gitTag: true
 dockerImages: false
