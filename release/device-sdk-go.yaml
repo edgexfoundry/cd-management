@@ -1,10 +1,10 @@
 ---
 name: 'device-sdk-go'
-version: '2.0.0'
-releaseName: 'ireland'
-releaseStream: 'master'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/device-sdk-go.git'
-commitId: 'ee399ff793e6dfca353bb8608da5c77bb591d6d3'
+commitId: '4f64ab83298cb604fe88218673904389f4010661'
 gitTag: true
 dockerImages: false
 gitHubRelease: false

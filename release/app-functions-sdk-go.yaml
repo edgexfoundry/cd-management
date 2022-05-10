@@ -1,10 +1,10 @@
 ---
 name: 'app-functions-sdk-go'
-version: '2.0.1'
-releaseName: 'ireland'
+version: '2.2.0'
+releaseName: 'kamakura'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/app-functions-sdk-go.git'
-commitId: 'fb43287b18a7d00e5a2a1a8f41cd1d41bcdf85bb'
+commitId: '521ab93fa6410c1be0cb80b1cb635940af6f602b'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
