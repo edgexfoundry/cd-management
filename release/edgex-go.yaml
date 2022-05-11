@@ -1,10 +1,11 @@
 ---
 name: 'edgex-go'
-version: '2.0.0'
-releaseName: 'ireland'
-releaseStream: 'master'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'main'
+lts: false
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
-commitId: '398431feff524dc71f99412bba68b8b552d1addb'
+commitId: '4c8c89fce4e75ce7c1d6903d36d5204dd5068cb5'
 gitTag: true
 dockerImages: true
 docker:
@@ -74,9 +75,41 @@ docker:
       - docker.io/edgexfoundry/security-secretstore-setup-arm64
   - image: nexus3.edgexfoundry.org:10004/security-bootstrapper
     destination:
-    - nexus3.edgexfoundry.org:10002/security-bootstrapper
-    - docker.io/edgexfoundry/security-bootstrapper
+      - nexus3.edgexfoundry.org:10002/security-bootstrapper
+      - docker.io/edgexfoundry/security-bootstrapper
   - image: nexus3.edgexfoundry.org:10004/security-bootstrapper-arm64
     destination:
       - nexus3.edgexfoundry.org:10002/security-bootstrapper-arm64
       - docker.io/edgexfoundry/security-bootstrapper-arm64
+  - image: nexus3.edgexfoundry.org:10004/security-spire-server
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-server
+      - docker.io/edgexfoundry/security-spire-server
+  - image: nexus3.edgexfoundry.org:10004/security-spire-server-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-server-arm64
+      - docker.io/edgexfoundry/security-spire-server-arm64
+  - image: nexus3.edgexfoundry.org:10004/security-spire-agent
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-agent
+      - docker.io/edgexfoundry/security-spire-agent
+  - image: nexus3.edgexfoundry.org:10004/security-spire-agent-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-agent-arm64
+      - docker.io/edgexfoundry/security-spire-agent-arm64
+  - image: nexus3.edgexfoundry.org:10004/security-spire-config
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-config
+      - docker.io/edgexfoundry/security-spire-config
+  - image: nexus3.edgexfoundry.org:10004/security-spire-config-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-config-arm64
+      - docker.io/edgexfoundry/security-spire-config-arm64
+  - image: nexus3.edgexfoundry.org:10004/security-spiffe-token-provider
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spiffe-token-provider
+      - docker.io/edgexfoundry/security-spiffe-token-provider
+  - image: nexus3.edgexfoundry.org:10004/security-spiffe-token-provider-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spiffe-token-provider-arm64
+      - docker.io/edgexfoundry/security-spiffe-token-provider-arm64
