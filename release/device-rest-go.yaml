@@ -1,10 +1,11 @@
 ---
 name: 'device-rest-go'
-version: '2.0.0'
-releaseName: 'ireland'
-releaseStream: 'master'
-commitId: 'ac4b371315fba0b9546dc2a95c8393f838fbe7e4'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'main'
+lts: false
 repo: 'https://github.com/edgexfoundry/device-rest-go.git'
+commitId: '99d2988c42a4468ca534e1bc92575890b1a7bdf5'
 gitTag: true
 dockerImages: true
 docker:
