@@ -1,9 +1,10 @@
 ---
 name: 'edgex-taf'
-version: '2.1.0'
-releaseName: 'jakarta'
+version: '2.2.0'
+releaseName: 'kamakura'
 releaseStream: 'main'
+lts: false
 repo: 'https://github.com/edgexfoundry/edgex-taf.git'
-commitId: '10b225f52eeb8f2b5af68c84efcf9c66988172e2'
+commitId: '0eb33292925693c8c97cb37f4ecfa0da53443efa'
 gitTag: true
 dockerImages: false
