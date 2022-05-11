@@ -1,10 +1,10 @@
 ---
 name: 'app-service-configurable'
-version: '2.0.1'
-releaseName: 'ireland'
+version: '2.2.0'
+releaseName: 'kamakura'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
-commitId: 'a8794a006ea08968641ff6a1a2acb87b2eaa877d'
+commitId: '1aebe0375d702ec5557b529d86506036d5612df5'
 gitTag: true
 dockerImages: true
 docker:
@@ -16,4 +16,3 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/app-service-configurable-arm64
       - docker.io/edgexfoundry/app-service-configurable-arm64
-
