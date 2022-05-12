@@ -5,8 +5,9 @@ releaseName: 'kamakura'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-gpio.git'
-commitId: '5481a4acbe2c9cded44f119138c580c35965cafd'
+commitId: 'e602fd7d654e8598d334cfcbfc0e6f43d27ef328'
 gitTag: true
+dockerForce: true
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-gpio
