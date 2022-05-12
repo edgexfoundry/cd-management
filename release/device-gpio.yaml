@@ -1,10 +1,11 @@
 ---
 name: 'device-gpio'
-version: '1.0.0'
-releaseName: 'hanoi'
-releaseStream: 'master'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'main'
+lts: false
 repo: 'https://github.com/edgexfoundry/device-gpio.git'
-commitId: '61390a86f55ee6889073212d49524d4c8e9ed7d1'
+commitId: '5481a4acbe2c9cded44f119138c580c35965cafd'
 gitTag: true
 dockerImages: true
 docker:
