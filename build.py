@@ -38,6 +38,7 @@ default_task = [
     'radon',
     'bandit',
     'anybadge']
+description = summary
 
 
 @init
