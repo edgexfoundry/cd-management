@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-kamakura.md |
+        - [Dockerfile](https://github.com/edgexfoundry/edgex-ui-go/blob/v2.2.0/Dockerfile)
 $$./common/version-jakarta-non-lts.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-ui-go/blob/v2.1.0/Dockerfile)
 $$./common/version-ireland.md |

@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-kamakura.md |
+        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/support-notifications/Dockerfile)
 $$./common/version-jakarta-lts.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/cmd/support-notifications/Dockerfile)
 $$./common/version-ireland.md |
@@ -22,4 +24,4 @@ When another system or a person needs to know that something occurred in EdgeX, 
 The support notifications service source code: <https://github.com/edgexfoundry/edgex-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/Attribution.txt).
