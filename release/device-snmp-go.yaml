@@ -1,10 +1,11 @@
 ---
 name: 'device-snmp-go'
-version: '2.0.0'
-releaseName: 'ireland'
-releaseStream: 'master'
-commitId: '189d47ff213bf991ba18b7c83461bde848db16b3'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'main'
+lts: false
 repo: 'https://github.com/edgexfoundry/device-snmp-go.git'
+commitId: '7a984207ad216ad191b3ac0372c82a64ff54e9ba'
 gitTag: true
 dockerImages: true
 docker:
