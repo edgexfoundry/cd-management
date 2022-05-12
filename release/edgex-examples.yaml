@@ -1,0 +1,10 @@
+---
+name: 'edgex-examples'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'main'
+lts: false
+repo: 'https://github.com/edgexfoundry/edgex-examples.git'
+commitId: 'e6b80f31a69e64d3ac204941325f09d53a87e4a7'
+gitTag: true
+dockerImages: false
