@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-kamakura.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v2.2.0/Dockerfile)
 $$./common/version-jakarta-lts.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v2.1.0/Dockerfile)
 $$./common/version-ireland.md |
@@ -25,4 +27,4 @@ This image contains the **ARM64 version** of REST device service, which provides
 The device REST service source code: <https://github.com/edgexfoundry/device-rest-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-rest-go/blob/v2.1.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-rest-go/blob/v2.2.0/Attribution.txt).
