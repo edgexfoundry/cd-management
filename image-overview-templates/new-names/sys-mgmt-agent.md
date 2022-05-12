@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-kamakura.md |
+        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/sys-mgmt-agent/Dockerfile)
 $$./common/version-jakarta-lts.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/cmd/sys-mgmt-agent/Dockerfile)
 $$./common/version-ireland.md |
@@ -22,4 +24,4 @@ The SMA is micro service that other systems or services communicate with and mak
 The system management agent source code: <https://github.com/edgexfoundry/edgex-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/Attribution.txt).
