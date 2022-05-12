@@ -1,0 +1,15 @@
+---
+name: 'edgex-docs'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'main'
+lts: false
+repo: 'https://github.com/edgexfoundry/edgex-docs.git'
+commitId: ''
+gitTag: false
+dockerImages: false
+docs: true
+docsInfo:
+  nextReleaseName: levski
+  nextReleaseVersion: "2.3.0"
+  reviewers: edgexfoundry/edgex-docs-committers
