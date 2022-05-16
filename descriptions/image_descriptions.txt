@@ -1,6 +1,8 @@
 # descriptions for EdgeX Foundry Docker Hub images (limited to 100 chars)
 app-service-configurable-arm64:ARM64 configurable application service for EdgeX Foundry
 app-service-configurable:A configurable application service for EdgeX Foundry
+app-rfid-llrp-inventory-arm64: ARM64 App service that transforms raw RFID LLRP readings to inventory events
+app-rfid-llrp-inventory: App service that transforms raw RFID LLRP readings to inventory events
 core-command-arm64:ARM64 implementation core command micro service for EdgeX Foundry
 core-command:The reference implementation core command micro service for EdgeX Foundry
 core-data-arm64:ARM64 implementation core data micro service for EdgeX Foundry
