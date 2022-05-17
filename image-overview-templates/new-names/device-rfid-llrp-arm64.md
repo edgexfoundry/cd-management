@@ -4,7 +4,11 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-ireland.md |
+$$./common/version-kamakura.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v2.2.0/Dockerfile)
+$$./common/version-jakarta-lts.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v2.1.0/Dockerfile)
+$$./common/version-hanoi.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v1.0.0/Dockerfile)
 
 # Quick reference (cont.)
@@ -23,4 +27,4 @@ This image contains the **ARM64 version** of the device service to connect LLRP 
 The device RFID LLRP service source code: <https://github.com/edgexfoundry/device-rfid-llrp-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-rfid-llrp-go/tree/v1.0.0).
+[source repository](https://github.com/edgexfoundry/device-rfid-llrp-go/tree/v2.2.0).
