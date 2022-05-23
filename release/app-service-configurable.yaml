@@ -3,9 +3,11 @@ name: 'app-service-configurable'
 version: '2.2.0'
 releaseName: 'kamakura'
 releaseStream: 'main'
+lts: false
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
-commitId: '1aebe0375d702ec5557b529d86506036d5612df5'
+commitId: '354093ed76bafc9ccf1014354cec2dcad1025761'
 gitTag: true
+dockerForce: true
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/app-service-configurable
