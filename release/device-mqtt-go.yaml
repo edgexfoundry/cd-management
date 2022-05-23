@@ -6,7 +6,7 @@ releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-mqtt-go.git'
 commitId: '77901818c76bea5a69108393cfa761498ae657a9'
-gitTag: false
+gitTag: true
 dockerForce: true
 dockerImages: true
 docker:
