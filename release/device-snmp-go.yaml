@@ -5,8 +5,9 @@ releaseName: 'kamakura'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-snmp-go.git'
-commitId: '7a984207ad216ad191b3ac0372c82a64ff54e9ba'
+commitId: '9505b3b9fb87609b3cd85be587e030c33719d431'
 gitTag: true
+dockerForce: true
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-snmp
