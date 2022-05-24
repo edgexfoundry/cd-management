@@ -5,8 +5,9 @@ releaseName: 'kamakura'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-rfid-llrp-go.git'
-commitId: '15a0269d460efb14f9eb5e7a2dfd5097cbc6281f'
+commitId: '0104dcba4435a7bec0bb376ad6177bfc09b37bcb'
 gitTag: true
+dockerForce: true
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-rfid-llrp
