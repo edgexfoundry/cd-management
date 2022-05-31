@@ -219,7 +219,7 @@ def create_markdown(github, owner):
     for repo in github[0]['result']:
         md.new_header(level=1, title=md.new_inline_link(link=repo['github_url'], text=repo['name']))
         for badge in repo['badges']:
-            md.write(f'{badge} ')
+            md.write(text=f'{badge} ', wrap_width=0)
         md.new_line('')
     md.create_md_file()
 
@@ -247,7 +247,7 @@ def add_badges(github, owner):
         repo['badges'].append(f"[![GitHub Contributors](https://img.shields.io/github/contributors/{repo['owner_repo']})]({repo['github_url']}/contributors)")
         repo['badges'].append(f"[![GitHub Committers](https://img.shields.io/badge/team-committers-green)]({repo['team_members_url']})")
         repo['badges'].append(f"[![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/{repo['owner_repo']})]({repo['github_url']}/commits)")
-    write_file(github, 'badges')
+    # write_file(github, 'badges')
 
 
 def run_github_data_collection(owner):
