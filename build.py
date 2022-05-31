@@ -15,7 +15,7 @@ name = 'prepbadge'
 authors = [Author('Emilio Reyes', 'emilio.reyes@intel.com')]
 summary = 'A CLI to create pull request workflows for updating edgeXfoundry repos.'
 url = 'https://github.com/edgexfoundry/cd-management/tree/create-repo-badges'
-version = '0.1.3'
+version = '0.1.4'
 default_task = [
     'clean',
     'analyze',
@@ -35,8 +35,8 @@ def set_properties(project):
     project.set_property('flake8_break_build', True)
     project.set_property('flake8_include_scripts', True)
     project.set_property('flake8_include_test_sources', True)
-    project.set_property('flake8_ignore', 'F401, E501')  # W503, F401')
-    project.build_depends_on_requirements('requirements-build.txt')
+    project.set_property('flake8_ignore', 'F401, E501')
+    project.build_depends_on('mock')
     project.depends_on_requirements('requirements.txt')
     project.set_property('distutils_console_scripts', ['prepbadge = prepbadge.prepbadge:main'])
     project.set_property('radon_break_build_average_complexity_threshold', 4)
@@ -44,4 +44,5 @@ def set_properties(project):
     project.set_property('bandit_break_build', True)
     project.set_property('bandit_skip_ids', 'B604,B603,B311,B404')
     project.set_property('anybadge_use_shields', True)
+    project.set_property('anybadge_exclude', 'coverage')
     project.set_property('coverage_break_build', False)

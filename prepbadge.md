@@ -1,0 +1,538 @@
+
+EdgeXFoundry Repo Badges Preview
+================================
+
+# [ci-management](https://github.com/edgexfoundry/ci-management)
+[![GitHub License](https://img.shields.io/github/license/edgexfoundry/ci-
+management)](https://choosealicense.com/licenses/apache-2.0/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/ci-
+management)](https://github.com/edgexfoundry/ci-management/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/ci-
+management)](https://github.com/edgexfoundry/ci-management/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/devops-core-team/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/ci-
+management)](https://github.com/edgexfoundry/ci-management/commits)   
+
+# [edgex-go](https://github.com/edgexfoundry/edgex-go)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-
+go/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-
+go/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/edgex-
+go/branch/main/graph/badge.svg?token=Y3mpessZqk)](https://codecov.io/gh/edgexfoundry/edgex-go) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/edgex-
+go)](https://goreportcard.com/report/github.com/edgexfoundry/edgex-go) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-
+go?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/edgex-go/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-go?sort=semver&label=latest-stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/edgex-
+go)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/edgex-go) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/edgex-
+go)](https://github.com/edgexfoundry/edgex-go/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/edgex-
+go)](https://github.com/edgexfoundry/edgex-go/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/edgex-go-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/edgex-
+go)](https://github.com/edgexfoundry/edgex-go/commits)   
+
+# [jenkins_pipeline_presentation](https://github.com/edgexfoundry/jenkins_pipeline_presentation)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr-
+raw/edgexfoundry/jenkins_pipeline_presentation)](https://github.com/edgexfoundry/jenkins_pipeline_presentation/pulls) [![GitHub 
+Contributors](https://img.shields.io/github/contributors/edgexfoundry/jenkins_pipeline_presentation)](https://github.com/edgexfoundry/jenkins_pipeline_presentation/contributors)
+ [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/devops-core-team/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-
+activity/m/edgexfoundry/jenkins_pipeline_presentation)](https://github.com/edgexfoundry/jenkins_pipeline_presentation/commits)
+   
+
+# [device-sdk-go](https://github.com/edgexfoundry/device-sdk-go)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-sdk-
+go/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+sdk-go/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/device-sdk-
+go/branch/main/graph/badge.svg?token=NoUXyBZgt6)](https://codecov.io/gh/edgexfoundry/device-sdk-go) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/device-sdk-
+go)](https://goreportcard.com/report/github.com/edgexfoundry/device-sdk-go) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-sdk-
+go?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-sdk-go/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-sdk-go?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-sdk-
+go)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/device-sdk-go) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-sdk-
+go)](https://github.com/edgexfoundry/device-sdk-go/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-sdk-
+go)](https://github.com/edgexfoundry/device-sdk-go/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-sdk-go-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-sdk-
+go)](https://github.com/edgexfoundry/device-sdk-go/commits)   
+
+# [device-sdk-c](https://github.com/edgexfoundry/device-sdk-c)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+sdk-c/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+sdk-c/job/main/) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-
+sdk-c?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-sdk-c/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-sdk-c?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-
+sdk-c)](https://choosealicense.com/licenses/apache-2.0/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-
+sdk-c)](https://github.com/edgexfoundry/device-sdk-c/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-
+sdk-c)](https://github.com/edgexfoundry/device-sdk-c/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-sdk-c-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-
+sdk-c)](https://github.com/edgexfoundry/device-sdk-c/commits)   
+
+# [edgex-ui-go](https://github.com/edgexfoundry/edgex-ui-go)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-ui-
+go/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-ui-
+go/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/edgex-ui-
+go/branch/main/graph/badge.svg?token=d1UQog1ja0)](https://codecov.io/gh/edgexfoundry/edgex-ui-go) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/edgex-ui-
+go)](https://goreportcard.com/report/github.com/edgexfoundry/edgex-ui-go) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-ui-
+go?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/edgex-ui-go/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-ui-go?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/edgex-ui-
+go)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/edgex-ui-go) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/edgex-ui-
+go)](https://github.com/edgexfoundry/edgex-ui-go/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/edgex-ui-
+go)](https://github.com/edgexfoundry/edgex-ui-go/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/edgex-ui-go-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/edgex-ui-
+go)](https://github.com/edgexfoundry/edgex-ui-go/commits)   
+
+# [device-mqtt-go](https://github.com/edgexfoundry/device-mqtt-go)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-mqtt-
+go/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+mqtt-go/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/device-mqtt-
+go/branch/main/graph/badge.svg?token=IUywg34zfH)](https://codecov.io/gh/edgexfoundry/device-mqtt-go) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/device-mqtt-
+go)](https://goreportcard.com/report/github.com/edgexfoundry/device-mqtt-go) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-mqtt-
+go?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-mqtt-go/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-mqtt-go?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-mqtt-
+go)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/device-mqtt-go) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-mqtt-
+go)](https://github.com/edgexfoundry/device-mqtt-go/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-mqtt-
+go)](https://github.com/edgexfoundry/device-mqtt-go/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-mqtt-go-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-mqtt-
+go)](https://github.com/edgexfoundry/device-mqtt-go/commits)   
+
+# [device-modbus-go](https://github.com/edgexfoundry/device-modbus-go)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-modbus-
+go/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+modbus-go/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/device-modbus-
+go/branch/main/graph/badge.svg?token=tgWsR3KWGX)](https://codecov.io/gh/edgexfoundry/device-modbus-go) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/device-modbus-
+go)](https://goreportcard.com/report/github.com/edgexfoundry/device-modbus-go) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-modbus-
+go?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-modbus-go/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-modbus-go?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-modbus-
+go)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/device-modbus-go) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-modbus-
+go)](https://github.com/edgexfoundry/device-modbus-go/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-modbus-
+go)](https://github.com/edgexfoundry/device-modbus-go/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-modbus-go-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-modbus-
+go)](https://github.com/edgexfoundry/device-modbus-go/commits)   
+
+# [device-grove-c](https://github.com/edgexfoundry/device-grove-c)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+grove-c/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+grove-c/job/main/) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-
+grove-c?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-grove-c/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-grove-c?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-
+grove-c)](https://choosealicense.com/licenses/apache-2.0/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-
+grove-c)](https://github.com/edgexfoundry/device-grove-c/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-
+grove-c)](https://github.com/edgexfoundry/device-grove-c/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-grove-c-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-
+grove-c)](https://github.com/edgexfoundry/device-grove-c/commits)   
+
+# [device-camera-go](https://github.com/edgexfoundry/device-camera-go)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-camera-
+go/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+camera-go/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/device-camera-
+go/branch/main/graph/badge.svg?token=1aTq7fyLNf)](https://codecov.io/gh/edgexfoundry/device-camera-go) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/device-camera-
+go)](https://goreportcard.com/report/github.com/edgexfoundry/device-camera-go) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-camera-
+go?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-camera-go/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-camera-go?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-camera-
+go)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/device-camera-go) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-camera-
+go)](https://github.com/edgexfoundry/device-camera-go/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-camera-
+go)](https://github.com/edgexfoundry/device-camera-go/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-camera-go-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-camera-
+go)](https://github.com/edgexfoundry/device-camera-go/commits)   
+
+# [performance-test](https://github.com/edgexfoundry/performance-test)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/performance-
+test/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/performance-
+test/job/main/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/performance-
+test)](https://github.com/edgexfoundry/performance-test/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/performance-
+test)](https://github.com/edgexfoundry/performance-test/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/performance-test-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/performance-
+test)](https://github.com/edgexfoundry/performance-test/commits)   
+
+# [app-functions-sdk-go](https://github.com/edgexfoundry/app-functions-sdk-go)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/app-functions-sdk-
+go/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/app-
+functions-sdk-go/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/app-functions-sdk-
+go/branch/main/graph/badge.svg?token=E4uzIvukPu)](https://codecov.io/gh/edgexfoundry/app-functions-sdk-go) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/app-functions-sdk-
+go)](https://goreportcard.com/report/github.com/edgexfoundry/app-functions-sdk-go) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/app-functions-sdk-
+go?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/app-functions-sdk-go/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/app-functions-sdk-
+go?sort=semver&label=latest-stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/app-functions-sdk-
+go)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/app-functions-sdk-go) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/app-functions-sdk-
+go)](https://github.com/edgexfoundry/app-functions-sdk-go/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/app-functions-sdk-
+go)](https://github.com/edgexfoundry/app-functions-sdk-go/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/app-functions-sdk-go-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/app-functions-sdk-
+go)](https://github.com/edgexfoundry/app-functions-sdk-go/commits)   
+
+# [go-mod-registry](https://github.com/edgexfoundry/go-mod-registry)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-mod-
+registry/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-
+mod-registry/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/go-mod-
+registry/branch/main/graph/badge.svg?token=FyA6AijZ05)](https://codecov.io/gh/edgexfoundry/go-mod-registry) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/go-mod-
+registry)](https://goreportcard.com/report/github.com/edgexfoundry/go-mod-registry) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-
+registry?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/go-mod-registry/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-registry?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/go-mod-
+registry)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/go-mod-registry) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/go-mod-
+registry)](https://github.com/edgexfoundry/go-mod-registry/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/go-mod-
+registry)](https://github.com/edgexfoundry/go-mod-registry/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/go-mod-registry-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/go-mod-
+registry)](https://github.com/edgexfoundry/go-mod-registry/commits)   
+
+# [go-mod-messaging](https://github.com/edgexfoundry/go-mod-messaging)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-mod-
+messaging/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-
+mod-messaging/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/go-mod-
+messaging/branch/main/graph/badge.svg?token=jyOHuKlGPu)](https://codecov.io/gh/edgexfoundry/go-mod-messaging) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/go-mod-
+messaging)](https://goreportcard.com/report/github.com/edgexfoundry/go-mod-messaging) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-
+messaging?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/go-mod-messaging/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-messaging?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/go-mod-
+messaging)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/go-mod-messaging) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/go-mod-
+messaging)](https://github.com/edgexfoundry/go-mod-messaging/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/go-mod-
+messaging)](https://github.com/edgexfoundry/go-mod-messaging/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/go-mod-messaging-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/go-mod-
+messaging)](https://github.com/edgexfoundry/go-mod-messaging/commits)   
+
+# [go-mod-core-contracts](https://github.com/edgexfoundry/go-mod-core-contracts)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-mod-core-
+contracts/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-
+mod-core-contracts/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/go-mod-core-
+contracts/branch/main/graph/badge.svg?token=s4Y4L22Bs0)](https://codecov.io/gh/edgexfoundry/go-mod-core-contracts) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/go-mod-core-
+contracts)](https://goreportcard.com/report/github.com/edgexfoundry/go-mod-core-contracts) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-core-
+contracts?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/go-mod-core-contracts/tags)
+ ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-core-
+contracts?sort=semver&label=latest-stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/go-mod-core-
+contracts)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/go-mod-core-contracts) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/go-mod-core-
+contracts)](https://github.com/edgexfoundry/go-mod-core-contracts/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/go-mod-core-
+contracts)](https://github.com/edgexfoundry/go-mod-core-contracts/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/go-mod-core-contracts-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/go-mod-core-
+contracts)](https://github.com/edgexfoundry/go-mod-core-contracts/commits)   
+
+# [device-virtual-go](https://github.com/edgexfoundry/device-virtual-go)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-virtual-
+go/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+virtual-go/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/device-virtual-
+go/branch/main/graph/badge.svg?token=ll7zq2c3Q7)](https://codecov.io/gh/edgexfoundry/device-virtual-go) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/device-virtual-
+go)](https://goreportcard.com/report/github.com/edgexfoundry/device-virtual-go) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-virtual-
+go?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-virtual-go/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-virtual-
+go?sort=semver&label=latest-stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-virtual-
+go)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/device-virtual-go) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-virtual-
+go)](https://github.com/edgexfoundry/device-virtual-go/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-virtual-
+go)](https://github.com/edgexfoundry/device-virtual-go/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-virtual-go-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-virtual-
+go)](https://github.com/edgexfoundry/device-virtual-go/commits)   
+
+# [sample-service](https://github.com/edgexfoundry/sample-service)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/sample-
+service/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/sample-
+service/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/sample-
+service/branch/main/graph/badge.svg?token=QrtB3XMRUl)](https://codecov.io/gh/edgexfoundry/sample-service) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/sample-
+service)](https://goreportcard.com/report/github.com/edgexfoundry/sample-service) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/sample-
+service?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/sample-service/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/sample-service?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/sample-
+service)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/sample-service) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/sample-
+service)](https://github.com/edgexfoundry/sample-service/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/sample-
+service)](https://github.com/edgexfoundry/sample-service/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/devops-core-team/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/sample-
+service)](https://github.com/edgexfoundry/sample-service/commits)   
+
+# [git-semver](https://github.com/edgexfoundry/git-semver)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/git-
+semver/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/git-
+semver/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/git-
+semver/branch/main/graph/badge.svg?token=myrBwV32RA)](https://codecov.io/gh/edgexfoundry/git-semver) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/git-
+semver)](https://goreportcard.com/report/github.com/edgexfoundry/git-semver) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/git-
+semver?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/git-semver/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/git-semver?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/git-
+semver)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/git-semver) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/git-
+semver)](https://github.com/edgexfoundry/git-semver/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/git-
+semver)](https://github.com/edgexfoundry/git-semver/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/git-semver-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/git-
+semver)](https://github.com/edgexfoundry/git-semver/commits)   
+
+# [edgex-global-pipelines](https://github.com/edgexfoundry/edgex-global-pipelines)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-global-
+pipelines/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-
+global-pipelines/job/main/) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-global-
+pipelines?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/edgex-global-
+pipelines/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-global-
+pipelines?sort=semver&label=latest-stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/edgex-global-
+pipelines)](https://choosealicense.com/licenses/apache-2.0/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/edgex-global-
+pipelines)](https://github.com/edgexfoundry/edgex-global-pipelines/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/edgex-global-
+pipelines)](https://github.com/edgexfoundry/edgex-global-pipelines/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/devops-core-team/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/edgex-global-
+pipelines)](https://github.com/edgexfoundry/edgex-global-pipelines/commits)   
+
+# [ci-build-images](https://github.com/edgexfoundry/ci-build-images)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/ci-build-
+images)](https://github.com/edgexfoundry/ci-build-images/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/ci-build-
+images)](https://github.com/edgexfoundry/ci-build-images/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/devops-core-team/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/ci-build-
+images)](https://github.com/edgexfoundry/ci-build-images/commits)   
+
+# [device-snmp-go](https://github.com/edgexfoundry/device-snmp-go)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-snmp-
+go/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+snmp-go/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/device-snmp-
+go/branch/main/graph/badge.svg?token=cQs6ERHT74)](https://codecov.io/gh/edgexfoundry/device-snmp-go) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/device-snmp-
+go)](https://goreportcard.com/report/github.com/edgexfoundry/device-snmp-go) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-snmp-
+go?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-snmp-go/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-snmp-go?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-snmp-
+go)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/device-snmp-go) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-snmp-
+go)](https://github.com/edgexfoundry/device-snmp-go/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-snmp-
+go)](https://github.com/edgexfoundry/device-snmp-go/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-snmp-go-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-snmp-
+go)](https://github.com/edgexfoundry/device-snmp-go/commits)   
+
+# [edgex-cli](https://github.com/edgexfoundry/edgex-cli)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-
+cli/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-
+cli/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/edgex-
+cli/branch/main/graph/badge.svg?token=wWeDPW5a81)](https://codecov.io/gh/edgexfoundry/edgex-cli) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/edgex-
+cli)](https://goreportcard.com/report/github.com/edgexfoundry/edgex-cli) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-
+cli?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/edgex-cli/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-cli?sort=semver&label=latest-stable)
+ [![GitHub License](https://img.shields.io/github/license/edgexfoundry/edgex-
+cli)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/edgex-cli) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/edgex-
+cli)](https://github.com/edgexfoundry/edgex-cli/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/edgex-
+cli)](https://github.com/edgexfoundry/edgex-cli/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/edgex-cli-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/edgex-
+cli)](https://github.com/edgexfoundry/edgex-cli/commits)   
+
+# [go-mod-secrets](https://github.com/edgexfoundry/go-mod-secrets)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-mod-
+secrets/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-
+mod-secrets/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/go-mod-
+secrets/branch/main/graph/badge.svg?token=KrqJoby1fK)](https://codecov.io/gh/edgexfoundry/go-mod-secrets) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/go-mod-
+secrets)](https://goreportcard.com/report/github.com/edgexfoundry/go-mod-secrets) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-
+secrets?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/go-mod-secrets/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-secrets?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/go-mod-
+secrets)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/go-mod-secrets) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/go-mod-
+secrets)](https://github.com/edgexfoundry/go-mod-secrets/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/go-mod-
+secrets)](https://github.com/edgexfoundry/go-mod-secrets/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/go-mod-secrets-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/go-mod-
+secrets)](https://github.com/edgexfoundry/go-mod-secrets/commits)   
+
+# [device-bacnet-c](https://github.com/edgexfoundry/device-bacnet-c)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+bacnet-c/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+bacnet-c/job/main/) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-
+bacnet-c?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-bacnet-c/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-bacnet-c?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-
+bacnet-c)](https://choosealicense.com/licenses/apache-2.0/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-
+bacnet-c)](https://github.com/edgexfoundry/device-bacnet-c/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-
+bacnet-c)](https://github.com/edgexfoundry/device-bacnet-c/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-bacnet-c-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-
+bacnet-c)](https://github.com/edgexfoundry/device-bacnet-c/commits)   
+
+# [edgex-docs](https://github.com/edgexfoundry/edgex-docs)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-
+docs/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-
+docs/job/main/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/edgex-
+docs)](https://github.com/edgexfoundry/edgex-docs/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/edgex-
+docs)](https://github.com/edgexfoundry/edgex-docs/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/edgex-docs-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/edgex-
+docs)](https://github.com/edgexfoundry/edgex-docs/commits)   
+
+# [edgex-taf](https://github.com/edgexfoundry/edgex-taf)
+[![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-
+taf?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/edgex-taf/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-taf?sort=semver&label=latest-stable)
+ [![GitHub License](https://img.shields.io/github/license/edgexfoundry/edgex-
+taf)](https://choosealicense.com/licenses/apache-2.0/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/edgex-
+taf)](https://github.com/edgexfoundry/edgex-taf/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/edgex-
+taf)](https://github.com/edgexfoundry/edgex-taf/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/edgex-taf-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/edgex-
+taf)](https://github.com/edgexfoundry/edgex-taf/commits)   
+
+# [edgex-taf-common](https://github.com/edgexfoundry/edgex-taf-common)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-taf-
+common/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-
+taf-common/job/main/) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-taf-
+common?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/edgex-taf-common/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-taf-common?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/edgex-taf-
+common)](https://choosealicense.com/licenses/apache-2.0/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/edgex-taf-
+common)](https://github.com/edgexfoundry/edgex-taf-common/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/edgex-taf-
+common)](https://github.com/edgexfoundry/edgex-taf-common/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/edgex-taf-common-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/edgex-taf-
+common)](https://github.com/edgexfoundry/edgex-taf-common/commits)   
+
+# [app-service-configurable](https://github.com/edgexfoundry/app-service-configurable)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/app-service-
+configurable/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/app-
+service-configurable/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/app-service-
+configurable/branch/main/graph/badge.svg?token=wMrc2PZbwj)](https://codecov.io/gh/edgexfoundry/app-service-configurable)
+ [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/app-service-
+configurable)](https://goreportcard.com/report/github.com/edgexfoundry/app-service-configurable) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/app-service-
+configurable?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/app-service-
+configurable/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/app-service-
+configurable?sort=semver&label=latest-stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/app-service-
+configurable)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/app-service-configurable) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/app-service-
+configurable)](https://github.com/edgexfoundry/app-service-configurable/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/app-service-
+configurable)](https://github.com/edgexfoundry/app-service-configurable/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/app-service-configurable-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/app-service-
+configurable)](https://github.com/edgexfoundry/app-service-configurable/commits)   
+
+# [device-rest-go](https://github.com/edgexfoundry/device-rest-go)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-rest-
+go/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+rest-go/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/device-rest-
+go/branch/main/graph/badge.svg?token=fmbJjqOyk4)](https://codecov.io/gh/edgexfoundry/device-rest-go) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/device-rest-
+go)](https://goreportcard.com/report/github.com/edgexfoundry/device-rest-go) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-rest-
+go?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-rest-go/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-rest-go?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-rest-
+go)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/device-rest-go) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-rest-
+go)](https://github.com/edgexfoundry/device-rest-go/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-rest-
+go)](https://github.com/edgexfoundry/device-rest-go/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-rest-go-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-rest-
+go)](https://github.com/edgexfoundry/device-rest-go/commits)   
+
+# [go-mod-bootstrap](https://github.com/edgexfoundry/go-mod-bootstrap)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-mod-
+bootstrap/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-
+mod-bootstrap/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/go-mod-
+bootstrap/branch/main/graph/badge.svg?token=VCvbFSS7gU)](https://codecov.io/gh/edgexfoundry/go-mod-bootstrap) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/go-mod-
+bootstrap)](https://goreportcard.com/report/github.com/edgexfoundry/go-mod-bootstrap) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-
+bootstrap?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/go-mod-bootstrap/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-bootstrap?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/go-mod-
+bootstrap)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/go-mod-bootstrap) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/go-mod-
+bootstrap)](https://github.com/edgexfoundry/go-mod-bootstrap/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/go-mod-
+bootstrap)](https://github.com/edgexfoundry/go-mod-bootstrap/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/go-mod-bootstrap-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/go-mod-
+bootstrap)](https://github.com/edgexfoundry/go-mod-bootstrap/commits)   
+
+# [go-mod-configuration](https://github.com/edgexfoundry/go-mod-configuration)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-mod-
+configuration/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/go-
+mod-configuration/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/go-mod-
+configuration/branch/main/graph/badge.svg?token=CBpuw7RHst)](https://codecov.io/gh/edgexfoundry/go-mod-configuration) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/go-mod-
+configuration)](https://goreportcard.com/report/github.com/edgexfoundry/go-mod-configuration) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-
+configuration?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/go-mod-
+configuration/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/go-mod-
+configuration?sort=semver&label=latest-stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/go-mod-
+configuration)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/go-mod-configuration) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/go-mod-
+configuration)](https://github.com/edgexfoundry/go-mod-configuration/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/go-mod-
+configuration)](https://github.com/edgexfoundry/go-mod-configuration/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/go-mod-configuration-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/go-mod-
+configuration)](https://github.com/edgexfoundry/go-mod-configuration/commits)   
+
+# [cd-management](https://github.com/edgexfoundry/cd-management)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/cd-
+management)](https://github.com/edgexfoundry/cd-management/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/cd-
+management)](https://github.com/edgexfoundry/cd-management/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/devops-core-team/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/cd-
+management)](https://github.com/edgexfoundry/cd-management/commits)   
+
+# [edgex-taf-pipelines](https://github.com/edgexfoundry/edgex-taf-pipelines)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/edgex-taf-
+pipelines)](https://github.com/edgexfoundry/edgex-taf-pipelines/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/edgex-taf-
+pipelines)](https://github.com/edgexfoundry/edgex-taf-pipelines/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/edgex-taf-pipelines-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/edgex-taf-
+pipelines)](https://github.com/edgexfoundry/edgex-taf-pipelines/commits)   
+
+# [device-rfid-llrp-go](https://github.com/edgexfoundry/device-rfid-llrp-go)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-rfid-llrp-
+go/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+rfid-llrp-go/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/device-rfid-llrp-
+go/branch/main/graph/badge.svg?token=TG2FYBIPCS)](https://codecov.io/gh/edgexfoundry/device-rfid-llrp-go) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/device-rfid-llrp-
+go)](https://goreportcard.com/report/github.com/edgexfoundry/device-rfid-llrp-go) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-rfid-llrp-
+go?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-rfid-llrp-go/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-rfid-llrp-
+go?sort=semver&label=latest-stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-rfid-llrp-
+go)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/device-rfid-llrp-go) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-rfid-llrp-
+go)](https://github.com/edgexfoundry/device-rfid-llrp-go/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-rfid-llrp-
+go)](https://github.com/edgexfoundry/device-rfid-llrp-go/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-rfid-llrp-go-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-rfid-llrp-
+go)](https://github.com/edgexfoundry/device-rfid-llrp-go/commits)   
+
+# [edgex-examples](https://github.com/edgexfoundry/edgex-examples)
+[![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/edgex-
+examples)](https://goreportcard.com/report/github.com/edgexfoundry/edgex-examples) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/edgex-
+examples)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/edgex-examples) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/edgex-
+examples)](https://github.com/edgexfoundry/edgex-examples/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/edgex-
+examples)](https://github.com/edgexfoundry/edgex-examples/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/edgex-examples-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/edgex-
+examples)](https://github.com/edgexfoundry/edgex-examples/commits)   
+
+# [app-rfid-llrp-inventory](https://github.com/edgexfoundry/app-rfid-llrp-inventory)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/app-rfid-llrp-
+inventory/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/app-
+rfid-llrp-inventory/job/main/) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/app-rfid-llrp-
+inventory)](https://goreportcard.com/report/github.com/edgexfoundry/app-rfid-llrp-inventory) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/app-rfid-llrp-
+inventory?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/app-rfid-llrp-
+inventory/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/app-rfid-llrp-
+inventory?sort=semver&label=latest-stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/app-rfid-llrp-
+inventory)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/app-rfid-llrp-inventory) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/app-rfid-llrp-
+inventory)](https://github.com/edgexfoundry/app-rfid-llrp-inventory/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/app-rfid-llrp-
+inventory)](https://github.com/edgexfoundry/app-rfid-llrp-inventory/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/app-rfid-llrp-inventory-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/app-rfid-llrp-
+inventory)](https://github.com/edgexfoundry/app-rfid-llrp-inventory/commits)   
+
+# [device-gpio](https://github.com/edgexfoundry/device-gpio)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+gpio/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+gpio/job/main/) [![Code Coverage](https://codecov.io/gh/edgexfoundry/device-
+gpio/branch/main/graph/badge.svg?token=GK4IJJOA4Q)](https://codecov.io/gh/edgexfoundry/device-gpio) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/device-
+gpio)](https://goreportcard.com/report/github.com/edgexfoundry/device-gpio) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-
+gpio?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-gpio/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-gpio?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-
+gpio)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/device-gpio) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-
+gpio)](https://github.com/edgexfoundry/device-gpio/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-
+gpio)](https://github.com/edgexfoundry/device-gpio/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-gpio-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-
+gpio)](https://github.com/edgexfoundry/device-gpio/commits)   
+
+# [device-coap-c](https://github.com/edgexfoundry/device-coap-c)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+coap-c/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+coap-c/job/main/) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-
+coap-c?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-coap-c/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-coap-c?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-
+coap-c)](https://choosealicense.com/licenses/apache-2.0/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-
+coap-c)](https://github.com/edgexfoundry/device-coap-c/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-
+coap-c)](https://github.com/edgexfoundry/device-coap-c/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-coap-c-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-
+coap-c)](https://github.com/edgexfoundry/device-coap-c/commits)   
+
+# [security-pipeline-policies](https://github.com/edgexfoundry/security-pipeline-policies)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/security-pipeline-
+policies)](https://github.com/edgexfoundry/security-pipeline-policies/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/security-pipeline-
+policies)](https://github.com/edgexfoundry/security-pipeline-policies/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/security-pipeline-policies-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/security-pipeline-
+policies)](https://github.com/edgexfoundry/security-pipeline-policies/commits)   
+
+# [edgex-compose](https://github.com/edgexfoundry/edgex-compose)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-
+compose/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-
+compose/job/main/) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-
+compose?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/edgex-compose/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/edgex-compose?sort=semver&label=latest-
+stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/edgex-
+compose)](https://choosealicense.com/licenses/apache-2.0/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/edgex-
+compose)](https://github.com/edgexfoundry/edgex-compose/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/edgex-
+compose)](https://github.com/edgexfoundry/edgex-compose/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/edgex-compose-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/edgex-
+compose)](https://github.com/edgexfoundry/edgex-compose/commits)   
+
+# [edgex-dev-badge](https://github.com/edgexfoundry/edgex-dev-badge)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-dev-
+badge/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/edgex-
+dev-badge/job/main/) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/edgex-dev-
+badge)](https://github.com/edgexfoundry/edgex-dev-badge/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/edgex-dev-
+badge)](https://github.com/edgexfoundry/edgex-dev-badge/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/edgex-dev-badge-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/edgex-dev-
+badge)](https://github.com/edgexfoundry/edgex-dev-badge/commits)   
+
+# [device-onvif-camera](https://github.com/edgexfoundry/device-onvif-camera)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-onvif-
+camera/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+onvif-camera/job/main/) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/device-onvif-
+camera)](https://goreportcard.com/report/github.com/edgexfoundry/device-onvif-camera) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-onvif-
+camera?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-onvif-camera/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-onvif-
+camera?sort=semver&label=latest-stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-onvif-
+camera)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/device-onvif-camera) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-onvif-
+camera)](https://github.com/edgexfoundry/device-onvif-camera/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-onvif-
+camera)](https://github.com/edgexfoundry/device-onvif-camera/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-onvif-camera-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-onvif-
+camera)](https://github.com/edgexfoundry/device-onvif-camera/commits)   
+
+# [device-usb-camera](https://github.com/edgexfoundry/device-usb-camera)
+[![Build Status](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-usb-
+camera/job/main/badge/icon)](https://jenkins.edgexfoundry.org/view/EdgeX%20Foundry%20Project/job/edgexfoundry/job/device-
+usb-camera/job/main/) [![Go Report Card](https://goreportcard.com/badge/github.com/edgexfoundry/device-usb-
+camera)](https://goreportcard.com/report/github.com/edgexfoundry/device-usb-camera) [![GitHub Latest Dev Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-usb-
+camera?include_prereleases&sort=semver&label=latest-dev)](https://github.com/edgexfoundry/device-usb-camera/tags) ![GitHub Latest Stable Tag)](https://img.shields.io/github/v/tag/edgexfoundry/device-usb-
+camera?sort=semver&label=latest-stable) [![GitHub License](https://img.shields.io/github/license/edgexfoundry/device-usb-
+camera)](https://choosealicense.com/licenses/apache-2.0/) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/edgexfoundry/device-usb-camera) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/edgexfoundry/device-usb-
+camera)](https://github.com/edgexfoundry/device-usb-camera/pulls) [![GitHub Contributors](https://img.shields.io/github/contributors/edgexfoundry/device-usb-
+camera)](https://github.com/edgexfoundry/device-usb-camera/contributors) [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/device-usb-camera-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/edgexfoundry/device-usb-
+camera)](https://github.com/edgexfoundry/device-usb-camera/commits)   
+
+# [.github](https://github.com/edgexfoundry/.github)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr-
+raw/edgexfoundry/.github)](https://github.com/edgexfoundry/.github/pulls) [![GitHub 
+Contributors](https://img.shields.io/github/contributors/edgexfoundry/.github)](https://github.com/edgexfoundry/.github/contributors)
+ [![GitHub Committers](https://img.shields.io/badge/team-committers-
+green)](https://github.com/orgs/edgexfoundry/teams/.github-committers/members) [![GitHub Commit Activity](https://img.shields.io/github/commit-
+activity/m/edgexfoundry/.github)](https://github.com/edgexfoundry/.github/commits)   

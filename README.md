@@ -1,6 +1,5 @@
 # prepbadge
 [![Build Status](https://jenkins.edgexfoundry.org/buildStatus/icon?job=edgexfoundry%2Fcd-management%2Fcreate-repo-badges)](https://jenkins.edgexfoundry.org/job/edgexfoundry/job/cd-management/job/create-repo-badges/)
-[![coverage](https://img.shields.io/badge/coverage-16.32%25-red)](https://pybuilder.io/)
 [![complexity](https://img.shields.io/badge/complexity-Stable:%208-olive)](https://radon.readthedocs.io/en/latest/api.html#module-radon.complexity)
 [![vulnerabilities](https://img.shields.io/badge/vulnerabilities-None-brightgreen)](https://pypi.org/project/bandit/)
 [![python](https://img.shields.io/badge/python-3.9-teal)](https://www.python.org/downloads/)
@@ -86,6 +85,7 @@ docker container run \
 -e https_proxy \
 -v $HOME/.gitconfig:/etc/gitconfig \
 -v $HOME/.gnupg:/root/.gnupg \
+-v $HOME/.ssh:/root/.ssh:rw \
 -v $PWD:/code \
 prepbadge:latest /bin/bash
 ```

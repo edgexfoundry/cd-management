@@ -4,12 +4,11 @@ import logging
 import argparse
 from os import getenv
 from time import sleep
-
 from rest3client import RESTclient
 from github3api import GitHubAPI
 from mp4ansi import MP4ansi
 from mdutils import MdUtils
-
+from requests.exceptions import HTTPError
 from prepbadge.github import get_client as get_github_client
 from prepbadge.github import create_pull_request_workflow
 
@@ -126,7 +125,11 @@ def get_codecov_data(*args):
     logger.debug(f'{owner} has a total of {len(repos)} repos registered in codecov.io')
     for repo in repos:
         logger.debug(f"retrieving codecov data for {repo['name']} repo")
-        settings = client.get(f"/api/gh/{owner}/{repo['name']}/settings")
+        try:
+            settings = client.get(f"/api/gh/{owner}/{repo['name']}/settings")
+        except HTTPError as exception:
+            logger.warn(exception)
+            continue
         data.append({
             'repo': repo['name'],
             'codecov_coverage': repo['coverage'],
@@ -322,7 +325,6 @@ def get_process_data_for_pull_request_workflows(repos_data, repos_regex, local_b
                 # 'reviewers': ['bill-mahoney', 'ernestojeda', 'jamesrgregg', 'cjoyv'],
                 'reviewers': [],
                 'labels': ['documentation'],
-                'milestone': 'Jakarta',
                 'noop': noop
             }
             process_data.append(item)
@@ -363,7 +365,7 @@ def main():
     coalesce_data(github_data, codecov_data, jenkins_data)
     add_badges(github_data, args.org)
     create_markdown(github_data, args.org)
-    run_create_pull_request_workflows(args.org, github_data[0]['result'], args.repos_regex, args.local_branch, not args.execute)
+    # run_create_pull_request_workflows(args.org, github_data[0]['result'], args.repos_regex, args.local_branch, not args.execute)
 
 
 if __name__ == '__main__':
