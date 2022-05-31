@@ -322,9 +322,10 @@ def get_process_data_for_pull_request_workflows(repos_data, repos_regex, local_b
                 'default_branch': repo_data['default_branch'],
                 'local_branch': local_branch,
                 'badges': repo_data['badges'],
-                # 'reviewers': ['bill-mahoney', 'ernestojeda', 'jamesrgregg', 'cjoyv'],
-                'reviewers': [],
+                'reviewers': ['bill-mahoney', 'ernestojeda', 'jamesrgregg', 'cjoyv'],
+                # 'reviewers': [],
                 'labels': ['documentation'],
+                'milestone': 'Kamakura',
                 'noop': noop
             }
             process_data.append(item)
