@@ -1,10 +1,10 @@
 ---
 name: 'go-mod-bootstrap'
-version: '2.1.0'
+version: '2.1.1'
 releaseName: 'jakarta'
-releaseStream: 'main'
-lts: true
+releaseStream: 'jakarta'
+lts: false
 repo: 'https://github.com/edgexfoundry/go-mod-bootstrap.git'
-commitId: '9fdf17bc37db5cd019d38260d30dde4ed036659d'
+commitId: '4052e11d2d18c305e01cd54f0004d91584d69cb9'
 gitTag: true
 dockerImages: false
