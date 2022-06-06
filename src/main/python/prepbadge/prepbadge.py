@@ -366,7 +366,7 @@ def main():
     coalesce_data(github_data, codecov_data, jenkins_data)
     add_badges(github_data, args.org)
     create_markdown(github_data, args.org)
-    # run_create_pull_request_workflows(args.org, github_data[0]['result'], args.repos_regex, args.local_branch, not args.execute)
+    run_create_pull_request_workflows(args.org, github_data[0]['result'], args.repos_regex, args.local_branch, not args.execute)
 
 
 if __name__ == '__main__':
