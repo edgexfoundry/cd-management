@@ -1,9 +1,9 @@
 ---
 name: 'edgex-compose'
-version: '2.1.0'
-releaseName: 'jakarta'
-releaseStream: 'jakarta'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'kamakura'
 repo: 'https://github.com/edgexfoundry/edgex-compose.git'
-commitId: '7cdf724e9806987162086ae4dc9a8ff70879331e'
+commitId: '4bb179e4364bae054393635e05ab039790d9cda8'
 gitTag: true
 dockerImages: false
