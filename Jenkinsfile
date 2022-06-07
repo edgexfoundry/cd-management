@@ -20,7 +20,7 @@ def parallelSteps = [:]
 def releaseData = []
 
 pipeline {
-    agent { label 'centos7-docker-4c-2g' }
+    agent { label 'ubuntu18.04-docker-8c-8g' }
     options {
         timestamps()
         timeout(360)
