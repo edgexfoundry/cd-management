@@ -1,10 +1,10 @@
 ---
 lts: true
 name: 'sample-service'
-version: '4.2.0'
+version: '4.2.1'
 releaseName: 'jakarta'
 releaseStream: 'main'
-commitId: '4a451c014e7ed34779d83b8cca61f1a1e684f683'
+commitId: 'd26075601ba6247841b0e62a66cb9c22a817786f'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
 gitTag: true
 dockerImages: true
