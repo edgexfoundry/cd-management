@@ -1,11 +1,11 @@
 ---
 name: 'edgex-go'
-version: '2.1.0'
+version: '2.1.1'
 releaseName: 'jakarta'
-releaseStream: 'main'
+releaseStream: 'jakarta'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
-commitId: '0e57188e00e89e0d20a1f3c03614da85116ecb0b'
+commitId: 'b73b6b653457e22948d36629ae394cb909f904f1'
 gitTag: true
 dockerImages: true
 docker:
