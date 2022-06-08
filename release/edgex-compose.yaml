@@ -1,0 +1,10 @@
+---
+name: 'edgex-compose'
+version: '2.1.1'
+releaseName: 'jakarta'
+releaseStream: 'jakarta'
+lts: true
+repo: 'https://github.com/edgexfoundry/edgex-compose.git'
+commitId: '95d4fb34fe40d15911d8b0e8adb4162ea8318480'
+gitTag: true
+dockerImages: false
