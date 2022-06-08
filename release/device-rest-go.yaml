@@ -1,10 +1,10 @@
 ---
 name: 'device-rest-go'
-version: '2.1.0'
+version: '2.1.1'
 releaseName: 'jakarta'
-releaseStream: 'main'
+releaseStream: 'jakarta'
 lts: true
-commitId: '77c54d90ea9ffa20807a89ffbcf7c43d1538b8a7'
+commitId: 'c825c9e02f55f2d37ee60cfba734680a35820bea'
 repo: 'https://github.com/edgexfoundry/device-rest-go.git'
 gitTag: true
 dockerImages: true
