@@ -1,11 +1,11 @@
 ---
 name: 'app-service-configurable'
-version: '2.1.0'
+version: '2.1.1'
 releaseName: 'jakarta'
-releaseStream: 'main'
+releaseStream: 'jakarta'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
-commitId: '36e4556e19d47a73733e529c83cf9b2d06cecfaa'
+commitId: 'c7be6c4924e2986ea63b6da7cff964b545fc38ba'
 gitTag: true
 dockerImages: true
 docker:
