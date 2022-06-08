@@ -1,11 +1,11 @@
 ---
 name: 'app-rfid-llrp-inventory'
-version: '2.1.0'
+version: '2.1.1'
 releaseName: 'jakarta'
-releaseStream: 'main'
+releaseStream: 'jakarta'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-rfid-llrp-inventory.git'
-commitId: '3dc9a110c0db4a24a49e99ce1a643e2f34ef9734'
+commitId: '37332d5db99d6e3dcf36431c50664ec3370a9306'
 gitTag: true
 dockerImages: true
 docker:
