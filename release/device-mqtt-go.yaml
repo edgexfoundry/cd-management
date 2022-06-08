@@ -1,10 +1,10 @@
 ---
 name: 'device-mqtt-go'
-version: '2.1.0'
+version: '2.1.1'
 releaseName: 'jakarta'
-releaseStream: 'main'
+releaseStream: 'jakarta'
 lts: true
-commitId: '5b76d0d2a879ff6c01e3c388bf175a5740c8f010'
+commitId: '7406625e666ba0c9a26a66dd777dfe13e5e0a7f7'
 repo: 'https://github.com/edgexfoundry/device-mqtt-go.git'
 gitTag: true
 dockerImages: true

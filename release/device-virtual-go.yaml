@@ -1,10 +1,10 @@
 ---
 name: 'device-virtual-go'
-version: '2.1.0'
+version: '2.1.1'
 releaseName: 'jakarta'
-releaseStream: 'main'
+releaseStream: 'jakarta'
 lts: true
-commitId: 'e07b8ad63a947e5d1e1838e08c0dbf46ddcbbac0'
+commitId: 'c3c9a5af3072c39397f92becfe075ff48f905921'
 repo: 'https://github.com/edgexfoundry/device-virtual-go.git'
 gitTag: true
 dockerImages: true

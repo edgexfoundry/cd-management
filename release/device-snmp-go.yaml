@@ -1,10 +1,10 @@
 ---
 name: 'device-snmp-go'
-version: '2.1.0'
+version: '2.1.1'
 releaseName: 'jakarta'
-releaseStream: 'main'
+releaseStream: 'jakarta'
 lts: true
-commitId: 'd6a2d4438fc175be031f77f972aa414c83442272'
+commitId: 'd8d13776115bae24b07028e90133f95fb504a846'
 repo: 'https://github.com/edgexfoundry/device-snmp-go.git'
 gitTag: true
 dockerImages: true

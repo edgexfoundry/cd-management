@@ -1,10 +1,10 @@
 ---
 name: 'device-modbus-go'
-version: '2.1.0'
+version: '2.1.1'
 releaseName: 'jakarta'
-releaseStream: 'main'
+releaseStream: 'jakarta'
 lts: true
-commitId: 'b97db6a43ce22cea257d7dd09b26aa7518da64c2'
+commitId: 'dd91d0d2e16418ce093afebafa1ee6ccdfe7eb57'
 repo: 'https://github.com/edgexfoundry/device-modbus-go.git'
 gitTag: true
 dockerImages: true
