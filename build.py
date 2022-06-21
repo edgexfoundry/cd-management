@@ -13,9 +13,9 @@ use_plugin('pypi:pybuilder_anybadge')
 
 name = 'prepbadge'
 authors = [Author('Emilio Reyes', 'emilio.reyes@intel.com')]
-summary = 'A CLI to create pull request workflows for updating edgeXfoundry repos.'
+summary = 'A CLI to create pull requests for adding repo badges to edgeXfoundry repos.'
 url = 'https://github.com/edgexfoundry/cd-management/tree/create-repo-badges'
-version = '0.1.4'
+version = '0.1.5'
 default_task = [
     'clean',
     'analyze',
