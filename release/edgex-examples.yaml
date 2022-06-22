@@ -5,6 +5,6 @@ releaseName: 'kamakura'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-examples.git'
-commitId: 'e6b80f31a69e64d3ac204941325f09d53a87e4a7'
+commitId: 'a5414b29bc2f036d23782d016f3fdaff7e48a558'
 gitTag: true
 dockerImages: false
