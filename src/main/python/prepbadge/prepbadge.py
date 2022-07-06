@@ -6,7 +6,7 @@ from os import getenv
 from time import sleep
 from rest3client import RESTclient
 from github3api import GitHubAPI
-from mp4ansi import MP4ansi
+from mppbar import MPpbar
 from mdutils import MdUtils
 from requests.exceptions import HTTPError
 from prepbadge.github import get_client as get_github_client
@@ -194,29 +194,29 @@ def find(items, name):
     return -1
 
 
-def coalesce_data(github, codecov, jenkins):
+def coalesce_data(github_data, codecov_data, jenkins_data):
     """ coalesce repos from codecov and jenkins into github
     """
-    for item in codecov[0]['result']:
+    for item in codecov_data:
         repo = item.pop('repo')
-        index = find(github[0]['result'], repo)
+        index = find(github_data, repo)
         if index > -1:
-            github[0]['result'][index].update(item)
-    for item in jenkins[0]['result']:
+            github_data[index].update(item)
+    for item in jenkins_data:
         repo = item.pop('repo')
-        index = find(github[0]['result'], repo)
+        index = find(github_data, repo)
         if index > -1:
-            github[0]['result'][index].update(item)
-    # write_file(github, 'badges')
+            github_data[index].update(item)
+    # write_file(github_data, 'badges')
 
 
-def create_markdown(github, owner):
-    """ create markdown for repos in github dict
+def create_markdown(data, owner):
+    """ create markdown for repos in data dict
     """
     filename = 'prepbadge'
     print(f'Creating markdown file for {owner} repos in {filename}.md')
     md = MdUtils(file_name=filename, title='EdgeXFoundry Repo Badges Preview')
-    for repo in github[0]['result']:
+    for repo in data:
         md.new_header(level=1, title=md.new_inline_link(link=repo['github_url'], text=repo['name']))
         for badge in repo['badges']:
             md.write(text=f'{badge} ', wrap_width=0)
@@ -224,11 +224,11 @@ def create_markdown(github, owner):
     md.create_md_file()
 
 
-def add_badges(github, owner):
-    """ add badge data to github dict
+def add_badges(data, owner):
+    """ add badges list to each repo dict in data
     """
     print(f'Adding badges for {owner} repos')
-    for repo in github[0]['result']:
+    for repo in data:
         repo['badges'] = []
         if 'jenkins_badge' in repo:
             repo['badges'].append(f"[![Build Status]({repo['jenkins_badge']})]({repo['jenkins_url']})")
@@ -247,64 +247,52 @@ def add_badges(github, owner):
         repo['badges'].append(f"[![GitHub Contributors](https://img.shields.io/github/contributors/{repo['owner_repo']})]({repo['github_url']}/contributors)")
         repo['badges'].append(f"[![GitHub Committers](https://img.shields.io/badge/team-committers-green)]({repo['team_members_url']})")
         repo['badges'].append(f"[![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/{repo['owner_repo']})]({repo['github_url']}/commits)")
-    # write_file(github, 'badges')
+    # write_file(data, 'badges')
 
 
 def run_github_data_collection(owner):
     """ run github data collection
     """
     print(f'Retrieving github repos for {owner} ...')
-    process_data = [{'owner': owner}]
-    MP4ansi(
+    results = MPpbar(
         function=get_github_data,
-        process_data=process_data,
-        config={
-            'id_regex': r'^getting github information for (?P<value>.*) repos$',
-            'progress_bar': {
-                'total': r'^.* has a total of (?P<value>\d+) matching repos in github$',
-                'count_regex': r'^checking repo (?P<value>.*)$',
-                'progress_message': 'Retrieval of github.com repos complete'
-            }
+        process_data=[{'owner': owner}],
+        regex={
+            'alias': r'^getting github information for (?P<value>.*) repos$',
+            'total': r'^.* has a total of (?P<value>\d+) matching repos in github$',
+            'count': r'^checking repo (?P<value>.*)$'
         }).execute(raise_if_error=True)
-    return process_data
+    return results[0]
 
 
 def run_codecov_data_collection(owner):
     """ run codecov data collection
     """
     print(f'Retrieving codecov.io data for {owner} ...')
-    process_data = [{'owner': owner}]
-    MP4ansi(
+    results = MPpbar(
         function=get_codecov_data,
-        process_data=process_data,
-        config={
-            'id_regex': r'^getting codecov information for (?P<value>.*) repos$',
-            'progress_bar': {
-                'total': r'^.* has a total of (?P<value>\d+) repos registered in codecov.io$',
-                'count_regex': r'^retrieving codecov data for (?P<value>.*) repo$',
-                'progress_message': 'Retrieval of codecov.io data complete'
-            }
+        process_data=[{'owner': owner}],
+        regex={
+            'alias': r'^getting codecov information for (?P<value>.*) repos$',
+            'total': r'^.* has a total of (?P<value>\d+) repos registered in codecov.io$',
+            'count': r'^retrieving codecov data for (?P<value>.*) repo$'
         }).execute(raise_if_error=True)
-    return process_data
+    return results[0]
 
 
 def run_jenkins_data_collection(owner):
     """ run jenkins data collection
     """
     print(f'Retrieving jenkins data for {owner} ...')
-    process_data = [{'owner': owner}]
-    MP4ansi(
+    results = MPpbar(
         function=get_jenkins_data,
-        process_data=process_data,
-        config={
-            'id_regex': r'^getting jenkins information for (?P<value>.*) repos$',
-            'progress_bar': {
-                'total': r'^.* has a total of (?P<value>\d+) repos registered in jenkins$',
-                'count_regex': r'^retrieving jenkins data for (?P<value>.*) repo$',
-                'progress_message': 'Retrieval of jenkins data complete'
-            }
+        process_data=[{'owner': owner}],
+        regex={
+            'alias': r'^getting jenkins information for (?P<value>.*) repos$',
+            'total': r'^.* has a total of (?P<value>\d+) repos registered in jenkins$',
+            'count': r'^retrieving jenkins data for (?P<value>.*) repo$'
         }).execute(raise_if_error=True)
-    return process_data
+    return results[0]
 
 
 def get_process_data_for_pull_request_workflows(repos_data, repos_regex, local_branch, noop):
@@ -340,18 +328,13 @@ def run_create_pull_request_workflows(owner, repos_data, repos_regex, local_bran
     if not process_data:
         print('Nothing to execute')
         return
-    MP4ansi(
+    MPpbar(
         function=create_pull_request_workflow,
         process_data=process_data,
-        config={
-            'id_regex': fr'^creating pull request workflow for {owner}/(?P<value>.*) - noop: .*$',
-            'id_justify': True,
-            'id_width': 23,
-            'progress_bar': {
-                'total': r'^pull request workflow has a total of (?P<value>\d+) steps$',
-                'count_regex': r'^executing step (?P<value>-) .*$',
-                'progress_message': 'Pull request workflow complete'
-            }
+        regex={
+            'alias': fr'^creating pull request workflow for {owner}/(?P<value>.*) - noop: .*$',
+            'total': r'^pull request workflow has a total of (?P<value>\d+) steps$',
+            'count': r'^executing step (?P<value>-) .*$'
         }).execute(raise_if_error=True)
 
 
@@ -366,7 +349,7 @@ def main():
     coalesce_data(github_data, codecov_data, jenkins_data)
     add_badges(github_data, args.org)
     create_markdown(github_data, args.org)
-    run_create_pull_request_workflows(args.org, github_data[0]['result'], args.repos_regex, args.local_branch, not args.execute)
+    run_create_pull_request_workflows(args.org, github_data, args.repos_regex, args.local_branch, not args.execute)
 
 
 if __name__ == '__main__':
