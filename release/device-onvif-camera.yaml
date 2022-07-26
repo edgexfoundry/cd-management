@@ -1,0 +1,20 @@
+---
+name: device-onvif-camera
+version: 2.2.0
+releaseName: kamakura
+releaseStream: main
+semverBumpLevel: minor
+lts: false
+repo: 'https://github.com/edgexfoundry/device-onvif-camera.git'
+commitId: 9bac30ea06e4ebb0f0f10422a9d4eedb1be08404
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-onvif-camera
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-onvif-camera
+      - docker.io/edgexfoundry/device-onvif-camera
+  - image: nexus3.edgexfoundry.org:10004/device-onvif-camera-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-onvif-camera-arm64
+      - docker.io/edgexfoundry/device-onvif-camera-arm64
