@@ -1,0 +1,19 @@
+---
+name: device-usb-camera
+version: 2.2.0
+releaseName: kamakura
+releaseStream: main
+lts: false
+repo: 'https://github.com/edgexfoundry/device-usb-camera.git'
+commitId: 35e88c606ff591756c04535471448b721e880ee3
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-usb-camera
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-usb-camera
+      - docker.io/edgexfoundry/device-usb-camera
+  - image: nexus3.edgexfoundry.org:10004/device-usb-camera-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-usb-camera-arm64
+      - docker.io/edgexfoundry/device-usb-camera-arm64
