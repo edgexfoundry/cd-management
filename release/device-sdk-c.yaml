@@ -1,9 +1,9 @@
 ---
 name: 'device-sdk-c'
-version: '2.0.0'
-releaseName: 'ireland'
-releaseStream: 'master'
-commitId: 'c75449e85aa6c6239708e25f4301185f1aa5291c'
+version: '2.2.0'
+releaseName: 'kamakura'
+releaseStream: 'main'
+commitId: '117e3ae82fbf81e148f12b1fc27328d4e4a70297'
 repo: 'https://github.com/edgexfoundry/device-sdk-c.git'
 gitTag: true
 dockerImages: false
