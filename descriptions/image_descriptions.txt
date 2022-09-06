@@ -12,19 +12,19 @@ core-metadata:The reference implementation core metadata micro service for EdgeX
 device-bacnet-arm64:ARM64 device service to connect to BACNet protocol devices for EdgeX
 device-camera-arm64:ARM64 device service to connect to and control ONVIF cameras for EdgeX
 device-camera:Device service to connect to and control ONVIF cameras for EdgeX Foundry
-device-coap:Device service to connect Constrained Application Protocol devices to EdgeX
 device-coap-arm64:ARM64 Device service to connect Constrained Application Protocol devices to EdgeX
-device-gpio:service to connect general-purpose input/output (GPIO) devices (Linux only!)
+device-coap:Device service to connect Constrained Application Protocol devices to EdgeX
 device-gpio-arm64:ARM64 service to connect general-purpose input/output (GPIO) devices (Linux only!)
+device-gpio:service to connect general-purpose input/output (GPIO) devices (Linux only!)
 device-grove-arm64:ARM64 device service to communicate with Grove sensors for EdgeX
-device-rfid-llrp:Device service to connect LLRP adhering RFID systems to EdgeX
-device-rfid-llrp-arm64:ARM64 device service to connect LLRP adhering RFID systems to EdgeX
 device-modbus-arm64:ARM64 device service to connect to Modbus protocol devices for EdgeX
 device-modbus:Device service to connect to Modbus protocol devices for EdgeX Foundry
 device-mqtt-arm64:ARM64 device service ingesting device data via MQTT for EdgeX Foundry
 device-mqtt:Device service ingesting device data via MQTT for EdgeX Foundry
 device-rest-arm64:ARM64 device service ingesting device data via REST for EdgeX Foundry
 device-rest:Device service ingesting device data via REST for EdgeX Foundry
+device-rfid-llrp-arm64:ARM64 device service to connect LLRP adhering RFID systems to EdgeX
+device-rfid-llrp:Device service to connect LLRP adhering RFID systems to EdgeX
 device-snmp-arm64:ARM64 device service to connect to SNMP protocol devices for EdgeX
 device-snmp:Device service to connect to SNMP protocol devices for EdgeX Foundry
 device-virtual-arm64:ARM64 device service simulating devices for EdgeX Foundry
@@ -38,6 +38,14 @@ security-proxy-setup-arm64:ARM64 initialization service for the reverse proxy fo
 security-proxy-setup:The initialization service for the reverse proxy for EdgeX Foundry
 security-secretstore-setup-arm64:ARM64 initialization service for the security for EdgeX
 security-secretstore-setup:The initialization service for the security for EdgeX Foundry
+security-spiffe-token-provider-arm64:ARM64 service exchanges X.509 SVID for secret store token
+security-spiffe-token-provider:Service exchanges X.509 SVID for secret store token
+security-spire-agent-arm64:ARM64 default implementation of a SPIRE agent service
+security-spire-agent:Default implementation of a SPIRE agnet service
+security-spire-config-arm64:ARM64 container that eeds SPIFFE authorization entries for EdgeX services
+security-spire-config:Seeds SPIFFE authorization entries for EdgeX services
+security-spire-server-arm64:ARM64:Default implementation of a SPIRE server service
+security-spire-server:Default implementation of a SPIRE server service
 support-notifications-arm64:ARM64 impl notifications service for EdgeX Foundry
 support-notifications:The reference implementation notifications service for EdgeX Foundry
 support-scheduler-arm64:ARM64 implementation scheduler service for EdgeX Foundry
