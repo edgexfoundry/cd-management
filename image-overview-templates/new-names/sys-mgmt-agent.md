@@ -1,5 +1,8 @@
 $$./common/warning.md
 
+# Deprecation Warning
+This service has been deprecated and will be archived in future major release. No alternative will be provided.
+
 $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
