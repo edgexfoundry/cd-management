@@ -14,13 +14,13 @@
 // limitations under the License.
 //
 
-// @Library("edgex-global-pipelines@experimental") _
+@Library("edgex-global-pipelines@ac1889712ddbdd3dbfe16502a1bf0129a4ed81c8") _
 
 def parallelSteps = [:]
 def releaseData = []
 
 pipeline {
-    agent { label 'centos7-docker-4c-2g' }
+    agent { label 'ubuntu18.04-docker-8c-8g' }
     options {
         timestamps()
         timeout(360)
