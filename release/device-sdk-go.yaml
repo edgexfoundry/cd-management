@@ -4,7 +4,7 @@ version: '2.2.0'
 releaseName: 'kamakura'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/device-sdk-go.git'
-commitId: '4f64ab83298cb604fe88218673904389f4010661'
+commitId: '71d557e94127766e3dd7859e57e7c834f188cfad'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
