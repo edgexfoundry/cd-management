@@ -1,10 +1,13 @@
 ---
 name: 'device-sdk-go'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/device-sdk-go.git'
 commitId: '71d557e94127766e3dd7859e57e7c834f188cfad'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
+apiInfo:
+  nextReleaseVersion: '2.4.0'
+  reviewers: edgexfoundry/edgex-docs-committers
