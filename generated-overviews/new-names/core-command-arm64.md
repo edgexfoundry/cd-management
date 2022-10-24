@@ -18,6 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Kamakura
+    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/core-command/Dockerfile)
 - Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
     - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/cmd/core-command/Dockerfile)
 - Ireland
@@ -82,4 +84,4 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/Attribution.txt).

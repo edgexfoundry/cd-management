@@ -18,6 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Kamakura
+    - 2.2.0    - 2.2.0 - [Dockerfile](https://github.com/edgexfoundry/device-gpio/blob/v2.2.0/Dockerfile)
 - Ireland
     - 1.0.0 - [Dockerfile](https://github.com/edgexfoundry/device-gpio/blob/v1.0.0/Dockerfile)
 
@@ -58,4 +60,4 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/device-gpio/blob/v1.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-gpio/blob/v2.2.0/Attribution.txt).

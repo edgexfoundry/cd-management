@@ -18,6 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Kamakura
+    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-ui-go/blob/v2.2.0/Dockerfile)
 - Jakarta
     - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-ui-go/blob/v2.1.0/Dockerfile)
 - Ireland
@@ -54,7 +56,7 @@ The EdgeX UI source code: <https://github.com/edgexfoundry/edgex-ui-go>
 
 # License
 
-View [license information](https://docs.edgexfoundry.org/1.3/#apache-2-license) for the software contained in this image.
+View [license information](https://docs.edgexfoundry.org/2.2/#apache-2-license) for the software contained in this image.
 
 As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
 

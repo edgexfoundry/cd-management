@@ -19,21 +19,14 @@ WARNING:
 # Supported tags and respective Dockerfile links
 
 - Kamakura
-    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/support-scheduler/Dockerfile)
-- Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
-    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/cmd/support-scheduler/Dockerfile)
-- Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.0.0/cmd/support-scheduler/Dockerfile)
+    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/security-spire-config/blob/v2.2.0/Dockerfile)
 
 # Quick reference (cont.)
 
-- Where to file issues: <https://github.com/edgexfoundry/edgex-go/issues>
-
-- Supported architectures: intel/amd64
-
-- Published image artifact details: <https://nexus3.edgexfoundry.org>
-
-- Source of this description: <https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates>
+- Where to file issues: https://github.com/edgexfoundry/security-spire-config/issues
+- Supported architectures: arm64
+- Published image artifact details: https://nexus3.edgexfoundry.org
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/security-spire-config-arm64.md
 
 # What is EdgeX Foundry?
 
@@ -49,11 +42,11 @@ EdgeX's official documentation can be found at [docs.edgexfoundry.org](https://d
 
 # What's in this image?
 
-This image contains the [support scheduler](https://docs.edgexfoundry.org/2.0/microservices/support/scheduler/Ch-Scheduling/) service and all of its base configuration.
+This image contains **ARM64 version** of security-spire-config.
+This image is an initialization container that seeds SPIFFE identities of
+known EdgeX microservices when running under docker-compose.
 
-The support scheduler micro service provide an internal EdgeX “clock” that can kick off operations in any EdgeX service. At a configuration specified time (called an interval), the service calls on any EdgeX service API URL via REST to trigger an operation (called an interval action).
-
-The support scheduler service source code: <https://github.com/edgexfoundry/edgex-go>
+Source code for security-spire-config: <https://github.com/edgexfoundry/edgex-go/>
 
 # License
 

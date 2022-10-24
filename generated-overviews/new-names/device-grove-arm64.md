@@ -19,7 +19,7 @@ WARNING:
 # Supported tags and respective Dockerfile links
 
 - Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-grove-c/blob/v2.0.0/scripts/Dockerfile.alpine)
+    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-grove-c/blob/v1.3.1/scripts/Dockerfile.alpine)
 
 # Quick reference (cont.)
 
@@ -58,4 +58,4 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/device-grove-c/blob/v2.0.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-grove-c/blob/v1.3.1/Attribution.txt).
