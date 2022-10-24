@@ -11,11 +11,10 @@ $$./common/version-jakarta-non-lts.md |
 $$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-camera-go/blob/v2.0.1/Dockerfile)
 
-# Quick reference (cont.)
+# Quick reference
 
 - Where to file issues: https://github.com/edgexfoundry/device-camera-go/issues
 - Supported architectures: intel/amd64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-camera.md
 
 $$./common/what-is-edgex.md
@@ -27,4 +26,3 @@ This image contains the device service to control/communicate ONVIF-compliant ca
 The device camera service source code: <https://github.com/edgexfoundry/device-camera-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-camera-go/blob/v2.2.0/Attribution.txt).

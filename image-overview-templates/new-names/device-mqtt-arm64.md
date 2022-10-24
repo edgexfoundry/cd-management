@@ -11,11 +11,10 @@ $$./common/version-jakarta-lts.md |
 $$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-mqtt-go/blob/v2.0.0/Dockerfile)
 
-# Quick reference (cont.)
+# Quick reference
 
 - Where to file issues: https://github.com/edgexfoundry/device-mqtt-go/issues
 - Supported architectures: arm64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-mqtt-arm64.md
 
 $$./common/what-is-edgex.md
@@ -27,4 +26,3 @@ This image contains the **ARM64 version** of the MQTT device service, for connec
 The device MQTT service source code: <https://github.com/edgexfoundry/device-mqtt-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-mqtt-go/blob/v2.2.0/Attribution.txt).
