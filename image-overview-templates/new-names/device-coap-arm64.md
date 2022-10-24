@@ -9,11 +9,10 @@ $$./common/version-jakarta-non-lts.md |
 $$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/scripts/Dockerfile.alpine)
 
-# Quick reference (cont.)
+# Quick reference
 
 - Where to file issues: https://github.com/edgexfoundry/device-coap-c/issues
 - Supported architectures: arm64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-coap-arm64.md
 
 $$./common/what-is-edgex.md
@@ -25,4 +24,3 @@ This image contains the **ARM64 version** of the device service to connect Const
 The device CoAP service source code: <https://github.com/edgexfoundry/device-coap-c>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-coap-c/blob/v2.1.0/Attribution.txt).

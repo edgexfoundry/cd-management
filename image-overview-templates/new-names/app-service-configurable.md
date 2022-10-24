@@ -11,11 +11,10 @@ $$./common/version-jakarta-lts.md |
 $$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/app-service-configurable/blob/v2.0.0/Dockerfile)
 
-# Quick reference (cont.)
+# Quick reference
 
 - Where to file issues: https://github.com/edgexfoundry/app-service-configurable/issues
 - Supported architectures: intel/amd64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/app-service-configurable.md
 
 $$./common/what-is-edgex.md
@@ -27,4 +26,3 @@ This image contains the appl service configurable. App-Service-Configurable is p
 The app service configurable source code: <https://github.com/edgexfoundry/app-service-configurable>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/app-service-configurable/blob/v2.2.0/Attribution.txt).

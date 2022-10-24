@@ -41,4 +41,3 @@ way to simplify communications with the devices. There are two types of commands
 The core command service source code: <https://github.com/edgexfoundry/edgex-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/Attribution.txt).

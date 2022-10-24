@@ -7,11 +7,10 @@ $$./common/quick-reference.md
 $$./common/version-kamakura.md |
         - [Dockerfile](https://github.com/edgexfoundry/security-spire-agent/blob/v2.2.0/Dockerfile)
 
-# Quick reference (cont.)
+# Quick reference 
 
 - Where to file issues: https://github.com/edgexfoundry/security-spire-agent/issues
 - Supported architectures: arm64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/security-spire-agent-arm64.md
 
 $$./common/what-is-edgex.md
@@ -26,4 +25,3 @@ for users that are not running their own SPIRE agents.
 Source code for security-spire-agent: <https://github.com/edgexfoundry/edgex-go/>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/Attribution.txt).

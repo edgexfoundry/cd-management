@@ -1,8 +1,5 @@
 $$./common/warning.md
 
-# Deprecation Warning
-This service has been deprecated and will be archived in future major release. No alternative will be provided.
-
 $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
@@ -27,4 +24,3 @@ The SMA is micro service that other systems or services communicate with and mak
 The system management agent source code: <https://github.com/edgexfoundry/edgex-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/Attribution.txt).

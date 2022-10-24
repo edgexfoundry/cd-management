@@ -24,4 +24,3 @@ The support scheduler micro service provide an internal EdgeX “clock” that c
 The support scheduler service source code: <https://github.com/edgexfoundry/edgex-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/Attribution.txt).

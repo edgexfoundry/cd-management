@@ -24,4 +24,3 @@ The core data micro service provides centralized persistence for data collected 
 The core data service source code: <https://github.com/edgexfoundry/edgex-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/Attribution.txt).
