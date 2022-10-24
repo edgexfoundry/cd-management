@@ -19,21 +19,18 @@ WARNING:
 # Supported tags and respective Dockerfile links
 
 - Kamakura
-    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/support-scheduler/Dockerfile)
+    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/app-rfid-llrp-inventory/blob/v2.2.0/Dockerfile)
 - Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
-    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/cmd/support-scheduler/Dockerfile)
-- Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.0.0/cmd/support-scheduler/Dockerfile)
+    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/app-rfid-llrp-inventory/blob/v2.1.0/Dockerfile)
+- Hanoi
+    - 1.3.0        - [Dockerfile](https://github.com/edgexfoundry/app-rfid-llrp-inventory/blob/v1.0.0/Dockerfile)
 
 # Quick reference (cont.)
 
-- Where to file issues: <https://github.com/edgexfoundry/edgex-go/issues>
-
+- Where to file issues: https://github.com/edgexfoundry/app-rfid-llrp-inventory/issues
 - Supported architectures: intel/amd64
-
-- Published image artifact details: <https://nexus3.edgexfoundry.org>
-
-- Source of this description: <https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates>
+- Published image artifact details: https://nexus3.edgexfoundry.org
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/app-rfid-llrp-inventory.md
 
 # What is EdgeX Foundry?
 
@@ -49,11 +46,9 @@ EdgeX's official documentation can be found at [docs.edgexfoundry.org](https://d
 
 # What's in this image?
 
-This image contains the [support scheduler](https://docs.edgexfoundry.org/2.0/microservices/support/scheduler/Ch-Scheduling/) service and all of its base configuration.
+This image contains the App Service RFID LLRP Inventory. This app service transforms raw RFID LLRP readings into inventory events (InventoryEventArrived, InventoryEventMoved and InventoryEventDeparted) 
 
-The support scheduler micro service provide an internal EdgeX “clock” that can kick off operations in any EdgeX service. At a configuration specified time (called an interval), the service calls on any EdgeX service API URL via REST to trigger an operation (called an interval action).
-
-The support scheduler service source code: <https://github.com/edgexfoundry/edgex-go>
+The App Service RFID LLRP Inventory source code: <https://github.com/edgexfoundry/app-rfid-llrp-inventory>
 
 # License
 
@@ -67,4 +62,4 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/app-rfid-llrp-inventory/blob/v2.2.0/Attribution.txt).

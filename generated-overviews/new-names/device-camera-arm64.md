@@ -10,6 +10,9 @@ WARNING:
 
 -->
 
+# Deprecation Warning
+This service has been deprecated and will be archived in future major release. Please use the new Device ONVIF Camera service which can be found at https://hub.docker.com/r/edgexfoundry/device-onvif-camera-arm64
+
 # Quick reference
 
 - Maintained by: [EdgeX Foundry](https://www.edgexfoundry.org) (a [Linux Foundation](https://www.linuxfoundation.org/) project)
@@ -18,6 +21,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Kamakura
+    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/device-camera-go/blob/v2.2.0/Dockerfile)
 - Jakarta
     - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-camera-go/blob/v2.1.0/Dockerfile)
 - Ireland
@@ -60,4 +65,4 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/device-camera-go/blob/v2.1.0/Attribution.txt).
+[source repository](https://github.com/edgexfoundry/device-camera-go/blob/v2.2.0/Attribution.txt).
