@@ -7,11 +7,10 @@ $$./common/quick-reference.md
 $$./common/version-kamakura.md |
         - [Dockerfile](https://github.com/edgexfoundry/security-spiffe-token-provider/blob/v2.2.0/Dockerfile)
 
-# Quick reference (cont.)
+# Quick reference 
 
 - Where to file issues: https://github.com/edgexfoundry/security-spiffe-token-provider/issues
 - Supported architectures: intel/amd64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/security-spiffe-token-provider.md
 
 $$./common/what-is-edgex.md
@@ -27,4 +26,3 @@ the EdgeX secure message bus, the EdgeX registry provider, and the EdgeX configu
 Source code for security-spiffe-token-provider: <https://github.com/edgexfoundry/edgex-go/>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/Attribution.txt).

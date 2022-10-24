@@ -11,11 +11,10 @@ $$./common/version-jakarta-lts.md |
 $$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-virtual-go/blob/v2.0.0/Dockerfile)
 
-# Quick reference (cont.)
+# Quick reference
 
 - Where to file issues: https://github.com/edgexfoundry/device-virtual-go/issues
 - Supported architectures: intel/amd64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-virtual.md
 
 $$./common/what-is-edgex.md
@@ -27,4 +26,3 @@ This image contains the [virtual device service](https://docs.edgexfoundry.org/2
 The device virtual service source code: <https://github.com/edgexfoundry/device-virtual-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/device-virtual-go/blob/v2.2.0/Attribution.txt).

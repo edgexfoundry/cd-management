@@ -11,7 +11,7 @@ $$./common/version-jakarta-lts.md |
 $$./common/version-hanoi.md |
         - [Dockerfile](https://github.com/edgexfoundry/app-rfid-llrp-inventory/blob/v1.0.0/Dockerfile)
 
-# Quick reference (cont.)
+# Quick reference 
 
 - Where to file issues: https://github.com/edgexfoundry/app-rfid-llrp-inventory/issues
 - Supported architectures: arm64

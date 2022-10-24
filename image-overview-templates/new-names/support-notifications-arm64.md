@@ -24,4 +24,3 @@ When another system or a person needs to know that something occurred in EdgeX, 
 The support notifications service source code: <https://github.com/edgexfoundry/edgex-go>
 
 $$./common/license.md
-[source repository](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/Attribution.txt).
