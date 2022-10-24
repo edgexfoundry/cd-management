@@ -25,11 +25,10 @@ WARNING:
 - Ireland
     - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/app-service-configurable/blob/v2.0.0/Dockerfile)
 
-# Quick reference (cont.)
+# Quick reference
 
 - Where to file issues: https://github.com/edgexfoundry/app-service-configurable/issues
 - Supported architectures: intel/amd64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/app-service-configurable.md
 
 # What is EdgeX Foundry?
@@ -52,7 +51,7 @@ The app service configurable source code: <https://github.com/edgexfoundry/app-s
 
 # License
 
-View [license information](https://docs.edgexfoundry.org/1.3/#apache-2-license) for the software contained in this image.
+View [license information](https://docs.edgexfoundry.org/latest/#apache-2-license) for the software contained in this image.
 
 As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
 
@@ -62,4 +61,3 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/app-service-configurable/blob/v2.2.0/Attribution.txt).

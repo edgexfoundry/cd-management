@@ -25,11 +25,10 @@ WARNING:
 - Ireland
     - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-ui-go/blob/v2.0.0/Dockerfile)
 
-# Quick reference (cont.)
+# Quick reference
 
 - Where to file issues: https://github.com/edgexfoundry/edgex-ui-go/issues
 - Supported architectures: intel/amd64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/edgex-ui.md
 
 # What is EdgeX Foundry?

@@ -25,7 +25,6 @@ WARNING:
 
 - Where to file issues: https://github.com/edgexfoundry/device-usb-camera/issues
 - Supported architectures: arm64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-usb-camera-arm64.md
 
 # What is EdgeX Foundry?
@@ -48,7 +47,7 @@ The device camera service source code: <https://github.com/edgexfoundry/device-u
 
 # License
 
-View [license information](https://docs.edgexfoundry.org/1.3/#apache-2-license) for the software contained in this image.
+View [license information](https://docs.edgexfoundry.org/latest/#apache-2-license) for the software contained in this image.
 
 As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
 
@@ -58,4 +57,3 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/device-usb-camera/blob/v2.2.0/Attribution.txt).

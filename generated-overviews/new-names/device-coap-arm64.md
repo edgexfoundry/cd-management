@@ -23,11 +23,10 @@ WARNING:
 - Ireland
     - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/scripts/Dockerfile.alpine)
 
-# Quick reference (cont.)
+# Quick reference
 
 - Where to file issues: https://github.com/edgexfoundry/device-coap-c/issues
 - Supported architectures: arm64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-coap-arm64.md
 
 # What is EdgeX Foundry?
@@ -50,7 +49,7 @@ The device CoAP service source code: <https://github.com/edgexfoundry/device-coa
 
 # License
 
-View [license information](https://docs.edgexfoundry.org/1.3/#apache-2-license) for the software contained in this image.
+View [license information](https://docs.edgexfoundry.org/latest/#apache-2-license) for the software contained in this image.
 
 As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
 
@@ -60,4 +59,3 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/device-coap-c/blob/v2.1.0/Attribution.txt).
