@@ -25,7 +25,7 @@ WARNING:
 - Hanoi
     - 1.3.0        - [Dockerfile](https://github.com/edgexfoundry/app-rfid-llrp-inventory/blob/v1.0.0/Dockerfile)
 
-# Quick reference (cont.)
+# Quick reference 
 
 - Where to file issues: https://github.com/edgexfoundry/app-rfid-llrp-inventory/issues
 - Supported architectures: arm64
@@ -52,7 +52,7 @@ The App Service RFID LLRP Inventory source code: <https://github.com/edgexfoundr
 
 # License
 
-View [license information](https://docs.edgexfoundry.org/1.3/#apache-2-license) for the software contained in this image.
+View [license information](https://docs.edgexfoundry.org/latest/#apache-2-license) for the software contained in this image.
 
 As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
 

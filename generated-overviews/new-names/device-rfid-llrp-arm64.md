@@ -18,18 +18,13 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
-- Kamakura
-    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v2.2.0/Dockerfile)
-- Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
-    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v2.1.0/Dockerfile)
-- Hanoi
-    - 1.3.0        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v1.0.0/Dockerfile)
+- Ireland
+    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v1.0.0/Dockerfile)
 
-# Quick reference (cont.)
+# Quick reference
 
 - Where to file issues: https://github.com/edgexfoundry/device-rfid-llrp-go/issues
 - Supported architectures: arm64
-- Published image artifact details: https://nexus3.edgexfoundry.org
 - Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-rfid-llrp-arm64.md
 
 # What is EdgeX Foundry?
@@ -52,7 +47,7 @@ The device RFID LLRP service source code: <https://github.com/edgexfoundry/devic
 
 # License
 
-View [license information](https://docs.edgexfoundry.org/1.3/#apache-2-license) for the software contained in this image.
+View [license information](https://docs.edgexfoundry.org/latest/#apache-2-license) for the software contained in this image.
 
 As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
 
@@ -62,4 +57,3 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
-[source repository](https://github.com/edgexfoundry/device-rfid-llrp-go/tree/v2.2.0).
