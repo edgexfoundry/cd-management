@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-messaging'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-messaging.git'
-commitId: 'b52a56b3860d37481c51d9bc03f6aa17aca2bcf8'
+commitId: '852588042be5e5e21b260773f766ea1490b3661d'
 gitTag: true
 dockerImages: false
