@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-registry'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-registry.git'
-commitId: '47fbd55ea138830db6cfe0c6b1e3edabe9984f42'
+commitId: '109da98df7a9610fad8d8361345958217796e116'
 gitTag: true
 dockerImages: false

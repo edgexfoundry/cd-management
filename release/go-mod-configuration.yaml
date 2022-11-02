@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-configuration'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-configuration.git'
-commitId: 'd782c4d625d7b267303ff1fbcd6dbbbf7629934f'
+commitId: '696719805f16fdb1f1dabd114fa1cfb88149d110'
 gitTag: true
 dockerImages: false
