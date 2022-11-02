@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-bootstrap'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-bootstrap.git'
-commitId: '3ea3556a9a561f49b07480f3a474daa8966a7f3b'
+commitId: '249f27d59dea47e3b17151096c8996f9fee5bf90'
 gitTag: true
 dockerImages: false
