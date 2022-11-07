@@ -1,9 +1,9 @@
 ---
 name: 'device-sdk-c'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
-commitId: '117e3ae82fbf81e148f12b1fc27328d4e4a70297'
+commitId: '508af3997b99b63bbc6444d3a4c84739e7448765'
 repo: 'https://github.com/edgexfoundry/device-sdk-c.git'
 gitTag: true
 dockerImages: false

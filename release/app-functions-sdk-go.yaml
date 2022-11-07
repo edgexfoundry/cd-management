@@ -1,10 +1,13 @@
 ---
 name: 'app-functions-sdk-go'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/app-functions-sdk-go.git'
-commitId: '521ab93fa6410c1be0cb80b1cb635940af6f602b'
+commitId: 'af808cf386d9f357a83198a2b4bd92a72b60b8ea'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
+apiInfo:
+  nextReleaseVersion: '2.4.0'
+  reviewers: edgexfoundry/app-functions-sdk-go-committers
