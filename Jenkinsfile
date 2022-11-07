@@ -1,8 +1,8 @@
 def nexusImages = [
     // [scratch: false, image: 'nexus3.edgexfoundry.org:10003/edgex-devops/edgex-golang-base:1.17-alpine', dockerfile: 'https://raw.githubusercontent.com/edgexfoundry/ci-build-images/golang-1.17/Dockerfile'],
     // [scratch: false, image: 'nexus3.edgexfoundry.org:10002/edgex-devops/edgex-golang-base:1.17-alpine-lts', dockerfile: 'https://raw.githubusercontent.com/edgexfoundry/ci-build-images/golang-1.17-lts/Dockerfile'],
-    [scratch: false, image: 'nexus3.edgexfoundry.org:10003/edgex-devops/edgex-golang-base:1.18-alpine', dockerfile: 'https://raw.githubusercontent.com/edgexfoundry/ci-build-images/golang-1.18/Dockerfile'],
-    // [scratch: false, image: 'nexus3.edgexfoundry.org:10003/edgex-devops/edgex-gcc-base:latest', dockerfile: 'https://raw.githubusercontent.com/edgexfoundry/ci-build-images/gcc/Dockerfile'],
+    // [scratch: false, image: 'nexus3.edgexfoundry.org:10003/edgex-devops/edgex-golang-base:1.18-alpine', dockerfile: 'https://raw.githubusercontent.com/edgexfoundry/ci-build-images/golang-1.18/Dockerfile'],
+    [scratch: false, image: 'nexus3.edgexfoundry.org:10003/edgex-devops/edgex-gcc-base:latest', dockerfile: 'https://raw.githubusercontent.com/edgexfoundry/ci-build-images/gcc/Dockerfile'],
     // [scratch: false, image: 'nexus3.edgexfoundry.org:10002/edgex-devops/edgex-gcc-base:gcc-lts', dockerfile: 'https://raw.githubusercontent.com/edgexfoundry/ci-build-images/gcc-lts/Dockerfile'],
 ]
 pipeline {
