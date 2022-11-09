@@ -7,6 +7,7 @@ lts: false
 repo: 'https://github.com/edgexfoundry/device-bacnet-c.git'
 commitId: '4f05ecb7b2234da5d0528d140f2d6e40a47b1b70'
 gitTag: true
+dockerForce: true
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-bacnet
@@ -17,4 +18,3 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/device-bacnet-arm64
       - docker.io/edgexfoundry/device-bacnet-arm64
-      
