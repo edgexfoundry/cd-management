@@ -1,19 +1,20 @@
 ---
 name: 'device-bacnet-c'
-version: '1.3.1'
-releaseName: 'hanoi'
-releaseStream: 'master'
-commitId: 'b6e2bc6f8470fc5bf90c10e498cccae2d89cecff'
+version: '2.3.0'
+releaseName: 'levski'
+releaseStream: 'main'
+lts: false
 repo: 'https://github.com/edgexfoundry/device-bacnet-c.git'
+commitId: '4f05ecb7b2234da5d0528d140f2d6e40a47b1b70'
 gitTag: true
 dockerImages: true
 docker:
-  - image: nexus3.edgexfoundry.org:10004/docker-device-bacnet-c
+  - image: nexus3.edgexfoundry.org:10004/device-bacnet
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-device-bacnet-c
-      - docker.io/edgexfoundry/docker-device-bacnet-c
-  - image: nexus3.edgexfoundry.org:10004/docker-device-bacnet-c-arm64
+      - nexus3.edgexfoundry.org:10002/device-bacnet
+      - docker.io/edgexfoundry/device-bacnet
+  - image: nexus3.edgexfoundry.org:10004/device-bacnet-arm64
     destination:
-      - nexus3.edgexfoundry.org:10002/docker-device-bacnet-c-arm64
-      - docker.io/edgexfoundry/docker-device-bacnet-c-arm64
+      - nexus3.edgexfoundry.org:10002/device-bacnet-arm64
+      - docker.io/edgexfoundry/device-bacnet-arm64
       
