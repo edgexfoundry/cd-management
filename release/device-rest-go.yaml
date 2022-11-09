@@ -7,6 +7,7 @@ lts: false
 repo: 'https://github.com/edgexfoundry/device-rest-go.git'
 commitId: 'ea2635875d50d8674d03123d64d8d0373faddc1b'
 gitTag: true
+dockerForce: true
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-rest
