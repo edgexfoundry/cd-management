@@ -1,11 +1,11 @@
 ---
 name: 'app-rfid-llrp-inventory'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/app-rfid-llrp-inventory.git'
-commitId: 'ea61fea914ab8199b883f73cbe196a6b29cde9f7'
+commitId: '6db00d51e0c2266114de1184be8b16c0933c83be'
 gitTag: true
 dockerImages: true
 docker:
