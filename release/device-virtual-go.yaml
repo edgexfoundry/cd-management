@@ -1,11 +1,11 @@
 ---
 name: 'device-virtual-go'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-virtual-go.git'
-commitId: '9b27552b3734ae7c2a4c3808c2aff026acc83385'
+commitId: '0c2f1e9213ddf10d1b3316c025c729eab3a2bc23'
 gitTag: true
 dockerImages: true
 docker:

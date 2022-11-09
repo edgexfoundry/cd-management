@@ -1,13 +1,12 @@
 ---
 name: 'device-rfid-llrp-go'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-rfid-llrp-go.git'
-commitId: '0104dcba4435a7bec0bb376ad6177bfc09b37bcb'
+commitId: '06c1e2526ac5cd60b9aafc88d9271394e7e43faf'
 gitTag: true
-dockerForce: true
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-rfid-llrp

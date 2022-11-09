@@ -1,11 +1,11 @@
 ---
 name: 'device-rest-go'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-rest-go.git'
-commitId: '99d2988c42a4468ca534e1bc92575890b1a7bdf5'
+commitId: 'ea2635875d50d8674d03123d64d8d0373faddc1b'
 gitTag: true
 dockerImages: true
 docker:

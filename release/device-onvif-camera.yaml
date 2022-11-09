@@ -1,12 +1,11 @@
 ---
 name: device-onvif-camera
-version: 2.2.0
-releaseName: kamakura
-releaseStream: main
-semverBumpLevel: minor
+version: '2.3.0'
+releaseName: 'levski'
+releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-onvif-camera.git'
-commitId: 9bac30ea06e4ebb0f0f10422a9d4eedb1be08404
+commitId: ef0e1dc43e01e3af63e43192147483735d9789c0
 gitTag: true
 dockerImages: true
 docker:

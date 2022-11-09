@@ -1,13 +1,12 @@
 ---
 name: 'device-snmp-go'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-snmp-go.git'
-commitId: '9505b3b9fb87609b3cd85be587e030c33719d431'
+commitId: 'ef51753be6f5a47d4d6f224ef8f149167d14d206'
 gitTag: true
-dockerForce: true
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-snmp
