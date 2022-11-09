@@ -1,12 +1,15 @@
 ---
 name: 'edgex-go'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
-commitId: '4c8c89fce4e75ce7c1d6903d36d5204dd5068cb5'
+commitId: '4f1b2626cb078c7149dc655301029b2517b4b500'
 gitTag: true
+apiInfo:
+  nextReleaseVersion: '2.4.0'
+  reviewers: edgexfoundry/edgex-go-committers
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/core-metadata
