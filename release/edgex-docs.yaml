@@ -1,15 +1,15 @@
 ---
 name: 'edgex-docs'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-docs.git'
-commitId: 'f1b4b455903b8a165bb3c77e744a4027c6f48d50'
+commitId: '12b74159bd689e19f0fd86ead87412585551fa86'
 gitTag: false
 dockerImages: false
 docs: true
 docsInfo:
-  nextReleaseName: levski
-  nextReleaseVersion: "2.3.0"
+  nextReleaseName: minnesota
+  nextReleaseVersion: "2.4.0"
   reviewers: edgexfoundry/edgex-docs-committers
