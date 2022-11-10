@@ -1,10 +1,10 @@
 ---
 name: 'edgex-examples'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-examples.git'
-commitId: 'a5414b29bc2f036d23782d016f3fdaff7e48a558'
+commitId: 'cc09c476babe03dee47bc1adf6899ebc0cba8529'
 gitTag: true
 dockerImages: false
