@@ -1,16 +1,16 @@
 ---
 name: 'edgex-cli'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-cli.git'
-commitId: '807743fe2cd95416301ef64c5418e15ed978b2a1'
+commitId: '573944a22223370b52a0cc85965c91f873a09f1a'
 gitTag: true
 dockerImages: false
 gitHubRelease: true
 gitHubReleaseAssets:
-  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/28/bin/edgex-cli-linux-amd64-2.2.0.tar.gz'
-  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/28/bin/edgex-cli-linux-arm64-2.2.0.tar.gz'
-  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/28/bin/edgex-cli-mac-2.2.0.tar.gz'
-  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/28/bin/edgex-cli-win-2.2.0.zip' 
+  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/32/bin/edgex-cli-linux-amd64-2.3.0.tar.gz'
+  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/32/bin/edgex-cli-linux-arm64-2.3.0.tar.gz'
+  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/32/bin/edgex-cli-mac-2.3.0.tar.gz'
+  - 'https://logs.edgexfoundry.org/production/vex-yul-edgex-jenkins-1/edgexfoundry/edgex-cli/main/32/bin/edgex-cli-win-2.3.0.zip' 

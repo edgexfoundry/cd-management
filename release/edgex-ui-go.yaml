@@ -1,11 +1,11 @@
 ---
 name: 'edgex-ui-go'
-version: '2.2.0'
-releaseName: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-ui-go.git'
-commitId: '66d087440452cd2777c1b48e6c315f4ea5829394'
+commitId: '1fc6aad09b79efe7d583b860cd1a98c2a76983c7'
 gitTag: true
 dockerImages: true
 docker:
