@@ -7,14 +7,14 @@ $$./common/quick-reference.md
 # Quick reference
 
 - Where to file issues: https://github.com/edgexfoundry/device-bacnet-c/issues
-- Supported architectures: arm64
-- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-bacnet-arm64.md
+- Supported architectures: intel/amd64
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-bacnet.md
 
 $$./common/what-is-edgex.md
 
 # What's in this image?
 
-This image contains the device service **ARM64 version** to connect Building Automation and Control Network (BACNet) devices to EdgeX
+This image contains the device service to connect Building Automation and Control Network (BACNet) devices to EdgeX
 
 The device BACNet service source code: <https://github.com/edgexfoundry/device-bacnet-c/issues>
 
