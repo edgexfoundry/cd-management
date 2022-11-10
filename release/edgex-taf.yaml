@@ -1,10 +1,10 @@
 ---
 name: 'edgex-taf'
-version: '2.2.0'
-releaseName: 'kamakura'
-releaseStream: 'main'
+version: '2.3.0'
+releaseName: 'levski'
+releaseStream: 'levski'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-taf.git'
-commitId: '0eb33292925693c8c97cb37f4ecfa0da53443efa'
+commitId: '3a2c4be1cfe8792113c530d56c2e3db342b553a7'
 gitTag: true
 dockerImages: false
