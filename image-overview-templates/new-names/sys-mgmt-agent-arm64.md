@@ -2,8 +2,14 @@ $$./common/warning.md
 
 $$./common/quick-reference.md
 
+# Deprecation Warning
+
+This service has been deprecated and will be archived in future major release. Please use one of the many 3rd party container deployment/management solutions.
+
 # Supported tags and respective Dockerfile links
 
+$$./common/version-levski.md |
+        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/sys-mgmt-agent/Dockerfile)
 $$./common/version-kamakura.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/sys-mgmt-agent/Dockerfile)
 $$./common/version-jakarta-lts.md |

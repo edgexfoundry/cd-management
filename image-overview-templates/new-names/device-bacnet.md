@@ -4,6 +4,9 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-levski.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-bacnet-c/blob/v2.3.0/scripts/Dockerfile.alpine)
+
 # Quick reference
 
 - Where to file issues: https://github.com/edgexfoundry/device-bacnet-c/issues

@@ -4,8 +4,10 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-levski.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.3.0/scripts/Dockerfile.alpine)
 $$./common/version-jakarta-non-lts.md |
-        - [Dockerfile](https://github.com/edgexfoundry/device-camera-go/blob/v2.1.0/Dockerfile)
+        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.1.0/scripts/Dockerfile.alpine)
 $$./common/version-ireland.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/scripts/Dockerfile.alpine)
 

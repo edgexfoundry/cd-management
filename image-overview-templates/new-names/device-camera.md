@@ -1,7 +1,9 @@
 $$./common/warning.md
 
-# Deprecation Warning
-This service has been deprecated and will be archived in future major release. Please use the new Device ONVIF Camera service which can be found at https://hub.docker.com/r/edgexfoundry/device-onvif-camera
+$$./common/archived-warning.md
+
+# No Longer Supported
+Please use the new Device ONVIF Camera service which can be found at https://hub.docker.com/r/edgexfoundry/device-onvif-camera
 
 $$./common/quick-reference.md
 

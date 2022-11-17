@@ -4,9 +4,11 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-levski.md |
+        - [Dockerfile](https://github.com/edgexfoundry/security-spire-server/blob/v2.3.0/Dockerfile)
 $$./common/version-kamakura.md |
         - [Dockerfile](https://github.com/edgexfoundry/security-spire-server/blob/v2.2.0/Dockerfile)
-11
+
 # Quick reference 
 
 - Where to file issues: https://github.com/edgexfoundry/security-spire-server/issues

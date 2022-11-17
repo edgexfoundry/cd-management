@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-levski.md |
+        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/security-proxy-setup/Dockerfile)
 $$./common/version-kamakura.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/security-proxy-setup/Dockerfile)
 $$./common/version-jakarta-lts.md |

@@ -1,5 +1,7 @@
 $$./common/warning.md
 
+$$./common/archived-warning.md
+
 $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
