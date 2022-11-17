@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-levski.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.3.0/scripts/Dockerfile.alpine)
 $$./common/version-jakarta-lts.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.1.0/scripts/Dockerfile.alpine)
 $$./common/version-ireland.md |
