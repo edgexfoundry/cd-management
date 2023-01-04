@@ -1,9 +1,9 @@
 ---
 name: 'edgex-compose'
-version: '2.2.0'
-releaseName: 'kamakura'
-releaseStream: 'kamakura'
+version: '2.3.0'
+releaseName: 'levski'
+releaseStream: 'levski'
 repo: 'https://github.com/edgexfoundry/edgex-compose.git'
-commitId: '4bb179e4364bae054393635e05ab039790d9cda8'
+commitId: 'd43aa974616bed2b77d07f3bcbd18a5f0570d8f2'
 gitTag: true
 dockerImages: false
