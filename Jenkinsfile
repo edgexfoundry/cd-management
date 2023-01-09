@@ -55,15 +55,12 @@ pipeline {
                         }
                     }
                 }
-
-                post {
-                    always { archiveArtifacts artifacts: 'deploy-overviews.log', allowEmptyArchive: true }
-                }
             }
         }
     }
     post {
         always {
+            archiveArtifacts artifacts: 'deploy-overviews.log', allowEmptyArchive: true
             edgeXInfraPublish()
         }
     }
