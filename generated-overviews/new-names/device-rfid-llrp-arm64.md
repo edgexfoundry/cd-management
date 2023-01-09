@@ -18,6 +18,12 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Levski
+    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v2.3.0/Dockerfile)
+- Kamakura
+    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v2.2.0/Dockerfile)
+- Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
+    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v2.1.0/Dockerfile)
 - Ireland
     - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-rfid-llrp-go/blob/v1.0.0/Dockerfile)
 

@@ -18,8 +18,10 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Levski
+    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.3.0/scripts/Dockerfile.alpine)
 - Jakarta
-    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-camera-go/blob/v2.1.0/Dockerfile)
+    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.1.0/scripts/Dockerfile.alpine)
 - Ireland
     - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/scripts/Dockerfile.alpine)
 

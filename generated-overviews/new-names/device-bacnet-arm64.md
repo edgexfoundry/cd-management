@@ -18,10 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
-- Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
-    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-bacnet-c/blob/v2.1.0/scripts/Dockerfile.alpine)
-- Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-bacnet-c/blob/v2.0.0/scripts/Dockerfile.alpine)
+- Levski
+    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/device-bacnet-c/blob/v2.3.0/scripts/Dockerfile.alpine)
 
 # Quick reference
 
@@ -43,7 +41,7 @@ EdgeX's official documentation can be found at [docs.edgexfoundry.org](https://d
 
 # What's in this image?
 
-This image contains the **ARM64 version** of the device service for connecting BACNet devices to EdgeX.
+This image contains the device service **ARM64 version** to connect Building Automation and Control Network (BACNet) devices to EdgeX
 
 The device BACNet service source code: <https://github.com/edgexfoundry/device-bacnet-c/issues>
 
