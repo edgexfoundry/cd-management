@@ -16,7 +16,7 @@
 
 pipeline {
     agent {
-        label 'centos7-docker-4c-2g'
+        label 'ubuntu18.04-docker-8c-8g'
     }
     parameters {
         string(
@@ -52,9 +52,12 @@ pipeline {
                     steps {
                         configFileProvider([configFile(fileId: env.RELEASE_DOCKER_SETTINGS, variable: 'SETTINGS_FILE')]) {
                             sh "python deploy-overviews.py --user edgexfoundry ${params.Name} ${params.Execute}"
-                            archiveArtifacts artifacts: 'deploy-overviews.log'
                         }
                     }
+                }
+
+                post {
+                    always { archiveArtifacts artifacts: 'deploy-overviews.log', allowEmptyArchive: true }
                 }
             }
         }
