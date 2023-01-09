@@ -19,23 +19,13 @@ WARNING:
 # Supported tags and respective Dockerfile links
 
 - Levski
-    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/support-notifications/Dockerfile)
-- Kamakura
-    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/support-notifications/Dockerfile)
-- Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
-    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/cmd/support-notifications/Dockerfile)
-- Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.0.0/cmd/support-notifications/Dockerfile)
+    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/device-bacnet-c/blob/v2.3.0/scripts/Dockerfile.alpine)
 
-# Quick reference (cont.)
+# Quick reference
 
-- Where to file issues: <https://github.com/edgexfoundry/edgex-go/issues>
-
+- Where to file issues: https://github.com/edgexfoundry/device-bacnet-c/issues
 - Supported architectures: intel/amd64
-
-- Published image artifact details: <https://nexus3.edgexfoundry.org>
-
-- Source of this description: <https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates>
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-bacnet.md
 
 # What is EdgeX Foundry?
 
@@ -51,11 +41,9 @@ EdgeX's official documentation can be found at [docs.edgexfoundry.org](https://d
 
 # What's in this image?
 
-This image contains the [support notifications](https://docs.edgexfoundry.org/2.0/microservices/support/notifications/Ch-AlertsNotifications/) service and all of its base configuration.
+This image contains the device service to connect Building Automation and Control Network (BACNet) devices to EdgeX
 
-When another system or a person needs to know that something occurred in EdgeX, the alerts and notifications micro service sends that notification. Examples of alerts and notifications that other services could broadcast, include the provisioning of a new device, sensor data detected outside of certain parameters (usually detected by a device service or rules engine) or system or service malfunctions (usually detected by system management services).
-
-The support notifications service source code: <https://github.com/edgexfoundry/edgex-go>
+The device BACNet service source code: <https://github.com/edgexfoundry/device-bacnet-c/issues>
 
 # License
 

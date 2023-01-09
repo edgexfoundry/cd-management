@@ -18,9 +18,11 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Levski
+    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/security-spire-server/blob/v2.3.0/Dockerfile)
 - Kamakura
     - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/security-spire-server/blob/v2.2.0/Dockerfile)
-11
+
 # Quick reference 
 
 - Where to file issues: https://github.com/edgexfoundry/security-spire-server/issues

@@ -10,8 +10,10 @@ WARNING:
 
 -->
 
-# Deprecation Warning
-This service has been deprecated and will be archived in future major release. Please use the new Device ONVIF Camera service which can be found at https://hub.docker.com/r/edgexfoundry/device-onvif-camera
+**This image is ARCHIVED and no longer actively developed or maintained in EdgeX Foundry.  Use only when working with an older version of EdgeX.**
+
+# No Longer Supported
+Please use the new Device ONVIF Camera service which can be found at https://hub.docker.com/r/edgexfoundry/device-onvif-camera
 
 # Quick reference
 

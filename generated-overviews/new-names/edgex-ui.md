@@ -18,6 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Levski
+    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-ui-go/blob/v2.3.0/Dockerfile)
 - Kamakura
     - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-ui-go/blob/v2.2.0/Dockerfile)
 - Jakarta

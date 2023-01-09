@@ -16,8 +16,14 @@ WARNING:
 
 - Where to get help: [EdgeX Web Site](https://www.edgexfoundry.com), [EdgeX Documentation](https://docs.edgexfoundry.com), [EdgeX Slack](https://edgexfoundry.slack.com/), [EdgeX Project Wiki](https://wiki.edgexfoundry.org)
 
+# Deprecation Warning
+
+This service has been deprecated and will be archived in future major release. Please use one of the many 3rd party container deployment/management solutions.
+
 # Supported tags and respective Dockerfile links
 
+- Levski
+    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/sys-mgmt-agent/Dockerfile)
 - Kamakura
     - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/sys-mgmt-agent/Dockerfile)
 - Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
