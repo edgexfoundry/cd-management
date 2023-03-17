@@ -1,10 +1,10 @@
 ---
 name: 'device-sdk-go'
-version: '2.3.0'
+version: '2.3.1'
 releaseName: 'levski'
-releaseStream: 'main'
+releaseStream: 'levski'
 repo: 'https://github.com/edgexfoundry/device-sdk-go.git'
-commitId: 'b76771b07adf0b8c2e38dd8a749adeac8b55b549'
+commitId: 'b3f594a'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
