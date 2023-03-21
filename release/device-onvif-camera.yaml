@@ -1,13 +1,13 @@
 ---
 name: device-onvif-camera
-version: '2.3.0'
+version: '2.3.1'
 releaseName: 'levski'
-releaseStream: 'main'
+releaseStream: 'levski'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-onvif-camera.git'
-commitId: ef0e1dc43e01e3af63e43192147483735d9789c0
+commitId: 4d60271c1a122ad73ad4ab446ee385de813631e9
 gitTag: true
-dockerForce: true
+dockerForce: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-onvif-camera
