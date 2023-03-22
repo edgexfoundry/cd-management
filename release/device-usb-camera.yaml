@@ -1,11 +1,11 @@
 ---
 name: device-usb-camera
-version: '2.3.0'
+version: '2.3.1'
 releaseName: 'levski'
-releaseStream: 'main'
+releaseStream: 'levski'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-usb-camera.git'
-commitId: aa9461ff516dbbb31bf7876f6a13f06d431dd475
+commitId: 16af8f3edb30e896c9df711e1ece74dbd6b6326b
 gitTag: true
 dockerImages: true
 docker:
