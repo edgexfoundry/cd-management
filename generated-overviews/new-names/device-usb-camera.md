@@ -19,7 +19,7 @@ WARNING:
 # Supported tags and respective Dockerfile links
 
 - Levski
-    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/device-usb-camera/blob/v2.3.0/Dockerfile)
+    - 2.3.1        - [Dockerfile](https://github.com/edgexfoundry/device-usb-camera/blob/v2.3.1/Dockerfile)
 - Kamakura
     - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/device-usb-camera/blob/v2.2.0/Dockerfile)
 
