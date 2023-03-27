@@ -4,8 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
-$$./common/version-levski.md |
-        - [Dockerfile](https://github.com/edgexfoundry/device-onvif-camera/blob/v2.3.0/Dockerfile)
+$$./common/version-levski-2.3.1.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-onvif-camera/blob/v2.3.1/Dockerfile)
 $$./common/version-kamakura.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-onvif-camera/blob/v2.2.0/Dockerfile)
 
