@@ -1,10 +1,10 @@
 ---
 name: 'app-functions-sdk-go'
-version: '2.3.0'
+version: '2.3.1'
 releaseName: 'levski'
-releaseStream: 'main'
+releaseStream: 'levski'
 repo: 'https://github.com/edgexfoundry/app-functions-sdk-go.git'
-commitId: 'af808cf386d9f357a83198a2b4bd92a72b60b8ea'
+commitId: 'dcb3f0d2367b7374d4fc63a15d0b7b9a5ad0c11e'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
