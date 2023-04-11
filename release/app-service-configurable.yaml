@@ -1,13 +1,13 @@
 ---
 name: 'app-service-configurable'
-version: '2.3.0'
+version: '2.3.1'
 releaseName: 'levski'
-releaseStream: 'main'
+releaseStream: 'levski'
 lts: false
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
-commitId: 'c652ff16af1e74f6a40a6431fa4d554cbc316d6f'
+commitId: '6891b07bca9ffb23389de7e5af914c7b678e0717'
 gitTag: true
-dockerForce: true
+dockerForce: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/app-service-configurable
