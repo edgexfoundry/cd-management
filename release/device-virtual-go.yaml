@@ -1,7 +1,7 @@
 ---
 name: 'device-virtual-go'
-version: '2.3.0'
-releaseName: 'levski'
+version: '2.5.0'
+releaseName: 'foobar'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-virtual-go.git'

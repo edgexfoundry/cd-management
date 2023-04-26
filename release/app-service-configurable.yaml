@@ -1,7 +1,7 @@
 ---
 name: 'app-service-configurable'
-version: '2.3.1'
-releaseName: 'levski'
+version: '2.5.0'
+releaseName: 'foobar'
 releaseStream: 'levski'
 lts: false
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
