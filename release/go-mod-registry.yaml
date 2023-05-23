@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-registry'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-registry.git'
-commitId: '109da98df7a9610fad8d8361345958217796e116'
+commitId: '09117ed6ec65601c86e054525ad6f8186f9d00a7'
 gitTag: true
 dockerImages: false
