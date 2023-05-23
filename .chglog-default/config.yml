@@ -19,6 +19,7 @@ options:
         - update
         - perf
         - fix
+        - refactor!
         - refactor
         - docs
         - build
@@ -29,6 +30,7 @@ options:
       feat: Features ✨
       fix: Bug Fixes 🐛
       perf: Performance Improvements ⚡
+      refactor!: Code Refactoring ♻
       refactor: Code Refactoring ♻
       update: Updates 🔄
       build: Build 👷
