@@ -14,6 +14,7 @@ options:
   commit_groups:
     sort_by: Custom
     title_order:
+        - feat!
         - feat
         - update
         - perf
@@ -24,6 +25,7 @@ options:
         - chore
         - ci
     title_maps:
+      feat!: Features ✨
       feat: Features ✨
       fix: Bug Fixes 🐛
       perf: Performance Improvements ⚡
