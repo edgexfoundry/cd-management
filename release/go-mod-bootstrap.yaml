@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-bootstrap'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-bootstrap.git'
-commitId: '249f27d59dea47e3b17151096c8996f9fee5bf90'
+commitId: 'cde0120799f0a105c850bf9950c421bc6404a345'
 gitTag: true
 dockerImages: false
