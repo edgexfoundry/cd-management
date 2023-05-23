@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-core-contracts'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-core-contracts.git'
-commitId: '0aa29299a24f795ef3b03b83c26a6d73269e9e29'
+commitId: 'ff059d2abd58224b472fcef7c0bd297b17133044'
 gitTag: true
 dockerImages: false
