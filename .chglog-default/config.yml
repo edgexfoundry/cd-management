@@ -14,19 +14,23 @@ options:
   commit_groups:
     sort_by: Custom
     title_order:
+        - feat!
         - feat
         - update
         - perf
         - fix
+        - refactor!
         - refactor
         - docs
         - build
         - chore
         - ci
     title_maps:
+      feat!: Features ✨
       feat: Features ✨
       fix: Bug Fixes 🐛
       perf: Performance Improvements ⚡
+      refactor!: Code Refactoring ♻
       refactor: Code Refactoring ♻
       update: Updates 🔄
       build: Build 👷
