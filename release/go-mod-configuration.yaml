@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-configuration'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-configuration.git'
-commitId: '696719805f16fdb1f1dabd114fa1cfb88149d110'
+commitId: '4d8d54a65c49840dae70675416d78ca62ff94528'
 gitTag: true
 dockerImages: false
