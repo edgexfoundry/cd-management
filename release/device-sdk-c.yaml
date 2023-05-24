@@ -1,9 +1,9 @@
 ---
 name: 'device-sdk-c'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
-commitId: '508af3997b99b63bbc6444d3a4c84739e7448765'
+commitId: 'ad65e45309f8995a17d27a3f59962ea35e988788'
 repo: 'https://github.com/edgexfoundry/device-sdk-c.git'
 gitTag: true
 dockerImages: false
