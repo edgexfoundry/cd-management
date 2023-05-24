@@ -1,13 +1,13 @@
 ---
 name: 'device-sdk-go'
-version: '2.3.1'
-releaseName: 'levski'
-releaseStream: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
+releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/device-sdk-go.git'
-commitId: 'b3f594a'
+commitId: 'afe14f99071666e3a8a1e98015d177d59a71e5e7'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
 apiInfo:
-  nextReleaseVersion: '2.4.0'
+  nextReleaseVersion: '3.1.0'
   reviewers: edgexfoundry/device-sdk-go-committers
