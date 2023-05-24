@@ -1,9 +1,9 @@
 ---
 name: 'go-mod-bootstrap'
-version: '3.0.0'
+version: '3.0.1'
 releaseName: 'minnesota'
 releaseStream: 'main'
 repo: 'https://github.com/edgexfoundry/go-mod-bootstrap.git'
-commitId: 'cde0120799f0a105c850bf9950c421bc6404a345'
+commitId: '3568057c2bc587f06c498046610b571516c920c3'
 gitTag: true
 dockerImages: false
