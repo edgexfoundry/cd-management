@@ -1,11 +1,11 @@
 ---
 name: 'app-rfid-llrp-inventory'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/app-rfid-llrp-inventory.git'
-commitId: '6db00d51e0c2266114de1184be8b16c0933c83be'
+commitId: '6182e83b98c022ca1bd0a0839ba068b34176a663'
 gitTag: true
 dockerImages: true
 docker:
