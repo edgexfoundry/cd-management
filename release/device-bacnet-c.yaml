@@ -1,11 +1,11 @@
 ---
 name: 'device-bacnet-c'
-version: '2.3.1'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-bacnet-c.git'
-commitId: '3ba4b59b159319c1ab93ebe76d9d54adfa72a26f'
+commitId: 'de54976e2d34757b5269fc827b494d0b9848b55d'
 gitTag: true
 dockerForce: false
 dockerImages: true
