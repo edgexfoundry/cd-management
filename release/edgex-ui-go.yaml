@@ -1,11 +1,11 @@
 ---
 name: 'edgex-ui-go'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-ui-go.git'
-commitId: '1fc6aad09b79efe7d583b860cd1a98c2a76983c7'
+commitId: '0be910da442da054ca269013485ad7785d291f45'
 gitTag: true
 dockerImages: true
 docker:
