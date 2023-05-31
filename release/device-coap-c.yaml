@@ -1,11 +1,11 @@
 ---
 name: 'device-coap-c'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-coap-c.git'
-commitId: 'fb0b2a3a27529b6868993f405a74ec856eb5e6c6'
+commitId: 'a55eb6886277aa3bb9f91e7430380574c93536ac'
 gitTag: true
 dockerImages: true
 docker:
