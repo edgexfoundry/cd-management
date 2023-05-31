@@ -34,15 +34,16 @@ class API(GitHubAPI):
         super(API, self).__init__(**kwargs)
 
     def get_latest(self, repo, org='edgexfoundry'):
+        logger.info(f"Searching for a tag in '{org}/{repo}' repository")
         tags = self.get(f'/repos/{org}/{repo}/tags', _get='all')
 
         released_versions = []
         for tag in tags:
             name = tag['name']
             if name.startswith('v'):
-                semver_version = Version(name[1:])
+                semver_version = Version.coerce(name[1:])
             else:
-                semver_version = Version(name)
+                semver_version = Version.coerce(name)
 
             if not semver_version.prerelease:
                 released_versions.append(semver_version)
