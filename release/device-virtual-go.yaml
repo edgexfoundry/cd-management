@@ -1,11 +1,11 @@
 ---
 name: 'device-virtual-go'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-virtual-go.git'
-commitId: '0c2f1e9213ddf10d1b3316c025c729eab3a2bc23'
+commitId: '178b9a158c9b2d1c2a09f5efb5db45d99958c0f3'
 gitTag: true
 dockerImages: true
 docker:

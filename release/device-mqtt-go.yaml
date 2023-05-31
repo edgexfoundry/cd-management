@@ -1,13 +1,13 @@
 ---
 name: 'device-mqtt-go'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-mqtt-go.git'
-commitId: '04dd21c66d30f2f5802ef6ad79267ec69547597f'
+commitId: '076aceae7774eed065da4ce17ac21a3c9dad675d'
 gitTag: true
-dockerForce: true
+dockerForce: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-mqtt

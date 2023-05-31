@@ -1,13 +1,13 @@
 ---
 name: 'device-rest-go'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-rest-go.git'
-commitId: 'ea2635875d50d8674d03123d64d8d0373faddc1b'
+commitId: '1e3f17100cbecc49b07fca8c81a93e30a5261c95'
 gitTag: true
-dockerForce: true
+dockerForce: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-rest
