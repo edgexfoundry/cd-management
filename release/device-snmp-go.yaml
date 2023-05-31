@@ -1,13 +1,13 @@
 ---
 name: 'device-snmp-go'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-snmp-go.git'
-commitId: 'ef51753be6f5a47d4d6f224ef8f149167d14d206'
+commitId: '3a4f383a77d0147d8cfd096fa38d6fefa237b1d0'
 gitTag: true
-dockerForce: true
+dockerForce: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-snmp

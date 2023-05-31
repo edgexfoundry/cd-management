@@ -1,11 +1,11 @@
 ---
 name: 'device-gpio'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-gpio.git'
-commitId: '6d8ecf80da7f2ca0a5daac1df958a19e93358a5b'
+commitId: '48bd73e9db85e88a37bd3be7a57145d756a3f8e1'
 gitTag: true
 dockerImages: true
 docker:

@@ -1,13 +1,13 @@
 ---
 name: 'device-modbus-go'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-modbus-go.git'
-commitId: '251be81c94d6bf2c69d06494166ea5d98cfe24ab'
+commitId: '18e5bddd1624945f7f79c46e89df23b543e6953b'
 gitTag: true
-dockerForce: true
+dockerForce: false
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/device-modbus
