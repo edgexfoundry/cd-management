@@ -1,14 +1,14 @@
 ---
 name: 'edgex-go'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
-commitId: '4f1b2626cb078c7149dc655301029b2517b4b500'
+commitId: '1fb6775d8804dda106fccace673c66bb187c3e57'
 gitTag: true
 apiInfo:
-  nextReleaseVersion: '2.4.0'
+  nextReleaseVersion: '3.1.0'
   reviewers: edgexfoundry/edgex-go-committers
 dockerImages: true
 docker:
@@ -36,6 +36,14 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/core-command-arm64
       - docker.io/edgexfoundry/core-command-arm64
+  - image: nexus3.edgexfoundry.org:10004/core-common-config-bootstrapper
+    destination:
+      - nexus3.edgexfoundry.org:10002/core-common-config-bootstrapper
+      - docker.io/edgexfoundry/core-common-config-bootstrapper
+  - image: nexus3.edgexfoundry.org:10004/core-common-config-bootstrapper-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/core-common-config-bootstrapper-arm64
+      - docker.io/edgexfoundry/core-common-config-bootstrapper-arm64
   - image: nexus3.edgexfoundry.org:10004/support-notifications
     destination:
       - nexus3.edgexfoundry.org:10002/support-notifications
@@ -52,14 +60,14 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/support-scheduler-arm64
       - docker.io/edgexfoundry/support-scheduler-arm64
-  - image: nexus3.edgexfoundry.org:10004/sys-mgmt-agent
+  - image: nexus3.edgexfoundry.org:10004/security-proxy-auth
     destination:
-      - nexus3.edgexfoundry.org:10002/sys-mgmt-agent
-      - docker.io/edgexfoundry/sys-mgmt-agent
-  - image: nexus3.edgexfoundry.org:10004/sys-mgmt-agent-arm64
+      - nexus3.edgexfoundry.org:10002/security-proxy-auth
+      - docker.io/edgexfoundry/security-proxy-auth
+  - image: nexus3.edgexfoundry.org:10004/security-proxy-auth-arm64
     destination:
-      - nexus3.edgexfoundry.org:10002/sys-mgmt-agent-arm64
-      - docker.io/edgexfoundry/sys-mgmt-agent-arm64
+      - nexus3.edgexfoundry.org:10002/security-proxy-auth-arm64
+      - docker.io/edgexfoundry/security-proxy-auth-arm64
   - image: nexus3.edgexfoundry.org:10004/security-proxy-setup
     destination:
       - nexus3.edgexfoundry.org:10002/security-proxy-setup
