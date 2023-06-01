@@ -49,6 +49,8 @@ class EnvBuilder:
             'device-rest-go': 'DEVICE_REST_VERSION',
             'device-snmp-go': 'DEVICE_SNMP_VERSION',
             'device-virtual-go': 'DEVICE_VIRTUAL_VERSION',
+            'device-onvif-camera': 'DEVICE_ONVIFCAM_VERSION',
+            'device-usb-camera': 'DEVICE_USBCAM_VERSION',
         }
 
     def process_env_file(self):
