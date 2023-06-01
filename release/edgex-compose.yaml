@@ -1,9 +1,9 @@
 ---
 name: 'edgex-compose'
-version: '2.3.0'
-releaseName: 'levski'
-releaseStream: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
+releaseStream: 'minnesota'
 repo: 'https://github.com/edgexfoundry/edgex-compose.git'
-commitId: 'd43aa974616bed2b77d07f3bcbd18a5f0570d8f2'
+commitId: 'bf0a3795b8811cbc813b67b57ba8305572b8ae6d'
 gitTag: true
 dockerImages: false
