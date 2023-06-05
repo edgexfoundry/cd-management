@@ -38,17 +38,20 @@ class EnvBuilder:
 
         self.repo_map = {
             'edgex-go': 'CORE_EDGEX_VERSION',
-            'app-service-configurable': 'APP_SERVICE_VERSION',
+            'app-service-configurable': 'APP_SERVICE_CONFIG_VERSION',
+            'app-rfid-llrp-inventory': 'APP_LLRP_VERSION',
             'edgex-ui-go': 'EDGEX_UI_VERSION',
             'device-bacnet-c': 'DEVICE_BACNET_VERSION',
             'device-camera-go': 'DEVICE_CAMERA_VERSION',
             'device-grove-c': 'DEVICE_GROVE_VERSION',
             'device-modbus-go': 'DEVICE_MODBUS_VERSION',
             'device-mqtt-go': 'DEVICE_MQTT_VERSION',
-            'device-random': 'DEVICE_RANDOM_VERSION',
             'device-rest-go': 'DEVICE_REST_VERSION',
             'device-snmp-go': 'DEVICE_SNMP_VERSION',
             'device-virtual-go': 'DEVICE_VIRTUAL_VERSION',
+            'device-rfid-llrp-go': 'DEVICE_LLRP_VERSION',
+            'device-coap-c': 'DEVICE_COAP_VERSION',
+            'device-gpio': 'DEVICE_GPIO_VERSION',
             'device-onvif-camera': 'DEVICE_ONVIFCAM_VERSION',
             'device-usb-camera': 'DEVICE_USBCAM_VERSION',
         }
@@ -81,7 +84,11 @@ class EnvBuilder:
             logger.info("")
             logger.info(
                 f"Looking up dependency version for [{self.args.deps}]")
-            updated_versions = self.lookup_dependencies(self.args.deps)
+            try:
+                updated_versions = self.lookup_dependencies(self.args.deps)
+            except Exception as e:
+                logger.error(f"Failed to lookup dependencies: {e}")
+                logger.error("Ignoring error and continuing...")
 
         if len(updated_versions) > 0:
             logger.info("")
@@ -149,15 +156,14 @@ class EnvBuilder:
 
                 # all this if/else is pretty ugly
                 if dep == 'kuiper':
-                    org = 'emqx'
-
-                if dep == 'mosquitto':
+                    image_name = 'ekuiper'
+                    org = 'lfedge'
+                elif dep == 'mosquitto':
                     image_name = 'eclipse-mosquitto'
                 else:
                     image_name = dep
 
-                dep_version = self.image_search.get_image_versions(
-                    image_name, org=org, filter=lookup, verbose=False)
+                dep_version = self.image_search.get_image_versions(image_name, org=org, filter=lookup, verbose=False)
 
                 all_versions = dep_version[lookup]
                 # deal with alpine versions a bit different
