@@ -52,6 +52,8 @@ class EnvBuilder:
             'device-rfid-llrp-go': 'DEVICE_LLRP_VERSION',
             'device-coap-c': 'DEVICE_COAP_VERSION',
             'device-gpio': 'DEVICE_GPIO_VERSION',
+            'device-onvif-camera': 'DEVICE_ONVIFCAM_VERSION',
+            'device-usb-camera': 'DEVICE_USBCAM_VERSION',
         }
 
     def process_env_file(self):
