@@ -1,15 +1,15 @@
 ---
 name: 'edgex-docs'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-docs.git'
-commitId: '12b74159bd689e19f0fd86ead87412585551fa86'
+commitId: 'd2429314861a7ea1c2d77ffc525cab1029a2c376'
 gitTag: false
 dockerImages: false
 docs: true
 docsInfo:
-  nextReleaseName: minnesota
-  nextReleaseVersion: "2.4.0"
+  nextReleaseName: napa
+  nextReleaseVersion: "3.1"
   reviewers: edgexfoundry/edgex-docs-committers
