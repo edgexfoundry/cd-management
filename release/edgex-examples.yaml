@@ -1,10 +1,10 @@
 ---
 name: 'edgex-examples'
-version: '2.3.0'
-releaseName: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-examples.git'
-commitId: 'cc09c476babe03dee47bc1adf6899ebc0cba8529'
+commitId: 'd2ab50b1eba1cb18c6deefa5fad624eb74805c1a'
 gitTag: true
 dockerImages: false
