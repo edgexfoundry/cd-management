@@ -1,10 +1,10 @@
 ---
 name: 'edgex-taf'
-version: '2.3.0'
-releaseName: 'levski'
-releaseStream: 'levski'
+version: '3.0.0'
+releaseName: 'minnesota'
+releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/edgex-taf.git'
-commitId: '3a2c4be1cfe8792113c530d56c2e3db342b553a7'
+commitId: '318c0304f47c75a84f02b4527c00f1085348c3f7'
 gitTag: true
 dockerImages: false
