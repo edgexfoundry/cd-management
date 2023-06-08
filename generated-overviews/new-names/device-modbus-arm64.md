@@ -18,6 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Minnesota
+    - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-modbus-go/blob/v3.0.0/Dockerfile)
 - Levski
     - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/device-modbus-go/blob/v2.3.0/Dockerfile)
 - Kamakura

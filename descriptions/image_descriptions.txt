@@ -5,6 +5,8 @@ app-rfid-llrp-inventory-arm64: ARM64 App service that transforms raw RFID LLRP r
 app-rfid-llrp-inventory: App service that transforms raw RFID LLRP readings to inventory events
 core-command-arm64:ARM64 implementation core command micro service for EdgeX Foundry
 core-command:The reference implementation core command micro service for EdgeX Foundry
+core-common-config-bootstrapper-arm64: ARM64 Seeds Common Service Configuration
+core-common-config-bootstrapper: Seeds Common Service Configuration
 core-data-arm64:ARM64 implementation core data micro service for EdgeX Foundry
 core-data:The reference implementation core data micro service for EdgeX Foundry
 core-metadata-arm64:ARM64 implementation core metadata micro service for EdgeX Foundry
@@ -39,6 +41,8 @@ edgex-ui:The demonstration and developer EdgeX Foundry user interface
 sample-service:DevOps managed sample Go service used for EdgeX pipeline verification
 security-bootstrapper-arm64:ARM64 initialization service for security setup for EdgeX
 security-bootstrapper:The initialization service for security setup for EdgeX
+security-proxy-auth-arm64: ARM64 Auth for NGINX API gateway, authorizing/denying forwarding to EdgeX microservice.
+security-proxy-auth: Auth for NGINX API gateway, authorizing/denying forwarding to EdgeX microservice.
 security-proxy-setup-arm64:ARM64 initialization service for the reverse proxy for EdgeX
 security-proxy-setup:The initialization service for the reverse proxy for EdgeX Foundry
 security-secretstore-setup-arm64:ARM64 initialization service for the security for EdgeX

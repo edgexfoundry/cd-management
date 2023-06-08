@@ -19,15 +19,7 @@ WARNING:
 # Supported tags and respective Dockerfile links
 
 - Minnesota
-    - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v3.0.0/cmd/security-proxy-setup/Dockerfile)
-- Levski
-    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/security-proxy-setup/Dockerfile)
-- Kamakura
-    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/security-proxy-setup/Dockerfile)
-- Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
-    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.1.0/cmd/security-proxy-setup/Dockerfile)
-- Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.0.0/cmd/security-proxy-setup/Dockerfile)
+    - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v3.0.0/cmd/core-common-config-bootstrapper/Dockerfile)
 
 # Quick reference (cont.)
 
@@ -53,7 +45,7 @@ EdgeX's official documentation can be found at [docs.edgexfoundry.org](https://d
 
 # What's in this image?
 
-This image contains the initialization / setup service used to establish the reverse proxy for EdgeX.
+This image contains the arm64 version of the service that seeds the Configuration Provider with the configuration common to all services
 
 The service source code: <https://github.com/edgexfoundry/edgex-go>
 
@@ -66,6 +58,7 @@ As with all Docker images, these likely also contain other software which may be
 As for any pre-built image usage, it is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
 
 Some additional license information which was able to be auto-detected might be found in the Attribution.txt file located in the image and copied from the associated
+
 
 
 
