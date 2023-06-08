@@ -18,6 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Minnesota
+    - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/app-rfid-llrp-inventory/blob/v3.0.0/Dockerfile)
 - Levski
     - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/app-rfid-llrp-inventory/blob/v2.3.0/Dockerfile)
 - Kamakura

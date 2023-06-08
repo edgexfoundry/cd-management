@@ -18,6 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Minnesota
+    - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v3.0.0/scripts/Dockerfile.alpine)
 - Levski
     - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.3.0/scripts/Dockerfile.alpine)
 - Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))

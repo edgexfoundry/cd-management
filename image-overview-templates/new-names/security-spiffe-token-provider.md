@@ -5,7 +5,7 @@ $$./common/quick-reference.md
 # Supported tags and respective Dockerfile links
 
 $$./common/version-minnesota.md |
-        - [Dockerfile](https://github.com/edgexfoundry/security-spiffe-token-provider/blob/v3.0.0Dockerfile)
+        - [Dockerfile](https://github.com/edgexfoundry/security-spiffe-token-provider/blob/v3.0.0/Dockerfile)
 $$./common/version-levski.md |
         - [Dockerfile](https://github.com/edgexfoundry/security-spiffe-token-provider/blob/v2.3.0/Dockerfile)
 $$./common/version-kamakura.md |
