@@ -1,11 +1,11 @@
 ---
 name: 'app-rfid-llrp-inventory'
-version: '3.0.0'
+version: '3.0.1'
 releaseName: 'minnesota'
-releaseStream: 'main'
+releaseStream: 'minnesota'
 lts: false
 repo: 'https://github.com/edgexfoundry/app-rfid-llrp-inventory.git'
-commitId: '6182e83b98c022ca1bd0a0839ba068b34176a663'
+commitId: 'bf21d6c1e4942d93914e51bb434e73b13213e594'
 gitTag: true
 dockerImages: true
 docker:
