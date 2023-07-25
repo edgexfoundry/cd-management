@@ -1,13 +1,10 @@
 ---
 name: 'app-functions-sdk-go'
-version: '3.0.0'
+version: '3.0.1'
 releaseName: 'minnesota'
-releaseStream: 'main'
+releaseStream: 'minnesota'
 repo: 'https://github.com/edgexfoundry/app-functions-sdk-go.git'
-commitId: '0e6bbe1efdd4483bb2091d15ffa061133e8582c4'
+commitId: 'b2dac06e90c6e2f5fb87d01cb4b8705a1522779c'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
-apiInfo:
-  nextReleaseVersion: '3.1.0'
-  reviewers: edgexfoundry/app-functions-sdk-go-committers
