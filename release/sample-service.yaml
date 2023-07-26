@@ -1,0 +1,9 @@
+---
+name: 'sample-service'
+version: '5.1.5'
+releaseName: 'minnesota'
+releaseStream: 'main'
+repo: 'https://github.com/edgexfoundry/sample-service.git'
+commitId: '012bf709a187730cb67d7237afa267fc6624d19d'
+gitTag: true
+dockerImages: false

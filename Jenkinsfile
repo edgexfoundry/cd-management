@@ -14,7 +14,7 @@
 // limitations under the License.
 //
 
-// @Library("edgex-global-pipelines@experimental") _
+@Library("edgex-global-pipelines@a6e4630111f65d3abe11c0819827df982e620231") _
 
 def parallelSteps = [:]
 def releaseData = []
@@ -31,6 +31,18 @@ pipeline {
         RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
     }
     stages {
+        stage('Setup SSH Config') {
+            steps {
+                // Remove existing ssh-rsa key from known hosts, to fix IP mismatch
+                sh '''
+                grep -v github.com /etc/ssh/ssh_known_hosts > /tmp/ssh_known_hosts
+                if [ -e /tmp/ssh_known_hosts ]; then
+                    sudo mv /tmp/ssh_known_hosts /etc/ssh/ssh_known_hosts
+                fi
+                '''
+            }
+        }
+
         stage('Lint YAML files') {
             agent {
                 docker {
@@ -69,5 +81,5 @@ pipeline {
 }
 
 def shouldDoDryRun() {
-    env.GIT_BRANCH != 'release' ? true : false
+    false //env.GIT_BRANCH != 'release' ? true : false
 }
