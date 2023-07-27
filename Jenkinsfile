@@ -31,6 +31,18 @@ pipeline {
         RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
     }
     stages {
+        stage('SSH Fix') {
+            steps {
+                // Remove existing ssh-rsa key for github.com in known hosts to fix IP mismatch
+                sh '''
+                grep -v github.com /etc/ssh/ssh_known_hosts > /tmp/ssh_known_hosts
+                if [ -e /tmp/ssh_known_hosts ]; then
+                    sudo mv /tmp/ssh_known_hosts /etc/ssh/ssh_known_hosts
+                fi
+                '''
+            }
+        }
+
         stage('Lint YAML files') {
             agent {
                 docker {
