@@ -6,6 +6,7 @@ $$./common/quick-reference.md
 
 $$./common/version-minnesota.md |
         - [Dockerfile](https://github.com/edgexfoundry/app-service-configurable/blob/v3.0.0/Dockerfile)
+        - [Dockerfile](https://github.com/edgexfoundry/app-service-configurable/blob/v3.0.1/Dockerfile)
 $$./common/version-levski.md |
         - [Dockerfile](https://github.com/edgexfoundry/app-service-configurable/blob/v2.3.0/Dockerfile)
 $$./common/version-kamakura.md |
