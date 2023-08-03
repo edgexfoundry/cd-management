@@ -20,6 +20,7 @@ WARNING:
 
 - Minnesota
     - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/app-service-configurable/blob/v3.0.0/Dockerfile)
+        - [Dockerfile](https://github.com/edgexfoundry/app-service-configurable/blob/v3.0.1/Dockerfile)
 - Levski
     - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/app-service-configurable/blob/v2.3.0/Dockerfile)
 - Kamakura
