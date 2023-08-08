@@ -1,0 +1,19 @@
+---
+name: device-uart
+version: '3.0.0'
+releaseName: 'minnesota'
+releaseStream: 'main'
+lts: false
+repo: 'https://github.com/edgexfoundry/device-uart.git'
+commitId: f79754343d8b1121fd7b40f656006f62376f5905
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-uart
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-uart
+      - docker.io/edgexfoundry/device-uart
+  - image: nexus3.edgexfoundry.org:10004/device-uart-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-uart-arm64
+      - docker.io/edgexfoundry/device-uart-arm64
