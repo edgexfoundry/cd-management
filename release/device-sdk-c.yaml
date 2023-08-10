@@ -1,9 +1,9 @@
 ---
 name: 'device-sdk-c'
-version: '3.0.1'
+version: '3.0.2'
 releaseName: 'minnesota'
 releaseStream: 'main'
-commitId: '629b9722aa39bd0efb276d4c775a85c2ba734e30'
+commitId: '3bd72eafd135fc13cc0388e2e4a2395f7020de89'
 repo: 'https://github.com/edgexfoundry/device-sdk-c.git'
 gitTag: true
 dockerImages: false
