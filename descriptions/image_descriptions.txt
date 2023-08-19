@@ -34,6 +34,8 @@ device-rfid-llrp-arm64:ARM64 device service to connect LLRP adhering RFID system
 device-rfid-llrp:Device service to connect LLRP adhering RFID systems to EdgeX
 device-snmp-arm64:ARM64 device service to connect to SNMP protocol devices for EdgeX
 device-snmp:Device service to connect to SNMP protocol devices for EdgeX Foundry
+device-uart-arm64:ARM64 device service ingesting device data via UART for EdgeX Foundry
+device-uart:Device service ingesting device data via UART for EdgeX Foundry
 device-virtual-arm64:ARM64 device service simulating devices for EdgeX Foundry
 device-virtual:Device service simulating different kinds of devices for EdgeX Foundry
 edgex-ui-arm64:ARM64 demonstration and developer EdgeX Foundry user interface
