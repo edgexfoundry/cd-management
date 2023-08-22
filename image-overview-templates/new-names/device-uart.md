@@ -6,10 +6,6 @@ $$./common/quick-reference.md
 
 $$./common/version-minnesota.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-uart/blob/v3.0.0/Dockerfile)
-$$./common/version-levski-2.3.1.md |
-        - [Dockerfile](https://github.com/edgexfoundry/device-uart/blob/v2.3.1/Dockerfile)
-$$./common/version-kamakura.md |
-        - [Dockerfile](https://github.com/edgexfoundry/device-uart/blob/v2.2.0/Dockerfile)
 
 # Quick reference
 
