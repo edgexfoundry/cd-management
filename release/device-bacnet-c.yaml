@@ -1,11 +1,11 @@
 ---
 name: 'device-bacnet-c'
-version: '3.0.0'
+version: '3.0.1'
 releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-bacnet-c.git'
-commitId: 'de54976e2d34757b5269fc827b494d0b9848b55d'
+commitId: '516a24b3029a86f3d94a08f23c3537747bf075a5'
 gitTag: true
 dockerForce: false
 dockerImages: true
