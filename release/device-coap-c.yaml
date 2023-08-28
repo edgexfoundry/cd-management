@@ -1,11 +1,11 @@
 ---
 name: 'device-coap-c'
-version: '3.0.0'
+version: '3.0.1'
 releaseName: 'minnesota'
 releaseStream: 'main'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-coap-c.git'
-commitId: 'a55eb6886277aa3bb9f91e7430380574c93536ac'
+commitId: '6627a295e122d540749c493ceae0a1ede0d66d7f'
 gitTag: true
 dockerImages: true
 docker:
