@@ -6,6 +6,7 @@ $$./common/quick-reference.md
 
 $$./common/version-minnesota.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v3.0.0/scripts/Dockerfile.alpine)
+        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v3.0.1/scripts/Dockerfile.alpine)
 $$./common/version-levski.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.3.0/scripts/Dockerfile.alpine)
 $$./common/version-jakarta-non-lts.md |
