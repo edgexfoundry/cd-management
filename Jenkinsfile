@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2021 Intel Corporation
+// Copyright (c) 2023 Intel Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,11 +21,11 @@ pipeline {
     parameters {
         string(
             name: 'Execute',
-            defaultValue: '',
+            defaultValue: '--execute',
             description: 'Specify --execute to run script in execute mode, leave it blank to run script in NOOP mode.')
         string(
             name: 'Name',
-            defaultValue: '--name docker-sample-service',
+            defaultValue: '',
             description: 'Specify \'--name <regex>\' to match name of images to include in processing. Leaving this argument \
                 blank will target all overviews in the specified overviews folder.')
         booleanParam(
@@ -46,9 +46,37 @@ pipeline {
                     reuseNode true
                 }
             }
+            when {
+                expression { env.GIT_BRANCH == 'edgex-docker-hub-documentation' }
+            }
             stages {
+                stage('Generate Overviews') {
+                    when {
+                        expression { getCommitMessage() !=~ /^deploy(generated-overviews)/ }
+                    }
+                    steps {
+                        sh 'python generate-overviews.py --offline'
+
+                        sshagent(credentials: ['edgex-jenkins-ssh']) {
+                            sh '''
+                            if ! git diff-index --quiet HEAD --; then
+                                echo "Found changes in repo committing..."
+                                git config --global user.email "jenkins@edgexfoundry.org"
+                                git config --global user.name "EdgeX Jenkins"
+                                git add .
+                                git commit -s -m "deploy(generated-overviews): automated commit of generated overviews"
+                                git push origin edgex-docker-hub-documentation
+                            else
+                                echo "Clean nothing to commit"
+                            fi
+                            '''
+                        }
+                    }
+                }
                 stage('Execute') {
-                    when { triggeredBy 'UserIdCause' }
+                    when {
+                        expression { edgex.didChange('generated-overviews/.*', 'origin/edgex-docker-hub-documentation') }
+                    }
                     steps {
                         configFileProvider([configFile(fileId: env.RELEASE_DOCKER_SETTINGS, variable: 'SETTINGS_FILE')]) {
                             sh "python deploy-overviews.py --user edgexfoundry ${params.Name} ${params.Execute}"
@@ -64,6 +92,10 @@ pipeline {
             edgeXInfraPublish()
         }
     }
+}
+
+def getCommitMessage() {
+    sh(script: "git log --format=format:%B -1 ${env.GIT_COMMIT}", returnStdout: true).trim()
 }
 
 def getOverviewsPath() {
