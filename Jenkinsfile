@@ -39,6 +39,11 @@ pipeline {
         RELEASE_DOCKER_SETTINGS = 'cd-management-settings'
     }
     stages {
+        stage('Prep') {
+            steps {
+                sh 'sudo apt-get update && sudo apt-get install -y git'
+            }
+        }
         stage('Build') {
             agent {
                 dockerfile {
