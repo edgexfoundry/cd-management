@@ -40,12 +40,6 @@ pipeline {
     }
     stages {
         stage('Build') {
-            agent {
-                dockerfile {
-                    filename 'Dockerfile'
-                    reuseNode true
-                }
-            }
             when {
                 expression { env.GIT_BRANCH == 'edgex-docker-hub-documentation' }
             }
@@ -74,6 +68,12 @@ pipeline {
                     }
                 }
                 stage('Execute') {
+                    agent {
+                        dockerfile {
+                            filename 'Dockerfile'
+                            reuseNode true
+                        }
+                    }
                     when {
                         expression { edgex.didChange('generated-overviews/.*', 'origin/edgex-docker-hub-documentation') }
                     }
