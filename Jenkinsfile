@@ -48,9 +48,21 @@ pipeline {
                     when {
                         expression { getCommitMessage() !=~ /^deploy(generated-overviews)/ }
                     }
+                    agent {
+                        dockerfile {
+                            filename 'Dockerfile'
+                            reuseNode true
+                        }
+                    }
                     steps {
                         sh 'python generate-overviews.py --offline'
-
+                    }
+                }
+                stage('Commit Generated Overviews') {
+                    when {
+                        expression { getCommitMessage() !=~ /^deploy(generated-overviews)/ }
+                    }
+                    steps {
                         sshagent(credentials: ['edgex-jenkins-ssh']) {
                             sh '''
                             if ! git diff-index --quiet HEAD --; then
