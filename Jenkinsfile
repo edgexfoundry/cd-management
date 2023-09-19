@@ -74,6 +74,7 @@ pipeline {
                                 git add .
                                 git commit -s -m "deploy(generated-overviews): automated commit of generated overviews"
                                 git push origin edgex-docker-hub-documentation
+                                echo "true" > .commitPushed
                             else
                                 echo "Clean nothing to commit"
                             fi
@@ -89,7 +90,7 @@ pipeline {
                         }
                     }
                     when {
-                        expression { edgex.didChange('generated-overviews/.*', 'origin/edgex-docker-hub-documentation') }
+                        expression { didFilesChange('generated-overviews/.*') && !findFiles(glob: '.commitPushed') }
                     }
                     steps {
                         configFileProvider([configFile(fileId: env.RELEASE_DOCKER_SETTINGS, variable: 'SETTINGS_FILE')]) {
@@ -106,6 +107,13 @@ pipeline {
             edgeXInfraPublish()
         }
     }
+}
+
+def didFilesChange(pattern) {
+    def diffCount = sh(
+        script: "git diff-tree --no-commit-id --name-only ${env.GIT_COMMIT} -r | grep '${pattern}' | wc -l",
+        returnStdout: true).trim().toInteger()
+    diffCount > 0
 }
 
 def getCommitMessage() {
