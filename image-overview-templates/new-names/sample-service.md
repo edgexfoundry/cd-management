@@ -2,4 +2,6 @@ $$./common/warning.md
 
 # Sample Service
 
-EdgeX DevOps managed Sample Go code used for pipeline verification. **NOT FOR USE**.
+**NOT INTENDED FOR USE**.
+
+EdgeX DevOps managed Sample Go code used for pipeline verification.
