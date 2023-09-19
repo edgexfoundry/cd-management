@@ -19,20 +19,13 @@ WARNING:
 # Supported tags and respective Dockerfile links
 
 - Minnesota
-    - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v3.0.0/scripts/Dockerfile.alpine)
-        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v3.0.1/scripts/Dockerfile.alpine)
-- Levski
-    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.3.0/scripts/Dockerfile.alpine)
-- Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
-    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.1.0/scripts/Dockerfile.alpine)
-- Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v2.0.0/scripts/Dockerfile.alpine)
+    - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-uart/blob/v3.0.0/Dockerfile)
 
 # Quick reference
 
-- Where to file issues: https://github.com/edgexfoundry/device-coap-c/issues
-- Supported architectures: intel/amd64
-- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-coap.md
+- Where to file issues: https://github.com/edgexfoundry/device-uart/issues
+- Supported architectures: arm64
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-uart-arm64.md
 
 # What is EdgeX Foundry?
 
@@ -48,9 +41,9 @@ EdgeX's official documentation can be found at [docs.edgexfoundry.org](https://d
 
 # What's in this image?
 
-Device service to connect Constrained Application Protocol (CoAP) devices to EdgeX (this is a read only service).
+This image contains the **ARM64 version** of the device service to communicate to UART devices in an EdgeX deployment.
 
-The device CoAP service source code: <https://github.com/edgexfoundry/device-coap-c>
+The device UART service source code: <https://github.com/edgexfoundry/device-uart>
 
 # License
 
