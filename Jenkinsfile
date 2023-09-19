@@ -65,6 +65,8 @@ pipeline {
                     steps {
                         sshagent(credentials: ['edgex-jenkins-ssh']) {
                             sh '''
+                            git switch edgex-docker-hub-documentation
+
                             if ! git diff-index --quiet HEAD --; then
                                 echo "Found changes in repo committing..."
                                 git config --global user.email "jenkins@edgexfoundry.org"
