@@ -1,0 +1,77 @@
+name: Centralized EdgeX Changelog Generation
+
+on:
+  push:
+    branches:
+      - changelog-generator
+  schedule:
+    - cron: '0 0 * * 0' # Run every Sunday at 00:00
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  get-repos:
+    name: Fetch EdgeX Repositories
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.fetch-repos.outputs.matrix }}
+    steps:
+    - name: Fetch repositories from GitHub API
+      id: fetch-repos
+      run: |
+        repos=$(curl -s "https://api.github.com/search/repositories?q=user:edgexfoundry+archived:false&per_page=200" | jq -r '.items[].clone_url')
+        json_array=$(echo "$repos" | jq -R -s -c 'split("\n")[:-1]')
+        echo "Repos as JSON array: $json_array"
+        echo "matrix=$json_array" >> $GITHUB_OUTPUT
+
+  generate-changelogs:
+    needs: get-repos
+    name: Generate Changelog
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        repo: ${{fromJson(needs.get-repos.outputs.matrix)}}
+    steps:
+    - name: Checkout Configuration Files
+      uses: actions/checkout@v4
+      with:
+        path: template
+
+    - name: Parse Repository Details
+      id: extract-info
+      run: |
+        REPO_FORMAT=$(echo "${{ matrix.repo }}" | sed -E 's|https://github.com/(.*).git|\1|')
+        REPO_NAME=$(basename ${{ matrix.repo }} .git)
+        REPO_URL="https://github.com/$REPO_FORMAT"
+
+        echo "REPO_FORMAT=$REPO_FORMAT" >> $GITHUB_ENV
+        echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
+        echo "REPO_URL=$REPO_URL" >> $GITHUB_ENV
+  
+    - name: Checkout Repository for Changelog
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ env.REPO_FORMAT }}
+        path: ${{ env.REPO_NAME }}
+        fetch-depth: 0
+        fetch-tags: true
+
+    - name: Prepare for Changelog Generation
+      id: prep-changelog
+      run: |
+        cp template/cliff.toml ${{ env.REPO_NAME }}/cliff.toml
+        sed -i "s|<TEMPLATE_REPO>|${{ env.REPO_URL }}|g" ${{ env.REPO_NAME }}/cliff.toml
+
+    - name: Generate Changelog
+      uses: orhun/git-cliff-action@v2
+      with:
+        config: ${{ env.REPO_NAME }}/cliff.toml
+        args: --unreleased --repository ${{ env.REPO_NAME }}
+      env:
+        OUTPUT: changelogs/${{ env.REPO_NAME }}.md
+
+    - name: Upload Changelog Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: changelogs
+        path: changelogs/

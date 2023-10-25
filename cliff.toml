@@ -1,0 +1,94 @@
+# git-cliff ~ configuration file
+# https://git-cliff.org/docs/configuration
+#
+# Lines starting with "#" are comments.
+# Configuration options are organized into tables and keys.
+# See documentation for more information on available options.
+
+[changelog]
+
+# template for the changelog body
+# https://keats.github.io/tera/docs/#introduction
+
+body = """
+{% for group, commits in commits | group_by(attribute="group") %}
+    ### {{ group | upper_first }}
+    {% for commit in commits
+    | filter(attribute="scope")
+    | sort(attribute="scope") %}
+        - *({{commit.scope}})* {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7) }}](<REPO>/commit/{{ commit.id }}))
+        {%- if commit.breaking %}
+        \n    ```text
+        \n    BREAKING CHANGE: {{commit.breaking_description}}
+        \n    ```
+        {%- endif -%}
+    {%- endfor -%}
+    {% raw %}\n{% endraw %}\
+    {%- for commit in commits %}
+        {%- if commit.scope -%}
+        {% else -%}
+            - {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7) }}](<REPO>/commit/{{ commit.id }}))
+            {% if commit.breaking -%}
+            \n    ```text
+            \n    BREAKING CHANGE: {{commit.breaking_description}}
+            \n    ```
+            {% endif -%}
+        {% endif -%}
+    {% endfor -%}
+    {% raw %}\n{% endraw %}\
+{% endfor %}\n
+"""
+
+# remove the leading and trailing whitespace from the template
+trim = true
+
+# postprocessors
+postprocessors = [
+  { pattern = '<REPO>', replace = "<TEMPLATE_REPO>" }, 
+]
+
+[git]
+# parse the commits based on https://www.conventionalcommits.org
+conventional_commits = true
+# filter out the commits that are not conventional
+filter_unconventional = true
+# process each line of a commit as an individual commit
+split_commits = false
+# regex for preprocessing the commit messages
+
+commit_preprocessors = [
+  { pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](<REPO>/issues/${2}))" },
+]
+
+# regex for parsing and grouping commits
+commit_parsers = [
+  { message = "^feat", group = "<!-- 0 -->✨  Features" },
+  { message = "^update", group = "<!-- 1 -->🔄 Updates" },
+  { message = "^perf", group = "<!-- 2 -->⚡ Performance Improvements" },
+  { message = "^fix", group = "<!-- 3 -->🐛 Bug Fixes" },
+  { message = "^refactor", group = "<!-- 3 -->♻ Code Refactoring" },
+  { message = "^doc", group = "<!-- 4 -->📖 Documentation" },
+  { message = "^build\\(deps\\): [bB]ump.*", skip = true },
+  { message = "^build", group = "<!-- 5 -->👷 Build" },
+  { message = "^chore", group = "<!-- 6 -->⛏️ Chore" },
+  { message = "^ci", group = "<!-- 7 -->🤖 Continuous Integration" },
+  { message = "^style", group = "<!-- 8 -->🎨 Styling" },
+  { message = "^test", group = "<!-- 9 -->🧪 Testing" },
+  { body = ".*security", group = "<!-- 10 -->🛡️ Security" },
+  { message = "^revert", group = "<!-- 11 -->◀️ Revert" },
+]
+
+# protect breaking changes from being skipped due to matching a skipping commit_parser
+protect_breaking_commits = true
+# filter out the commits that are not matched by commit parsers
+filter_commits = false
+# glob pattern for matching git tags
+tag_pattern = "v[0-9]*"
+
+# Use the regex below to ignore and move to next tag #.#.#-dev.*
+ignore_tags = ".*dev.*"
+
+# sort the tags topologically
+topo_order = false
+# sort the commits inside sections by oldest/newest order
+sort_commits = "newest"
