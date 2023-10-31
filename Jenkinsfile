@@ -34,19 +34,29 @@ pipeline {
                 triggeredBy 'UserIdCause'
             }
             stages {
+                stage('SSH Fix') {
+                    steps {
+                        // Remove existing ssh-rsa key for github.com in known hosts to fix IP mismatch
+                        sh '''
+                        grep -v github.com /etc/ssh/ssh_known_hosts > /tmp/ssh_known_hosts
+                        if [ -e /tmp/ssh_known_hosts ]; then
+                            sudo mv /tmp/ssh_known_hosts /etc/ssh/ssh_known_hosts
+                        fi
+                        '''
+                    }
+                }
+
                 stage('Clone Repo') {
                     when {
                         expression { params.REPO != '- select repo -' }
                     }
                     steps {
-                        dir('repo') {
-                            git(
-                                url: "git@github.com:edgexfoundry/${params.REPO}.git",
-                                branch: params.BRANCH_SOURCE,
-                                changelog: false,
-                                poll: false,
-                                credentialsId: 'edgex-jenkins-ssh'
-                            )
+                        sshagent(credentials: ['edgex-jenkins-ssh']) {
+                            sh "git clone -b ${params.BRANCH_SOURCE} git@github.com:edgexfoundry/${params.REPO}.git ${env.WORKSPACE}/repo"
+
+                            dir('repo') {
+                                sh 'ls -al .'
+                            }
                         }
                     }
                 }
