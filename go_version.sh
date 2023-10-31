@@ -1,13 +1,11 @@
 #!/bin/bash
 
-set -x
+# set -x
 set +e
 
 git  ls-remote --exit-code --heads origin "refs/heads/$NEW_BRANCH"
 if [ $? -eq 2 ]; then
     echo "Attempting to change Go version in Jenkinsfile"
-
-    ls -al .
     # checkout new branch
     git checkout -b "$NEW_BRANCH"
 
@@ -34,7 +32,7 @@ if [ $? -eq 2 ]; then
                 echo "$line"
             fi
         done <<< "$(cat Jenkinsfile)" > Jenkinsfile.new
-        cat Jenkinsfile.new
+        mv Jenkinsfile.new Jenkinsfile
     fi
 else
     echo "[$NEW_BRANCH] already exists. Exiting!"
