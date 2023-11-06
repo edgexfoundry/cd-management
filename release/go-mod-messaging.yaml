@@ -1,10 +1,10 @@
 ---
 name: 'go-mod-messaging'
-version: '2.1.1'
-releaseName: 'jakarta'
-releaseStream: 'jakarta'
-lts: false
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'main'
+lts: true
 repo: 'https://github.com/edgexfoundry/go-mod-messaging.git'
-commitId: 'd1aa5c0b406d83fb26cceed1569ab59764bd316a'
+commitId: '06cf4160283a6f1b0d1ace6e9b78cb89bfcbf4af'
 gitTag: true
 dockerImages: false
