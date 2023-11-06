@@ -1,10 +1,10 @@
 ---
 name: 'go-mod-configuration'
-version: '2.1.0'
-releaseName: 'jakarta'
+version: '3.1.0'
+releaseName: 'napa'
 releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/go-mod-configuration.git'
-commitId: '53230280edfc871ff53ec5eb8cb7b2f03142bb4d'
+commitId: '331853c130345ff2df93bd4439588ce2c3109fba'
 gitTag: true
 dockerImages: false
