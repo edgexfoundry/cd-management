@@ -1,11 +1,14 @@
 ---
 name: 'device-sdk-go'
-version: '2.1.1'
-releaseName: 'jakarta'
-releaseStream: 'jakarta'
-lts: false
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'main'
+lts: true
 repo: 'https://github.com/edgexfoundry/device-sdk-go.git'
-commitId: 'ba443a3625d4eef64e240836a867426dc0799199'
+commitId: '7730e9b2488ebe82cf8f1ec58f41fa934430b51b'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
+apiInfo:
+  nextReleaseVersion: '3.2.0'
+  reviewers: edgexfoundry/device-sdk-go-committers
