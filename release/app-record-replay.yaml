@@ -1,0 +1,19 @@
+---
+name: 'app-record-replay'
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/app-record-replay.git'
+commitId: '6f96719caec97f71daa19372f5503ea6385d9957'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/app-record-replay
+    destination:
+      - nexus3.edgexfoundry.org:10002/app-record-replay
+      - docker.io/edgexfoundry/app-record-replay
+  - image: nexus3.edgexfoundry.org:10004/app-record-replay-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/app-record-replay-arm64
+      - docker.io/edgexfoundry/app-record-replay-arm64
