@@ -5,7 +5,7 @@ releaseName: 'napa'
 releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-record-replay.git'
-commitId: '6f96719caec97f71daa19372f5503ea6385d9957'
+commitId: '8c2c99c7fdf3e1e1347488c6fa267e75b198ea32'
 gitTag: true
 dockerImages: true
 docker:

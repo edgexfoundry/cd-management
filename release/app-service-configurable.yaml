@@ -5,7 +5,7 @@ releaseName: 'napa'
 releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
-commitId: 'fe79c06bffd29ecdd39921b37db4c05fa478f287'
+commitId: '35d704078b0040fb0b2eaaabdf6860ed02d459b4'
 gitTag: true
 dockerImages: true
 docker:
