@@ -1,0 +1,19 @@
+---
+name: 'edgex-ui-go'
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/edgex-ui-go.git'
+commitId: 'ddfd7e44b3fe99f0be24d936546b1bb8b86fb3ea'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/edgex-ui
+    destination:
+      - nexus3.edgexfoundry.org:10002/edgex-ui
+      - docker.io/edgexfoundry/edgex-ui
+  - image: nexus3.edgexfoundry.org:10004/edgex-ui-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/edgex-ui-arm64
+      - docker.io/edgexfoundry/edgex-ui-arm64
