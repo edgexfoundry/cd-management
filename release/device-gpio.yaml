@@ -1,11 +1,11 @@
 ---
 name: 'device-gpio'
-version: '2.1.1'
-releaseName: 'jakarta'
-releaseStream: 'jakarta'
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-gpio.git'
-commitId: '2b93e70996fb433c995b9228144ddf61bbcc4061'
+commitId: 'cacff4a2d422747bd6cf74591db2fe792ce5aaad'
 gitTag: true
 dockerImages: true
 docker:

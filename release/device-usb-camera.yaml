@@ -1,0 +1,19 @@
+---
+name: device-usb-camera
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/device-usb-camera.git'
+commitId: 6e9e8282a24c5b81fc31740ee0ad2433cd2c3582
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-usb-camera
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-usb-camera
+      - docker.io/edgexfoundry/device-usb-camera
+  - image: nexus3.edgexfoundry.org:10004/device-usb-camera-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-usb-camera-arm64
+      - docker.io/edgexfoundry/device-usb-camera-arm64

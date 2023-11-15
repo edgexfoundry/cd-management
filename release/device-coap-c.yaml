@@ -1,0 +1,19 @@
+---
+name: 'device-coap-c'
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/device-coap-c.git'
+commitId: '4a255a314fba9bd700f29efc4e55a4a3c596992f'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-coap
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-coap
+      - docker.io/edgexfoundry/device-coap
+  - image: nexus3.edgexfoundry.org:10004/device-coap-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-coap-arm64
+      - docker.io/edgexfoundry/device-coap-arm64

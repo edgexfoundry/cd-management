@@ -1,11 +1,11 @@
 ---
 name: 'device-rfid-llrp-go'
-version: '2.1.1'
-releaseName: 'jakarta'
-releaseStream: 'jakarta'
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-rfid-llrp-go.git'
-commitId: 'da7aff38417fde3ab7976a95414aa6183360e460'
+commitId: '3238a3be2f44512a9de49c586dce83c0c67ab7c8'
 gitTag: true
 dockerImages: true
 docker:

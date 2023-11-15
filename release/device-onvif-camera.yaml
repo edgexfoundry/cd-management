@@ -1,0 +1,20 @@
+---
+name: device-onvif-camera
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/device-onvif-camera.git'
+commitId: 1a885dea823655429c4e0c6a767a18e3aa90292d
+gitTag: true
+dockerForce: false
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-onvif-camera
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-onvif-camera
+      - docker.io/edgexfoundry/device-onvif-camera
+  - image: nexus3.edgexfoundry.org:10004/device-onvif-camera-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-onvif-camera-arm64
+      - docker.io/edgexfoundry/device-onvif-camera-arm64
