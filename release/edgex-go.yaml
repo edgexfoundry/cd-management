@@ -1,12 +1,15 @@
 ---
 name: 'edgex-go'
-version: '2.1.1'
-releaseName: 'jakarta'
-releaseStream: 'jakarta'
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
-commitId: 'b73b6b653457e22948d36629ae394cb909f904f1'
+commitId: '7fde9c7512c7ea32da7052f9c2a143881b9a5b4f'
 gitTag: true
+apiInfo:
+  nextReleaseVersion: '3.2.0'
+  reviewers: edgexfoundry/edgex-go-committers
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/core-metadata
@@ -33,6 +36,14 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/core-command-arm64
       - docker.io/edgexfoundry/core-command-arm64
+  - image: nexus3.edgexfoundry.org:10004/core-common-config-bootstrapper
+    destination:
+      - nexus3.edgexfoundry.org:10002/core-common-config-bootstrapper
+      - docker.io/edgexfoundry/core-common-config-bootstrapper
+  - image: nexus3.edgexfoundry.org:10004/core-common-config-bootstrapper-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/core-common-config-bootstrapper-arm64
+      - docker.io/edgexfoundry/core-common-config-bootstrapper-arm64
   - image: nexus3.edgexfoundry.org:10004/support-notifications
     destination:
       - nexus3.edgexfoundry.org:10002/support-notifications
@@ -49,14 +60,14 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/support-scheduler-arm64
       - docker.io/edgexfoundry/support-scheduler-arm64
-  - image: nexus3.edgexfoundry.org:10004/sys-mgmt-agent
+  - image: nexus3.edgexfoundry.org:10004/security-proxy-auth
     destination:
-      - nexus3.edgexfoundry.org:10002/sys-mgmt-agent
-      - docker.io/edgexfoundry/sys-mgmt-agent
-  - image: nexus3.edgexfoundry.org:10004/sys-mgmt-agent-arm64
+      - nexus3.edgexfoundry.org:10002/security-proxy-auth
+      - docker.io/edgexfoundry/security-proxy-auth
+  - image: nexus3.edgexfoundry.org:10004/security-proxy-auth-arm64
     destination:
-      - nexus3.edgexfoundry.org:10002/sys-mgmt-agent-arm64
-      - docker.io/edgexfoundry/sys-mgmt-agent-arm64
+      - nexus3.edgexfoundry.org:10002/security-proxy-auth-arm64
+      - docker.io/edgexfoundry/security-proxy-auth-arm64
   - image: nexus3.edgexfoundry.org:10004/security-proxy-setup
     destination:
       - nexus3.edgexfoundry.org:10002/security-proxy-setup
@@ -75,9 +86,41 @@ docker:
       - docker.io/edgexfoundry/security-secretstore-setup-arm64
   - image: nexus3.edgexfoundry.org:10004/security-bootstrapper
     destination:
-    - nexus3.edgexfoundry.org:10002/security-bootstrapper
-    - docker.io/edgexfoundry/security-bootstrapper
+      - nexus3.edgexfoundry.org:10002/security-bootstrapper
+      - docker.io/edgexfoundry/security-bootstrapper
   - image: nexus3.edgexfoundry.org:10004/security-bootstrapper-arm64
     destination:
       - nexus3.edgexfoundry.org:10002/security-bootstrapper-arm64
       - docker.io/edgexfoundry/security-bootstrapper-arm64
+  - image: nexus3.edgexfoundry.org:10004/security-spire-server
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-server
+      - docker.io/edgexfoundry/security-spire-server
+  - image: nexus3.edgexfoundry.org:10004/security-spire-server-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-server-arm64
+      - docker.io/edgexfoundry/security-spire-server-arm64
+  - image: nexus3.edgexfoundry.org:10004/security-spire-agent
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-agent
+      - docker.io/edgexfoundry/security-spire-agent
+  - image: nexus3.edgexfoundry.org:10004/security-spire-agent-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-agent-arm64
+      - docker.io/edgexfoundry/security-spire-agent-arm64
+  - image: nexus3.edgexfoundry.org:10004/security-spire-config
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-config
+      - docker.io/edgexfoundry/security-spire-config
+  - image: nexus3.edgexfoundry.org:10004/security-spire-config-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spire-config-arm64
+      - docker.io/edgexfoundry/security-spire-config-arm64
+  - image: nexus3.edgexfoundry.org:10004/security-spiffe-token-provider
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spiffe-token-provider
+      - docker.io/edgexfoundry/security-spiffe-token-provider
+  - image: nexus3.edgexfoundry.org:10004/security-spiffe-token-provider-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/security-spiffe-token-provider-arm64
+      - docker.io/edgexfoundry/security-spiffe-token-provider-arm64
