@@ -54,6 +54,8 @@ class EnvBuilder:
             'device-gpio': 'DEVICE_GPIO_VERSION',
             'device-onvif-camera': 'DEVICE_ONVIFCAM_VERSION',
             'device-usb-camera': 'DEVICE_USBCAM_VERSION',
+            'app-record-replay': 'APP_RECORD_REPLAY_VERSION',
+            'device-uart': 'DEVICE_UART_VERSION',
         }
 
     def process_env_file(self):
