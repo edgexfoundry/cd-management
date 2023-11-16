@@ -1,10 +1,10 @@
 ---
 name: 'edgex-compose'
-version: '2.1.1'
-releaseName: 'jakarta'
-releaseStream: 'jakarta'
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'napa'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-compose.git'
-commitId: '95d4fb34fe40d15911d8b0e8adb4162ea8318480'
+commitId: 'ebbed6d95efa1cef8bcb9e29474d4cf650f9c111'
 gitTag: true
 dockerImages: false
