@@ -83,7 +83,7 @@ class TestApi(unittest.TestCase):
         self.assertNotEqual(builder.envfile, None)
         self.assertNotEqual(builder.compose_env_vars, None)
         self.assertNotEqual(builder.repo_map, None)
-        self.assertEqual(len(builder.repo_map), 15)
+        self.assertEqual(len(builder.repo_map), 19)
         self.assertEqual(builder.docker_repository, 'edgexfoundry')
 
     @patch.dict(os.environ, {"GH_TOKEN_PSW": "mock-token"})
@@ -101,7 +101,7 @@ class TestApi(unittest.TestCase):
         path = self.mock_env
         lines = EnvBuilder.read_env_file(path)
         os_patch.assert_called_once_with(path, os.R_OK)
-        self.assertEqual(len(lines), 53)
+        self.assertEqual(len(lines), 57)
 
     @patch.dict(os.environ, {"GH_TOKEN_PSW": "mock-token"})
     @patch('envbuilder.cli.EnvBuilder.get_client')
@@ -195,7 +195,7 @@ class TestApi(unittest.TestCase):
         path = self.mock_env
         lines = EnvBuilder.read_env_file(path)
         dict = EnvBuilder.env_to_dict(lines)
-        self.assertEqual(len(dict), 30)
+        self.assertEqual(len(dict), 34)
         self.assertEqual(dict['REPOSITORY'], 'mock-repository')
         self.assertEqual(dict['CORE_EDGEX_VERSION'], 'latest')
         self.assertEqual(dict['APP_SERVICE_CONFIG_VERSION'], 'latest')
@@ -212,3 +212,5 @@ class TestApi(unittest.TestCase):
         self.assertEqual(dict['DEVICE_LLRP_VERSION'], 'latest')
         self.assertEqual(dict['DEVICE_COAP_VERSION'], 'latest')
         self.assertEqual(dict['DEVICE_GPIO_VERSION'], 'latest')
+        self.assertEqual(dict['APP_RECORD_REPLAY_VERSION'], 'latest')
+        self.assertEqual(dict['DEVICE_UART_VERSION'], 'latest')
