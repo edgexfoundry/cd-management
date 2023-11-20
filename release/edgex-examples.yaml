@@ -1,0 +1,10 @@
+---
+name: 'edgex-examples'
+version: '3.1.0'
+releaseName: 'napa'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/edgex-examples.git'
+commitId: '77e035913dd1d869806c6913e9d730e7d3f78349'
+gitTag: true
+dockerImages: false
