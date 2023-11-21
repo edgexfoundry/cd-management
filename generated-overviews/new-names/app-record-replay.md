@@ -19,23 +19,14 @@ WARNING:
 # Supported tags and respective Dockerfile links
 
 - Napa
-    - 3.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v3.1.0/Dockerfile)
-- Minnesota
-    - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v3.0.0/Dockerfile)
-- Levski
-    - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v2.3.0/Dockerfile)
-- Kamakura
-    - 2.2.0        - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v2.2.0/Dockerfile)
-- Jakarta ([LTS](https://wiki.edgexfoundry.org/pages/viewpage.action?pageId=69173332))
-    - 2.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v2.1.0/Dockerfile)
-- Ireland
-    - 2.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-rest-go/blob/v2.0.0/Dockerfile)
+    - 3.1.0        - [Dockerfile](https://github.com/edgexfoundry/app-record-replay/blob/v3.1.0/Dockerfile)
 
-# Quick reference
+# Quick reference 
 
-- Where to file issues: https://github.com/edgexfoundry/device-rest-go/issues
+- Where to file issues: https://github.com/edgexfoundry/app-record-replay/issues
 - Supported architectures: intel/amd64
-- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/device-rest.md
+- Published image artifact details: https://nexus3.edgexfoundry.org
+- Source of this description: https://github.com/edgexfoundry/cd-management/tree/edgex-docker-hub-documentation/image-overview-templates/new-names/app-record-replay.md
 
 # What is EdgeX Foundry?
 
@@ -51,9 +42,9 @@ EdgeX's official documentation can be found at [docs.edgexfoundry.org](https://d
 
 # What's in this image?
 
-This image contains the REST device service, which provides an easy way for 3'rd party applications, such as Point of Sale, CV Analytics, etc., to push data into EdgeX via the REST protocol.
+This image contains the App-Record-Replay application service that records events from EdgeX MessageBus and can replay those events back to the EdgeX MessageBus as if they came from the original Device Service/Devices.
 
-The device REST service source code: <https://github.com/edgexfoundry/device-rest-go>
+The App-Record-Replay source code: <https://github.com/edgexfoundry/app-record-replay>
 
 # License
 
@@ -67,3 +58,4 @@ Some additional license information which was able to be auto-detected might be 
 
 
 
+[source repository](https://github.com/edgexfoundry/app-record-replay/blob/v3.1.0/Attribution.txt).

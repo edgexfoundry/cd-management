@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-napa.md |
+        - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v3.1.0/scripts/Dockerfile.alpine)
 $$./common/version-minnesota.md |
         - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v3.0.0/scripts/Dockerfile.alpine)
         - [Dockerfile](https://github.com/edgexfoundry/device-coap-c/blob/v3.0.1/scripts/Dockerfile.alpine)

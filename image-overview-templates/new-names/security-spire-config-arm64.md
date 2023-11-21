@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-napa.md |
+        - [Dockerfile](https://github.com/edgexfoundry/security-spire-config/blob/v3.1.0/Dockerfile)
 $$./common/version-minnesota.md |
         - [Dockerfile](https://github.com/edgexfoundry/security-spire-config/blob/v3.0.0/Dockerfile)
 $$./common/version-levski.md |

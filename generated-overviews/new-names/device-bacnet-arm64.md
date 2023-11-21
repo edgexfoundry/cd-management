@@ -18,6 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Napa
+    - 3.1.0        - [Dockerfile](https://github.com/edgexfoundry/device-bacnet-c/blob/v3.1.0/scripts/Dockerfile.alpine)
 - Minnesota
     - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/device-bacnet-c/blob/v3.0.0/scripts/Dockerfile.alpine)
         - [Dockerfile](https://github.com/edgexfoundry/device-bacnet-c/blob/v3.0.1/scripts/Dockerfile.alpine)
