@@ -4,6 +4,8 @@ $$./common/quick-reference.md
 
 # Supported tags and respective Dockerfile links
 
+$$./common/version-napa.md |
+        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v3.1.0/cmd/support-scheduler/Dockerfile)
 $$./common/version-minnesota.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v3.0.0/cmd/support-scheduler/Dockerfile)
 $$./common/version-levski.md |

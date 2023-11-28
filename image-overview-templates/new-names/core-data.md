@@ -6,6 +6,8 @@ $$./common/quick-reference.md
 
 $$./common/version-napa.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v3.1.0/cmd/core-data/Dockerfile)
+$$./common/version-minnesota.md |
+        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v3.0.0/cmd/core-data/Dockerfile)
 $$./common/version-levski.md |
         - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/core-data/Dockerfile)
 $$./common/version-kamakura.md |
