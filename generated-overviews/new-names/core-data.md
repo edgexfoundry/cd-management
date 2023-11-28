@@ -20,6 +20,8 @@ WARNING:
 
 - Napa
     - 3.1.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v3.1.0/cmd/core-data/Dockerfile)
+- Minnesota
+    - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v3.0.0/cmd/core-data/Dockerfile)
 - Levski
     - 2.3.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/core-data/Dockerfile)
 - Kamakura
