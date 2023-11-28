@@ -3,6 +3,8 @@ app-service-configurable-arm64:ARM64 configurable application service for EdgeX 
 app-service-configurable:A configurable application service for EdgeX Foundry
 app-rfid-llrp-inventory-arm64: ARM64 App service that transforms raw RFID LLRP readings to inventory events
 app-rfid-llrp-inventory: App service that transforms raw RFID LLRP readings to inventory events
+app-record-replay-arm64: ARM64 Developer tool for recording and replaying EdgeX MessageBus events, enabling device-free testing.
+app-record-replay: Developer tool for recording and replaying EdgeX MessageBus events, enabling device-free testing.
 core-command-arm64:ARM64 implementation core command micro service for EdgeX Foundry
 core-command:The reference implementation core command micro service for EdgeX Foundry
 core-common-config-bootstrapper-arm64: ARM64 Seeds Common Service Configuration

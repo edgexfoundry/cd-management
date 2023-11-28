@@ -18,6 +18,8 @@ WARNING:
 
 # Supported tags and respective Dockerfile links
 
+- Napa
+    - 3.1.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v3.0.0/cmd/security-bootstrapper/Dockerfile)
 - Minnesota
     - 3.0.0        - [Dockerfile](https://github.com/edgexfoundry/edgex-go/blob/v3.0.0/cmd/security-bootstrapper/Dockerfile)
 - Levski
