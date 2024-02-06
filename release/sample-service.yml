@@ -1,0 +1,19 @@
+---
+name: 'sample-sample'
+version: '3.2.0'
+releaseName: 'odessa'
+releaseStream: 'main'
+lts: false
+repo: 'https://github.com/edgexfoundry/sample-service.git'
+commitId: '84423b89ce30e37f30f8c64be74fe5fa8ac28ccc'
+gitTag: true
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/sample-service
+    destination:
+      - nexus3.edgexfoundry.org:10002/sample-service
+      - docker.io/edgexfoundry/sample-service
+  - image: nexus3.edgexfoundry.org:10004/sample-service-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/sample-service-arm64
+      - docker.io/edgexfoundry/sample-service-arm64
