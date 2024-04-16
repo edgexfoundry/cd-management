@@ -1,14 +1,14 @@
 ---
-lts: true
 name: 'sample-service'
-version: '4.2.1'
-releaseName: 'jakarta'
-releaseStream: 'main'
-commitId: 'd26075601ba6247841b0e62a66cb9c22a817786f'
+version: '5.1.6'
+releaseName: 'napa'
+releaseStream: 'napa'
+lts: true
+commitId: 'f7ba923d24552ada1d9e31e26eb1099af84e6bba'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
 gitTag: true
 dockerImages: true
-dockerForce: true
+dockerForce: false
 snap: false
 gitHubRelease: false
 docker:
