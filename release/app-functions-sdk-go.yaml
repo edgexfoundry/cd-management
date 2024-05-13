@@ -1,14 +1,14 @@
 ---
 name: 'app-functions-sdk-go'
-version: '3.1.0'
+version: '3.1.1'
 releaseName: 'napa'
-releaseStream: 'main'
-lts: true
+releaseStream: 'napa'
+lts: false
 repo: 'https://github.com/edgexfoundry/app-functions-sdk-go.git'
-commitId: '0026a7d191b2c7a8bb217d1e10d99788b36c1b78'
+commitId: '2d559bfd24087982bdd8bbb47fa03227def45c27'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
 apiInfo:
-  nextReleaseVersion: '3.2.0'
+  nextReleaseVersion: '3.1.2'
   reviewers: edgexfoundry/app-functions-sdk-go-committers
