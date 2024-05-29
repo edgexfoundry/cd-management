@@ -1,11 +1,11 @@
 ---
 name: device-uart
-version: '3.1.0'
+version: '3.1.1'
 releaseName: 'napa'
-releaseStream: 'main'
+releaseStream: 'napa'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-uart.git'
-commitId: dec02cb029fa6ce79400670f54c9fa46c31fe080
+commitId: 'cbe7f7f4f25588eb2c33b5d8d364f118e746b793'
 gitTag: true
 dockerImages: true
 docker:
