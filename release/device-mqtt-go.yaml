@@ -1,11 +1,11 @@
 ---
 name: 'device-mqtt-go'
-version: '3.1.0'
+version: '3.1.1'
 releaseName: 'napa'
-releaseStream: 'main'
+releaseStream: 'napa'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-mqtt-go.git'
-commitId: '2e27f69eb295f4b29cb509ab7fedca7dd8db09a6'
+commitId: '7a6fdf0b72787c14a6f52506e36c0d70e9ebdd72'
 gitTag: true
 dockerForce: false
 dockerImages: true

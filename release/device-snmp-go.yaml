@@ -1,11 +1,11 @@
 ---
 name: 'device-snmp-go'
-version: '3.1.0'
+version: '3.1.1'
 releaseName: 'napa'
-releaseStream: 'main'
+releaseStream: 'napa'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-snmp-go.git'
-commitId: 'b852d33a75a07d69fbdb63dde5dbae2cfe6da43b'
+commitId: 'd721e73911f12ca0ff6fbf72fa0cf941643da5d5'
 gitTag: true
 dockerForce: false
 dockerImages: true
