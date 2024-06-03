@@ -5,7 +5,7 @@ releaseName: 'napa'
 releaseStream: 'napa'
 lts: false
 repo: 'https://github.com/edgexfoundry/device-sdk-c.git'
-commitId: '9ba2c339c6b6ced168e87f011e0a7391adc1a762'
+commitId: '80ac5494b03d13a2d8e2fe89149133c760b36a69'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
