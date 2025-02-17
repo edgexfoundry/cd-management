@@ -63,7 +63,7 @@ jobs:
         sed -i "s|<TEMPLATE_REPO>|${{ env.REPO_URL }}|g" ${{ env.REPO_NAME }}/cliff.toml
 
     - name: Generate Changelog
-      uses: orhun/git-cliff-action@v2
+      uses: orhun/git-cliff-action@v4
       with:
         config: ${{ env.REPO_NAME }}/cliff.toml
         args: --unreleased --repository ${{ env.REPO_NAME }}
@@ -71,7 +71,19 @@ jobs:
         OUTPUT: changelogs/${{ env.REPO_NAME }}.md
 
     - name: Upload Changelog Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
+      with:
+        name: changelogs-${{ env.REPO_NAME }}
+        path: changelogs/
+        overwrite: true
+
+  merge:
+    needs: generate-changelogs
+    runs-on: ubuntu-latest
+    steps:
+    - name: Merge Artifacts
+      uses: actions/upload-artifact/merge@v4
       with:
         name: changelogs
-        path: changelogs/
+        pattern: changelogs-*
+        delete-merged: true
