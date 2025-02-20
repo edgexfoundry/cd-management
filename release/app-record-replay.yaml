@@ -1,11 +1,11 @@
 ---
 name: 'app-record-replay'
-version: '3.1.1'
-releaseName: 'napa'
-releaseStream: 'napa'
+version: '4.0.0'
+releaseName: 'odesa'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-record-replay.git'
-commitId: '6aec4d751a88b5101ea7e5cbe3a7b84ef5d426b1'
+commitId: '8cc8644154733f4f3544498f2753be7fafbd0391'
 gitTag: true
 dockerImages: true
 docker:
