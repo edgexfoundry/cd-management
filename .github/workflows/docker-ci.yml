@@ -1,0 +1,62 @@
+name: Centralized EdgeX Multi-Arch Image Builder
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - build-docker-manifests
+    paths:
+      - config.json  
+
+jobs:
+  read-config:
+    name: Get Manifest Configs
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.get-repos.outputs.MATRIX }}
+      tag: ${{ steps.get-repos.outputs.TAG }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Get EdgeX Docker Repositories and Version Tag
+      id: get-repos
+      run: |
+        json_array=$(cat ./config.json | jq -cr '.repos')
+        echo "Repos as JSON array: $json_array"
+        echo "MATRIX=$json_array" >> $GITHUB_OUTPUT 
+        tag=$(cat ./config.json | jq -r '.version')
+        echo "Multi-Arch Image Tag: $tag"
+        echo "TAG=$tag" >> $GITHUB_OUTPUT    
+  
+  create-manifests:
+    needs: read-config
+    name: Create Docker Multi-Arch Image
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        repo: ${{fromJson(needs.read-config.outputs.matrix)}}
+    steps:
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ vars.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Create and Push Docker Manifests
+      run: |
+        image=${{ matrix.repo }}:${{needs.read-config.outputs.tag}}
+        amd_image=$image-amd64
+        arm_image=${{ matrix.repo }}-arm64:${{needs.read-config.outputs.tag}}
+        amd_existed=$(docker pull $amd_image &>/dev/null ; echo $?)
+        if [ $amd_existed -ne 0 ]; then
+          echo "$amd_image does not exist, create and push..."
+          docker pull $image
+          docker tag $image $amd_image
+          docker push $amd_image
+          docker rmi -f $image
+        fi
+        docker pull $arm_image
+        echo "manifests: $amd_image and $arm_image"
+        docker manifest create $image -a $amd_image -a $arm_image
+        docker manifest push -p $image
+        docker rmi -f $amd_image and $arm_image
+        
