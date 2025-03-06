@@ -1,10 +1,10 @@
 ---
 name: 'go-mod-configuration'
-version: '3.1.0'
-releaseName: 'napa'
+version: '4.0.0'
+releaseName: 'odessa'
 releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/go-mod-configuration.git'
-commitId: '331853c130345ff2df93bd4439588ce2c3109fba'
+commitId: 'f245db316763ef41f589ea9965a2c2917ca9c256'
 gitTag: true
 dockerImages: false
