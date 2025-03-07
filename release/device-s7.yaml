@@ -1,0 +1,20 @@
+---
+name: 'device-s7'
+version: '4.0.0'
+releaseName: 'odesa'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/device-s7.git'
+commitId: '7bf3b7cedae0f10faf0de83af88415cc28561f9e'
+gitTag: true
+dockerForce: false
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-s7
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-s7
+      - docker.io/edgexfoundry/device-s7
+  - image: nexus3.edgexfoundry.org:10004/device-s7-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-s7-arm64
+      - docker.io/edgexfoundry/device-s7-arm64

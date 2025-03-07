@@ -1,0 +1,20 @@
+---
+name: 'device-opc-ua'
+version: '4.0.0'
+releaseName: 'odesa'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/device-opc-ua.git'
+commitId: 'd484454ed3060f2f1c56262b265adff557aa4896'
+gitTag: true
+dockerForce: false
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-opc-ua
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-opc-ua
+      - docker.io/edgexfoundry/device-opc-ua
+  - image: nexus3.edgexfoundry.org:10004/device-opc-ua-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-opc-ua-arm64
+      - docker.io/edgexfoundry/device-opc-ua-arm64
