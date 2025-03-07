@@ -1,0 +1,20 @@
+---
+name: 'device-can'
+version: '4.0.0'
+releaseName: 'odessa'
+releaseStream: 'main'
+lts: true
+repo: 'https://github.com/edgexfoundry/device-can.git'
+commitId: 'f58e8642700982be8554d9f031b2fff0d14b416f'
+gitTag: true
+dockerForce: false
+dockerImages: true
+docker:
+  - image: nexus3.edgexfoundry.org:10004/device-can
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-can
+      - docker.io/edgexfoundry/device-can
+  - image: nexus3.edgexfoundry.org:10004/device-can-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/device-can-arm64
+      - docker.io/edgexfoundry/device-can-arm64

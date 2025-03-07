@@ -1,11 +1,11 @@
 ---
 name: 'device-coap-c'
-version: '3.1.0'
-releaseName: 'napa'
+version: '4.0.0'
+releaseName: 'odessa'
 releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-coap-c.git'
-commitId: '4a255a314fba9bd700f29efc4e55a4a3c596992f'
+commitId: '578a9a03340fcb4ee66dd22d4e32c296796c0ad6'
 gitTag: true
 dockerImages: true
 docker:
