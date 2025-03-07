@@ -1,10 +1,10 @@
 ---
 name: 'go-mod-bootstrap'
-version: '4.0.0'
+version: '4.0.1'
 releaseName: 'odessa'
 releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/go-mod-bootstrap.git'
-commitId: '695a2ce0a5dce16b76ccf7ed25964df83489318f'
+commitId: 'b95cccb38a257e3876583be115fe7a50b6c14b77'
 gitTag: true
 dockerImages: false
