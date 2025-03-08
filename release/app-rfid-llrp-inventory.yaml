@@ -1,11 +1,11 @@
 ---
 name: 'app-rfid-llrp-inventory'
-version: '3.1.1'
-releaseName: 'napa'
-releaseStream: 'napa'
+version: '4.0.0'
+releaseName: 'odesa'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-rfid-llrp-inventory.git'
-commitId: '62ca0d7129336b0a9a3a61cd5b512b0d5179a517'
+commitId: 'e6f8862174c1e7a2f3c2a19299614dec466d2c14'
 gitTag: true
 dockerImages: true
 docker:
