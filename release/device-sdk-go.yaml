@@ -1,14 +1,14 @@
 ---
 name: 'device-sdk-go'
-version: '3.1.1'
-releaseName: 'napa'
-releaseStream: 'napa'
-lts: false
+version: '4.0.0'
+releaseName: 'odessa'
+releaseStream: 'main'
+lts: true
 repo: 'https://github.com/edgexfoundry/device-sdk-go.git'
-commitId: 'a6cec28d6cc3e9f099c726f4fee61df9e54d36d1'
+commitId: '1736bffb6f9249122deed05ee7f896dde1cd3714'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
 apiInfo:
-  nextReleaseVersion: '3.1.2'
+  nextReleaseVersion: '4.1.0'
   reviewers: edgexfoundry/device-sdk-go-committers
