@@ -1,11 +1,11 @@
 ---
 name: 'app-service-configurable'
-version: '3.1.1'
-releaseName: 'napa'
-releaseStream: 'napa'
+version: '4.0.0'
+releaseName: 'odessa'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
-commitId: '21b541940b47fa58fc592783374dbd84229517f8'
+commitId: 'e952aefcdda7939f65187319d5e25fb8b4314498'
 gitTag: true
 dockerImages: true
 docker:
