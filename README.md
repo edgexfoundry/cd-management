@@ -20,7 +20,11 @@ The Jenkins automation combines the python script with the compose builder `make
 
 ## Local Usage
 
-Local script usage requires a GitHub [Personal Access Token](https://github.com/settings/tokens) exported to the environment as `GH_TOKEN_PSW`
+Local script usage requires a GitHub [Personal Access Token](https://github.com/settings/tokens) exported to the environment as `GH_TOKEN_PSW`, and the following prerequisites.
+
+* create a virtual environments using Python `venv` module
+* install Python `pybuilder` module
+* install Python modules in *requirements.txt* and *requirements-build.txt*
 
 ### `env-builder`
 
@@ -50,7 +54,7 @@ optional arguments:
   --no-lookup        do not lookup edgex versions (default: False)
   --verbose          verbose logging (default: False)
   --no-deps          do not lookup dependency versions (default: False)
-  --deps DEPS        dependency versions to lookup (default: vault consul redis kong kuiper mosquitto)
+  --deps DEPS        dependency versions to lookup (default: bao postgres kuiper mosquitto nanomq nats nginx)
 ```
 
 ## Reference

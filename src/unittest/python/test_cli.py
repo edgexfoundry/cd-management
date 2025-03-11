@@ -1,5 +1,6 @@
 
 # Copyright (c) 2020 Intel Corporation
+# Copyright (c) 2025 IOTech Ltd
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -83,7 +84,7 @@ class TestApi(unittest.TestCase):
         self.assertNotEqual(builder.envfile, None)
         self.assertNotEqual(builder.compose_env_vars, None)
         self.assertNotEqual(builder.repo_map, None)
-        self.assertEqual(len(builder.repo_map), 19)
+        self.assertEqual(len(builder.repo_map), 20)
         self.assertEqual(builder.docker_repository, 'edgexfoundry')
 
     @patch.dict(os.environ, {"GH_TOKEN_PSW": "mock-token"})
@@ -101,7 +102,7 @@ class TestApi(unittest.TestCase):
         path = self.mock_env
         lines = EnvBuilder.read_env_file(path)
         os_patch.assert_called_once_with(path, os.R_OK)
-        self.assertEqual(len(lines), 57)
+        self.assertEqual(len(lines), 59)
 
     @patch.dict(os.environ, {"GH_TOKEN_PSW": "mock-token"})
     @patch('envbuilder.cli.EnvBuilder.get_client')
@@ -139,10 +140,9 @@ class TestApi(unittest.TestCase):
         mock_api.get_latest.assert_any_call('edgex-go', 'edgexfoundry')
         mock_api.get_latest.assert_any_call('app-service-configurable', 'edgexfoundry')
         mock_api.get_latest.assert_any_call('app-rfid-llrp-inventory', 'edgexfoundry')
+        mock_api.get_latest.assert_any_call('app-record-replay', 'edgexfoundry')
         mock_api.get_latest.assert_any_call('edgex-ui-go', 'edgexfoundry')
         mock_api.get_latest.assert_any_call('device-bacnet-c', 'edgexfoundry')
-        mock_api.get_latest.assert_any_call('device-camera-go', 'edgexfoundry')
-        mock_api.get_latest.assert_any_call('device-grove-c', 'edgexfoundry')
         mock_api.get_latest.assert_any_call('device-modbus-go', 'edgexfoundry')
         mock_api.get_latest.assert_any_call('device-mqtt-go', 'edgexfoundry')
         mock_api.get_latest.assert_any_call('device-rest-go', 'edgexfoundry')
@@ -151,14 +151,19 @@ class TestApi(unittest.TestCase):
         mock_api.get_latest.assert_any_call('device-rfid-llrp-go', 'edgexfoundry')
         mock_api.get_latest.assert_any_call('device-coap-c', 'edgexfoundry')
         mock_api.get_latest.assert_any_call('device-gpio', 'edgexfoundry')
+        mock_api.get_latest.assert_any_call('device-uart', 'edgexfoundry')
+        mock_api.get_latest.assert_any_call('device-onvif-camera', 'edgexfoundry')
+        mock_api.get_latest.assert_any_call('device-usb-camera', 'edgexfoundry')
+        mock_api.get_latest.assert_any_call('device-s7', 'edgexfoundry')
+        mock_api.get_latest.assert_any_call('device-opc-ua', 'edgexfoundry')
+        mock_api.get_latest.assert_any_call('device-can', 'edgexfoundry')
 
         self.assertEqual(builder.compose_env_vars['CORE_EDGEX_VERSION'], '1.0.0')
         self.assertEqual(builder.compose_env_vars['APP_SERVICE_CONFIG_VERSION'], '1.0.0')
         self.assertEqual(builder.compose_env_vars['APP_LLRP_VERSION'], '1.0.0')
+        self.assertEqual(builder.compose_env_vars['APP_RECORD_REPLAY_VERSION'], '1.0.0')
         self.assertEqual(builder.compose_env_vars['EDGEX_UI_VERSION'], '1.0.0')
         self.assertEqual(builder.compose_env_vars['DEVICE_BACNET_VERSION'], '1.0.0')
-        self.assertEqual(builder.compose_env_vars['DEVICE_CAMERA_VERSION'], '1.0.0')
-        self.assertEqual(builder.compose_env_vars['DEVICE_GROVE_VERSION'], '1.0.0')
         self.assertEqual(builder.compose_env_vars['DEVICE_MODBUS_VERSION'], '1.0.0')
         self.assertEqual(builder.compose_env_vars['DEVICE_MQTT_VERSION'], '1.0.0')
         self.assertEqual(builder.compose_env_vars['DEVICE_REST_VERSION'], '1.0.0')
@@ -167,6 +172,12 @@ class TestApi(unittest.TestCase):
         self.assertEqual(builder.compose_env_vars['DEVICE_LLRP_VERSION'], '1.0.0')
         self.assertEqual(builder.compose_env_vars['DEVICE_COAP_VERSION'], '1.0.0')
         self.assertEqual(builder.compose_env_vars['DEVICE_GPIO_VERSION'], '1.0.0')
+        self.assertEqual(builder.compose_env_vars['DEVICE_UART_VERSION'], '1.0.0')
+        self.assertEqual(builder.compose_env_vars['DEVICE_ONVIFCAM_VERSION'], '1.0.0')
+        self.assertEqual(builder.compose_env_vars['DEVICE_USBCAM_VERSION'], '1.0.0')
+        self.assertEqual(builder.compose_env_vars['DEVICE_S7_VERSION'], '1.0.0')
+        self.assertEqual(builder.compose_env_vars['DEVICE_OPCUA_VERSION'], '1.0.0')
+        self.assertEqual(builder.compose_env_vars['DEVICE_CAN_VERSION'], '1.0.0')
 
     @patch.dict(os.environ, {"GH_TOKEN_PSW": "mock-token"})
     @patch('envbuilder.DockerImageSearch.get_image_versions')
@@ -181,29 +192,29 @@ class TestApi(unittest.TestCase):
 
         args = Namespace(envfile=self.mock_env, org=None)
         builder = EnvBuilder(args)
-        updated_versions = builder.lookup_dependencies('vault consul redis kong kuiper mosquitto')
+        updated_versions = builder.lookup_dependencies('bao postgres kuiper mosquitto nanomq nats nginx')
 
-        self.assertEqual(updated_versions['VAULT_VERSION'], '1.5.3 --> 1.0.0')
-        self.assertEqual(updated_versions['CONSUL_VERSION'], '1.9.1 --> 1.0.0')
-        self.assertEqual(updated_versions['REDIS_VERSION'], '6.0.9-alpine --> 1.0.0-alpine')
-        self.assertEqual(updated_versions['KONG_VERSION'], '2.3-alpine --> 1.0.0-alpine')
+        self.assertEqual(updated_versions['BAO_VERSION'], '2.1.1 --> 1.0.0')
+        self.assertEqual(updated_versions['POSTGRES_VERSION'], '12.3-alpine --> 1.0.0-alpine')
         self.assertEqual(updated_versions['KUIPER_VERSION'], '1.1.2-alpine --> 1.0.0-alpine')
         self.assertEqual(updated_versions['MOSQUITTO_VERSION'], '1.6.3 --> 1.0.0')
+        self.assertEqual(updated_versions['NANOMQ_VERSION'], '0.18.2 --> 1.0.0')
+        self.assertEqual(updated_versions['NATS_VERSION'], '2.9.25-alpine --> 1.0.0-alpine')
+        self.assertEqual(updated_versions['NGINX_VERSION'], '1.25.5-alpine-slim --> 1.0.0-alpine')
 
 
     def test__env_to_dict__Should_ProperlyConvertEnvToDict(self, *patches):
         path = self.mock_env
         lines = EnvBuilder.read_env_file(path)
         dict = EnvBuilder.env_to_dict(lines)
-        self.assertEqual(len(dict), 34)
+        self.assertEqual(len(dict), 35)
         self.assertEqual(dict['REPOSITORY'], 'mock-repository')
         self.assertEqual(dict['CORE_EDGEX_VERSION'], 'latest')
         self.assertEqual(dict['APP_SERVICE_CONFIG_VERSION'], 'latest')
         self.assertEqual(dict['APP_LLRP_VERSION'], 'latest')
+        self.assertEqual(dict['APP_RECORD_REPLAY_VERSION'], 'latest')
         self.assertEqual(dict['EDGEX_UI_VERSION'], 'latest')
         self.assertEqual(dict['DEVICE_BACNET_VERSION'], 'latest')
-        self.assertEqual(dict['DEVICE_CAMERA_VERSION'], 'latest')
-        self.assertEqual(dict['DEVICE_GROVE_VERSION'], 'latest')
         self.assertEqual(dict['DEVICE_MODBUS_VERSION'], 'latest')
         self.assertEqual(dict['DEVICE_MQTT_VERSION'], 'latest')
         self.assertEqual(dict['DEVICE_REST_VERSION'], 'latest')
@@ -212,5 +223,9 @@ class TestApi(unittest.TestCase):
         self.assertEqual(dict['DEVICE_LLRP_VERSION'], 'latest')
         self.assertEqual(dict['DEVICE_COAP_VERSION'], 'latest')
         self.assertEqual(dict['DEVICE_GPIO_VERSION'], 'latest')
-        self.assertEqual(dict['APP_RECORD_REPLAY_VERSION'], 'latest')
         self.assertEqual(dict['DEVICE_UART_VERSION'], 'latest')
+        self.assertEqual(dict['DEVICE_ONVIFCAM_VERSION'], 'latest')
+        self.assertEqual(dict['DEVICE_USBCAM_VERSION'], 'latest')
+        self.assertEqual(dict['DEVICE_S7_VERSION'], 'latest')
+        self.assertEqual(dict['DEVICE_OPCUA_VERSION'], 'latest')
+        self.assertEqual(dict['DEVICE_CAN_VERSION'], 'latest')
