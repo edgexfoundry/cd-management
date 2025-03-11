@@ -1,10 +1,10 @@
 ---
 name: 'go-mod-messaging'
-version: '4.0.0'
+version: '4.0.1'
 releaseName: 'odessa'
-releaseStream: 'main'
+releaseStream: 'odessa'
 lts: true
 repo: 'https://github.com/edgexfoundry/go-mod-messaging.git'
-commitId: 'b1a9a21f485f9aeb43d5503294fb988c425aab4b'
+commitId: '8b8dffb4c450d25c1a8d8ccae075c4dfa2c7bffe'
 gitTag: true
 dockerImages: false
