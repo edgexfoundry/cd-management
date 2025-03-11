@@ -1,14 +1,14 @@
 ---
 name: 'edgex-go'
-version: '3.1.1'
-releaseName: 'napa'
-releaseStream: 'napa'
+version: '4.0.0'
+releaseName: 'odessa'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
-commitId: '8e20ba2d710d6e8a600bdba73452396809bc6a06'
+commitId: '692b82db1817957d6150ebf24d9618fd29462205'
 gitTag: true
 apiInfo:
-  nextReleaseVersion: '3.1.2'
+  nextReleaseVersion: '4.1.0'
   reviewers: edgexfoundry/edgex-go-committers
 dockerImages: true
 docker:
