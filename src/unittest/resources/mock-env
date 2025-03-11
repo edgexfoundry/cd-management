@@ -1,5 +1,6 @@
 # /*******************************************************************************
  #  * Copyright 2021 Intel
+ #  * Copyright 2025 IOTech Ltd
  #  *
  #  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  #  * in compliance with the License. You may obtain a copy of the License at
@@ -26,10 +27,9 @@ UI_REPOSITORY=mock-repository
 CORE_EDGEX_VERSION=latest
 APP_SERVICE_CONFIG_VERSION=latest
 APP_LLRP_VERSION=latest
+APP_RECORD_REPLAY_VERSION=latest
 EDGEX_UI_VERSION=latest
 DEVICE_BACNET_VERSION=latest
-DEVICE_CAMERA_VERSION=latest
-DEVICE_GROVE_VERSION=latest
 DEVICE_MODBUS_VERSION=latest
 DEVICE_MQTT_VERSION=latest
 DEVICE_REST_VERSION=latest
@@ -38,20 +38,22 @@ DEVICE_VIRTUAL_VERSION=latest
 DEVICE_LLRP_VERSION=latest
 DEVICE_COAP_VERSION=latest
 DEVICE_GPIO_VERSION=latest
-DEVICE_ONVIF_CAMERA=latest
-DEVICE_USB_CAMERA=latest
-APP_RECORD_REPLAY_VERSION=latest
 DEVICE_UART_VERSION=latest
+DEVICE_ONVIFCAM_VERSION=latest
+DEVICE_USBCAM_VERSION=latest
+DEVICE_S7_VERSION=latest
+DEVICE_OPCUA_VERSION=latest
+DEVICE_CAN_VERSION=latest
 
-VAULT_VERSION=1.5.3
-CONSUL_VERSION=1.9.1
+BAO_VERSION=2.1.1
 POSTGRES_VERSION=12.3-alpine
-REDIS_VERSION=6.0.9-alpine
-KONG_VERSION=2.3-alpine
 KUIPER_VERSION=1.1.2-alpine
 MOSQUITTO_VERSION=1.6.3
+NANOMQ_VERSION=0.18.2
+NATS_VERSION=2.9.25-alpine
+NGINX_VERSION=1.25.5-alpine-slim
 
 EDGEX_USER=2002
 EDGEX_GROUP=2001
 
-DEFAULT_EDGEX_RUN_CMD_PARMS="-cp=consul.http://edgex-core-consul:8500 --registry --confdir=/res"
+DEFAULT_EDGEX_RUN_CMD_PARMS="-cp=keeper.http://edgex-core-keeper:59890 --registry"

@@ -1,4 +1,5 @@
 # Copyright (c) 2020 Intel Corporation
+# Copyright (c) 2025 IOTech Ltd
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -40,10 +41,9 @@ class EnvBuilder:
             'edgex-go': 'CORE_EDGEX_VERSION',
             'app-service-configurable': 'APP_SERVICE_CONFIG_VERSION',
             'app-rfid-llrp-inventory': 'APP_LLRP_VERSION',
+            'app-record-replay': 'APP_RECORD_REPLAY_VERSION',
             'edgex-ui-go': 'EDGEX_UI_VERSION',
             'device-bacnet-c': 'DEVICE_BACNET_VERSION',
-            'device-camera-go': 'DEVICE_CAMERA_VERSION',
-            'device-grove-c': 'DEVICE_GROVE_VERSION',
             'device-modbus-go': 'DEVICE_MODBUS_VERSION',
             'device-mqtt-go': 'DEVICE_MQTT_VERSION',
             'device-rest-go': 'DEVICE_REST_VERSION',
@@ -52,10 +52,12 @@ class EnvBuilder:
             'device-rfid-llrp-go': 'DEVICE_LLRP_VERSION',
             'device-coap-c': 'DEVICE_COAP_VERSION',
             'device-gpio': 'DEVICE_GPIO_VERSION',
+            'device-uart': 'DEVICE_UART_VERSION',
             'device-onvif-camera': 'DEVICE_ONVIFCAM_VERSION',
             'device-usb-camera': 'DEVICE_USBCAM_VERSION',
-            'app-record-replay': 'APP_RECORD_REPLAY_VERSION',
-            'device-uart': 'DEVICE_UART_VERSION',
+            'device-s7': 'DEVICE_S7_VERSION',
+            'device-opc-ua': 'DEVICE_OPCUA_VERSION',
+            'device-can': 'DEVICE_CAN_VERSION',
         }
 
     def process_env_file(self):
@@ -156,14 +158,20 @@ class EnvBuilder:
                 lookup = 'alpine' if is_alpine else 'latest'
                 org = 'library'
 
-                # all this if/else is pretty ugly
-                if dep == 'kuiper':
-                    image_name = 'ekuiper'
-                    org = 'lfedge'
-                elif dep == 'mosquitto':
-                    image_name = 'eclipse-mosquitto'
-                else:
-                    image_name = dep
+                match dep:
+                    case 'bao':
+                        image_name = 'openbao'
+                        org = 'openbao'
+                    case 'kuiper':
+                        image_name = 'ekuiper'
+                        org = 'lfedge'
+                    case 'mosquitto':
+                        image_name = 'eclipse-mosquitto'
+                    case 'nanomq':
+                        image_name = 'nanomq'
+                        org = 'emqx'
+                    case _:
+                        image_name = dep
 
                 dep_version = self.image_search.get_image_versions(image_name, org=org, filter=lookup, verbose=False)
 
@@ -250,7 +258,7 @@ def parse_args():
     group = parser.add_mutually_exclusive_group()
     group.add_argument('--no-deps', action='store_true',
                         help='do not lookup dependency versions')
-    group.add_argument('--deps', required=False, default='vault consul redis kong kuiper mosquitto',
+    group.add_argument('--deps', required=False, default='bao postgres kuiper mosquitto nanomq nats nginx',
                         help=('dependency versions to lookup'))
 
     return parser.parse_args()
