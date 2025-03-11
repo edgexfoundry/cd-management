@@ -1,11 +1,11 @@
 ---
 name: 'edgex-ui-go'
-version: '3.1.0'
-releaseName: 'napa'
+version: '4.0.0'
+releaseName: 'odessa'
 releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-ui-go.git'
-commitId: 'ddfd7e44b3fe99f0be24d936546b1bb8b86fb3ea'
+commitId: '8cdda4bcdbb66b44d63df67301c7c51a86d111f3'
 gitTag: true
 dockerImages: true
 docker:
