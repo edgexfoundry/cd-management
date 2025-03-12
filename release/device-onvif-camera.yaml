@@ -1,11 +1,11 @@
 ---
 name: device-onvif-camera
-version: '3.1.1'
-releaseName: 'napa'
-releaseStream: 'napa'
+version: '4.0.0'
+releaseName: 'odessa'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-onvif-camera.git'
-commitId: '50147a6252236a89dc81b68900d55ccf46123f46'
+commitId: 'd4e6059d90aee0898b156167641b1c9a91f0d1e1'
 gitTag: true
 dockerForce: false
 dockerImages: true

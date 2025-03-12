@@ -1,11 +1,11 @@
 ---
 name: 'device-rest-go'
-version: '3.1.1'
-releaseName: 'napa'
-releaseStream: 'napa'
+version: '4.0.0'
+releaseName: 'odessa'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-rest-go.git'
-commitId: '26dd2cd913d05f397b62e8034ff483e97214642e'
+commitId: '30c083a5452dbfcd7d2c6cff84583659684690cc'
 gitTag: true
 dockerForce: false
 dockerImages: true
