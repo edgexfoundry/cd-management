@@ -1,11 +1,11 @@
 ---
 name: 'edgex-go'
-version: '4.0.1'
+version: '4.0.0'
 releaseName: 'odessa'
 releaseStream: 'odessa'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
-commitId: 'b877783e8198655b4b0a97e42d3ffef4665dd3c1'
+commitId: '1c00668fc2a13730d03445c745bd90ab17bc0204'
 gitTag: true
 apiInfo:
   nextReleaseVersion: '4.1.0'
