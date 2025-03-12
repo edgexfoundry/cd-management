@@ -1,11 +1,11 @@
 ---
 name: device-usb-camera
-version: '3.1.1'
-releaseName: 'napa'
-releaseStream: 'napa'
+version: '4.0.0'
+releaseName: 'odessa'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-usb-camera.git'
-commitId: '3be3ee8a855fefcb4e89eb04c32f7a94d3723b2e'
+commitId: '36c74d58d129e88b202c65abd47b34e11f551b9e'
 gitTag: true
 dockerImages: true
 docker:
