@@ -1,11 +1,11 @@
 ---
 name: 'app-service-configurable'
-version: '4.0.0'
+version: '4.0.1'
 releaseName: 'odessa'
-releaseStream: 'main'
+releaseStream: 'odessa'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-service-configurable.git'
-commitId: 'e952aefcdda7939f65187319d5e25fb8b4314498'
+commitId: '2585b12695b756e2f486d4adeee72f01bb083840'
 gitTag: true
 dockerImages: true
 docker:
