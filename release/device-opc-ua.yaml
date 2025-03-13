@@ -5,7 +5,7 @@ releaseName: 'odessa'
 releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-opc-ua.git'
-commitId: 'cd1f7ef16499cce090beac5cc9e38758699d73c9'
+commitId: '5460bd9ba97c01df0d8bf443b8947b47375422b2'
 gitTag: true
 dockerForce: false
 dockerImages: true
