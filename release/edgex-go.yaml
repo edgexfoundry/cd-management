@@ -37,6 +37,14 @@ docker:
     destination:
       - nexus3.edgexfoundry.org:10002/core-command-arm64
       - docker.io/edgexfoundry/core-command-arm64
+  - image: nexus3.edgexfoundry.org:10004/core-keeper
+    destination:
+      - nexus3.edgexfoundry.org:10002/core-keeper
+      - docker.io/edgexfoundry/core-keeper
+  - image: nexus3.edgexfoundry.org:10004/core-keeper-arm64
+    destination:
+      - nexus3.edgexfoundry.org:10002/core-keeper-arm64
+      - docker.io/edgexfoundry/core-keeper-arm64
   - image: nexus3.edgexfoundry.org:10004/core-common-config-bootstrapper
     destination:
       - nexus3.edgexfoundry.org:10002/core-common-config-bootstrapper
