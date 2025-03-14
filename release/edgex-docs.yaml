@@ -1,15 +1,15 @@
 ---
 name: 'edgex-docs'
-version: '3.1.0'
-releaseName: 'napa'
+version: '4.0.0'
+releaseName: 'odessa'
 releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-docs.git'
-commitId: 'bf4283408c26a04e0159cf157e9ba2c12fe39138'
+commitId: '096e7a4ee64007dbf9072e033b408dbd6ade3421'
 gitTag: false
 dockerImages: false
 docs: true
 docsInfo:
-  nextReleaseName: odessa
-  nextReleaseVersion: "3.2"
+  nextReleaseName: palau
+  nextReleaseVersion: "4.1"
   reviewers: edgexfoundry/edgex-docs-committers
