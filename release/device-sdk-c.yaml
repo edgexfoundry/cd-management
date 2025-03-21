@@ -5,7 +5,7 @@ releaseName: 'odessa'
 releaseStream: 'odessa'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-sdk-c.git'
-commitId: '4da0bb8aa793280e305e41bd3584482191500a47'
+commitId: '7663afedc123a9de142e41083fd4c49644c8cdb2'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
