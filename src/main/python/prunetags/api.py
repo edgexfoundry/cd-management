@@ -63,6 +63,7 @@ class API(GitHubAPI):
         if not branch:
             branch = 'main'
         for page in self.get(f'/repos/{repo}/commits?sha={branch}', _get='page'):
+            logger.debug(f'getting commits for repo {page}')
             for commit in page:
                 commit_sha = commit['sha']
                 tag = API.lookup_tag(tags=tags, sha=commit_sha)
@@ -88,6 +89,7 @@ class API(GitHubAPI):
         exclude = None
         if latest_version.prerelease != ():
             exclude = latest_version
+        logger.debug(f'getting exclude value {exclude}')
         prerelease_tags = API.filter_prerelease_tags(tags=tags, exclude=exclude)
         logger.debug(f'repo {repo} has {str(len(prerelease_tags)).zfill(3)} prerelease tags')
         return prerelease_tags, latest_version, latest_version_sha
