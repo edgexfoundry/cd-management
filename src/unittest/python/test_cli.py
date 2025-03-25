@@ -157,10 +157,11 @@ class TestCli(unittest.TestCase):
             'repo': 'org1/repo1'
         }
         shared_data = {
+            'branch': 'main',
             'noop': False
         }
         remove_prerelease_tags(data, shared_data)
-        client_mock.remove_prerelease_tags.assert_called_once_with(repo='org1/repo1', noop=False)
+        client_mock.remove_prerelease_tags.assert_called_once_with(repo='org1/repo1', branch='main', noop=False)
 
     @patch('prunetags.cli.get_client')
     def test__get_prerelease_tags_report_Should_CallExpected_When_Called(self, get_client_patch, *patches):
@@ -170,9 +171,10 @@ class TestCli(unittest.TestCase):
             'repo': 'org1/repo1'
         }
         shared_data = {
+            'branch': 'main'
         }
         get_prerelease_tags_report(data, shared_data)
-        client_mock.get_prerelease_tags_report.assert_called_once_with(repos=['org1/repo1'])
+        client_mock.get_prerelease_tags_report.assert_called_once_with(repos=['org1/repo1'], branch='main')
 
     def test__check_result_Should_RaiseException_When_ProcessResultException(self, *patches):
         process_data = [
@@ -323,8 +325,8 @@ class TestCli(unittest.TestCase):
         client_mock = Mock()
         client_mock.get_repos.return_value = ['repo2', 'repo3']
         get_client_patch.return_value = client_mock
-        result = get_process_data(org='org1', user=None, exclude_repos='repo1,repo4', include_repos=None)
-        shared_data = {'org': 'org1', 'user': None, 'exclude_repos': 'repo1,repo4', 'include_repos': None, 'repos': ['repo2', 'repo3'], 'owner': 'org1'}
+        result = get_process_data(org='org1', user=None, exclude_repos='repo1,repo4', include_repos=None, branch='main')
+        shared_data = {'org': 'org1', 'user': None, 'exclude_repos': 'repo1,repo4', 'include_repos': None, 'repos': ['repo2', 'repo3'], 'owner': 'org1', 'branch': 'main'}
         expected_result = ([{'repo': 'repo2'}, {'repo': 'repo3'}], shared_data)
         self.assertEqual(result, expected_result)
 
@@ -333,8 +335,8 @@ class TestCli(unittest.TestCase):
         client_mock = Mock()
         client_mock.get_repos.return_value = ['repo2', 'repo3']
         get_client_patch.return_value = client_mock
-        result = get_process_data(org=None, user='user1', exclude_repos='repo1,repo4', include_repos=None)
-        shared_data = {'org': None, 'user': 'user1', 'exclude_repos': 'repo1,repo4', 'include_repos': None, 'repos': ['repo2', 'repo3'], 'owner': 'user1'}
+        result = get_process_data(org=None, user='user1', exclude_repos='repo1,repo4', include_repos=None, branch='main')
+        shared_data = {'org': None, 'user': 'user1', 'exclude_repos': 'repo1,repo4', 'include_repos': None, 'repos': ['repo2', 'repo3'], 'owner': 'user1', 'branch': 'main'}
         expected_result = ([{'repo': 'repo2'}, {'repo': 'repo3'}], shared_data)
         self.assertEqual(result, expected_result)
 
@@ -343,8 +345,8 @@ class TestCli(unittest.TestCase):
         client_mock = Mock()
         client_mock.get_repos.return_value = []
         get_client_patch.return_value = client_mock
-        result = get_process_data(org='org1', user=None, exclude_repos='repo1', include_repos=None)
-        shared_data = {'org': 'org1', 'user': None, 'exclude_repos': 'repo1', 'include_repos': None}
+        result = get_process_data(org='org1', user=None, exclude_repos='repo1', include_repos=None, branch='main')
+        shared_data = {'org': 'org1', 'user': None, 'exclude_repos': 'repo1', 'include_repos': None, 'branch': 'main'}
         expected_result = ([], shared_data)
         self.assertEqual(result, expected_result)
 
@@ -355,7 +357,7 @@ class TestCli(unittest.TestCase):
     @patch('prunetags.cli.get_screen_layout')
     def test__initiate_multiprocess_Should_ReturnAndCallExpected_When_ScreenVersion(self, get_screen_layout_patch, mpcurses_patch, get_process_data_patch, update_version_screen_layout_pach, *patches):
         function_mock = Mock()
-        args = Namespace(org='org1', user=None, execute=True, screen=True, processes=3, include_repos='test_repo', exclude_repos=None, noop=False, version='<0.0.5')
+        args = Namespace(org='org1', user=None, execute=True, screen=True, processes=3, include_repos='test_repo', exclude_repos=None, noop=False, version='<0.0.5', branch='main')
         result = initiate_multiprocess(function_mock, args)
         mpcurses_patch.assert_called_once_with(
             function=function_mock,
@@ -366,7 +368,8 @@ class TestCli(unittest.TestCase):
                 'include_repos': 'test_repo',
                 'exclude_repos': None,
                 'version': '<0.0.5',
-                'noop': False
+                'noop': False,
+                'branch': 'main'
             },
             processes_to_start=3,
             init_messages=[
@@ -383,7 +386,7 @@ class TestCli(unittest.TestCase):
     def test__initiate_multiprocess_Should_ReturnAndCallExpected_When_NoScreen(self, mpcurses_patch, get_process_data_patch, *patches):
         get_process_data_patch.return_value = ('--process-data--', '--shared-data--')
         function_mock = Mock()
-        args = Namespace(org='org1', user=None, execute=True, screen=False, processes=None, include_repos='test_repo', exclude_repos=None, noop=False, version='<0.0.5')
+        args = Namespace(org='org1', user=None, execute=True, screen=False, processes=None, include_repos='test_repo', exclude_repos=None, noop=False, version='<0.0.5', branch='main')
         result = initiate_multiprocess(function_mock, args)
         mpcurses_patch.assert_called_once_with(
             function=function_mock,
