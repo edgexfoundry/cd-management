@@ -1,10 +1,10 @@
 ---
 name: 'edgex-taf'
-version: '3.1.1'
-releaseName: 'napa'
-releaseStream: 'napa'
+version: '4.0.0'
+releaseName: 'odessa'
+releaseStream: 'odessa'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-taf.git'
-commitId: '292e80ad79a47c2e91e3244a8a1f10e43c5b0847'
+commitId: '2b9983cc997839d7e6022e2c8f5ec086982f610d'
 gitTag: true
 dockerImages: false
