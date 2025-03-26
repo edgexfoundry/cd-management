@@ -4,15 +4,17 @@ def jobs = []
 
 def bumpStage(job, branch) {
     return {
-        def cloneUrl = job.split('"clone_url": "')[1].replaceAll('",','')
-        def repoUrl = cloneUrl.split('\\.git')[0]
+        def sshUrl = job.split('"ssh_url": "')[1].replaceAll('",','')
+        def repoUrl = sshUrl.split('\\.git')[0]
         def repoUrlSplit = repoUrl.split('edgexfoundry\\/')
         if (repoUrlSplit.size() > 1){
             def name = repoUrlSplit[1]
             stage(name) {
-                sh "git clone --branch ${branch} ${cloneUrl}"
+                sshagent(credentials: ['edgex-jenkins-ssh']) {
+                    sh(script: "git clone --branch ${branch} ${sshUrl}")
+                }
                 dir(name) {
-                    def tagExists = sh(script: "git ls-remote --tags origin v${params.Version}", returnStdout: true).trim()
+                    def tagExists = sh(script: "git tag -l v${params.Version}", returnStdout: true).trim()
                     if (!tagExists){
                         withEnv(["GIT_BRANCH=${branch}"]) {
                             edgeXSemver('init', env.Version)
@@ -63,7 +65,7 @@ pipeline {
             steps {
                 script {
                     jobs = sh (
-                        script: "curl -i \"https://api.github.com/search/repositories?q=user:edgexfoundry+archived:false+${params.Query}&per_page=200&sort=name&order=asc\" | grep clone_url",
+                        script: "curl -i \"https://api.github.com/search/repositories?q=user:edgexfoundry+archived:false+${params.Query}&per_page=200&sort=name&order=asc\" | grep ssh_url",
                         returnStdout: true).trim().split("\n")
                     echo "parallel jobs: ${jobs}"
                     parallel jobs.collectEntries {[(it.split('edgexfoundry/')[1].split('.git')[0]) : bumpStage(it, params.Branch)]}
