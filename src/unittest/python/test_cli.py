@@ -157,10 +157,11 @@ class TestCli(unittest.TestCase):
             'repo': 'org1/repo1'
         }
         shared_data = {
+            'branch': 'main',
             'noop': False
         }
         remove_prerelease_tags(data, shared_data)
-        client_mock.remove_prerelease_tags.assert_called_once_with(repo='org1/repo1', noop=False)
+        client_mock.remove_prerelease_tags.assert_called_once_with(repo='org1/repo1', branch='main', noop=False)
 
     @patch('prunetags.cli.get_client')
     def test__get_prerelease_tags_report_Should_CallExpected_When_Called(self, get_client_patch, *patches):
@@ -170,9 +171,10 @@ class TestCli(unittest.TestCase):
             'repo': 'org1/repo1'
         }
         shared_data = {
+            'branch': 'main'
         }
         get_prerelease_tags_report(data, shared_data)
-        client_mock.get_prerelease_tags_report.assert_called_once_with(repos=['org1/repo1'])
+        client_mock.get_prerelease_tags_report.assert_called_once_with(repos=['org1/repo1'], branch='main')
 
     def test__check_result_Should_RaiseException_When_ProcessResultException(self, *patches):
         process_data = [
