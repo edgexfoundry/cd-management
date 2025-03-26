@@ -424,6 +424,7 @@ def get_process_data(**kwargs):
     user = kwargs['user']
     include_repos = kwargs['include_repos']
     exclude_repos = kwargs['exclude_repos']
+    branch = kwargs['branch']
 
     owner = org
     if user:
@@ -436,7 +437,8 @@ def get_process_data(**kwargs):
         include=include_repos,
         exclude=exclude_repos,
         archived=False,
-        disabled=False)
+        disabled=False,
+        branch=branch)
     logger.info(f"retrieved {len(repos)} repos from org/owner '{owner}'")
 
     if not repos:
@@ -462,7 +464,8 @@ def initiate_multiprocess(function, args):
         'include_repos': args.include_repos,
         'exclude_repos': args.exclude_repos,
         'version': args.version,
-        'noop': args.noop
+        'noop': args.noop,
+        'branch': args.branch
     }
 
     include_repos = args.include_repos if args.include_repos else '-'
