@@ -170,12 +170,12 @@ class API(GitHubAPI):
                         latest_version_sha=version_tags_result[2]))
         return report
 
-    def get_prerelease_tags_report(self, repos=None):
+    def get_prerelease_tags_report(self, repos=None, branch=None):
         """ get prerelease tags report for repos
         """
         report = {}
         for repo in repos:
-            prerelease_tags_result = self.get_prerelease_tags(repo=repo)
+            prerelease_tags_result = self.get_prerelease_tags(repo=repo, branch=branch)
             if prerelease_tags_result is None:
                 report.update({f'{repo}': {}})
             else:

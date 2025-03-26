@@ -385,8 +385,9 @@ def remove_prerelease_tags(data, shared_data):
 
 def get_prerelease_tags_report(data, shared_data):
     repo = data['repo']
+    branch = shared_data['branch']
     client = get_client()
-    report = client.get_prerelease_tags_report(repos=[repo])
+    report = client.get_prerelease_tags_report(repos=[repo], branch=branch)
     return report
 
 
