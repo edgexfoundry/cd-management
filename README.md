@@ -5,6 +5,7 @@ This repository contains various tools that facilitate EdgeXfoundry continuous d
 Tool | Summary
 --- | ---
 [build-docker-manifests](https://github.com/edgexfoundry/cd-management/tree/build-docker-manifests) | create docker manifests
+[bump-semver](https://github.com/edgexfoundry/cd-management/tree/bump-semver) | bump version in the semver branch
 [changelog-generator](https://github.com/edgexfoundry/cd-management/tree/changelog-generator) | repository changelog management
 [create-github-release](https://github.com/edgexfoundry/cd-management/tree/create-github-release) | create GitHub releases with assets
 [create-repo-badges](https://github.com/edgexfoundry/cd-management/tree/create-repo-badges) | create badges for all repos
