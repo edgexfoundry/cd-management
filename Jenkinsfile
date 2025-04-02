@@ -26,13 +26,18 @@ pipeline {
         string(
             name: 'Version',
             defaultValue: '',
-            description: 'Specify \'--remove-version <version-range>\' to remove *all* tags within range. \
+            description: 'Specify \'--remove-version <version-range>\' to remove *all* tags within range. Use to remove release tags.\
                 See README for syntax. e.g.\"--remove-version \'<1.0.87\'\"')
         string(
             name: 'Include Repositories',
             defaultValue: '--include-repos edgex-global-pipelines',
-            description: 'Specify \'--include-repos <repo-name>\' to target specific repositories. Leaving this argument \
-                blank will target the edgex-global-pipelines repo within edgexfoundry.')
+            description: 'Specify \'--include-repos <repo-name>\' to target specific repositories. For multiple repositories, use <repo-name> as a regex. \
+                 Leaving this argument blank will target the edgex-global-pipelines repo within edgexfoundry.')
+        string(
+            name: 'Branch',
+            defaultValue: '--branch main',
+            description: 'Specify \'--branch <branch-name>\' to target branch. Set release name to remove the released dev tags.\
+                e.g. \"--branch odessa" to remove all 4.0.0-dev.x tags')
     }
     environment {
         GH_TOKEN = credentials('edgex-jenkins-github-personal-access-token')
@@ -53,7 +58,7 @@ pipeline {
                         }
                     }
                     steps {
-                        sh "prune-github-tags --org edgexfoundry --procs 10 ${params.Execute} ${params.Version} ${params['Include Repositories']}"
+                        sh "prune-github-tags --org edgexfoundry --procs 10 ${params.Execute} ${params.Version} ${params['Include Repositories']} ${params.Branch}"
                     }
                 }
             }

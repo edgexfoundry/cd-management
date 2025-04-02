@@ -102,6 +102,13 @@ def get_parser():
         default=None,
         required=False,
         help='version expression to remove- e.g. \'<1.0.50\', \'>1.0.87\', \'<1.1.4,>=1.0.1\'')
+    parser.add_argument(
+        '--branch',
+        dest='branch',
+        type=str,
+        default=None,
+        required=False,
+        help='Query commits from repo branch')
     return parser
 
 
@@ -369,16 +376,18 @@ def update_version_screen_layout(screen_layout):
 
 def remove_prerelease_tags(data, shared_data):
     repo = data['repo']
+    branch = shared_data['branch']
     noop = shared_data['noop']
     client = get_client()
-    client.remove_prerelease_tags(repo=repo, noop=noop)
+    client.remove_prerelease_tags(repo=repo, branch=branch, noop=noop)
     logger.debug(f'processed repo {repo}')
 
 
 def get_prerelease_tags_report(data, shared_data):
     repo = data['repo']
+    branch = shared_data['branch']
     client = get_client()
-    report = client.get_prerelease_tags_report(repos=[repo])
+    report = client.get_prerelease_tags_report(repos=[repo], branch=branch)
     return report
 
 
@@ -415,6 +424,7 @@ def get_process_data(**kwargs):
     user = kwargs['user']
     include_repos = kwargs['include_repos']
     exclude_repos = kwargs['exclude_repos']
+    branch = kwargs['branch']
 
     owner = org
     if user:
@@ -427,7 +437,8 @@ def get_process_data(**kwargs):
         include=include_repos,
         exclude=exclude_repos,
         archived=False,
-        disabled=False)
+        disabled=False,
+        branch=branch)
     logger.info(f"retrieved {len(repos)} repos from org/owner '{owner}'")
 
     if not repos:
@@ -453,7 +464,8 @@ def initiate_multiprocess(function, args):
         'include_repos': args.include_repos,
         'exclude_repos': args.exclude_repos,
         'version': args.version,
-        'noop': args.noop
+        'noop': args.noop,
+        'branch': args.branch
     }
 
     include_repos = args.include_repos if args.include_repos else '-'
@@ -560,6 +572,7 @@ def main():
         args = parser.parse_args()
         validate(args)
         set_logging(args)
+        logger.debug(f"getting args: {args}")
         if args.report:
             function = get_prerelease_tags_report
             if args.version:

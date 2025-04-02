@@ -34,7 +34,7 @@ usage: prune-github-tags [-h] [--org ORG] [--user USER]
                          [--exclude-repos EXCLUDE_REPOS]
                          [--include-repos INCLUDE_REPOS] [--report]
                          [--procs PROCESSES] [--screen] [--debug] [--execute]
-                         [--remove-version VERSION]
+                         [--remove-version VERSION] [--branch BRANCH]
 
 A Python script that removes old prerelease tags from repos in a GitHub org
 
@@ -57,6 +57,7 @@ optional arguments:
   --remove-version VERSION
                         version expression to remove- e.g. '<1.0.50',
                         '>1.0.87', '<1.1.4,>=1.0.1'
+  --branch BRANCH       query commits by branch
 ```
 
 ### Reference

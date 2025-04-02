@@ -314,7 +314,7 @@ class TestApi(unittest.TestCase):
             {'name': 'v1.1.9', 'commit': {'sha': 'sha6'}},
             {'name': 'v1.1.4-dev.1', 'commit': {'sha': 'sha7'}}
         ]
-        result = API.filter_prerelease_tags(tags=tags, exclude=Version('1.2.3-dev.2'))
+        result = API.filter_prerelease_tags(tags=tags, exclude=Version('1.2.2'))
         expected_result = [
             ('v1.2.0-dev.1', 'sha5'),
             ('v1.1.4-dev.1', 'sha7')
