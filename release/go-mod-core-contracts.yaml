@@ -1,10 +1,10 @@
 ---
 name: 'go-mod-core-contracts'
-version: '4.0.1'
+version: '4.0.2'
 releaseName: 'odesa'
 releaseStream: 'odesa'
 lts: true
 repo: 'https://github.com/edgexfoundry/go-mod-core-contracts.git'
-commitId: 'a0c87c43914c6db9e499150ff1cdfdd8b7e81298'
+commitId: '0eb6dcf35f9216c7022d05f87d074a27b5a9c3f3'
 gitTag: true
 dockerImages: false
