@@ -1,14 +1,14 @@
 ---
 name: 'edgex-go'
-version: '4.0.0'
+version: '4.0.1'
 releaseName: 'odessa'
 releaseStream: 'odessa'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
-commitId: 'bb198e86f545a9a12aeba33df79cb530bce52895'
+commitId: '1729928faa72876b59092547754e3d77230fce33'
 gitTag: true
 apiInfo:
-  nextReleaseVersion: '4.1.0'
+  nextReleaseVersion: '4.0.2'
   reviewers: edgexfoundry/edgex-go-committers
 dockerForce: true
 dockerImages: true
