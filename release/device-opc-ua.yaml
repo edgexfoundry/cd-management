@@ -1,11 +1,11 @@
 ---
 name: 'device-opc-ua'
-version: '4.0.0'
+version: '4.0.1'
 releaseName: 'odessa'
-releaseStream: 'main'
+releaseStream: 'odessa'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-opc-ua.git'
-commitId: '5460bd9ba97c01df0d8bf443b8947b47375422b2'
+commitId: '695dead7f30a75e3f0810c63fe02065d58180acc'
 gitTag: true
 dockerForce: false
 dockerImages: true
