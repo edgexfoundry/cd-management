@@ -1,11 +1,11 @@
 ---
 name: 'device-gpio'
-version: '4.0.0'
+version: '4.0.1'
 releaseName: 'odessa'
-releaseStream: 'main'
+releaseStream: 'odessa'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-gpio.git'
-commitId: '99341b55b6a412f9218defbeb1518dbc282c704d'
+commitId: '79747979824431ef03bbbdb8fa60d9e7e833a179'
 gitTag: true
 dockerImages: true
 docker:
