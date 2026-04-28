@@ -1,6 +1,6 @@
 ---
 name: 'sample-sample'
-version: '3.2.0'
+version: '3.2.1'
 releaseName: 'odessa'
 releaseStream: 'main'
 lts: false
