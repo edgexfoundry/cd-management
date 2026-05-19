@@ -1,10 +1,10 @@
 ---
 name: 'sample-service'
-version: '5.1.6'
-releaseName: 'napa'
-releaseStream: 'napa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
-commitId: 'f7ba923d24552ada1d9e31e26eb1099af84e6bba'
+commitId: '84423b89ce30e37f30f8c64be74fe5fa8ac28ccc'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
 gitTag: true
 dockerImages: true
