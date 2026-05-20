@@ -4,7 +4,7 @@ version: '4.0.2'
 releaseName: 'palau'
 releaseStream: 'main'
 lts: true
-commitId: '84423b89ce30e37f30f8c64be74fe5fa8ac28ccc'
+commitId: '3e8a1a90304170214832f2aa5cfcbea6d3a9a30f'
 repo: 'https://github.com/edgexfoundry/sample-service.git'
 gitTag: true
 dockerImages: true
