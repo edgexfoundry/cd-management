@@ -1,10 +1,10 @@
 ---
 name: 'go-mod-registry'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/go-mod-registry.git'
-commitId: 'eec46e6325a623061da5fd962d310f16d4a85423'
+commitId: '98c05949c839bced550cd09f63c93298579f5db7'
 gitTag: true
 dockerImages: false
