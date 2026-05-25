@@ -1,11 +1,11 @@
 ---
 name: 'app-functions-sdk-python'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-functions-sdk-python.git'
-commitId: '8c8981d4a6e42bcd6a64a026894ed8d0a8ab122f'
+commitId: '952ae98c6142ead874a29dd457eb238193009a9d'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
