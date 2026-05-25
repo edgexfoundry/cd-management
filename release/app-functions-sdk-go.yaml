@@ -1,14 +1,14 @@
 ---
 name: 'app-functions-sdk-go'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-functions-sdk-go.git'
-commitId: '04f35bce56d9966e66ad98eb5e07eed2e36559e5'
+commitId: '000bcd651dbcc8b31d2c6d3bf72c4838328f6515'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
 apiInfo:
-  nextReleaseVersion: '4.0.2'
+  nextReleaseVersion: '4.1.0'
   reviewers: edgexfoundry/app-functions-sdk-go-committers
