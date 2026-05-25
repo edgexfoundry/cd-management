@@ -1,11 +1,11 @@
 ---
 name: 'app-rfid-llrp-inventory'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-rfid-llrp-inventory.git'
-commitId: '1cdc293dbcc51f9ad602204636e21e57957c7842'
+commitId: 'eb11a58496544f8ed17a023c6cc0f1a36b61b5a0'
 gitTag: true
 dockerImages: true
 docker:
