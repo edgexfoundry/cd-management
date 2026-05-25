@@ -1,11 +1,11 @@
 ---
 name: 'app-record-replay'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-record-replay.git'
-commitId: '92a0e3fc2dc44d4b4672af306c873d87f2fa5612'
+commitId: '8a687b07779c1ae96cfaef64adf8670019a9633c'
 gitTag: false
 dockerImages: true
 docker:
