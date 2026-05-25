@@ -1,14 +1,14 @@
 ---
 name: 'device-sdk-go'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-sdk-go.git'
-commitId: 'ba1d1ecefbac4634de54b686b53cf5d9195d80d1'
+commitId: 'eb75df73de6d93a561db37512ba2b266bc81bc2c'
 gitTag: true
 dockerImages: false
 gitHubRelease: false
 apiInfo:
-  nextReleaseVersion: '4.0.2'
+  nextReleaseVersion: '4.1.0'
   reviewers: edgexfoundry/device-sdk-go-committers
