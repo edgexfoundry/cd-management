@@ -6,7 +6,7 @@ releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/app-record-replay.git'
 commitId: '8a687b07779c1ae96cfaef64adf8670019a9633c'
-gitTag: false
+gitTag: true
 dockerImages: true
 docker:
   - image: nexus3.edgexfoundry.org:10004/app-record-replay
