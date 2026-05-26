@@ -1,11 +1,11 @@
 ---
 name: 'device-snmp-go'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-snmp-go.git'
-commitId: '0daa766107879b0da20b1e8a644b8ede932369c0'
+commitId: '65915a708b5f7168ea3e83edbc505072a3716330'
 gitTag: true
 dockerForce: false
 dockerImages: true

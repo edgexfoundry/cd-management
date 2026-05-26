@@ -1,11 +1,11 @@
 ---
 name: device-usb-camera
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-usb-camera.git'
-commitId: '0cdc30e1dc38919eaeb40059b98461f6b348c332'
+commitId: 'aab4dbf34b830bb5e2cb5e56b3d268f0eefafa52'
 gitTag: true
 dockerImages: true
 docker:

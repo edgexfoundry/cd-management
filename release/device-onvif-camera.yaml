@@ -1,11 +1,11 @@
 ---
 name: device-onvif-camera
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-onvif-camera.git'
-commitId: '07a5c7cea8b397b76491c150fc350bf3c8b37ab9'
+commitId: 'df835d97e182d4d16ca3f73e0e18968cab9b59ad'
 gitTag: true
 dockerForce: false
 dockerImages: true
