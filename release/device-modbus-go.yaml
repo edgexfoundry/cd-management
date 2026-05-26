@@ -1,11 +1,11 @@
 ---
 name: 'device-modbus-go'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-modbus-go.git'
-commitId: '98c9e0d9a08700073260e6d17293232e0410c006'
+commitId: '420ce72d9a7dcef4f05ceea1692f7f4d87907b1e'
 gitTag: true
 dockerForce: false
 dockerImages: true

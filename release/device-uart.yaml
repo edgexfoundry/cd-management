@@ -1,11 +1,11 @@
 ---
 name: device-uart
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-uart.git'
-commitId: '0c51b5b3e57698fe171b29ca72e1f4cc6f37ccdf'
+commitId: 'eea4ade88a5f8cd9b8d2e14a3df38eedabcb2ab3'
 gitTag: true
 dockerImages: true
 docker:

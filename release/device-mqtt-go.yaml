@@ -1,11 +1,11 @@
 ---
 name: 'device-mqtt-go'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-mqtt-go.git'
-commitId: '98e0003c6af8f6f6673849f0d1454f44f7c815c0'
+commitId: '9d8579f05b82a801e12d88936ef98991557f2dca'
 gitTag: true
 dockerForce: false
 dockerImages: true
