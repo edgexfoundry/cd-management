@@ -1,11 +1,11 @@
 ---
 name: 'device-rest-go'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-rest-go.git'
-commitId: 'd337ac0c8f65f3cb32c919afd5a6ba2f56e4a6a8'
+commitId: '487bf1dac035fabaccf29f1f73cfd25e352c3a19'
 gitTag: true
 dockerForce: false
 dockerImages: true

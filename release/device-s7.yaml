@@ -1,11 +1,11 @@
 ---
 name: 'device-s7'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-s7.git'
-commitId: 'dc1e400f91afc90fc434dea96a1c3c7832930daa'
+commitId: '1412a1d2932a6cdb02bc61bd3799417dd26df4b5'
 gitTag: true
 dockerForce: false
 dockerImages: true
