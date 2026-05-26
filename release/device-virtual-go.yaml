@@ -1,11 +1,11 @@
 ---
 name: 'device-virtual-go'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-virtual-go.git'
-commitId: '3932617aae16119237fcb67fc022540a1fda24a8'
+commitId: 'bab95d64f90c328b46b329be29a512f4d97b3504'
 gitTag: true
 dockerImages: true
 docker:
