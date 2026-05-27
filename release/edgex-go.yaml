@@ -2,13 +2,13 @@
 name: 'edgex-go'
 version: '4.0.2'
 releaseName: 'palau'
-releaseStream: 'main'
+releaseStream: 'palau'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-go.git'
-commitId: '93517cc9be75f0d1e27fcce786eddade622644b5'
+commitId: '8446ae5d47073f02c70d118b2bb7464829f71379'
 gitTag: true
 apiInfo:
-  nextReleaseVersion: '4.1.0'
+  nextReleaseVersion: '4.0.3'
   reviewers: edgexfoundry/edgex-go-committers
 dockerForce: true
 dockerImages: true
