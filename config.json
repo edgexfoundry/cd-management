@@ -1,5 +1,6 @@
 {
     "version": "4.0.2",
+    "force_rebuild_amd": true,
     "repos": [
         "edgexfoundry/core-metadata",
         "edgexfoundry/core-data",

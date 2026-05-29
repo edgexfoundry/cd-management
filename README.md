@@ -13,5 +13,15 @@ Automated GitHub Action to create a multi-arch docker image for each EdgeX Found
 
 ---
 
+## config.json Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `version` | string | The image tag version to build (e.g. `"4.0.2"`) |
+| `force_rebuild_amd` | boolean | If `true`, delete and rebuild the `-amd64` image even if it already exists on Docker Hub. If `false` (default), skip rebuilding when the tag is already present. |
+| `repos` | array | List of Docker Hub repositories to create multi-arch manifests for |
+
+---
+
 Note: 
 This workflow is triggered by pushing new commits containing config.json changes to this **build-docker-manifests** branch.
