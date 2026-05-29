@@ -15,6 +15,7 @@ jobs:
     outputs:
       matrix: ${{ steps.get-repos.outputs.MATRIX }}
       tag: ${{ steps.get-repos.outputs.TAG }}
+      force_rebuild_amd: ${{ steps.get-repos.outputs.FORCE_REBUILD_AMD }}
     steps:
     - uses: actions/checkout@v4
     - name: Get EdgeX Docker Repositories and Version Tag
@@ -25,7 +26,10 @@ jobs:
         echo "MATRIX=$json_array" >> $GITHUB_OUTPUT 
         tag=$(cat ./config.json | jq -r '.version')
         echo "Multi-Arch Image Tag: $tag"
-        echo "TAG=$tag" >> $GITHUB_OUTPUT    
+        echo "TAG=$tag" >> $GITHUB_OUTPUT
+        force_rebuild_amd=$(cat ./config.json | jq -r '.force_rebuild_amd')
+        echo "Force Rebuild AMD Image: $force_rebuild_amd"
+        echo "FORCE_REBUILD_AMD=$force_rebuild_amd" >> $GITHUB_OUTPUT
   
   create-manifests:
     needs: read-config
@@ -53,6 +57,15 @@ jobs:
           docker tag $image $amd_image
           docker push $amd_image
           docker rmi -f $image
+        elif [ "${{ needs.read-config.outputs.force_rebuild_amd }}" = "true" ]; then
+          echo "$amd_image exists but force_rebuild_amd=true, rebuilding..."
+          docker rmi -f $amd_image
+          docker pull $image
+          docker tag $image $amd_image
+          docker push $amd_image
+          docker rmi -f $image
+        else
+          echo "$amd_image already exists, skipping rebuild..."
         fi
         docker pull $arm_image
         echo "manifests: $amd_image and $arm_image"
