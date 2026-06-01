@@ -1,10 +1,10 @@
 ---
 name: 'edgex-taf'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'palau'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-taf.git'
-commitId: '103ae61a769f791a4cc1b590928e19a649898897'
+commitId: '01ef0074f4214e66f65310260f033a72e5408f29'
 gitTag: true
 dockerImages: false
