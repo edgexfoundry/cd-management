@@ -1,10 +1,10 @@
 ---
 name: 'edgex-compose'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'palau'
 lts: true
 repo: 'https://github.com/edgexfoundry/edgex-compose.git'
-commitId: '5ed8d95a02329649a24ce79486b629bcdc8dad06'
+commitId: '57c523c31e7725cbe11508ff0fa7de5736d4f051'
 gitTag: true
 dockerImages: false
