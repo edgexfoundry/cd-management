@@ -1,11 +1,11 @@
 ---
 name: 'device-bacnet-c'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-bacnet-c.git'
-commitId: 'd0a57ca5db52f3c63b8e000d0e5f4f106796589d'
+commitId: '652c4c721f17326d85c096634bcaaa8a720b44aa'
 gitTag: true
 dockerForce: false
 dockerImages: true

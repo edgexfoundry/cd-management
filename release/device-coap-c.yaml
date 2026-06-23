@@ -1,11 +1,11 @@
 ---
 name: 'device-coap-c'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-coap-c.git'
-commitId: '47967fd6311d44cba5f1849fba3e2293691669b2'
+commitId: '0a681b1e7e7fb8602de999b105add27f5514d4a7'
 gitTag: true
 dockerImages: true
 docker:
