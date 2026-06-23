@@ -1,21 +1,9 @@
 {
     "version": "4.0.2",
-    "force_rebuild_amd": true,
+    "force_rebuild_amd": false,
     "repos": [
-        "edgexfoundry/core-metadata",
-        "edgexfoundry/core-data",
-        "edgexfoundry/core-command",
-        "edgexfoundry/core-common-config-bootstrapper",
-        "edgexfoundry/core-keeper",
-        "edgexfoundry/support-notifications",
-        "edgexfoundry/support-scheduler",
-        "edgexfoundry/security-proxy-auth",
-        "edgexfoundry/security-proxy-setup",
-        "edgexfoundry/security-secretstore-setup",
-        "edgexfoundry/security-bootstrapper",
-        "edgexfoundry/security-spire-server",
-        "edgexfoundry/security-spire-agent",
-        "edgexfoundry/security-spire-config",
-        "edgexfoundry/security-spiffe-token-provider"
+        "edgexfoundry/device-bacnet",
+        "edgexfoundry/device-can",
+        "edgexfoundry/device-coap"
     ]
 }
