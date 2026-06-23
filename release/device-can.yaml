@@ -1,11 +1,11 @@
 ---
 name: 'device-can'
-version: '4.0.1'
-releaseName: 'odessa'
-releaseStream: 'odessa'
+version: '4.0.2'
+releaseName: 'palau'
+releaseStream: 'main'
 lts: true
 repo: 'https://github.com/edgexfoundry/device-can.git'
-commitId: '0dcd0b359bd416d3dfaff6ce0dab288149d11485'
+commitId: 'aed48e31bff184ba8c4ddb713ff7eafbc10fbe3a'
 gitTag: true
 dockerForce: false
 dockerImages: true
